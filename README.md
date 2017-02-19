@@ -1,9 +1,9 @@
 # Unity LPC Character Animator
 Dynamically animate characters using Liberated Pixel Cup sprites
 
-This is a project I've started as an attempt to familiarize myself with 2D game development. Since I'm a pretty lousy pixel artist and I'm reusing so much free art, I'm going to maintain this as an independent asset for the OpenGameArt/Liberated Pixel Cup communities.
+I started this project as an attempt to familiarize myself with 2D game development. Since I'm a pretty lousy pixel artist and I'm reusing so much free art, I'm going to maintain this as an independent asset for the OpenGameArt/Liberated Pixel Cup communities.
 
-For the most part, this asset will allow you to animate a character by layering LPC art on top of each other at runtime. Given that Unity 5+ doesn't allow for you to change the sprites being used within an Animation at runtime, I had to recreate my own LPC animator to handle the swapping of sprites. The alternative was to generate thousands of prefabs and animations, which would have bloated the project's size beyond anything I would feel is realistic for a 2D game.
+For the most part, this asset will allow you to animate a character by layering LPC art at runtime. Given that Unity 5+ doesn't allow for you to change the sprites being used within an Animation at runtime, I had to recreate my own LPC animator to handle the swapping of sprites. The alternative was to generate thousands of prefabs and animations, which would have bloated the project's size beyond anything I would feel is realistic for a simple 2D game.
 
 Given that I'm relatively new to Unity and Game Development, I would love your feedback on how I could improve this plugin. Whether it be from better practices for Unity or how I could structure my classes, I am eager to get feedback from more experienced game developers.
 
