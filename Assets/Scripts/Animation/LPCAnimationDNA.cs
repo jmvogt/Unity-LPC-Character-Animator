@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Assets.Scripts.Animation
 {
-    public class AnimationDNA
+    public class LPCAnimationDNA
     {
         // TODO: Use reflection to clean up this class.
 

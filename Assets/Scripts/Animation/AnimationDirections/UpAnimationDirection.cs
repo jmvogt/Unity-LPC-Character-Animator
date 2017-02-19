@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 
 namespace Assets.Scripts.Animation.AnimationDirections {
-    public class UpAnimationDirection: IAnimationDirection {
-        public char GetAnimationDirection() {
-            return 't';
+    public class UpAnimationDirection: BaseAnimationDirection {
+        public override string GetAnimationDirection() {
+            return "t";
         }
     }
 }

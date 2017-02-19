@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Animation.Interfaces;
+﻿using Assets.Scripts.Animation.AnimationDirections;
+using Assets.Scripts.Animation.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Assets.Scripts.Animation.DNABlocks {
         private string _animationKey;
         private int _sortingOrder;
         private List<Sprite> _spriteList;
-        private IAnimationDirection _animationDirection;
+        private BaseAnimationDirection _animationDirection;
 
         public string AnimationKey {
             get { return _animationKey; }
@@ -22,7 +23,7 @@ namespace Assets.Scripts.Animation.DNABlocks {
         public List<Sprite> SpriteList {
             get { return _spriteList; }
         }
-        public IAnimationDirection AnimationDirection {
+        public BaseAnimationDirection AnimationDirection {
             get { return _animationDirection; }
         }
 
@@ -32,7 +33,7 @@ namespace Assets.Scripts.Animation.DNABlocks {
             _sortingOrder = sortingOrder;
         }
 
-        public BaseAnimationDNABlock(string animationKey, List<Sprite> spriteList, IAnimationDirection animationDirection) {
+        public BaseAnimationDNABlock(string animationKey, List<Sprite> spriteList, BaseAnimationDirection animationDirection) {
             _animationKey = animationKey;
             _spriteList = spriteList;
             _animationDirection = animationDirection;

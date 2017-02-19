@@ -10,21 +10,21 @@ using Assets.Scripts.Animation.DNABlocks;
 
 namespace Assets.Scripts.Animation.ActionAnimations
 {
-    class ActionAnimationCache
+    class LPCActionAnimationCache
     {
-        private static ActionAnimationCache instance;
+        private static LPCActionAnimationCache instance;
 
-        private ActionAnimationCache() {
+        private LPCActionAnimationCache() {
             _animationCache = new Dictionary<string, BaseAnimationDNABlock>();
         }
 
-        public static ActionAnimationCache Instance
+        public static LPCActionAnimationCache Instance
         {
             get 
             {
                 if (instance == null)
                 {
-                instance = new ActionAnimationCache();
+                instance = new LPCActionAnimationCache();
                 }
                 return instance;
             }

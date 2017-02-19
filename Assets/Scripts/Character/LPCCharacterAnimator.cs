@@ -6,13 +6,13 @@ using Assets.Scripts.Animation.Interfaces;
 using Assets.Scripts.Animation.ActionAnimations;
 using Assets.Scripts.Animation.DNABlocks;
 
-public class CharacterAnimator : MonoBehaviour
+public class LPCCharacterAnimator : MonoBehaviour
 {       
     private Dictionary<string, SpriteRenderer> _spriteRenderers;
     private Dictionary<string, BaseAnimationDNABlock> _animationCache;
-    private ActionAnimationManager _animationManager;
+    private LPCActionAnimationManager _animationManager;
     private BaseAction _currentAnimationAction;
-    private AnimationDNA _animationDNA;
+    private LPCAnimationDNA _animationDNA;
     private bool _playing;
     private int _currentFrameNumber;
     private float _totalAnimTimeInSeconds;
@@ -21,7 +21,7 @@ public class CharacterAnimator : MonoBehaviour
 
     public BaseAction CurrentAnimationAction { get { return _currentAnimationAction; } }
 
-    public void AnimateAction(AnimationDNA animationDNA, BaseAction animationAction) {
+    public void AnimateAction(LPCAnimationDNA animationDNA, BaseAction animationAction) {
         _animationDNA = animationDNA;
         _animationCache = animationDNA.GetAnimationCache();
         _currentAnimationAction = animationAction;
@@ -45,7 +45,7 @@ public class CharacterAnimator : MonoBehaviour
     void Start() {
         _passedTime = 0;
         _playing = false;
-        _animationManager = new ActionAnimationManager();
+        _animationManager = new LPCActionAnimationManager();
         _currentAnimationAction = new IdleAction();
     }
 
@@ -55,8 +55,7 @@ public class CharacterAnimator : MonoBehaviour
         if (_playing)
         {
             int currentFrameIndex = _currentFrameNumber % _currentAnimationAction.NumberOfFrames;
-            Debug.Log("CURRENT FRAME INDEX! " + currentFrameIndex);
-            Debug.Log("STOP ON FINAL?: " + _stopOnFinalFrame);
+            //Debug.Log("STOP ON FINAL?: " + _stopOnFinalFrame);
 
             _currentFrameNumber++;
 

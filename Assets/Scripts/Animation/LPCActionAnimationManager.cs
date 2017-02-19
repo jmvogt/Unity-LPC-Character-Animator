@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Animation.ActionAnimations;
+using Assets.Scripts.Animation.AnimationDirections;
 using Assets.Scripts.Animation.DNABlocks;
 using Assets.Scripts.Animation.Interfaces;
 using Assets.Scripts.Character;
@@ -10,13 +11,13 @@ using System.Text;
 namespace Assets.Scripts.Animation
 {
     
-    class ActionAnimationManager
+    class LPCActionAnimationManager
     {
         //take in player DNA, and build the corresponding sprite list. This should first check a cache
         //and if its not found, then use the AnimationActionImporter to fetch/build
 
-        public AnimationDNA BuildDNAForAction(CharacterDNA characterDNA, BaseAction actionAnimation, IAnimationDirection direction) {
-            AnimationDNA animationDNA = new AnimationDNA();
+        public LPCAnimationDNA BuildDNAForAction(LPCCharacterDNA characterDNA, BaseAction actionAnimation, BaseAnimationDirection direction) {
+            LPCAnimationDNA animationDNA = new LPCAnimationDNA();
             if (characterDNA.BackDNA != null)
                 animationDNA.BackAnimation = getAnimation(characterDNA.BackDNA.ItemKey, actionAnimation, direction);
             if (characterDNA.Back2DNA != null)
@@ -48,8 +49,8 @@ namespace Assets.Scripts.Animation
             return animationDNA;
         }
 
-        private BaseAnimationDNABlock getAnimation(string modelKey, BaseAction actionAnimation, IAnimationDirection direction) {
-            ActionAnimationCache animationStore = ActionAnimationCache.Instance;
+        private BaseAnimationDNABlock getAnimation(string modelKey, BaseAction actionAnimation, BaseAnimationDirection direction) {
+            LPCActionAnimationCache animationStore = LPCActionAnimationCache.Instance;
             
             string animationKey = modelKey;
             if (direction != null) {

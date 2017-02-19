@@ -21,7 +21,7 @@ public class AtlasManager : MonoBehaviour
             Debug.LogError("Atlas not ready yet!");
         }
 
-        Debug.Log("SPRITE NAME: " + name); 
+        Debug.Log("Loading Sprite from Atlas: " + name); 
 
         if (instance.collection.ContainsKey(name))
         {

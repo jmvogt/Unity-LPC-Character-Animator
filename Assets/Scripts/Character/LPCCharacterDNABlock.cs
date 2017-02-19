@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 
 namespace Assets.Scripts.Character {
-    public class CharacterDNABlock {
+    public class LPCCharacterDNABlock {
         public string ItemKey { get; set; }
 
-        public CharacterDNABlock(string itemKey) {
+        public LPCCharacterDNABlock(string itemKey) {
             ItemKey = itemKey;
         }
     }

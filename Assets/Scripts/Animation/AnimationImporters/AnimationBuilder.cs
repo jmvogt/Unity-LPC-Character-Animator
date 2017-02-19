@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Animation.DNABlocks;
+﻿using Assets.Scripts.Animation.AnimationDirections;
+using Assets.Scripts.Animation.DNABlocks;
 using Assets.Scripts.Animation.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Animation.AnimationImporters {
     public class AnimationBuilder {
-        public BaseAnimationDNABlock BuildAnimation(SingleAnimationImporter animationDefinition, string spritesheetKey, IAnimationDirection direction) {
+        public BaseAnimationDNABlock BuildAnimation(SingleAnimationImporter animationDefinition, string spritesheetKey, BaseAnimationDirection direction) {
             // TODO: Stop passing direction through here..
             List<Sprite> spriteList = new List<Sprite>();
 
