@@ -7,16 +7,30 @@ using System.Text;
 
 namespace Assets.Scripts.Animation.ActionAnimations
 {
-    class WalkAction : IAction
+    class WalkAction : BaseAction
     {
-        public IAnimationImporter GetAnimationImporter() {
-            SingleAnimationImporter downAnimation = new SingleAnimationImporter("wc_d", 9, 142, false);
-            SingleAnimationImporter leftAnimation = new SingleAnimationImporter("wc_l", 9, 151, false);
-            SingleAnimationImporter rightAnimation = new SingleAnimationImporter("wc_r", 9, 160, false);
-            SingleAnimationImporter upAnimation = new SingleAnimationImporter("wc_t", 9, 169, false);
+        public override IAnimationImporter GetAnimationImporter() {
+            SingleAnimationImporter downAnimation = new SingleAnimationImporter(
+                String.Format("{0}_d", GetAnimationTag()), _numberOfFrames, 142, false);
+            SingleAnimationImporter leftAnimation = new SingleAnimationImporter(
+                String.Format("{0}_l", GetAnimationTag()), _numberOfFrames, 151, false);
+            SingleAnimationImporter rightAnimation = new SingleAnimationImporter(
+                String.Format("{0}_r", GetAnimationTag()), _numberOfFrames, 160, false);
+            SingleAnimationImporter upAnimation = new SingleAnimationImporter(
+                String.Format("{0}_t", GetAnimationTag()), _numberOfFrames, 169, false);
             return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
         }
 
+        public WalkAction() : base(9) {
+        }
+
+        public override string GetAnimationTag() {
+            return "wc";
+        }
+
+        public override string GetAnimationType() {
+            return "walk";
+        }
 
     }
 }

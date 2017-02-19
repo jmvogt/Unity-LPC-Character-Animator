@@ -7,13 +7,23 @@ using System.Text;
 
 namespace Assets.Scripts.Animation.ActionAnimations
 {
-    public class DeathAction : IAction {
-        public IAnimationImporter GetAnimationImporter() {
-            string animationTag = "hu";
-            int numberOfFrames = 6;
-            int spriteStartIndex = 0;
+    public class DeathAction : BaseAction {
+        public override IAnimationImporter GetAnimationImporter() {
+            string animationTag = GetAnimationTag();
+            int spriteStartIndex = _numberOfFrames;
             bool stopOnFinalFrame = true;
-            return new SingleAnimationImporter(animationTag, numberOfFrames, spriteStartIndex, stopOnFinalFrame);
+            return new SingleAnimationImporter(animationTag, _numberOfFrames, spriteStartIndex, stopOnFinalFrame);
+        }
+
+        public DeathAction() : base(6) {
+        }
+
+        public override string GetAnimationTag() {
+            return "hu";
+        }
+
+        public override string GetAnimationType() {
+            return "death";
         }
     }
 }

@@ -7,13 +7,28 @@ using System.Text;
 
 namespace Assets.Scripts.Animation.ActionAnimations
 {
-    class SlashAction : IAction {
-        public IAnimationImporter GetAnimationImporter() {
-            SingleAnimationImporter downAnimation = new SingleAnimationImporter("sl_d", 6, 86, false);
-            SingleAnimationImporter leftAnimation = new SingleAnimationImporter("sl_l", 6, 92, false);
-            SingleAnimationImporter rightAnimation = new SingleAnimationImporter("sl_r", 6, 98, false);
-            SingleAnimationImporter upAnimation = new SingleAnimationImporter("sl_t", 6, 104, false);
+    class SlashAction : BaseAction {
+        public override IAnimationImporter GetAnimationImporter() {
+            SingleAnimationImporter downAnimation = new SingleAnimationImporter(
+                String.Format("{0}_d", GetAnimationTag()), _numberOfFrames, 86, false);
+            SingleAnimationImporter leftAnimation = new SingleAnimationImporter(
+                String.Format("{0}_l", GetAnimationTag()), _numberOfFrames, 92, false);
+            SingleAnimationImporter rightAnimation = new SingleAnimationImporter(
+                String.Format("{0}_r", GetAnimationTag()), _numberOfFrames, 98, false);
+            SingleAnimationImporter upAnimation = new SingleAnimationImporter(
+                String.Format("{0}_t", GetAnimationTag()), _numberOfFrames, 104, false);
             return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
+        }
+
+        public SlashAction() : base(6) {
+        }
+
+        public override string GetAnimationTag() {
+            return "sl";
+        }
+
+        public override string GetAnimationType() {
+            return "slash";
         }
     }
 }

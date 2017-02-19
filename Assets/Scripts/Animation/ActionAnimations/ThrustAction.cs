@@ -7,13 +7,28 @@ using System.Text;
 
 namespace Assets.Scripts.Animation.ActionAnimations
 {
-    class ThrustAction : IAction {
-        public IAnimationImporter GetAnimationImporter() {
-            SingleAnimationImporter downAnimation = new SingleAnimationImporter("th_d", 8, 110, true);
-            SingleAnimationImporter leftAnimation = new SingleAnimationImporter("th_l", 8, 118, true);
-            SingleAnimationImporter rightAnimation = new SingleAnimationImporter("th_r", 8, 126, true);
-            SingleAnimationImporter upAnimation = new SingleAnimationImporter("th_t", 8, 134, true);
+    class ThrustAction : BaseAction {
+        public override IAnimationImporter GetAnimationImporter() {
+            SingleAnimationImporter downAnimation = new SingleAnimationImporter(
+                String.Format("{0}_d", GetAnimationTag()), _numberOfFrames, 110, true);
+            SingleAnimationImporter leftAnimation = new SingleAnimationImporter(
+                String.Format("{0}_l", GetAnimationTag()), _numberOfFrames, 118, true);
+            SingleAnimationImporter rightAnimation = new SingleAnimationImporter(
+                String.Format("{0}_r", GetAnimationTag()), _numberOfFrames, 126, true);
+            SingleAnimationImporter upAnimation = new SingleAnimationImporter(
+                String.Format("{0}_t", GetAnimationTag()), _numberOfFrames, 134, true);
             return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
+        }
+
+        public ThrustAction() : base(8) {
+        }
+
+        public override string GetAnimationTag() {
+            return "th";
+        }
+
+        public override string GetAnimationType() {
+            return "thrust";
         }
     }
 }

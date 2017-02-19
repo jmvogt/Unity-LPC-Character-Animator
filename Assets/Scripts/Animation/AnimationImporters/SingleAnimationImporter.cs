@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Animation.Interfaces;
+﻿using Assets.Scripts.Animation.DNABlocks;
+using Assets.Scripts.Animation.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace Assets.Scripts.Animation.AnimationImporters
 {
     public class SingleAnimationImporter : IAnimationImporter
     {
-        List<Animation> IAnimationImporter.ImportAnimations(string spritesheetKey)
+        List<BaseAnimationDNABlock> IAnimationImporter.ImportAnimations(string spritesheetKey, IAnimationDirection direction)
         {
-            List<Animation> animationList = new List<Animation>();
+            List<BaseAnimationDNABlock> animationList = new List<BaseAnimationDNABlock>();
             AnimationBuilder builder = new AnimationBuilder();
-            animationList.Add(builder.BuildAnimation(this, spritesheetKey));
+            animationList.Add(builder.BuildAnimation(this, spritesheetKey, direction));
             return animationList;
         }
 

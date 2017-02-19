@@ -7,13 +7,24 @@ using System.Text;
 
 namespace Assets.Scripts.Animation.ActionAnimations
 {
-    public class IdleAction : IAction {
-        public IAnimationImporter GetAnimationImporter() {
-            string animationTag = "hu";
-            int numberOfFrames = 1;
+    public class IdleAction : BaseAction {
+        public override IAnimationImporter GetAnimationImporter() {
+            string animationTag = GetAnimationTag();
+            int numberOfFrames = _numberOfFrames;
             int spriteStartIndex = 0;
             bool stopOnFinalFrame = false;
-            return new SingleAnimationImporter(animationTag, numberOfFrames, spriteStartIndex, stopOnFinalFrame);
+            return new SingleAnimationImporter(animationTag, _numberOfFrames, spriteStartIndex, stopOnFinalFrame);
+        }
+
+        public IdleAction() : base(1) {
+        }
+
+        public override string GetAnimationTag() {
+            return "hu";
+        }
+
+        public override string GetAnimationType() {
+            return "idle";
         }
     }
 }

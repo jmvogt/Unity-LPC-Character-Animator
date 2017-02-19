@@ -7,13 +7,28 @@ using System.Text;
 
 namespace Assets.Scripts.Animation.ActionAnimations
 {
-    class SpellcastAction : IAction {
-        public IAnimationImporter GetAnimationImporter() {
-            SingleAnimationImporter downAnimation = new SingleAnimationImporter("sc_d", 7, 6, true);
-            SingleAnimationImporter leftAnimation = new SingleAnimationImporter("sc_l", 7, 13, true);
-            SingleAnimationImporter rightAnimation = new SingleAnimationImporter("sc_r", 7, 20, true);
-            SingleAnimationImporter upAnimation = new SingleAnimationImporter("sc_t", 7, 27, true);
+    class SpellcastAction : BaseAction {
+        public override IAnimationImporter GetAnimationImporter() {
+            SingleAnimationImporter downAnimation = new SingleAnimationImporter(
+                String.Format("{0}_d", GetAnimationTag()), _numberOfFrames, 6, true);
+            SingleAnimationImporter leftAnimation = new SingleAnimationImporter(
+                String.Format("{0}_l", GetAnimationTag()), _numberOfFrames, 13, true);
+            SingleAnimationImporter rightAnimation = new SingleAnimationImporter(
+                String.Format("{0}_r", GetAnimationTag()), _numberOfFrames, 20, true);
+            SingleAnimationImporter upAnimation = new SingleAnimationImporter(
+                String.Format("{0}_t", GetAnimationTag()), _numberOfFrames, 27, true);
             return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
+        }
+
+        public SpellcastAction() : base(7) {
+        }
+
+        public override string GetAnimationTag() {
+            return "sc";
+        }
+
+        public override string GetAnimationType() {
+            return "spellcast";
         }
     }
 }

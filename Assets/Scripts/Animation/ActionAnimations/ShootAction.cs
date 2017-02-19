@@ -7,13 +7,28 @@ using System.Text;
 
 namespace Assets.Scripts.Animation.ActionAnimations
 {
-    public class ShootAction : IAction {
-        public IAnimationImporter GetAnimationImporter() {
-            SingleAnimationImporter downAnimation = new SingleAnimationImporter("sh_d", 13, 34, false);
-            SingleAnimationImporter leftAnimation = new SingleAnimationImporter("sh_l", 13, 47, false);
-            SingleAnimationImporter rightAnimation = new SingleAnimationImporter("sh_r", 13, 60, false);
-            SingleAnimationImporter upAnimation = new SingleAnimationImporter("sh_t", 13, 73, false);
+    public class ShootAction : BaseAction {
+        public override IAnimationImporter GetAnimationImporter() {
+            SingleAnimationImporter downAnimation = new SingleAnimationImporter(
+                String.Format("{0}_d", GetAnimationTag()), _numberOfFrames, 34, false);
+            SingleAnimationImporter leftAnimation = new SingleAnimationImporter(
+                String.Format("{0}_l", GetAnimationTag()), _numberOfFrames, 47, false);
+            SingleAnimationImporter rightAnimation = new SingleAnimationImporter(
+                String.Format("{0}_r", GetAnimationTag()), _numberOfFrames, 60, false);
+            SingleAnimationImporter upAnimation = new SingleAnimationImporter(
+                String.Format("{0}_t", GetAnimationTag()), _numberOfFrames, 73, false);
             return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
+        }
+
+        public ShootAction() : base(13) {
+        }
+
+        public override string GetAnimationTag() {
+            return "sh";
+        }
+
+        public override string GetAnimationType() {
+            return "shoot";
         }
     }
 }

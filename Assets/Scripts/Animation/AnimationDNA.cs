@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Animation;
+using Assets.Scripts.Animation.DNABlocks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,37 +9,92 @@ namespace Assets.Scripts.Animation
 {
     public class AnimationDNA
     {
-        public Animation BodyAnimation { get; set; }
-        public Animation HairAnimation { get; set; }
-        public Animation LegAnimation { get; set; }
-        public Animation NeckAnimation { get; set; }
-        public Animation BackAnimation { get; set; }
-        public Animation Back2Animation { get; set; }
-        public Animation WaistAnimation { get; set; }
-        public Animation FaceAnimation { get; set; }
-        public Animation FeetAnimation { get; set; }
-        public Animation HandAnimation { get; set; }
-        public Animation HeadAnimation { get; set; }
-        public Animation TorsoAnimation { get; set; }
-        public Animation PrimaryAnimation { get; set; }
-        public Animation SecondaryAnimation { get; set; }
+        // TODO: Use reflection to clean up this class.
 
-        public List<Animation> GetAnimatedDNA() {
-            List<Animation> animatedList = new List<Animation>();
-            if (BodyAnimation != null) animatedList.Add(BodyAnimation);
-            if (HairAnimation != null) animatedList.Add(HairAnimation);
-            if (LegAnimation != null) animatedList.Add(LegAnimation);
-            if (NeckAnimation != null) animatedList.Add(NeckAnimation);
-            if (BackAnimation != null) animatedList.Add(BackAnimation);
-            if (Back2Animation != null) animatedList.Add(Back2Animation);
-            if (WaistAnimation != null) animatedList.Add(WaistAnimation);
-            if (FeetAnimation != null) animatedList.Add(FeetAnimation);
-            if (HandAnimation != null) animatedList.Add(HandAnimation);
-            if (HeadAnimation != null) animatedList.Add(HeadAnimation);
-            if (TorsoAnimation != null) animatedList.Add(TorsoAnimation);
-            if (PrimaryAnimation != null) animatedList.Add(PrimaryAnimation);
-            if (SecondaryAnimation != null) animatedList.Add(SecondaryAnimation);
-            return animatedList;
+        public BaseAnimationDNABlock BodyAnimation { get; set; }
+        public BaseAnimationDNABlock HairAnimation { get; set; }
+        public BaseAnimationDNABlock LegAnimation { get; set; }
+        public BaseAnimationDNABlock NeckAnimation { get; set; }
+        public BaseAnimationDNABlock BackAnimation { get; set; }
+        public BaseAnimationDNABlock Back2Animation { get; set; }
+        public BaseAnimationDNABlock WaistAnimation { get; set; }
+        public BaseAnimationDNABlock FaceAnimation { get; set; }
+        public BaseAnimationDNABlock FeetAnimation { get; set; }
+        public BaseAnimationDNABlock HandAnimation { get; set; }
+        public BaseAnimationDNABlock HeadAnimation { get; set; }
+        public BaseAnimationDNABlock TorsoAnimation { get; set; }
+        public BaseAnimationDNABlock PrimaryAnimation { get; set; }
+        public BaseAnimationDNABlock SecondaryAnimation { get; set; }
+
+        private enum SortingTypes {
+            BACK2,
+            BACK,
+            BODY,
+            FACIAL,
+            HAIR,
+            CLOTHING,
+            ACCESSORIES,
+            ARMOR,
+            WEAPON
+        }
+
+        public Dictionary<string, BaseAnimationDNABlock> GetAnimationCache() {
+            Dictionary<string, BaseAnimationDNABlock> animationCache = new Dictionary<string, BaseAnimationDNABlock>();
+            if (BodyAnimation != null) {
+                BodyAnimation.UpdateSortingOrder((int)SortingTypes.BODY);
+                animationCache.Add("body", BodyAnimation);
+            }
+            if (HairAnimation != null) {
+                HairAnimation.UpdateSortingOrder((int)SortingTypes.HAIR);
+                animationCache.Add("hair", HairAnimation);
+            }
+            if (LegAnimation != null) {
+                LegAnimation.UpdateSortingOrder((int)SortingTypes.ARMOR);
+                animationCache.Add("leg", LegAnimation);
+            }
+            if (NeckAnimation != null) {
+                NeckAnimation.UpdateSortingOrder((int)SortingTypes.ACCESSORIES);
+                animationCache.Add("neck", NeckAnimation);
+            }
+            if (BackAnimation != null) {
+                BackAnimation.UpdateSortingOrder((int)SortingTypes.BACK);
+                animationCache.Add("back", BackAnimation);
+            }
+            if (Back2Animation != null) {
+                Back2Animation.UpdateSortingOrder((int)SortingTypes.BACK2);
+                animationCache.Add("back2", Back2Animation);
+            }
+            if (WaistAnimation != null) {
+                WaistAnimation.UpdateSortingOrder((int)SortingTypes.ACCESSORIES);
+                animationCache.Add("waist", WaistAnimation);
+            }
+
+            if (FeetAnimation != null) {
+                // TODO: Fix the sorting type names.. feet could be plate or clothing, but there wont be two sets of shoes
+                FeetAnimation.UpdateSortingOrder((int)SortingTypes.CLOTHING);
+                animationCache.Add("feet", FeetAnimation);
+            }
+            if (HandAnimation != null) {
+                HandAnimation.UpdateSortingOrder((int)SortingTypes.CLOTHING);
+                animationCache.Add("hand", HandAnimation);
+            }
+            if (HeadAnimation != null) {
+                HeadAnimation.UpdateSortingOrder((int)SortingTypes.CLOTHING);
+                animationCache.Add("head", HeadAnimation);
+            }
+            if (TorsoAnimation != null) {
+                TorsoAnimation.UpdateSortingOrder((int)SortingTypes.CLOTHING);
+                animationCache.Add("torso", TorsoAnimation);
+            }
+            if (PrimaryAnimation != null) {
+                PrimaryAnimation.UpdateSortingOrder((int)SortingTypes.WEAPON);
+                animationCache.Add("primary", PrimaryAnimation);
+            }
+            if (SecondaryAnimation != null) {
+                SecondaryAnimation.UpdateSortingOrder((int)SortingTypes.WEAPON);
+                animationCache.Add("secondary", SecondaryAnimation);
+            }
+            return animationCache;
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using Assets.Scripts.Animation;
 using Assets.Scripts.Animation.ActionAnimations;
+using Assets.Scripts.Animation.AnimationDirections;
 using Assets.Scripts.Animation.Interfaces;
 using Assets.Scripts.Character;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,8 +13,6 @@ public class CharacterController : MonoBehaviour {
     public float maxSpeed = 1f;
     public float moveSpeed = .05f;
 
-    Animator anim;
-
     float speed = 1.0f;
     
     CharacterAnimator charAnimator;
@@ -21,29 +21,33 @@ public class CharacterController : MonoBehaviour {
     SpriteRenderer torsoRenderer;
     SpriteRenderer bodyRenderer;
 
-    Rigidbody2D rigidBody;
-	// Use this for initialization
+    ActionAnimationManager animationManager;
+    CharacterDNA characterDNA;
+    BaseAction currentAction;
+
 	void Start () {
-        anim = GetComponent<Animator>();
+        characterDNA = new CharacterDNA();
+        characterDNA.TorsoDNA = new CharacterDNABlock("torso_gold_chest_male");
+        characterDNA.BodyDNA = new CharacterDNABlock("body_male_light");
+
+        animationManager = new ActionAnimationManager();
+
         charAnimator = gameObject.AddComponent<CharacterAnimator>() as CharacterAnimator;
+
+        Dictionary<string, SpriteRenderer> spriteRenderers = new Dictionary<string, SpriteRenderer>();
         GameObject torso = GameObject.Find("/player/torso");
         torsoRenderer = torso.GetComponent<SpriteRenderer>();
         bodyRenderer = gameObject.GetComponent<SpriteRenderer>();
-        rigidBody = gameObject.GetComponent<Rigidbody2D>();
 
-        CharacterDNA characterDNA = new CharacterDNA();
-        characterDNA.TorsoDNA = new CharacterDNABlock("torso_plate_chest_male");
-        characterDNA.BodyDNA = new CharacterDNABlock("body_male_orc");
+        spriteRenderers["torso"] = torsoRenderer;
+        spriteRenderers["body"] = bodyRenderer;
+        charAnimator.SetSpriteRenderers(spriteRenderers);
 
-        IAction action = new WalkAction();
-
-        ActionAnimationManager animationManager = new ActionAnimationManager();
-        AnimationDNA animationDNA = animationManager.BuildDNAForAction(characterDNA, action);
-
-
-
+        currentAction = new IdleAction();
+        // TODO: Lets fix the default case so we dont get errors below..
+        currentAction.Direction = new RightAnimationDirection();
 	}
-
+    
     KeyCode lastInput;
 
     void Update()
@@ -51,13 +55,13 @@ public class CharacterController : MonoBehaviour {
         float adjustedSpeed = speed;
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            charAnimator._totalAnimTimeInSeconds = .4f;
+            charAnimator.UpdateAnimationTime(.4f);
             moveSpeed = .045f;
         }
         else
         {
             moveSpeed = .03f;
-            charAnimator._totalAnimTimeInSeconds = .8f;
+            charAnimator.UpdateAnimationTime(.8f);
         }
 
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -72,31 +76,42 @@ public class CharacterController : MonoBehaviour {
         else if (moveVertical < 0)
             gameObject.transform.position += new Vector3(0, -1, 0) * moveSpeed;
 
-        if (Input.GetKeyDown(KeyCode.D) && charAnimator._currentAction != CharacterAnimator.Action.WALK_RIGHT)
-        {
-            lastInput = KeyCode.D;
-            charAnimator.LoadAction(CharacterAnimator.Action.WALK_RIGHT, "body_male_orc", "torso_plate_chest_male", bodyRenderer, torsoRenderer);
-        }
-        else if (Input.GetKeyDown(KeyCode.A) && charAnimator._currentAction != CharacterAnimator.Action.WALK_LEFT)
-        {
-            lastInput = KeyCode.A;
-            charAnimator.LoadAction(CharacterAnimator.Action.WALK_LEFT, "body_male_orc", "torso_plate_chest_male", bodyRenderer, torsoRenderer);
-        }
-        else if (Input.GetKeyDown(KeyCode.W) && charAnimator._currentAction != CharacterAnimator.Action.WALK_TOP)
-        {
-            lastInput = KeyCode.W;
-            charAnimator.LoadAction(CharacterAnimator.Action.WALK_TOP, "body_male_orc", "torso_plate_chest_male", bodyRenderer, torsoRenderer);
-        }
-        else if (Input.GetKeyDown(KeyCode.S) && charAnimator._currentAction != CharacterAnimator.Action.WALK_DOWN)
-        {
-            lastInput = KeyCode.S;
-            charAnimator.LoadAction(CharacterAnimator.Action.WALK_DOWN, "body_male_orc", "torso_plate_chest_male", bodyRenderer, torsoRenderer);
-        }
-        else if (Input.GetKeyUp(lastInput) && (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.W)))
-        {
+
+        bool alreadyWalking = String.Equals(charAnimator.CurrentAnimationAction.GetAnimationType(), "walk");
+        bool differentDirection = currentAction.Direction == null;
+        if (Input.GetKeyDown(KeyCode.W)) {
+            // TODO: I dont like this >.>
+            //if (!alreadyWalking && (hasNoDirection || !String.Equals(currentAction.Direction.GetAnimationDirection(), "t"))) { 
+                lastInput = KeyCode.W;
+                currentAction = new WalkAction();
+                AnimationDNA animationDNA = animationManager.BuildDNAForAction(characterDNA, currentAction, new UpAnimationDirection());
+                charAnimator.AnimateAction(animationDNA, currentAction);
+            //}
+        } else if (Input.GetKeyDown(KeyCode.A)) {
+            //if (!alreadyWalking && (hasNoDirection || !String.Equals(currentAction.Direction.GetAnimationDirection(), "l"))) {
+                lastInput = KeyCode.A;
+                currentAction = new WalkAction();
+                AnimationDNA animationDNA = animationManager.BuildDNAForAction(characterDNA, currentAction, new LeftAnimationDirection());
+                charAnimator.AnimateAction(animationDNA, currentAction);
+            //}
+        } else if (Input.GetKeyDown(KeyCode.S)) {
+            //if (!alreadyWalking && (hasNoDirection || !String.Equals(currentAction.Direction.GetAnimationDirection(), "d"))) {
+                lastInput = KeyCode.S;
+                currentAction = new WalkAction();
+                AnimationDNA animationDNA = animationManager.BuildDNAForAction(characterDNA, currentAction, new DownAnimationDirection());
+                charAnimator.AnimateAction(animationDNA, currentAction);
+            //}
+        } else if (Input.GetKeyDown(KeyCode.D)) {
+            //if (!alreadyWalking && (hasNoDirection || !String.Equals(currentAction.Direction.GetAnimationDirection(), "r"))) {
+                lastInput = KeyCode.D;
+                currentAction = new WalkAction();
+                AnimationDNA animationDNA = animationManager.BuildDNAForAction(characterDNA, currentAction, new RightAnimationDirection());
+                charAnimator.AnimateAction(animationDNA, currentAction);
+            //}
+        } else if (Input.GetKeyUp(lastInput) && (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.W))) {
             Debug.Log("STOPPING ON FINAL FRAME!");
-            charAnimator.stopOnFinalFrame = true;
-        }
+            charAnimator.StopOnFinalFrame(true);
+        } 
         
         foreach (Transform child in transform)
         {

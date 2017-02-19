@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.Animation.Interfaces;
+﻿using Assets.Scripts.Animation.AnimationDirections;
+using Assets.Scripts.Animation.DNABlocks;
+using Assets.Scripts.Animation.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,15 +14,16 @@ namespace Assets.Scripts.Animation.AnimationImporters
         private SingleAnimationImporter _s_importer;
         private SingleAnimationImporter _d_importer;
 
-        List<Animation> IAnimationImporter.ImportAnimations(string spritesheetKey) {
-            List<Animation> animationList = new List<Animation>();
+        List<BaseAnimationDNABlock> IAnimationImporter.ImportAnimations(string spritesheetKey, IAnimationDirection direction) {
+            List<BaseAnimationDNABlock> animationList = new List<BaseAnimationDNABlock>();
             AnimationBuilder builder = new AnimationBuilder();
-            animationList.Add(builder.BuildAnimation(_w_importer, spritesheetKey));
-            animationList.Add(builder.BuildAnimation(_a_importer, spritesheetKey));
-            animationList.Add(builder.BuildAnimation(_s_importer, spritesheetKey));
-            animationList.Add(builder.BuildAnimation(_d_importer, spritesheetKey));
+            animationList.Add(builder.BuildAnimation(_w_importer, spritesheetKey, new UpAnimationDirection()));
+            animationList.Add(builder.BuildAnimation(_a_importer, spritesheetKey, new LeftAnimationDirection()));
+            animationList.Add(builder.BuildAnimation(_s_importer, spritesheetKey, new DownAnimationDirection()));
+            animationList.Add(builder.BuildAnimation(_d_importer, spritesheetKey, new RightAnimationDirection()));
             return animationList;
         }
+
         
         public WASDAnimationImporter(SingleAnimationImporter w, SingleAnimationImporter a, SingleAnimationImporter s, SingleAnimationImporter d) {
             _w_importer = w;
