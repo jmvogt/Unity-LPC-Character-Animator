@@ -16,7 +16,7 @@ namespace Assets.Scripts.Animation.AnimationImporters
 
         List<BaseAnimationDNABlock> IAnimationImporter.ImportAnimations(string spritesheetKey, BaseAnimationDirection direction) {
             List<BaseAnimationDNABlock> animationList = new List<BaseAnimationDNABlock>();
-            AnimationBuilder builder = new AnimationBuilder();
+            AnimationImportUtil builder = new AnimationImportUtil();
             animationList.Add(builder.BuildAnimation(_w_importer, spritesheetKey, new UpAnimationDirection()));
             animationList.Add(builder.BuildAnimation(_a_importer, spritesheetKey, new LeftAnimationDirection()));
             animationList.Add(builder.BuildAnimation(_s_importer, spritesheetKey, new DownAnimationDirection()));
