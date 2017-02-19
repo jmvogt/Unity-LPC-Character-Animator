@@ -11,13 +11,13 @@ namespace Assets.Scripts.Animation.ActionAnimations
     {
         public override IAnimationImporter GetAnimationImporter() {
             SingleAnimationImporter downAnimation = new SingleAnimationImporter(
-                String.Format("{0}_d", GetAnimationTag()), _numberOfFrames, 142, false);
+                String.Format("{0}_d", GetAnimationTag()), _numberOfFrames, 142, GetStopOnLastFrame());
             SingleAnimationImporter leftAnimation = new SingleAnimationImporter(
-                String.Format("{0}_l", GetAnimationTag()), _numberOfFrames, 151, false);
+                String.Format("{0}_l", GetAnimationTag()), _numberOfFrames, 151, GetStopOnLastFrame());
             SingleAnimationImporter rightAnimation = new SingleAnimationImporter(
-                String.Format("{0}_r", GetAnimationTag()), _numberOfFrames, 160, false);
+                String.Format("{0}_r", GetAnimationTag()), _numberOfFrames, 160, GetStopOnLastFrame());
             SingleAnimationImporter upAnimation = new SingleAnimationImporter(
-                String.Format("{0}_t", GetAnimationTag()), _numberOfFrames, 169, false);
+                String.Format("{0}_t", GetAnimationTag()), _numberOfFrames, 169, GetStopOnLastFrame());
             return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
         }
 
@@ -32,5 +32,8 @@ namespace Assets.Scripts.Animation.ActionAnimations
             return "walk";
         }
 
+        public override bool GetStopOnLastFrame() {
+            return false;
+        }
     }
 }

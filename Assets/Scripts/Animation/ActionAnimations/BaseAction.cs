@@ -24,5 +24,7 @@ namespace Assets.Scripts.Animation.Interfaces
         }
 
         public abstract string GetAnimationType();
+
+        public abstract bool GetStopOnLastFrame();
     }
 }

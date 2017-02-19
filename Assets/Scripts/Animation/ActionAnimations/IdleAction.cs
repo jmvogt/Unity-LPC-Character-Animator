@@ -12,7 +12,7 @@ namespace Assets.Scripts.Animation.ActionAnimations
             string animationTag = GetAnimationTag();
             int numberOfFrames = _numberOfFrames;
             int spriteStartIndex = 0;
-            bool stopOnFinalFrame = false;
+            bool stopOnFinalFrame = GetStopOnLastFrame();
             return new SingleAnimationImporter(animationTag, _numberOfFrames, spriteStartIndex, stopOnFinalFrame);
         }
 
@@ -25,6 +25,10 @@ namespace Assets.Scripts.Animation.ActionAnimations
 
         public override string GetAnimationType() {
             return "idle";
+        }
+
+        public override bool GetStopOnLastFrame() {
+            return false;
         }
     }
 }

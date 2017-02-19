@@ -25,6 +25,7 @@ public class LPCCharacterAnimator : MonoBehaviour
         _animationDNA = animationDNA;
         _animationCache = animationDNA.GetAnimationCache();
         _currentAnimationAction = animationAction;
+        _stopOnFinalFrame = animationAction.GetStopOnLastFrame();
         _playing = true;
         _currentFrameNumber = 0;
         _totalAnimTimeInSeconds = .4f;
@@ -49,13 +50,11 @@ public class LPCCharacterAnimator : MonoBehaviour
         _currentAnimationAction = new IdleAction();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (_playing)
         {
             int currentFrameIndex = _currentFrameNumber % _currentAnimationAction.NumberOfFrames;
-            //Debug.Log("STOP ON FINAL?: " + _stopOnFinalFrame);
 
             _currentFrameNumber++;
 

@@ -103,14 +103,14 @@ public class LPCCharacterController : MonoBehaviour {
         }
 
         bool wasWalking = charAnimator.CurrentAnimationAction is WalkAction;
-        //bool isWalking = !(newDirection is NoAnimationDirection);
         bool sameDirection = charAnimator.CurrentAnimationAction.Direction.GetType() == newDirection.GetType();
 
         if (!(wasWalking && sameDirection)) {
             LPCAnimationDNA animationDNA = animationManager.BuildDNAForAction(characterDNA, currentAction, newDirection);
             charAnimator.AnimateAction(animationDNA, currentAction);
-        } else if (Input.GetKeyUp(lastInput) && (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.W))) {
-            Debug.Log("STOPPING ON FINAL FRAME!");
+        }
+
+        if (!Input.anyKey) {
             charAnimator.StopOnFinalFrame(true);
         } 
     }

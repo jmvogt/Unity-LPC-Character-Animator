@@ -11,7 +11,7 @@ namespace Assets.Scripts.Animation.ActionAnimations
         public override IAnimationImporter GetAnimationImporter() {
             string animationTag = GetAnimationTag();
             int spriteStartIndex = _numberOfFrames;
-            bool stopOnFinalFrame = true;
+            bool stopOnFinalFrame = GetStopOnLastFrame();
             return new SingleAnimationImporter(animationTag, _numberOfFrames, spriteStartIndex, stopOnFinalFrame);
         }
 
@@ -24,6 +24,10 @@ namespace Assets.Scripts.Animation.ActionAnimations
 
         public override string GetAnimationType() {
             return "death";
+        }
+
+        public override bool GetStopOnLastFrame() {
+            return true;
         }
     }
 }
