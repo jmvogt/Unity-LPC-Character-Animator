@@ -6,14 +6,15 @@ This is a project I've started as an attempt to familiarize myself with 2D game 
 What is OpenGameArt and the Liberated Pixel Cup?
 OpenGameArt (OGA) is a community for users to share a variety of free/open source art. The Liberated Pixel Cup (LPC) was a contest kickstarted by OGA to create free art that was judged to ensure it was of the appropriate quality and matched a particular art style.
 
-OpenGameArt Website: http://opengameart.org/
-Liberated Pixel Cup Homepage: http://lpc.opengameart.org/
-Online LPC Character Generator Tool: http://gaurav.munjal.us/Universal-LPC-Spritesheet-Character-Generator/
- * Github: https://github.com/jrconway3/Universal-LPC-spritesheet
-Unity LPC Spritesheet Importer: https://bitcula.com/universal-lpc-spritesheet-unity-importer/
- * Github: https://github.com/bitcula/Universal-LPC-Spritesheet-Unity-Importer
+* OpenGameArt Website: http://opengameart.org/
+* Liberated Pixel Cup Homepage: http://lpc.opengameart.org/
 
+Special credit goes to the Online Universal LPC Spritesheet project and the Universal LPC Spritesheet Unity Importer project, as I would given up after trying to manually import the beastly number of spreadsheets.
 
+ * Online LPC Character Generator Tool: http://gaurav.munjal.us/Universal-LPC-Spritesheet-Character-Generator/
+  * Github: https://github.com/jrconway3/Universal-LPC-spritesheet
+ * Unity LPC Spritesheet Importer: https://bitcula.com/universal-lpc-spritesheet-unity-importer/
+  * Github: https://github.com/bitcula/Universal-LPC-Spritesheet-Unity-Importer
 
 v0.1 Roadmap:
   * Pack LPC sprites appropriately into larger spritesheets
