@@ -30,7 +30,7 @@ public class AtlasManagerEditor : Editor
             {
                 string filepath = file.Replace("\\", "/");
                 
-                if (!filepath.EndsWith("body/male/light.png") && !filepath.EndsWith("body/male/orc.png") && !filepath.EndsWith("chest_male.png")) continue;
+                if (!filepath.EndsWith("body/male/light.png") && !filepath.EndsWith("body/male/orc.png") && !filepath.EndsWith("chest_male.png") && !filepath.EndsWith("spear_male.png")) continue;
                 filepath = filepath.Replace(Application.dataPath, "");
                 Debug.Log("LOADING ASSET FILE: " + filepath);
 
