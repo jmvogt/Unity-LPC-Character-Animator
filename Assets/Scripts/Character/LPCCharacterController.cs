@@ -39,6 +39,8 @@ public class LPCCharacterController : MonoBehaviour {
         characterDNA.TorsoDNA = new LPCCharacterDNABlock("torso_gold_chest_male");
         characterDNA.BodyDNA = new LPCCharacterDNABlock("body_male_light");
         characterDNA.PrimaryDNA = new LPCCharacterDNABlock("weapons_right hand_male_spear_male");
+        //characterDNA.SecondaryDNA = new LPCCharacterDNABlock("weapons_left hand_male_shield_male_cutoutforhat");
+
     }
 
     void InitializeCharacterRenderer(LPCCharacterAnimator charAnimator) {
@@ -46,14 +48,17 @@ public class LPCCharacterController : MonoBehaviour {
         GameObject body = GameObject.Find("/player/body");
         GameObject torso = GameObject.Find("/player/torso");
         GameObject primaryWeapon = GameObject.Find("/player/primary");
+        GameObject secondaryWeapon = GameObject.Find("/player/secondary");
 
         SpriteRenderer bodyRenderer = body.GetComponent<SpriteRenderer>();
         SpriteRenderer torsoRenderer = torso.GetComponent<SpriteRenderer>();
         SpriteRenderer primaryWeaponRenderer = primaryWeapon.GetComponent<SpriteRenderer>();
+        SpriteRenderer secondaryWeaponRenderer = primaryWeapon.GetComponent<SpriteRenderer>();
 
         spriteRenderers["torso"] = torsoRenderer;
         spriteRenderers["body"] = bodyRenderer;
         spriteRenderers["primary"] = primaryWeaponRenderer;
+        //spriteRenderers["secondary"] = secondaryWeaponRenderer;
         charAnimator.SetSpriteRenderers(spriteRenderers);
     }
 

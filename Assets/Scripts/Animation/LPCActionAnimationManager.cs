@@ -13,9 +13,7 @@ namespace Assets.Scripts.Animation
     
     class LPCActionAnimationManager
     {
-        //take in player DNA, and build the corresponding sprite list. This should first check a cache
-        //and if its not found, then use the AnimationActionImporter to fetch/build
-
+        // TODO: Use reflection to shorten up this method
         public LPCAnimationDNA BuildDNAForAction(LPCCharacterDNA characterDNA, BaseAction actionAnimation, BaseAnimationDirection direction) {
             LPCAnimationDNA animationDNA = new LPCAnimationDNA();
             if (characterDNA.BackDNA != null)
