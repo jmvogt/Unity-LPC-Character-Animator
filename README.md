@@ -23,8 +23,10 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
   * Github: https://github.com/bitcula/Universal-LPC-Spritesheet-Unity-Importer
 
 ##v0.1 Roadmap:
-  * Pack LPC sprites appropriately into larger spritesheets
-  * Create caches to store independent parts of the LPC character
+  * Mechanism for loading more sprites upfront
+  * Pack LPC sprites appropriately into larger spritesheets (if needed from prior step)
+  * Create a cache to store independent parts of the LPC character sprites (torso vs body vs weapon)
+  * Create a local cache that would hold all possible spritesheets for the current DNA
   * Garbage collection to cleanup unused objects from caches
   * Explore asset bundles and whether they would improve performance
   * In memory tests (how much memory is used with the above changes)
