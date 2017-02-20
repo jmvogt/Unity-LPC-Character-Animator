@@ -6,14 +6,19 @@ using System.IO;
 [CustomEditor(typeof(AtlasManager))]
 public class AtlasManagerEditor : Editor
 {
-    const string pathToTextures = "/Sprites/";
+    const string pathToCharacterTextures = "/Sprites/Character/";
+    const string pathToEquipmentTextures = "/Sprites/Equipment/";
+
+    private AtlasManager am;
+    private bool dirty;
 
     public override void OnInspectorGUI()
     {
-        AtlasManager am = target as AtlasManager;
+        am = target as AtlasManager;
         serializedObject.Update();
 
-        bool dirty = false;
+        dirty = false;
+
         if (am.tileSprites == null)
         {
             dirty = true;
@@ -23,31 +28,13 @@ public class AtlasManagerEditor : Editor
         Debug.Log("IM HERE LOL");
         if (GUILayout.Button("Load"))
         {
-            var files = Directory.GetFiles(Application.dataPath + pathToTextures, "*", SearchOption.AllDirectories);
+            var files = Directory.GetFiles(Application.dataPath + pathToCharacterTextures, "*", SearchOption.AllDirectories);
             am.tileSprites = new List<Sprite>();
+            LoadFiles(files);
 
-            foreach (string file in files)
-            {
-                string filepath = file.Replace("\\", "/");
-                
-                if (!filepath.EndsWith("body/male/light.png") && !filepath.EndsWith("shield_male_cutoutforhat.png") && !filepath.EndsWith("body/male/orc.png") && !filepath.EndsWith("chest_male.png") && !filepath.EndsWith("spear_male.png")) continue;
-                filepath = filepath.Replace(Application.dataPath, "");
-                Debug.Log("LOADING ASSET FILE: " + filepath);
+            files = Directory.GetFiles(Application.dataPath + pathToEquipmentTextures, "*", SearchOption.AllDirectories);
+            LoadFiles(files);
 
-                dirty = true;
-                var items = AssetDatabase.LoadAllAssetsAtPath("Assets" + filepath);
-                Debug.Log("items count: " + items.Length);
-
-                foreach (object o in items)
-                {
-                    Debug.Log("ADDING OBJECT! ");
-                    if (o is Sprite)
-                    {
-                        Sprite s = o as Sprite;
-                        am.tileSprites.Add(s);
-                    }
-                }
-            }
             Debug.Log("sprites fount : " + am.tileSprites.Count);
         }
 
@@ -58,5 +45,50 @@ public class AtlasManagerEditor : Editor
 
         DrawDefaultInspector();
         serializedObject.ApplyModifiedProperties();
+    }
+
+    private void LoadFiles(string[] files) {
+        foreach (string file in files) {
+            string filepath = file.Replace("\\", "/");
+
+            //List<string> mustEndWith = new List<string>();
+            //mustEndWith.Add("body/female/light.png");
+            //mustEndWith.Add("body/male/light.png");
+            //mustEndWith.Add("body/male/orc.png");
+            //mustEndWith.Add("white_sleeveless.png");
+            //mustEndWith.Add("platemail.png");
+            //mustEndWith.Add("spear_male.png");
+            //mustEndWith.Add("tightdress_white.png");
+            //mustEndWith.Add("wings.png");
+            //mustEndWith.Add("spikes.png");
+
+            //bool skipFile = true;
+            //foreach (string endsWith in mustEndWith) {
+            //    if (filepath.EndsWith(endsWith)) {
+            //        skipFile = false;
+            //    }
+            //}
+            //if (skipFile)
+            //    continue;
+
+            if (!filepath.EndsWith(".png")) {
+                continue;
+            }
+
+            filepath = filepath.Replace(Application.dataPath, "");
+            Debug.Log("LOADING ASSET FILE: " + filepath);
+
+            dirty = true;
+            var items = AssetDatabase.LoadAllAssetsAtPath("Assets" + filepath);
+            Debug.Log("items count: " + items.Length);
+
+            foreach (object o in items) {
+                Debug.Log("ADDING OBJECT! ");
+                if (o is Sprite) {
+                    Sprite s = o as Sprite;
+                    am.tileSprites.Add(s);
+                }
+            }
+        }
     }
 }

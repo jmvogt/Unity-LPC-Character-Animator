@@ -36,9 +36,15 @@ public class LPCCharacterController : MonoBehaviour {
 
     void InitializeCharacterDNA() {
         characterDNA = new LPCCharacterDNA();
-        characterDNA.TorsoDNA = new LPCCharacterDNABlock("torso_gold_chest_male");
-        characterDNA.BodyDNA = new LPCCharacterDNABlock("body_male_light");
-        characterDNA.PrimaryDNA = new LPCCharacterDNABlock("weapons_right hand_male_spear_male");
+        //characterDNA.TorsoDNA = new LPCCharacterDNABlock("chest_mail_platemail");
+        characterDNA.TorsoDNA = new LPCCharacterDNABlock("chest_female_tightdress");
+        //characterDNA.TorsoDNA = new LPCCharacterDNABlock("torso_shirts_sleeveless_female_white_sleeveless");
+        characterDNA.BodyDNA = new LPCCharacterDNABlock("body_female_light");
+        characterDNA.BackDNA = new LPCCharacterDNABlock("back_female_cape");
+        characterDNA.FeetDNA = new LPCCharacterDNABlock("feet_female_slippers");
+        characterDNA.HeadDNA = new LPCCharacterDNABlock("head_female_tiara");
+        //characterDNA.PrimaryDNA = new LPCCharacterDNABlock("torso_gold_spikes_mail");
+        characterDNA.PrimaryDNA = new LPCCharacterDNABlock("hair_female_shoulderr");
         //characterDNA.SecondaryDNA = new LPCCharacterDNABlock("weapons_left hand_male_shield_male_cutoutforhat");
 
     }
@@ -49,14 +55,23 @@ public class LPCCharacterController : MonoBehaviour {
         GameObject torso = GameObject.Find("/player/torso");
         GameObject primaryWeapon = GameObject.Find("/player/primary");
         GameObject secondaryWeapon = GameObject.Find("/player/secondary");
+        GameObject back = GameObject.Find("/player/back");
+        GameObject feet = GameObject.Find("/player/feet");
+        GameObject head = GameObject.Find("/player/head");
 
         SpriteRenderer bodyRenderer = body.GetComponent<SpriteRenderer>();
         SpriteRenderer torsoRenderer = torso.GetComponent<SpriteRenderer>();
+        SpriteRenderer backRenderer = back.GetComponent<SpriteRenderer>();
+        SpriteRenderer feetRenderer = feet.GetComponent<SpriteRenderer>();
+        SpriteRenderer headRenderer = head.GetComponent<SpriteRenderer>();
         SpriteRenderer primaryWeaponRenderer = primaryWeapon.GetComponent<SpriteRenderer>();
         SpriteRenderer secondaryWeaponRenderer = primaryWeapon.GetComponent<SpriteRenderer>();
 
         spriteRenderers["torso"] = torsoRenderer;
         spriteRenderers["body"] = bodyRenderer;
+        spriteRenderers["back"] = backRenderer;
+        spriteRenderers["feet"] = feetRenderer;
+        spriteRenderers["head"] = headRenderer;
         spriteRenderers["primary"] = primaryWeaponRenderer;
         //spriteRenderers["secondary"] = secondaryWeaponRenderer;
         charAnimator.SetSpriteRenderers(spriteRenderers);
@@ -106,6 +121,7 @@ public class LPCCharacterController : MonoBehaviour {
             newDirection = charAnimator.CurrentAnimationAction.Direction;
             lastInput = KeyCode.None;
         }
+        currentAction.Direction = newDirection;
 
         bool wasWalking = charAnimator.CurrentAnimationAction is WalkAction;
         bool sameDirection = charAnimator.CurrentAnimationAction.Direction.GetType() == newDirection.GetType();
