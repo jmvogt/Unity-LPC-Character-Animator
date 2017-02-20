@@ -13,6 +13,7 @@ namespace Assets.Scripts.Animation.DNABlocks {
         private int _sortingOrder;
         private List<Sprite> _spriteList;
         private BaseAnimationDirection _animationDirection;
+        private Color _spriteColor;
 
         public string AnimationKey {
             get { return _animationKey; }
@@ -27,16 +28,31 @@ namespace Assets.Scripts.Animation.DNABlocks {
             get { return _animationDirection; }
         }
 
+        public Color SpriteColor {
+            get { return _spriteColor; }
+        }
 
         // TODO: Get rid of this function as soon as a Template sort of mechanism is used to build DNA blocks..
         public void UpdateSortingOrder (int sortingOrder) {
             _sortingOrder = sortingOrder;
         }
 
+        // TODO: Get this of this function as soon as responsibility of generating animationDNA
+        //is given to LPCActionAnimationManager...
+        public void UpdateSpriteColor(Color spriteColor) {
+            _spriteColor = spriteColor;
+        }
+
         public BaseAnimationDNABlock(string animationKey, List<Sprite> spriteList, BaseAnimationDirection animationDirection) {
             _animationKey = animationKey;
             _spriteList = spriteList;
             _animationDirection = animationDirection;
+        }
+        public BaseAnimationDNABlock(string animationKey, List<Sprite> spriteList, BaseAnimationDirection animationDirection, Color spriteColor) {
+            _animationKey = animationKey;
+            _spriteList = spriteList;
+            _animationDirection = animationDirection;
+            _spriteColor = spriteColor;
         }
     }
 }
