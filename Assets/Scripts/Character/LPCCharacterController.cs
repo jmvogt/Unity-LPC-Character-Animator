@@ -29,22 +29,19 @@ public class LPCCharacterController : MonoBehaviour {
         moveSpeed = .05f;
 	}
 
-    void Update() {
-        UpdatePositioning();
-        UpdateAnimation();
-    }
-
     void InitializeCharacterDNA() {
         characterDNA = new LPCCharacterDNA();
-        //characterDNA.TorsoDNA = new LPCCharacterDNABlock("chest_mail_platemail");
         characterDNA.TorsoDNA = new LPCCharacterDNABlock("chest_female_tightdress");
-        //characterDNA.TorsoDNA = new LPCCharacterDNABlock("torso_shirts_sleeveless_female_white_sleeveless");
+        characterDNA.NeckDNA = new LPCCharacterDNABlock("neck_female_capeclip", Color.red);
         characterDNA.BodyDNA = new LPCCharacterDNABlock("body_female_light");
-        characterDNA.BackDNA = new LPCCharacterDNABlock("back_female_cape");
+        characterDNA.BackDNA = new LPCCharacterDNABlock("back_female_cape", Color.red);
         characterDNA.FeetDNA = new LPCCharacterDNABlock("feet_female_slippers");
         characterDNA.HeadDNA = new LPCCharacterDNABlock("head_female_tiara");
-        //characterDNA.PrimaryDNA = new LPCCharacterDNABlock("torso_gold_spikes_mail");
-        characterDNA.PrimaryDNA = new LPCCharacterDNABlock("hair_female_shoulderr");
+        characterDNA.HairDNA = new LPCCharacterDNABlock("hair_female_shoulderr", new Color(.847f, .753f, .471f, 1f));
+        characterDNA.HandDNA = new LPCCharacterDNABlock("hand_female_cloth");
+        characterDNA.LegDNA = new LPCCharacterDNABlock("legs_female_cloth");
+        characterDNA.WaistDNA = new LPCCharacterDNABlock("waist_female_leather");
+        characterDNA.PrimaryDNA = new LPCCharacterDNABlock("weapons_oversize_two hand_either_spear");
         //characterDNA.SecondaryDNA = new LPCCharacterDNABlock("weapons_left hand_male_shield_male_cutoutforhat");
 
     }
@@ -53,17 +50,27 @@ public class LPCCharacterController : MonoBehaviour {
         Dictionary<string, SpriteRenderer> spriteRenderers = new Dictionary<string, SpriteRenderer>();
         GameObject body = GameObject.Find("/player/body");
         GameObject torso = GameObject.Find("/player/torso");
+        GameObject neck = GameObject.Find("/player/neck");
         GameObject primaryWeapon = GameObject.Find("/player/primary");
         GameObject secondaryWeapon = GameObject.Find("/player/secondary");
         GameObject back = GameObject.Find("/player/back");
         GameObject feet = GameObject.Find("/player/feet");
         GameObject head = GameObject.Find("/player/head");
+        GameObject hair = GameObject.Find("/player/hair");
+        GameObject hands = GameObject.Find("/player/hands");
+        GameObject legs = GameObject.Find("/player/legs");
+        GameObject waist = GameObject.Find("/player/waist");
 
         SpriteRenderer bodyRenderer = body.GetComponent<SpriteRenderer>();
         SpriteRenderer torsoRenderer = torso.GetComponent<SpriteRenderer>();
         SpriteRenderer backRenderer = back.GetComponent<SpriteRenderer>();
         SpriteRenderer feetRenderer = feet.GetComponent<SpriteRenderer>();
         SpriteRenderer headRenderer = head.GetComponent<SpriteRenderer>();
+        SpriteRenderer hairRenderer = hair.GetComponent<SpriteRenderer>();
+        SpriteRenderer handsRenderer = hands.GetComponent<SpriteRenderer>();
+        SpriteRenderer legsRenderer = legs.GetComponent<SpriteRenderer>();
+        SpriteRenderer waistRenderer = waist.GetComponent<SpriteRenderer>();
+        SpriteRenderer neckRenderer = neck.GetComponent<SpriteRenderer>();
         SpriteRenderer primaryWeaponRenderer = primaryWeapon.GetComponent<SpriteRenderer>();
         SpriteRenderer secondaryWeaponRenderer = primaryWeapon.GetComponent<SpriteRenderer>();
 
@@ -71,10 +78,20 @@ public class LPCCharacterController : MonoBehaviour {
         spriteRenderers["body"] = bodyRenderer;
         spriteRenderers["back"] = backRenderer;
         spriteRenderers["feet"] = feetRenderer;
-        spriteRenderers["head"] = headRenderer;
+        //spriteRenderers["head"] = headRenderer;
+        spriteRenderers["hair"] = hairRenderer;
+        spriteRenderers["hand"] = handsRenderer;
+        spriteRenderers["leg"] = legsRenderer;
+        //spriteRenderers["waist"] = waistRenderer;
+        spriteRenderers["neck"] = neckRenderer;
         spriteRenderers["primary"] = primaryWeaponRenderer;
         //spriteRenderers["secondary"] = secondaryWeaponRenderer;
         charAnimator.SetSpriteRenderers(spriteRenderers);
+    }
+
+    void Update() {
+        UpdatePositioning();
+        UpdateAnimation();
     }
 
     void UpdatePositioning() {
