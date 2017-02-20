@@ -35,7 +35,7 @@ public class LPCCharacterController : MonoBehaviour {
         characterDNA.NeckDNA = new LPCCharacterDNABlock("neck_female_capeclip", Color.red);
         characterDNA.BodyDNA = new LPCCharacterDNABlock("body_female_light");
         characterDNA.BackDNA = new LPCCharacterDNABlock("back_female_cape", Color.red);
-        characterDNA.FeetDNA = new LPCCharacterDNABlock("feet_female_slippers");
+        characterDNA.FeetDNA = new LPCCharacterDNABlock("feet_female_shoes");
         characterDNA.HeadDNA = new LPCCharacterDNABlock("head_female_tiara");
         characterDNA.HairDNA = new LPCCharacterDNABlock("hair_female_shoulderr", new Color(.847f, .753f, .471f, 1f));
         characterDNA.HandDNA = new LPCCharacterDNABlock("hand_female_cloth");
@@ -84,7 +84,7 @@ public class LPCCharacterController : MonoBehaviour {
         spriteRenderers["leg"] = legsRenderer;
         //spriteRenderers["waist"] = waistRenderer;
         spriteRenderers["neck"] = neckRenderer;
-        spriteRenderers["primary"] = primaryWeaponRenderer;
+        //spriteRenderers["primary"] = primaryWeaponRenderer;
         //spriteRenderers["secondary"] = secondaryWeaponRenderer;
         charAnimator.SetSpriteRenderers(spriteRenderers);
     }
