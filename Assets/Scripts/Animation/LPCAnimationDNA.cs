@@ -41,6 +41,7 @@ namespace Assets.Scripts.Animation
         public Dictionary<string, BaseAnimationDNABlock> GetAnimationCache() {
             Dictionary<string, BaseAnimationDNABlock> animationCache = new Dictionary<string, BaseAnimationDNABlock>();
             if (BodyAnimation != null) {
+                // TODO: Set LPC sorting order as a permanently configured list. Define up vs down order
                 BodyAnimation.UpdateSortingOrder((int)SortingTypes.BODY);
                 animationCache.Add("body", BodyAnimation);
             }
