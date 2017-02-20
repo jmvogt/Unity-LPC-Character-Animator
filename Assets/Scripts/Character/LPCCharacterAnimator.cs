@@ -52,7 +52,7 @@ public class LPCCharacterAnimator : MonoBehaviour
 
     void Update()
     {
-        if (_playing)
+        if (_playing && _animationCache.Count > 0)
         {
             int currentFrameIndex = _currentFrameNumber % _currentAnimationAction.NumberOfFrames;
 
