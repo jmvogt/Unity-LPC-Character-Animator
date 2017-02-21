@@ -18,10 +18,13 @@ public class LPCCharacterAnimator : MonoBehaviour
     private float _totalAnimTimeInSeconds;
     private bool _stopOnFinalFrame;
     private float _passedTime;
+    private bool _isDirty;
 
     public BaseAction CurrentAnimationAction { get { return _currentAnimationAction; } }
 
-    public void AnimateAction(LPCAnimationDNA animationDNA, BaseAction animationAction) {
+    public bool IsPlaying { get {return _playing;}}
+
+    public void AnimateAction(LPCAnimationDNA animationDNA, BaseAction animationAction, bool isDirty) {
         _animationDNA = animationDNA;
         _animationCache = animationDNA.GetAnimationCache();
         _currentAnimationAction = animationAction;
@@ -29,6 +32,15 @@ public class LPCCharacterAnimator : MonoBehaviour
         _playing = true;
         _currentFrameNumber = 0;
         _totalAnimTimeInSeconds = .4f;
+        if (isDirty) {
+            foreach (string rendererKey in _spriteRenderers.Keys) {
+                if (!_animationCache.ContainsKey(rendererKey)) {
+                    _spriteRenderers[rendererKey].enabled = false;
+                } else {
+                    _spriteRenderers[rendererKey].enabled = true;
+                }
+            }
+        }
     }
 
     public void UpdateAnimationTime(float totalAnimTimeInSeconds) {
@@ -45,7 +57,7 @@ public class LPCCharacterAnimator : MonoBehaviour
 
     void Start() {
         _passedTime = 0;
-        _playing = false;
+        _playing = true;
         _animationManager = new LPCActionAnimationManager();
         _currentAnimationAction = new IdleAction();
     }
@@ -61,7 +73,7 @@ public class LPCCharacterAnimator : MonoBehaviour
             if (_stopOnFinalFrame && _currentFrameNumber % _currentAnimationAction.NumberOfFrames == 0)
             {
                 _playing = false;
-                foreach(string rendererKey in _spriteRenderers.Keys) {
+                foreach(string rendererKey in _animationCache.Keys) {
                     _spriteRenderers[rendererKey].sprite = _animationCache[rendererKey].SpriteList[0];
                 }
                 return;
@@ -70,7 +82,7 @@ public class LPCCharacterAnimator : MonoBehaviour
             float singleAnimTime = _totalAnimTimeInSeconds / _currentAnimationAction.NumberOfFrames;
             if (_passedTime >= singleAnimTime)
             {
-                foreach (string rendererKey in _spriteRenderers.Keys) {
+                foreach (string rendererKey in _animationCache.Keys) {
                     SpriteRenderer renderer = _spriteRenderers[rendererKey];
                     BaseAnimationDNABlock animationDNABlock = _animationCache[rendererKey];
                     renderer.sprite = animationDNABlock.SpriteList[currentFrameIndex];

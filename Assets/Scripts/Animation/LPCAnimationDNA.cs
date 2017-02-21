@@ -51,7 +51,7 @@ namespace Assets.Scripts.Animation
             }
             if (LegAnimation != null) {
                 LegAnimation.UpdateSortingOrder((int)SortingTypes.ARMOR);
-                animationCache.Add("leg", LegAnimation);
+                animationCache.Add("legs", LegAnimation);
             }
             if (NeckAnimation != null) {
                 NeckAnimation.UpdateSortingOrder((int)SortingTypes.ACCESSORIES);
@@ -77,7 +77,7 @@ namespace Assets.Scripts.Animation
             }
             if (HandAnimation != null) {
                 HandAnimation.UpdateSortingOrder((int)SortingTypes.CLOTHING);
-                animationCache.Add("hand", HandAnimation);
+                animationCache.Add("hands", HandAnimation);
             }
             if (HeadAnimation != null) {
                 HeadAnimation.UpdateSortingOrder((int)SortingTypes.CLOTHING);

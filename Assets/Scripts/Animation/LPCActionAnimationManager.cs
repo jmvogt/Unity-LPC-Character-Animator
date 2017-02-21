@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using UnityEngine;
 
 namespace Assets.Scripts.Animation
 {
@@ -107,35 +109,78 @@ namespace Assets.Scripts.Animation
             LPCActionAnimationCache animationStore = LPCActionAnimationCache.Instance;
             
             string animationKey = modelKey;
-            if (direction != null) {
+            if (direction != null && direction.GetAnimationDirection().Length > 0) {
                 animationKey = String.Format("{0}_{1}_{2}", 
                     animationKey, 
                     actionAnimation.GetAnimationTag(), 
-                    direction.GetAnimationDirection()); 
+                    direction.GetAnimationDirection());
+            } else {
+                animationKey = String.Format("{0}_{1}",
+                    animationKey,
+                    actionAnimation.GetAnimationTag());
             }
 
-            BaseAnimationDNABlock returnAnimation = animationStore.Get(animationKey);
-            if (returnAnimation == null) {
+            return animationStore.Get(animationKey);
+        }
+
+        public void LoadAllAnimationsIntoCache() {
+            List<string> modelList = LPCAtlasManager.GetModelList();
+
+            for (int i = 0; i < modelList.Count; i++) {
+                //threadSemaphore.WaitOne();
+//                Debug.Log("PRINTING # " + i + 1 + " out of " + modelList.Count);
+  //              Thread thread = new Thread(
+//                        () => LoadAnimationIntoCache(modelList[i]));
+    //            thread.Start();
+                LoadAnimationIntoCache(modelList[i]);
+                LPCAtlasManager.IncrementModelLoaded();
+            }
+
+            Debug.Log("ALL ANIMATIONS LOADED!");
+
+        }
+
+        public Semaphore threadSemaphore= new Semaphore(8,8);
+
+        public void LoadAnimationIntoCache(string modelKey) {
+            Debug.Log("PROCESSING " + modelKey);
+            LPCActionAnimationCache animationStore = LPCActionAnimationCache.Instance;
+            List<BaseAction> actionsToImport = new List<BaseAction>();
+            actionsToImport.Add(new SlashAction());
+            actionsToImport.Add(new SpellcastAction());
+            actionsToImport.Add(new ThrustAction());
+            actionsToImport.Add(new WalkAction());
+
+            if (modelKey == "hands_female_cloth") {
+                Debug.Log("IM HERE!");
+            }
+
+            foreach (BaseAction actionAnimation in actionsToImport) { 
                 IAnimationImporter importer = actionAnimation.GetAnimationImporter();
-                List<BaseAnimationDNABlock> newAnimations = importer.ImportAnimations(modelKey, direction);
+                List<BaseAnimationDNABlock> newAnimations = importer.ImportAnimations(modelKey, new DownAnimationDirection());
 
                 foreach (BaseAnimationDNABlock newAnimation in newAnimations) {
-                    if (newAnimation.AnimationDirection != null) {
-                        animationKey = String.Format("{0}_{1}_{2}",
+                    string animationKey = String.Format("{0}_{1}_{2}",
                             modelKey,
                             actionAnimation.GetAnimationTag(),
                             newAnimation.AnimationDirection.GetAnimationDirection());
-                        
-                        if (newAnimation.AnimationDirection == direction) {
-                            returnAnimation = newAnimation;
-                        }
-                    }
-
                     animationStore.Add(animationKey, newAnimation);
                 }
-                    
             }
-            return returnAnimation;
+
+            BaseAction deathAnimation = new DeathAction();
+            IAnimationImporter deathImporter = deathAnimation.GetAnimationImporter();
+            List<BaseAnimationDNABlock> deathAnimations = deathImporter.ImportAnimations(modelKey, null);
+
+            foreach (BaseAnimationDNABlock newAnimation in deathAnimations) {
+                string animationKey = String.Format("{0}_{1}",
+                        modelKey,
+                        deathAnimation.GetAnimationTag());
+                animationStore.Add(animationKey, newAnimation);
+            }
+
+            
+            //threadSemaphore.Release(1);
         }
     }
 }
