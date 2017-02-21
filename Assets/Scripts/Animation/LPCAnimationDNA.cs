@@ -50,7 +50,7 @@ namespace Assets.Scripts.Animation
                 animationCache.Add("hair", HairAnimation);
             }
             if (LegAnimation != null) {
-                LegAnimation.UpdateSortingOrder((int)SortingTypes.ARMOR);
+                LegAnimation.UpdateSortingOrder((int)SortingTypes.CLOTHING);
                 animationCache.Add("legs", LegAnimation);
             }
             if (NeckAnimation != null) {
@@ -84,7 +84,7 @@ namespace Assets.Scripts.Animation
                 animationCache.Add("head", HeadAnimation);
             }
             if (TorsoAnimation != null) {
-                TorsoAnimation.UpdateSortingOrder((int)SortingTypes.CLOTHING);
+                TorsoAnimation.UpdateSortingOrder((int)SortingTypes.ARMOR);
                 animationCache.Add("torso", TorsoAnimation);
             }
             if (PrimaryAnimation != null) {

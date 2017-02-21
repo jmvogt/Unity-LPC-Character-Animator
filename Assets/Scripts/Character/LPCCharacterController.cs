@@ -11,18 +11,15 @@ using UnityEngine;
 public class LPCCharacterController : MonoBehaviour {
 
     LPCActionAnimationManager animationManager;
-    LPCCharacterDNA characterDNA;
     BaseAction newAction;
     LPCCharacterAnimator charAnimator;
     float moveSpeed;
     KeyCode lastInput;
-    bool characterIsDirty;
     BaseAnimationDirection lastDirection;
 
 	void Start () {
         //prepare character sprites
         charAnimator = gameObject.AddComponent<LPCCharacterAnimator>() as LPCCharacterAnimator;
-        InitializeCharacterDNA();
         InitializeCharacterRenderer(charAnimator);
 
         //set defaults
@@ -31,28 +28,11 @@ public class LPCCharacterController : MonoBehaviour {
         newAction = new IdleAction();
         moveSpeed = .05f;
 
-        //LPCAnimationDNA animationDNA = animationManager.BuildDNAForAction(characterDNA, newAction, null);
+        //LPCAnimationDNA animationDNA = animationManager.BuildDNAForAction(Character.characterDNA, newAction, null);
         //charAnimator.AnimateAction(animationDNA, newAction);
         //charAnimator.enabled = true;
-        characterIsDirty = true;
+        LPCCharacter.isDirty = true;
 	}
-
-    void InitializeCharacterDNA() {
-        characterDNA = new LPCCharacterDNA();
-        characterDNA.TorsoDNA = new LPCCharacterDNABlock("chest_female_tightdress");
-        characterDNA.NeckDNA = new LPCCharacterDNABlock("neck_female_capeclip", Color.red);
-        characterDNA.BodyDNA = new LPCCharacterDNABlock("body_female_light");
-        characterDNA.BackDNA = new LPCCharacterDNABlock("back_female_cape", Color.red);
-        characterDNA.FeetDNA = new LPCCharacterDNABlock("feet_female_shoes");
-        //characterDNA.HeadDNA = new LPCCharacterDNABlock("head_female_tiara");
-        characterDNA.HairDNA = new LPCCharacterDNABlock("hair_female_shoulderr", new Color(.847f, .753f, .471f, 1f));
-        characterDNA.HandDNA = new LPCCharacterDNABlock("hands_female_cloth");
-        characterDNA.LegDNA = new LPCCharacterDNABlock("legs_female_pants");
-        //characterDNA.WaistDNA = new LPCCharacterDNABlock("waist_female_leather");
-        //characterDNA.PrimaryDNA = new LPCCharacterDNABlock("weapons_oversize_two hand_either_spear");
-        //characterDNA.SecondaryDNA = new LPCCharacterDNABlock("weapons_left hand_male_shield_male_cutoutforhat");
-
-    }
 
     Dictionary<string, SpriteRenderer> spriteRenderers;
 
@@ -157,12 +137,6 @@ public class LPCCharacterController : MonoBehaviour {
             newDirection = charAnimator.CurrentAnimationAction.Direction;
             newAction = new SpellcastAction();
             lastInput = KeyCode.R;
-        } else if (Input.GetKeyDown(KeyCode.P)) {
-            characterDNA = new LPCCharacterDNA();
-            characterDNA.TorsoDNA = new LPCCharacterDNABlock("chest_male_chainmail");
-            characterDNA.BodyDNA = new LPCCharacterDNABlock("body_male_orc");
-            lastInput = KeyCode.P;
-            characterIsDirty = true;
         } else {
             lastInput = KeyCode.None;
         }
@@ -172,10 +146,10 @@ public class LPCCharacterController : MonoBehaviour {
         bool wasWalking = charAnimator.CurrentAnimationAction is WalkAction;
         bool sameDirection = charAnimator.CurrentAnimationAction.Direction.GetType() == newDirection.GetType();
 
-        if (characterIsDirty || (wasWalking && !sameDirection) || lastInput != KeyCode.None) {
-            LPCAnimationDNA animationDNA = animationManager.BuildDNAForAction(characterDNA, newAction, newDirection);
-            charAnimator.AnimateAction(animationDNA, newAction, characterIsDirty);
-            characterIsDirty = false;
+        if (LPCCharacter.isDirty || (wasWalking && !sameDirection) || lastInput != KeyCode.None) {
+            LPCAnimationDNA animationDNA = animationManager.BuildDNAForAction(LPCCharacter.characterDNA, newAction, newDirection);
+            charAnimator.AnimateAction(animationDNA, newAction, LPCCharacter.isDirty);
+            LPCCharacter.isDirty = false;
         } else if (!Input.anyKey) {
             charAnimator.StopOnFinalFrame(true);
         } 
