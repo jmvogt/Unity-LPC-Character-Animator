@@ -24,11 +24,11 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
 
 ##v0.1 Roadmap:
   * ~~Reduce the number of duplicate sprites by updating the material color dynamically~~
-  * Mechanism for loading more sprites upfront
-  * Pack LPC sprites appropriately into larger spritesheets (if needed from prior step)
-  * Create a cache to store independent parts of the LPC character sprites (torso vs body vs weapon)
-  * Create a local cache that would hold all possible spritesheets for the current DNA
-  * Garbage collection to cleanup unused objects from caches
+  * ~~Mechanism for loading more sprites upfront~~
+  * ~~Pack LPC sprites appropriately into larger spritesheets (if needed from prior step)~~
+  * ~~Create a cache to store independent parts of the LPC character sprites (torso vs body vs weapon)~~
+  * ~~Create a local cache that would hold all possible spritesheets for the current DNA~~
+  * ~~Garbage collection to cleanup unused objects from caches~~
   * Explore asset bundles and whether they would improve performance
   * In memory tests (how much memory is used with the above changes)
   * File system tests (measure how large the game is with above changes)
