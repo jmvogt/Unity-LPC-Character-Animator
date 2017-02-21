@@ -32,8 +32,10 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
   * Explore asset bundles and whether they would improve performance
   * In memory tests (how much memory is used with the above changes)
   * File system tests (measure how large the game is with above changes)
-  * Simple GUI with drop downs that will allow you to change the CharacterDNA at runtime.
+  * ~~Simple GUI with drop downs that will allow you to change the CharacterDNA at runtime~~
   * Use reflection on classes referencing each DNA block
+  * Apply design patterns / clean up hacked up code
+  * Clean up / finish TODOs in code
   * Look for LPC compliant assets that were not included in the online generator tool.
   * Create instructions/tutorial in a document or YouTube video.
   * Start planning v0.2 or my next game component
