@@ -112,7 +112,7 @@ namespace Assets.Scripts.Scene {
 
         void OnGUI() {
             if (!animationsLoaded) {
-                GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "Loading... " + Math.Floor((LPCAtlasManager.GetModelsLoaded() / LPCAtlasManager.GetModelsTotal() * 100)) + "%");
+                GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "Caching all sprites... " + Math.Floor((LPCAtlasManager.GetModelsLoaded() / LPCAtlasManager.GetModelsTotal() * 100)) + "%");
                 if (LPCAtlasManager.GetModelsLoaded() == LPCAtlasManager.GetModelsTotal()) {
                     InitializecharacterDNA();
                     animationsLoaded = true;
@@ -125,116 +125,35 @@ namespace Assets.Scripts.Scene {
 
                 GUI.Label(new Rect(10, currentY, 40, 20), "Body:");
                 bodyKey = GUI.TextField(new Rect(50, currentY, 175, 20), bodyKey, 25);
-                GUI.Label(new Rect(Screen.width - 215, currentY, 40, 20), "RGBT");
-                bodyR = GUI.TextField(new Rect(Screen.width - 170, currentY, 35, 20), bodyR, 25);
-                bodyG = GUI.TextField(new Rect(Screen.width - 130, currentY, 35, 20), bodyG, 25);
-                bodyB = GUI.TextField(new Rect(Screen.width - 90, currentY, 35, 20), bodyB, 25);
-                bodyT = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), bodyT, 25);
-                try{
-                    bodyColor = new Color(float.Parse(bodyR)/255f, float.Parse(bodyG)/255f, float.Parse(bodyB)/255f, float.Parse(bodyT)/255f);
-                }
-                catch(Exception ex) {
-                    bodyColor = Color.clear;
-                }    
                 currentY += increaseYAmt;
 
                 GUI.Label(new Rect(10, currentY, 40, 20), "Chest:");
                 torsoKey = GUI.TextField(new Rect(50, currentY, 175, 20), torsoKey, 25);
-                GUI.Label(new Rect(Screen.width - 215, currentY, 40, 20), "RGBT");
-                torsoR = GUI.TextField(new Rect(Screen.width - 170, currentY, 35, 20), torsoR, 25);
-                torsoG = GUI.TextField(new Rect(Screen.width - 130, currentY, 35, 20), torsoG, 25);
-                torsoB = GUI.TextField(new Rect(Screen.width - 90, currentY, 35, 20), torsoB, 25);
-                torsoT = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), torsoT, 25);
-                try {
-                    torsoColor = new Color(float.Parse(torsoR) / 255f, float.Parse(torsoG) / 255f, float.Parse(torsoB) / 255f, float.Parse(torsoT) / 255f);
-                } catch (Exception ex) {
-                    torsoColor = Color.clear;
-                }
                 currentY += increaseYAmt;
 
 
                 GUI.Label(new Rect(10, currentY, 40, 20), "Neck:");
                 neckKey = GUI.TextField(new Rect(50, currentY, 175, 20), neckKey, 25);
-                GUI.Label(new Rect(Screen.width - 215, currentY, 40, 20), "RGBT");
-                neckR = GUI.TextField(new Rect(Screen.width - 170, currentY, 35, 20), neckR, 25);
-                neckG = GUI.TextField(new Rect(Screen.width - 130, currentY, 35, 20), neckG, 25);
-                neckB = GUI.TextField(new Rect(Screen.width - 90, currentY, 35, 20), neckB, 25);
-                neckT = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), neckT, 25);
-                try {
-                    neckColor = new Color(float.Parse(neckR) / 255f, float.Parse(neckG) / 255f, float.Parse(neckB) / 255f, float.Parse(neckT) / 255f);
-                } catch (Exception ex) {
-                    neckColor = Color.clear;
-                }
                 currentY += increaseYAmt;
 
                 GUI.Label(new Rect(10, currentY, 40, 20), "Back:");
                 backKey = GUI.TextField(new Rect(50, currentY, 175, 20), backKey, 25);
-                GUI.Label(new Rect(Screen.width - 215, currentY, 40, 20), "RGBT");
-                backR = GUI.TextField(new Rect(Screen.width - 170, currentY, 35, 20), backR, 25);
-                backG = GUI.TextField(new Rect(Screen.width - 130, currentY, 35, 20), backG, 25);
-                backB = GUI.TextField(new Rect(Screen.width - 90, currentY, 35, 20), backB, 25);
-                backT = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), backT, 25);
-                try {
-                    backColor = new Color(float.Parse(backR) / 255f, float.Parse(backG) / 255f, float.Parse(backB) / 255f, float.Parse(backT) / 255f);
-                } catch (Exception ex) {
-                    backColor = Color.clear;
-                }
                 currentY += increaseYAmt;
 
                 GUI.Label(new Rect(10, currentY, 40, 20), "Feet:");
                 feetKey = GUI.TextField(new Rect(50, currentY, 175, 20), feetKey, 25);
-                GUI.Label(new Rect(Screen.width - 215, currentY, 40, 20), "RGBT");
-                feetR = GUI.TextField(new Rect(Screen.width - 170, currentY, 35, 20), feetR, 25);
-                feetG = GUI.TextField(new Rect(Screen.width - 130, currentY, 35, 20), feetG, 25);
-                feetB = GUI.TextField(new Rect(Screen.width - 90, currentY, 35, 20), feetB, 25);
-                feetT = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), feetT, 25);
-                try {
-                    feetColor = new Color(float.Parse(feetR) / 255f, float.Parse(feetG) / 255f, float.Parse(feetB) / 255f, float.Parse(feetT) / 255f);
-                } catch (Exception ex) {
-                    feetColor = Color.clear;
-                }
                 currentY += increaseYAmt;
 
                 GUI.Label(new Rect(10, currentY, 40, 20), "Hair:");
                 hairKey = GUI.TextField(new Rect(50, currentY, 175, 20), hairKey, 25);
-                GUI.Label(new Rect(Screen.width - 215, currentY, 40, 20), "RGBT");
-                hairR = GUI.TextField(new Rect(Screen.width - 170, currentY, 35, 20), hairR, 25);
-                hairG = GUI.TextField(new Rect(Screen.width - 130, currentY, 35, 20), hairG, 25);
-                hairB = GUI.TextField(new Rect(Screen.width - 90, currentY, 35, 20), hairB, 25);
-                hairT = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), hairT, 25);
-                try {
-                    hairColor = new Color(float.Parse(hairR) / 255f, float.Parse(hairG) / 255f, float.Parse(hairB) / 255f, float.Parse(hairT) / 255f);
-                } catch (Exception ex) {
-                    hairColor = Color.clear;
-                }
                 currentY += increaseYAmt;
 
                 GUI.Label(new Rect(10, currentY, 40, 20), "Hands:");
                 handKey = GUI.TextField(new Rect(50, currentY, 175, 20), handKey, 25);
-                GUI.Label(new Rect(Screen.width - 215, currentY, 40, 20), "RGBT");
-                handR = GUI.TextField(new Rect(Screen.width - 170, currentY, 35, 20), handR, 25);
-                handG = GUI.TextField(new Rect(Screen.width - 130, currentY, 35, 20), handG, 25);
-                handB = GUI.TextField(new Rect(Screen.width - 90, currentY, 35, 20), handB, 25);
-                handT = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), handT, 25);
-                try {
-                    handColor = new Color(float.Parse(handR) / 255f, float.Parse(handG) / 255f, float.Parse(handB) / 255f, float.Parse(handT) / 255f);
-                } catch (Exception ex) {
-                    handColor = Color.clear;
-                }
                 currentY += increaseYAmt;
 
                 GUI.Label(new Rect(10, currentY, 40, 20), "Legs:");
                 legKey = GUI.TextField(new Rect(50, currentY, 175, 20), legKey, 25);
-                GUI.Label(new Rect(Screen.width - 215, currentY, 40, 20), "RGBT");
-                legR = GUI.TextField(new Rect(Screen.width - 170, currentY, 35, 20), legR, 25);
-                legG = GUI.TextField(new Rect(Screen.width - 130, currentY, 35, 20), legG, 25);
-                legB = GUI.TextField(new Rect(Screen.width - 90, currentY, 35, 20), legB, 25);
-                legT = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), legT, 25);
-                try {
-                    legColor = new Color(float.Parse(legR) / 255f, float.Parse(legG) / 255f, float.Parse(legB) / 255f, float.Parse(legT) / 255f);
-                } catch (Exception ex) {
-                    legColor = Color.clear;
-                }
                 currentY += increaseYAmt;
 
                 if (GUI.Button(new Rect(10, currentY, 75, 30), "Generate")) {
@@ -258,6 +177,104 @@ namespace Assets.Scripts.Scene {
                     LPCCharacter.characterDNA = characterDNA;
                     LPCCharacter.isDirty = true;
                 }
+
+                currentY = 10;
+
+                GUI.Label(new Rect(Screen.width - 215, currentY, 40, 20), "RGBT");
+                bodyR = GUI.TextField(new Rect(Screen.width - 170, currentY, 35, 20), bodyR, 25);
+                bodyG = GUI.TextField(new Rect(Screen.width - 130, currentY, 35, 20), bodyG, 25);
+                bodyB = GUI.TextField(new Rect(Screen.width - 90, currentY, 35, 20), bodyB, 25);
+                bodyT = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), bodyT, 25);
+                try {
+                    bodyColor = new Color(float.Parse(bodyR) / 255f, float.Parse(bodyG) / 255f, float.Parse(bodyB) / 255f, float.Parse(bodyT) / 255f);
+                } catch (Exception ex) {
+                    bodyColor = Color.clear;
+                }
+                currentY += increaseYAmt;
+
+                GUI.Label(new Rect(Screen.width - 215, currentY, 40, 20), "RGBT");
+                torsoR = GUI.TextField(new Rect(Screen.width - 170, currentY, 35, 20), torsoR, 25);
+                torsoG = GUI.TextField(new Rect(Screen.width - 130, currentY, 35, 20), torsoG, 25);
+                torsoB = GUI.TextField(new Rect(Screen.width - 90, currentY, 35, 20), torsoB, 25);
+                torsoT = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), torsoT, 25);
+                try {
+                    torsoColor = new Color(float.Parse(torsoR) / 255f, float.Parse(torsoG) / 255f, float.Parse(torsoB) / 255f, float.Parse(torsoT) / 255f);
+                } catch (Exception ex) {
+                    torsoColor = Color.clear;
+                }
+                currentY += increaseYAmt;
+
+                GUI.Label(new Rect(Screen.width - 215, currentY, 40, 20), "RGBT");
+                neckR = GUI.TextField(new Rect(Screen.width - 170, currentY, 35, 20), neckR, 25);
+                neckG = GUI.TextField(new Rect(Screen.width - 130, currentY, 35, 20), neckG, 25);
+                neckB = GUI.TextField(new Rect(Screen.width - 90, currentY, 35, 20), neckB, 25);
+                neckT = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), neckT, 25);
+                try {
+                    neckColor = new Color(float.Parse(neckR) / 255f, float.Parse(neckG) / 255f, float.Parse(neckB) / 255f, float.Parse(neckT) / 255f);
+                } catch (Exception ex) {
+                    neckColor = Color.clear;
+                }
+                currentY += increaseYAmt;
+
+                GUI.Label(new Rect(Screen.width - 215, currentY, 40, 20), "RGBT");
+                backR = GUI.TextField(new Rect(Screen.width - 170, currentY, 35, 20), backR, 25);
+                backG = GUI.TextField(new Rect(Screen.width - 130, currentY, 35, 20), backG, 25);
+                backB = GUI.TextField(new Rect(Screen.width - 90, currentY, 35, 20), backB, 25);
+                backT = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), backT, 25);
+                try {
+                    backColor = new Color(float.Parse(backR) / 255f, float.Parse(backG) / 255f, float.Parse(backB) / 255f, float.Parse(backT) / 255f);
+                } catch (Exception ex) {
+                    backColor = Color.clear;
+                }
+                currentY += increaseYAmt;
+
+                GUI.Label(new Rect(Screen.width - 215, currentY, 40, 20), "RGBT");
+                feetR = GUI.TextField(new Rect(Screen.width - 170, currentY, 35, 20), feetR, 25);
+                feetG = GUI.TextField(new Rect(Screen.width - 130, currentY, 35, 20), feetG, 25);
+                feetB = GUI.TextField(new Rect(Screen.width - 90, currentY, 35, 20), feetB, 25);
+                feetT = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), feetT, 25);
+                try {
+                    feetColor = new Color(float.Parse(feetR) / 255f, float.Parse(feetG) / 255f, float.Parse(feetB) / 255f, float.Parse(feetT) / 255f);
+                } catch (Exception ex) {
+                    feetColor = Color.clear;
+                }
+                currentY += increaseYAmt;
+
+                GUI.Label(new Rect(Screen.width - 215, currentY, 40, 20), "RGBT");
+                hairR = GUI.TextField(new Rect(Screen.width - 170, currentY, 35, 20), hairR, 25);
+                hairG = GUI.TextField(new Rect(Screen.width - 130, currentY, 35, 20), hairG, 25);
+                hairB = GUI.TextField(new Rect(Screen.width - 90, currentY, 35, 20), hairB, 25);
+                hairT = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), hairT, 25);
+                try {
+                    hairColor = new Color(float.Parse(hairR) / 255f, float.Parse(hairG) / 255f, float.Parse(hairB) / 255f, float.Parse(hairT) / 255f);
+                } catch (Exception ex) {
+                    hairColor = Color.clear;
+                }
+                currentY += increaseYAmt;
+
+                GUI.Label(new Rect(Screen.width - 215, currentY, 40, 20), "RGBT");
+                handR = GUI.TextField(new Rect(Screen.width - 170, currentY, 35, 20), handR, 25);
+                handG = GUI.TextField(new Rect(Screen.width - 130, currentY, 35, 20), handG, 25);
+                handB = GUI.TextField(new Rect(Screen.width - 90, currentY, 35, 20), handB, 25);
+                handT = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), handT, 25);
+                try {
+                    handColor = new Color(float.Parse(handR) / 255f, float.Parse(handG) / 255f, float.Parse(handB) / 255f, float.Parse(handT) / 255f);
+                } catch (Exception ex) {
+                    handColor = Color.clear;
+                }
+                currentY += increaseYAmt;
+
+                GUI.Label(new Rect(Screen.width - 215, currentY, 40, 20), "RGBT");
+                legR = GUI.TextField(new Rect(Screen.width - 170, currentY, 35, 20), legR, 25);
+                legG = GUI.TextField(new Rect(Screen.width - 130, currentY, 35, 20), legG, 25);
+                legB = GUI.TextField(new Rect(Screen.width - 90, currentY, 35, 20), legB, 25);
+                legT = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), legT, 25);
+                try {
+                    legColor = new Color(float.Parse(legR) / 255f, float.Parse(legG) / 255f, float.Parse(legB) / 255f, float.Parse(legT) / 255f);
+                } catch (Exception ex) {
+                    legColor = Color.clear;
+                }
+                currentY += increaseYAmt;
                     
 
             }
