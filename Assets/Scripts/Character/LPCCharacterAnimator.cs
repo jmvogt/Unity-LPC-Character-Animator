@@ -18,11 +18,8 @@ public class LPCCharacterAnimator : MonoBehaviour
     private float _totalAnimTimeInSeconds;
     private bool _stopOnFinalFrame;
     private float _passedTime;
-    private bool _isDirty;
 
     public BaseAction CurrentAnimationAction { get { return _currentAnimationAction; } }
-
-    public bool IsPlaying { get {return _playing;}}
 
     public void AnimateAction(LPCAnimationDNA animationDNA, BaseAction animationAction, bool isDirty) {
         _animationDNA = animationDNA;
@@ -64,7 +61,7 @@ public class LPCCharacterAnimator : MonoBehaviour
 
     void Update()
     {
-        if (_playing && _animationCache.Count > 0)
+        if (_playing)
         {
             int currentFrameIndex = _currentFrameNumber % _currentAnimationAction.NumberOfFrames;
 
@@ -73,8 +70,15 @@ public class LPCCharacterAnimator : MonoBehaviour
             if (_stopOnFinalFrame && _currentFrameNumber % _currentAnimationAction.NumberOfFrames == 0)
             {
                 _playing = false;
-                foreach(string rendererKey in _animationCache.Keys) {
-                    _spriteRenderers[rendererKey].sprite = _animationCache[rendererKey].SpriteList[0];
+                foreach(string animationKey in _animationCache.Keys) {
+                    BaseAnimationDNABlock animationDNABlock = _animationCache[animationKey];
+                    SpriteRenderer renderer = _spriteRenderers[animationKey];
+                    renderer.sprite = animationDNABlock.SpriteList[0];
+                    renderer.sortingOrder = animationDNABlock.SortingOrder;
+                    renderer.sortingLayerName = "Units";
+                    if (animationDNABlock.SpriteColor != Color.clear) {
+                        renderer.material.SetColor("_Color", animationDNABlock.SpriteColor);
+                    }
                 }
                 return;
             }
@@ -82,9 +86,9 @@ public class LPCCharacterAnimator : MonoBehaviour
             float singleAnimTime = _totalAnimTimeInSeconds / _currentAnimationAction.NumberOfFrames;
             if (_passedTime >= singleAnimTime)
             {
-                foreach (string rendererKey in _animationCache.Keys) {
-                    SpriteRenderer renderer = _spriteRenderers[rendererKey];
-                    BaseAnimationDNABlock animationDNABlock = _animationCache[rendererKey];
+                foreach (string animationKey in _animationCache.Keys) {
+                    SpriteRenderer renderer = _spriteRenderers[animationKey];
+                    BaseAnimationDNABlock animationDNABlock = _animationCache[animationKey];
                     renderer.sprite = animationDNABlock.SpriteList[currentFrameIndex];
                     renderer.sortingOrder = animationDNABlock.SortingOrder;
                     renderer.sortingLayerName = "Units";
@@ -98,10 +102,6 @@ public class LPCCharacterAnimator : MonoBehaviour
                     if (animationDNABlock.SpriteColor != Color.clear) {
                         renderer.material.SetColor("_Color", animationDNABlock.SpriteColor);  
                     }
-                    
-                    //if (rendererKey == "torso") {
-                    //    renderer.material.SetColor("_Color", new Color(1f, .84f, 0f, .9f));  
-                    //}
                 }
                 
                 _passedTime -= singleAnimTime;

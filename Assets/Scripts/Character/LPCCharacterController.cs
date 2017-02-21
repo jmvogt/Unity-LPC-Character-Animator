@@ -12,11 +12,12 @@ public class LPCCharacterController : MonoBehaviour {
 
     LPCActionAnimationManager animationManager;
     LPCCharacterDNA characterDNA;
-    BaseAction currentAction;
+    BaseAction newAction;
     LPCCharacterAnimator charAnimator;
     float moveSpeed;
     KeyCode lastInput;
     bool characterIsDirty;
+    BaseAnimationDirection lastDirection;
 
 	void Start () {
         //prepare character sprites
@@ -26,11 +27,12 @@ public class LPCCharacterController : MonoBehaviour {
 
         //set defaults
         animationManager = new LPCActionAnimationManager();
-        currentAction = new IdleAction();
+        lastDirection = null;
+        newAction = new IdleAction();
         moveSpeed = .05f;
 
-        //LPCAnimationDNA animationDNA = animationManager.BuildDNAForAction(characterDNA, currentAction, null);
-        //charAnimator.AnimateAction(animationDNA, currentAction);
+        //LPCAnimationDNA animationDNA = animationManager.BuildDNAForAction(characterDNA, newAction, null);
+        //charAnimator.AnimateAction(animationDNA, newAction);
         //charAnimator.enabled = true;
         characterIsDirty = true;
 	}
@@ -126,70 +128,53 @@ public class LPCCharacterController : MonoBehaviour {
     }
 
     void UpdateAnimation() {
-        BaseAnimationDirection newDirection;
+        BaseAnimationDirection newDirection = charAnimator.CurrentAnimationAction.Direction;
         if (Input.GetKeyDown(KeyCode.W) && lastInput != KeyCode.W) {
             newDirection = new UpAnimationDirection();
-            currentAction = new WalkAction();
+            newAction = new WalkAction();
             lastInput = KeyCode.W;
-            characterIsDirty = true;
         } else if (Input.GetKeyDown(KeyCode.A) && lastInput != KeyCode.A) {
             newDirection = new LeftAnimationDirection();
-            currentAction = new WalkAction();
+            newAction = new WalkAction();
             lastInput = KeyCode.A;
-            characterIsDirty = true;
         } else if (Input.GetKeyDown(KeyCode.S) && lastInput != KeyCode.S) {
             newDirection = new DownAnimationDirection();
-            currentAction = new WalkAction();
+            newAction = new WalkAction();
             lastInput = KeyCode.S;
-            characterIsDirty = true;
         } else if (Input.GetKeyDown(KeyCode.D) && lastInput != KeyCode.D) {
             newDirection = new RightAnimationDirection();
-            currentAction = new WalkAction();
+            newAction = new WalkAction();
             lastInput = KeyCode.D;
         } else if (Input.GetKeyDown(KeyCode.Space)) {
             newDirection = charAnimator.CurrentAnimationAction.Direction;
-            currentAction = new SlashAction();
+            newAction = new SlashAction();
             lastInput = KeyCode.Space;
-            characterIsDirty = true;
+        } else if (Input.GetKeyDown(KeyCode.F)) {
+            newDirection = charAnimator.CurrentAnimationAction.Direction;
+            newAction = new ThrustAction();
+            lastInput = KeyCode.F;
+        } else if (Input.GetKeyDown(KeyCode.R)) {
+            newDirection = charAnimator.CurrentAnimationAction.Direction;
+            newAction = new SpellcastAction();
+            lastInput = KeyCode.R;
         } else if (Input.GetKeyDown(KeyCode.P)) {
             characterDNA = new LPCCharacterDNA();
             characterDNA.TorsoDNA = new LPCCharacterDNABlock("chest_male_chainmail");
-            characterDNA.NeckDNA = null;
             characterDNA.BodyDNA = new LPCCharacterDNABlock("body_male_orc");
-            characterDNA.BackDNA = null;
-//            characterDNA.FeetDNA = new LPCCharacterDNABlock("feet_male_platemail");
-            //characterDNA.HeadDNA = new LPCCharacterDNABlock("head_male_platemail");
-            //characterDNA.HairDNA = new LPCCharacterDNABlock("hair_male_plain", Color.green);
-            //characterDNA.HandDNA = new LPCCharacterDNABlock("hands_male_platemail");
-            //characterDNA.LegDNA = new LPCCharacterDNABlock("legs_male_platemail");
-            //characterDNA.WaistDNA = new LPCCharacterDNABlock("waist_male_leather");
-            characterDNA.PrimaryDNA = null;
-            newDirection = charAnimator.CurrentAnimationAction.Direction;
-            currentAction = charAnimator.CurrentAnimationAction;
             lastInput = KeyCode.P;
             characterIsDirty = true;
-            //spriteRenderers = new Dictionary<string, SpriteRenderer>();
-            //GameObject body = GameObject.Find("/player/body");
-            //GameObject torso = GameObject.Find("/player/torso");
-            //SpriteRenderer bodyRenderer = body.GetComponent<SpriteRenderer>();
-            //SpriteRenderer torsoRenderer = torso.GetComponent<SpriteRenderer>();
-            //spriteRenderers["torso"] = torsoRenderer;
-            //spriteRenderers["body"] = bodyRenderer;
-            //charAnimator.SetSpriteRenderers(spriteRenderers);
-
         } else {
-            newDirection = charAnimator.CurrentAnimationAction.Direction;
             lastInput = KeyCode.None;
         }
 
-        currentAction.Direction = newDirection;
+        newAction.Direction = newDirection;
 
         bool wasWalking = charAnimator.CurrentAnimationAction is WalkAction;
         bool sameDirection = charAnimator.CurrentAnimationAction.Direction.GetType() == newDirection.GetType();
 
-        if (characterIsDirty || (wasWalking && !sameDirection) || !charAnimator.IsPlaying && lastInput != KeyCode.None) {
-            LPCAnimationDNA animationDNA = animationManager.BuildDNAForAction(characterDNA, currentAction, newDirection);
-            charAnimator.AnimateAction(animationDNA, currentAction, characterIsDirty);
+        if (characterIsDirty || (wasWalking && !sameDirection) || lastInput != KeyCode.None) {
+            LPCAnimationDNA animationDNA = animationManager.BuildDNAForAction(characterDNA, newAction, newDirection);
+            charAnimator.AnimateAction(animationDNA, newAction, characterIsDirty);
             characterIsDirty = false;
         } else if (!Input.anyKey) {
             charAnimator.StopOnFinalFrame(true);

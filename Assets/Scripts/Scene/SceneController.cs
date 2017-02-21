@@ -19,10 +19,6 @@ namespace Assets.Scripts.Scene {
 
 
         void Start() {
-            //LPCActionAnimationCache animationCache = LPCActionAnimationCache.Instance;
-
-            //Dictionary<string, Dictionary<string, Sprite>> atlasCache = LPCAtlasManager.GetCacheLookup();
-
             animationManager = new LPCActionAnimationManager();
             animationsLoaded = false;
             animationsLoading = false;
