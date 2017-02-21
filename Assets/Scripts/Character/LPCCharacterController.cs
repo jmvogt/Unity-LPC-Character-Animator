@@ -12,10 +12,12 @@ public class LPCCharacterController : MonoBehaviour {
 
     LPCActionAnimationManager animationManager;
     LPCCharacterDNA characterDNA;
-    BaseAction currentAction;
+    BaseAction newAction;
     LPCCharacterAnimator charAnimator;
     float moveSpeed;
     KeyCode lastInput;
+    bool characterIsDirty;
+    BaseAnimationDirection lastDirection;
 
 	void Start () {
         //prepare character sprites
@@ -25,8 +27,14 @@ public class LPCCharacterController : MonoBehaviour {
 
         //set defaults
         animationManager = new LPCActionAnimationManager();
-        currentAction = new IdleAction();
+        lastDirection = null;
+        newAction = new IdleAction();
         moveSpeed = .05f;
+
+        //LPCAnimationDNA animationDNA = animationManager.BuildDNAForAction(characterDNA, newAction, null);
+        //charAnimator.AnimateAction(animationDNA, newAction);
+        //charAnimator.enabled = true;
+        characterIsDirty = true;
 	}
 
     void InitializeCharacterDNA() {
@@ -36,18 +44,20 @@ public class LPCCharacterController : MonoBehaviour {
         characterDNA.BodyDNA = new LPCCharacterDNABlock("body_female_light");
         characterDNA.BackDNA = new LPCCharacterDNABlock("back_female_cape", Color.red);
         characterDNA.FeetDNA = new LPCCharacterDNABlock("feet_female_shoes");
-        characterDNA.HeadDNA = new LPCCharacterDNABlock("head_female_tiara");
+        //characterDNA.HeadDNA = new LPCCharacterDNABlock("head_female_tiara");
         characterDNA.HairDNA = new LPCCharacterDNABlock("hair_female_shoulderr", new Color(.847f, .753f, .471f, 1f));
-        characterDNA.HandDNA = new LPCCharacterDNABlock("hand_female_cloth");
-        characterDNA.LegDNA = new LPCCharacterDNABlock("legs_female_cloth");
-        characterDNA.WaistDNA = new LPCCharacterDNABlock("waist_female_leather");
-        characterDNA.PrimaryDNA = new LPCCharacterDNABlock("weapons_oversize_two hand_either_spear");
+        characterDNA.HandDNA = new LPCCharacterDNABlock("hands_female_cloth");
+        characterDNA.LegDNA = new LPCCharacterDNABlock("legs_female_pants");
+        //characterDNA.WaistDNA = new LPCCharacterDNABlock("waist_female_leather");
+        //characterDNA.PrimaryDNA = new LPCCharacterDNABlock("weapons_oversize_two hand_either_spear");
         //characterDNA.SecondaryDNA = new LPCCharacterDNABlock("weapons_left hand_male_shield_male_cutoutforhat");
 
     }
 
+    Dictionary<string, SpriteRenderer> spriteRenderers;
+
     void InitializeCharacterRenderer(LPCCharacterAnimator charAnimator) {
-        Dictionary<string, SpriteRenderer> spriteRenderers = new Dictionary<string, SpriteRenderer>();
+        spriteRenderers = new Dictionary<string, SpriteRenderer>();
         GameObject body = GameObject.Find("/player/body");
         GameObject torso = GameObject.Find("/player/torso");
         GameObject neck = GameObject.Find("/player/neck");
@@ -80,13 +90,14 @@ public class LPCCharacterController : MonoBehaviour {
         spriteRenderers["feet"] = feetRenderer;
         //spriteRenderers["head"] = headRenderer;
         spriteRenderers["hair"] = hairRenderer;
-        spriteRenderers["hand"] = handsRenderer;
-        spriteRenderers["leg"] = legsRenderer;
+        spriteRenderers["hands"] = handsRenderer;
+        spriteRenderers["legs"] = legsRenderer;
         //spriteRenderers["waist"] = waistRenderer;
         spriteRenderers["neck"] = neckRenderer;
         //spriteRenderers["primary"] = primaryWeaponRenderer;
         //spriteRenderers["secondary"] = secondaryWeaponRenderer;
         charAnimator.SetSpriteRenderers(spriteRenderers);
+
     }
 
     void Update() {
@@ -96,11 +107,11 @@ public class LPCCharacterController : MonoBehaviour {
 
     void UpdatePositioning() {
         if (Input.GetKey(KeyCode.LeftShift)) {
-            charAnimator.UpdateAnimationTime(.4f);
-            moveSpeed = .045f;
+            charAnimator.UpdateAnimationTime(.3f);
+            moveSpeed = .0425f;
         } else {
-            moveSpeed = .03f;
-            charAnimator.UpdateAnimationTime(.8f);
+            charAnimator.UpdateAnimationTime(.7f);
+            moveSpeed = .0275f;
         }
 
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -117,38 +128,55 @@ public class LPCCharacterController : MonoBehaviour {
     }
 
     void UpdateAnimation() {
-        BaseAnimationDirection newDirection;
-        if (Input.GetKeyDown(KeyCode.W)) {
+        BaseAnimationDirection newDirection = charAnimator.CurrentAnimationAction.Direction;
+        if (Input.GetKeyDown(KeyCode.W) && lastInput != KeyCode.W) {
             newDirection = new UpAnimationDirection();
-            currentAction = new WalkAction();
+            newAction = new WalkAction();
             lastInput = KeyCode.W;
-        } else if (Input.GetKeyDown(KeyCode.A)) {
+        } else if (Input.GetKeyDown(KeyCode.A) && lastInput != KeyCode.A) {
             newDirection = new LeftAnimationDirection();
-            currentAction = new WalkAction();
+            newAction = new WalkAction();
             lastInput = KeyCode.A;
-        } else if (Input.GetKeyDown(KeyCode.S)) {
+        } else if (Input.GetKeyDown(KeyCode.S) && lastInput != KeyCode.S) {
             newDirection = new DownAnimationDirection();
-            currentAction = new WalkAction();
+            newAction = new WalkAction();
             lastInput = KeyCode.S;
-        } else if (Input.GetKeyDown(KeyCode.D)) {
+        } else if (Input.GetKeyDown(KeyCode.D) && lastInput != KeyCode.D) {
             newDirection = new RightAnimationDirection();
-            currentAction = new WalkAction();
+            newAction = new WalkAction();
             lastInput = KeyCode.D;
-        } else {
+        } else if (Input.GetKeyDown(KeyCode.Space)) {
             newDirection = charAnimator.CurrentAnimationAction.Direction;
+            newAction = new SlashAction();
+            lastInput = KeyCode.Space;
+        } else if (Input.GetKeyDown(KeyCode.F)) {
+            newDirection = charAnimator.CurrentAnimationAction.Direction;
+            newAction = new ThrustAction();
+            lastInput = KeyCode.F;
+        } else if (Input.GetKeyDown(KeyCode.R)) {
+            newDirection = charAnimator.CurrentAnimationAction.Direction;
+            newAction = new SpellcastAction();
+            lastInput = KeyCode.R;
+        } else if (Input.GetKeyDown(KeyCode.P)) {
+            characterDNA = new LPCCharacterDNA();
+            characterDNA.TorsoDNA = new LPCCharacterDNABlock("chest_male_chainmail");
+            characterDNA.BodyDNA = new LPCCharacterDNABlock("body_male_orc");
+            lastInput = KeyCode.P;
+            characterIsDirty = true;
+        } else {
             lastInput = KeyCode.None;
         }
-        currentAction.Direction = newDirection;
+
+        newAction.Direction = newDirection;
 
         bool wasWalking = charAnimator.CurrentAnimationAction is WalkAction;
         bool sameDirection = charAnimator.CurrentAnimationAction.Direction.GetType() == newDirection.GetType();
 
-        if (!(wasWalking && sameDirection)) {
-            LPCAnimationDNA animationDNA = animationManager.BuildDNAForAction(characterDNA, currentAction, newDirection);
-            charAnimator.AnimateAction(animationDNA, currentAction);
-        }
-
-        if (!Input.anyKey) {
+        if (characterIsDirty || (wasWalking && !sameDirection) || lastInput != KeyCode.None) {
+            LPCAnimationDNA animationDNA = animationManager.BuildDNAForAction(characterDNA, newAction, newDirection);
+            charAnimator.AnimateAction(animationDNA, newAction, characterIsDirty);
+            characterIsDirty = false;
+        } else if (!Input.anyKey) {
             charAnimator.StopOnFinalFrame(true);
         } 
     }

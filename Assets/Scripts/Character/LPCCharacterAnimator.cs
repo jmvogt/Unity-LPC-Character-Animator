@@ -21,7 +21,7 @@ public class LPCCharacterAnimator : MonoBehaviour
 
     public BaseAction CurrentAnimationAction { get { return _currentAnimationAction; } }
 
-    public void AnimateAction(LPCAnimationDNA animationDNA, BaseAction animationAction) {
+    public void AnimateAction(LPCAnimationDNA animationDNA, BaseAction animationAction, bool isDirty) {
         _animationDNA = animationDNA;
         _animationCache = animationDNA.GetAnimationCache();
         _currentAnimationAction = animationAction;
@@ -29,6 +29,15 @@ public class LPCCharacterAnimator : MonoBehaviour
         _playing = true;
         _currentFrameNumber = 0;
         _totalAnimTimeInSeconds = .4f;
+        if (isDirty) {
+            foreach (string rendererKey in _spriteRenderers.Keys) {
+                if (!_animationCache.ContainsKey(rendererKey)) {
+                    _spriteRenderers[rendererKey].enabled = false;
+                } else {
+                    _spriteRenderers[rendererKey].enabled = true;
+                }
+            }
+        }
     }
 
     public void UpdateAnimationTime(float totalAnimTimeInSeconds) {
@@ -45,14 +54,14 @@ public class LPCCharacterAnimator : MonoBehaviour
 
     void Start() {
         _passedTime = 0;
-        _playing = false;
+        _playing = true;
         _animationManager = new LPCActionAnimationManager();
         _currentAnimationAction = new IdleAction();
     }
 
     void Update()
     {
-        if (_playing && _animationCache.Count > 0)
+        if (_playing)
         {
             int currentFrameIndex = _currentFrameNumber % _currentAnimationAction.NumberOfFrames;
 
@@ -61,8 +70,15 @@ public class LPCCharacterAnimator : MonoBehaviour
             if (_stopOnFinalFrame && _currentFrameNumber % _currentAnimationAction.NumberOfFrames == 0)
             {
                 _playing = false;
-                foreach(string rendererKey in _spriteRenderers.Keys) {
-                    _spriteRenderers[rendererKey].sprite = _animationCache[rendererKey].SpriteList[0];
+                foreach(string animationKey in _animationCache.Keys) {
+                    BaseAnimationDNABlock animationDNABlock = _animationCache[animationKey];
+                    SpriteRenderer renderer = _spriteRenderers[animationKey];
+                    renderer.sprite = animationDNABlock.SpriteList[0];
+                    renderer.sortingOrder = animationDNABlock.SortingOrder;
+                    renderer.sortingLayerName = "Units";
+                    if (animationDNABlock.SpriteColor != Color.clear) {
+                        renderer.material.SetColor("_Color", animationDNABlock.SpriteColor);
+                    }
                 }
                 return;
             }
@@ -70,9 +86,9 @@ public class LPCCharacterAnimator : MonoBehaviour
             float singleAnimTime = _totalAnimTimeInSeconds / _currentAnimationAction.NumberOfFrames;
             if (_passedTime >= singleAnimTime)
             {
-                foreach (string rendererKey in _spriteRenderers.Keys) {
-                    SpriteRenderer renderer = _spriteRenderers[rendererKey];
-                    BaseAnimationDNABlock animationDNABlock = _animationCache[rendererKey];
+                foreach (string animationKey in _animationCache.Keys) {
+                    SpriteRenderer renderer = _spriteRenderers[animationKey];
+                    BaseAnimationDNABlock animationDNABlock = _animationCache[animationKey];
                     renderer.sprite = animationDNABlock.SpriteList[currentFrameIndex];
                     renderer.sortingOrder = animationDNABlock.SortingOrder;
                     renderer.sortingLayerName = "Units";
@@ -86,10 +102,6 @@ public class LPCCharacterAnimator : MonoBehaviour
                     if (animationDNABlock.SpriteColor != Color.clear) {
                         renderer.material.SetColor("_Color", animationDNABlock.SpriteColor);  
                     }
-                    
-                    //if (rendererKey == "torso") {
-                    //    renderer.material.SetColor("_Color", new Color(1f, .84f, 0f, .9f));  
-                    //}
                 }
                 
                 _passedTime -= singleAnimTime;

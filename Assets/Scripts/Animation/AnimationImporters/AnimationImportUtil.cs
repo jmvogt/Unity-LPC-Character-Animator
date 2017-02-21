@@ -17,7 +17,7 @@ namespace Assets.Scripts.Animation.AnimationImporters {
 
             for (int i = 0; i < animationDefinition.NumberOfFrames; i++) {
                 string spriteKey = animationKey + "_" + i;
-                Sprite sprite = AtlasManager.GetSprite(spriteKey);
+                Sprite sprite = LPCAtlasManager.GetSprite(spriteKey);
                 spriteList.Add(sprite);
             }
 
