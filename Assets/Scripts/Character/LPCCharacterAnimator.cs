@@ -76,6 +76,12 @@ public class LPCCharacterAnimator : MonoBehaviour
                     renderer.sprite = animationDNABlock.SpriteList[0];
                     renderer.sortingOrder = animationDNABlock.SortingOrder;
                     renderer.sortingLayerName = "Units";
+
+                    // TODO: Fix ordering so hair is hidden when going up..
+                    if (CurrentAnimationAction.Direction.GetAnimationDirection() == "t" && animationKey == "back") {
+                        renderer.sortingOrder = 100;
+                    }
+
                     if (animationDNABlock.SpriteColor != Color.clear) {
                         renderer.material.SetColor("_Color", animationDNABlock.SpriteColor);
                     }
@@ -94,8 +100,8 @@ public class LPCCharacterAnimator : MonoBehaviour
                     renderer.sortingLayerName = "Units";
 
                     // TODO: Fix ordering so hair is hidden when going up..
-                    if (CurrentAnimationAction.Direction.GetAnimationDirection() == "t") {
-                        renderer.sortingOrder *= -1;
+                    if (CurrentAnimationAction.Direction.GetAnimationDirection() == "t" && animationKey == "back") {
+                        renderer.sortingOrder = 100;
                     }
 
                     // TODO: Really, we should be able to set things as clear if needed..
