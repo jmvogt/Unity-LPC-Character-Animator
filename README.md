@@ -5,8 +5,6 @@ I started this project as an attempt to familiarize myself with 2D game developm
 
 For the most part, this asset will allow you to animate a character by layering LPC art at runtime. Given that Unity 5+ doesn't allow for you to change the sprites being used within an Animation at runtime, I had to recreate my own LPC animator to handle the swapping of sprites. The alternative was to generate thousands of prefabs and animations, which would have bloated the project's size beyond anything I would feel is realistic for a simple 2D game.
 
-Given that I'm relatively new to Unity and Game Development, I would love your feedback on how I could improve this plugin. Whether it be from better practices for Unity or how I could structure my classes, I am eager to get feedback from more experienced game developers.
-
 ##OpenGameArt and the Liberated Pixel Cup
 OpenGameArt (OGA) is a community for users to share a variety of free/open source art. The Liberated Pixel Cup (LPC) was a contest kickstarted by OGA to create free art that was judged to ensure it was of the appropriate quality and matched a particular art style.
 
@@ -31,20 +29,22 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
   * ~~File system tests (measure how large the game is with above changes)~~
   * ~~Simple GUI with drop downs that will allow you to change the CharacterDNA at runtime~~
   * Use reflection on classes referencing each DNA block
-  * Apply design patterns / clean up hacked up code
-  * Clean up / finish TODOs in code
+  * Clean up hacked up code / finish TODOs
   * Look for LPC compliant assets that were not included in the online generator tool.
   * Create instructions/tutorial in a document or YouTube video.
   
 ##v0.2 Roadmap
   * Unit tests for v0.1... :)
-
+  * Exception handling?
   * Keep a running list of "imported" sprites in either a flat file or DB for eventual mapping.
   * Drop down selectors and color pallettes for the Demo scene.
   * Create non-playable character controller that is integrated with the LPC animator
   * Have NPCs/guards walk the perimiter of the sceen using the LPC animator.
+  * Improve animation speed for all action types (some are too fast..)
   
-  * Packing and unpacking of "DNA" for network serialization.
-
 ##v0.3 Roadmap:
+  * Packing and unpacking of "DNA" for network serialization.
+  * LAN multiplayer request system
+  * Network character controller that can be used during multiplayer
+  
  
