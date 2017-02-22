@@ -26,17 +26,25 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
   * ~~Reduce the number of duplicate sprites by updating the material color dynamically~~
   * ~~Mechanism for loading more sprites upfront~~
   * ~~Pack LPC sprites appropriately into larger spritesheets (if needed from prior step)~~
-  * ~~Create a cache to store independent parts of the LPC character sprites (torso vs body vs weapon)~~
-  * ~~Create a local cache that would hold all possible spritesheets for the current DNA~~
-  * ~~Garbage collection to cleanup unused objects from caches~~
-  * Explore asset bundles and whether they would improve performance
-  * In memory tests (how much memory is used with the above changes)
-  * File system tests (measure how large the game is with above changes)
+  * ~~Create caches to store/lookup independent parts of the LPC character sprites (torso vs body vs weapon)~~  
+  * ~~In memory tests (how much memory is used with the above changes)~~
+  * ~~File system tests (measure how large the game is with above changes)~~
   * ~~Simple GUI with drop downs that will allow you to change the CharacterDNA at runtime~~
   * Use reflection on classes referencing each DNA block
   * Apply design patterns / clean up hacked up code
   * Clean up / finish TODOs in code
   * Look for LPC compliant assets that were not included in the online generator tool.
   * Create instructions/tutorial in a document or YouTube video.
-  * Start planning v0.2 or my next game component
   
+##v0.2 Roadmap
+  * Unit tests for v0.1... :)
+
+  * Keep a running list of "imported" sprites in either a flat file or DB for eventual mapping.
+  * Drop down selectors and color pallettes for the Demo scene.
+  * Create non-playable character controller that is integrated with the LPC animator
+  * Have NPCs/guards walk the perimiter of the sceen using the LPC animator.
+  
+  * Packing and unpacking of "DNA" for network serialization.
+
+##v0.3 Roadmap:
+ 
