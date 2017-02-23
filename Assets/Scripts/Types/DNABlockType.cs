@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Scripts.Character {
+namespace Assets.Scripts.Types {
     public static class DNABlockType {
         public const string BODY = "BODY";
         public const string HAIR = "HAIR";
@@ -27,13 +27,28 @@ namespace Assets.Scripts.Character {
         public const string LEFTHAND = "LEFTHAND";
 
         public static string[] GetTypeList() {
+
+            // Objects will be layered using the index order below. 
+            // For example, your weapons will render above your body.
             return new string[20] {
-                BODY, HAIR, HEAD, FACIALHAIR,
-                EARS, EYES, NOSE, NECK,
-                CHEST, SHOULDER, ARMS, WRISTS,
-                HANDS, BACK, BACK2, WAIST,
-                LEGS, FEET, RIGHTHAND, LEFTHAND
+                BACK2, BACK, BODY, EARS, 
+                EYES, NOSE, FACIALHAIR, HAIR, 
+                NECK, SHOULDER, WAIST, WRISTS, 
+                FEET, HANDS, HEAD, LEGS,
+                LEFTHAND, ARMS, CHEST, RIGHTHAND
             };
+        }
+
+        public static int GetSortingOrder(string blockType, string direction) {
+            string[] typeList = GetTypeList();
+            int index = Array.IndexOf(typeList, blockType);
+            if (direction == DirectionType.UP &&
+                (blockType == DNABlockType.BACK || blockType == DNABlockType.BACK2)) {
+                    // BACK2 will be on top of BACK when facing up
+                    return (typeList.Length - index) * 100;
+            } else {
+                return index;
+            }
         }
     }
 }

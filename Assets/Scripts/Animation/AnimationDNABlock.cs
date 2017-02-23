@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Animation.AnimationDirections;
+﻿using Assets.Scripts.Types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +7,13 @@ using UnityEngine;
 
 namespace Assets.Scripts.Animation {
     public class AnimationDNABlock {
-        // TODO: Setup children classes to hold properties such as sorting layer
+        
         private string _animationKey;
         private List<Sprite> _spriteList;
-        private BaseAnimationDirection _animationDirection;
+        private string _direction;
         private Color _spriteColor;
         private bool _enabled;
+        private int _sortingOrder;
 
         public string AnimationKey {
             get { return _animationKey; }
@@ -22,9 +23,13 @@ namespace Assets.Scripts.Animation {
             get { return _spriteList; }
         }
 
-        public BaseAnimationDirection AnimationDirection {
-            get { return _animationDirection; }
-            set { _animationDirection = value; }
+        public int SortingOrder {
+            get { return _sortingOrder; }
+        }
+
+        public string Direction {
+            get { return _direction; }
+            set { _direction = value; }
         }
 
         public Color SpriteColor {
@@ -37,24 +42,19 @@ namespace Assets.Scripts.Animation {
             _spriteColor = spriteColor;
         }
 
-        public AnimationDNABlock(string animationKey, List<Sprite> spriteList, BaseAnimationDirection animationDirection) {
+        public AnimationDNABlock(string animationKey, List<Sprite> spriteList, string direction, int sortingOrder) {
             _animationKey = animationKey;
             _spriteList = spriteList;
-            _animationDirection = animationDirection;
-            _enabled = true;
-        }
-        public AnimationDNABlock(string animationKey, List<Sprite> spriteList, BaseAnimationDirection animationDirection, Color spriteColor) {
-            _animationKey = animationKey;
-            _spriteList = spriteList;
-            _animationDirection = animationDirection;
-            _spriteColor = spriteColor;
+            _direction = direction;
+            _sortingOrder = sortingOrder;
             _enabled = true;
         }
 
         public AnimationDNABlock() {
             _animationKey = "UNKNOWN";
-            _animationDirection = new NoAnimationDirection();
+            _direction = DirectionType.NONE;
             _enabled = false;
+            _sortingOrder = -99;
         }
     }
 }

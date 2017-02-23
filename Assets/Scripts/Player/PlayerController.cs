@@ -1,9 +1,8 @@
-﻿
-using Assets.Scripts.Animation;
+﻿using Assets.Scripts.Animation;
 using Assets.Scripts.Animation.ActionAnimations;
-using Assets.Scripts.Animation.AnimationDirections;
 using Assets.Scripts.Animation.Interfaces;
 using Assets.Scripts.Character;
+using Assets.Scripts.Types;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,9 +13,9 @@ public class PlayerController : MonoBehaviour {
     private AnimationManager _animationManager;
     private CharacterAnimator _charAnimator;
 
-    private BaseAnimationDirection _lastDirection;
     private BaseAction _newAction;
-    private KeyCode _lastInput;
+    private KeyCode _newInput;
+    private string _lastDirection;
 
     private GameObject _playerObject;
     private float _moveSpeed;
@@ -29,8 +28,8 @@ public class PlayerController : MonoBehaviour {
 
         //set defaults
         _animationManager = new AnimationManager();
-        _lastDirection = null;
         _newAction = new IdleAction();
+        _lastDirection = DirectionType.NONE;
         _moveSpeed = .0275f;
 	}
 
@@ -73,55 +72,57 @@ public class PlayerController : MonoBehaviour {
     }
 
     void UpdateAnimation() {
-        BaseAnimationDirection newDirection = null;
-        if (Input.GetKeyDown(KeyCode.W) && _lastInput != KeyCode.W) {
-            newDirection = new UpAnimationDirection();
+        string newDirection = DirectionType.NONE;
+        if (Input.GetKeyDown(KeyCode.W) && _newInput != KeyCode.W) {
+            newDirection = DirectionType.UP;
             _newAction = new WalkAction();
-            _lastInput = KeyCode.W;
-        } else if (Input.GetKeyDown(KeyCode.A) && _lastInput != KeyCode.A) {
-            newDirection = new LeftAnimationDirection();
+            _newInput = KeyCode.W;
+        } else if (Input.GetKeyDown(KeyCode.A) && _newInput != KeyCode.A) {
+            newDirection = DirectionType.LEFT;
             _newAction = new WalkAction();
-            _lastInput = KeyCode.A;
-        } else if (Input.GetKeyDown(KeyCode.S) && _lastInput != KeyCode.S) {
-            newDirection = new DownAnimationDirection();
+            _newInput = KeyCode.A;
+        } else if (Input.GetKeyDown(KeyCode.S) && _newInput != KeyCode.S) {
+            newDirection = DirectionType.DOWN;
             _newAction = new WalkAction();
-            _lastInput = KeyCode.S;
-        } else if (Input.GetKeyDown(KeyCode.D) && _lastInput != KeyCode.D) {
-            newDirection = new RightAnimationDirection();
+            _newInput = KeyCode.S;
+        } else if (Input.GetKeyDown(KeyCode.D) && _newInput != KeyCode.D) {
+            newDirection = DirectionType.RIGHT;
             _newAction = new WalkAction();
-            _lastInput = KeyCode.D;
+            _newInput = KeyCode.D;
         } else if (Input.GetKeyDown(KeyCode.Space)) {
-            newDirection = _charAnimator.CurrentAnimationAction.Direction;
+            newDirection = _lastDirection;
             _newAction = new SlashAction();
-            _lastInput = KeyCode.Space;
+            _newInput = KeyCode.Space;
         } else if (Input.GetKeyDown(KeyCode.F)) {
-            newDirection = _charAnimator.CurrentAnimationAction.Direction;
+            newDirection = _lastDirection;
             _newAction = new ThrustAction();
-            _lastInput = KeyCode.F;
+            _newInput = KeyCode.F;
         } else if (Input.GetKeyDown(KeyCode.R)) {
-            newDirection = _charAnimator.CurrentAnimationAction.Direction;
+            newDirection = _lastDirection;
             _newAction = new SpellcastAction();
-            _lastInput = KeyCode.R;
+            _newInput = KeyCode.R;
+        } else if (Input.GetKeyDown(KeyCode.E)) {
+            newDirection = _lastDirection;
+            _newAction = new ShootAction();
+            _newInput = KeyCode.E;
         } else {
-            _lastInput = KeyCode.None;
+            _newInput = KeyCode.None;
         }
 
-        if (newDirection == null)
-            if (_charAnimator.CurrentAnimationAction == null)
-                newDirection = new DownAnimationDirection();
-            else
-                newDirection = _charAnimator.CurrentAnimationAction.Direction;
+        if (newDirection == DirectionType.NONE)
+            newDirection = _lastDirection;
 
-        _newAction.Direction = newDirection;
+        _lastDirection = _newAction.Direction = newDirection;
 
         bool wasWalking = _charAnimator.CurrentAnimationAction is WalkAction;
-        bool sameDirection = _charAnimator.CurrentAnimationAction.Direction.GetType() == newDirection.GetType();
+        bool sameDirection = _lastDirection == newDirection;
 
-        if (Player.characterDNA.IsDirty() && (wasWalking && !sameDirection) || _lastInput != KeyCode.None) {
+        if ((wasWalking && !sameDirection) || _newInput != KeyCode.None || Player.characterDNA.IsDirty()) {
             _animationManager.UpdateDNAForAction(Player.characterDNA, Player.animationDNA, _newAction, newDirection);
             _charAnimator.AnimateAction(Player.animationDNA, _newAction);
         } else if (!Input.anyKey) {
             _charAnimator.StopOnFinalFrame(true);
-        } 
+        }
+
     }
 }

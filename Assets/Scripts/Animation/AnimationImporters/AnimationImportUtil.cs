@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Animation.AnimationDirections;
+﻿using Assets.Scripts.Character;
+using Assets.Scripts.Types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,19 +8,23 @@ using UnityEngine;
 
 namespace Assets.Scripts.Animation.AnimationImporters {
     public class AnimationImportUtil {
-        public AnimationDNABlock BuildAnimation(SingleAnimationImporter animationDefinition, string spritesheetKey, BaseAnimationDirection direction) {
-            // TODO: Stop passing direction through here..
-            List<Sprite> spriteList = new List<Sprite>();
-
+        public AnimationDNABlock BuildAnimation(SingleAnimationImporter animationDefinition, string spritesheetKey, string direction) {
             string animationKey = spritesheetKey + "_" + animationDefinition.TagName;
 
+            // fetch all frames for an action/spritesheet into a list
+            List<Sprite> spriteList = new List<Sprite>();
             for (int i = 0; i < animationDefinition.NumberOfFrames; i++) {
                 string spriteKey = animationKey + "_" + i;
                 Sprite sprite = AtlasManager.GetSprite(spriteKey);
                 spriteList.Add(sprite);
             }
 
-            return new AnimationDNABlock(animationKey, spriteList, direction);
+            // get the model key from the animation key
+            string modelKey = animationKey.Split('_')[0].ToUpper();
+            int sortingOrder = DNABlockType.GetSortingOrder(modelKey, direction);
+
+            // create a new animation block
+            return new AnimationDNABlock(animationKey, spriteList, direction, sortingOrder);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Animation;
 using Assets.Scripts.Animation.ActionAnimations;
 using Assets.Scripts.Character;
+using Assets.Scripts.Types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -88,7 +89,6 @@ namespace Assets.Scripts.Scene {
                     playerController.enabled = true;
                 }
             } else {
-                // TODO: Use more loops..
                 int increaseYAmt = 25;
                 int currentY = 35;
                 int currentX = 10;
@@ -126,6 +126,7 @@ namespace Assets.Scripts.Scene {
                             float.Parse(modelTLookup[blockKey]) / 255f
                         );
                     } catch (Exception ex) {
+                        // dont color the armor on parsing issues
                         modelColorLookup[blockKey] = Color.clear;
                     }
                     currentY += increaseYAmt;

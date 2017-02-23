@@ -6,6 +6,7 @@ using System.Text;
 using UnityEngine;
 using Assets.Scripts.Character;
 using Assets.Scripts.Animation.Interfaces;
+using Assets.Scripts.Types;
 
 namespace Assets.Scripts.Animation
 {

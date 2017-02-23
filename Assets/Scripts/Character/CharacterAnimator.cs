@@ -4,11 +4,11 @@ using UnityEngine.UI;
 using Assets.Scripts.Animation;
 using Assets.Scripts.Animation.Interfaces;
 using Assets.Scripts.Animation.ActionAnimations;
+using Assets.Scripts.Types;
 
 public class CharacterAnimator : MonoBehaviour
 {       
     private Dictionary<string, SpriteRenderer> _spriteRenderers;
-    private AnimationManager _animationManager;
     private BaseAction _currentAnimationAction;
     private AnimationDNA _animationDNA;
     private bool _playing;
@@ -43,13 +43,12 @@ public class CharacterAnimator : MonoBehaviour
     void Start() {
         _passedTime = 0;
         _playing = true;
-        _animationManager = new AnimationManager();
         _currentAnimationAction = new IdleAction();
     }
 
     void Update()
     {
-        if (_playing && _animationDNA != null)
+        if (_playing)
         {
             int currentFrameIndex = _currentFrameNumber % _currentAnimationAction.NumberOfFrames;
 
@@ -59,22 +58,7 @@ public class CharacterAnimator : MonoBehaviour
             {
                 _playing = false;
                 foreach(string animationKey in _animationDNA.DNABlocks.Keys) {
-                    AnimationDNABlock animationDNABlock = _animationDNA.DNABlocks[animationKey];
-                    if (animationDNABlock.Enabled) { 
-                        SpriteRenderer renderer = _spriteRenderers[animationKey];
-                        renderer.sprite = animationDNABlock.SpriteList[0];
-                        renderer.sortingOrder = _animationDNA.GetSortingOrder(animationKey);
-                        renderer.sortingLayerName = "Units";
-
-                        // TODO: Fix ordering so hair is hidden when going up..
-                        if (CurrentAnimationAction.Direction.GetAnimationDirection() == "t" && animationKey == "BACK") {
-                            renderer.sortingOrder = 100;
-                        }
-
-                        if (animationDNABlock.SpriteColor != Color.clear) {
-                            renderer.material.SetColor("_Color", animationDNABlock.SpriteColor);
-                        }
-                    }
+                    RenderAnimationFrame(animationKey, 0);
                 }
                 return;
             }
@@ -83,29 +67,28 @@ public class CharacterAnimator : MonoBehaviour
             if (_passedTime >= singleAnimTime)
             {
                 foreach (string animationKey in _animationDNA.DNABlocks.Keys) {
-                    SpriteRenderer renderer = _spriteRenderers[animationKey];
-                    AnimationDNABlock animationDNABlock = _animationDNA.DNABlocks[animationKey];
-                    if (animationDNABlock.Enabled) {
-                        renderer.sprite = animationDNABlock.SpriteList[currentFrameIndex];
-                        renderer.sortingOrder = _animationDNA.GetSortingOrder(animationKey); ;
-                        renderer.sortingLayerName = "Units";
-
-                        // TODO: Fix ordering so hair is hidden when going up..
-                        if (CurrentAnimationAction.Direction.GetAnimationDirection() == "t" && animationKey == "BACK") {
-                            renderer.sortingOrder = 100;
-                        }
-
-                        // TODO: Really, we should be able to set things as clear if needed..
-                        if (animationDNABlock.SpriteColor != Color.clear) {
-                            renderer.material.SetColor("_Color", animationDNABlock.SpriteColor);
-                        }
-                    }
+                    RenderAnimationFrame(animationKey, currentFrameIndex);
                 }
                 
                 _passedTime -= singleAnimTime;
             }
 
             _passedTime += Time.deltaTime;
+        }
+    }
+
+    void RenderAnimationFrame(string animationKey, int currentFrameIndex) {
+        AnimationDNABlock animationDNABlock = _animationDNA.DNABlocks[animationKey];
+        if (animationDNABlock.Enabled) {
+            SpriteRenderer renderer = _spriteRenderers[animationKey];
+            renderer.sprite = animationDNABlock.SpriteList[currentFrameIndex];
+            renderer.sortingOrder = animationDNABlock.SortingOrder;
+            renderer.sortingLayerName = "Units";
+
+            // Don't color clear objects
+            if (animationDNABlock.SpriteColor != Color.clear) {
+                renderer.material.SetColor("_Color", animationDNABlock.SpriteColor);
+            }
         }
     }
 }

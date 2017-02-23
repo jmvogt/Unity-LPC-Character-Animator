@@ -15,7 +15,8 @@ namespace Assets.Scripts.Animation.ActionAnimations
             return new SingleAnimationImporter(animationTag, _numberOfFrames, spriteStartIndex, stopOnFinalFrame);
         }
 
-        public DeathAction() : base(6) {
+        public DeathAction() : base() {
+            _numberOfFrames = 6;
         }
 
         public override string GetAnimationTag() {

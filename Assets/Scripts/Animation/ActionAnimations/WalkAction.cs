@@ -21,7 +21,8 @@ namespace Assets.Scripts.Animation.ActionAnimations
             return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
         }
 
-        public WalkAction() : base(9) {
+        public WalkAction() : base() {
+            _numberOfFrames = 9;
         }
 
         public override string GetAnimationTag() {
