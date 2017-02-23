@@ -18,26 +18,26 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
  * Unity LPC Spritesheet Importer: https://bitcula.com/universal-lpc-spritesheet-unity-importer/
   * Github: https://github.com/bitcula/Universal-LPC-Spritesheet-Unity-Importer
 
-##v0.1 Roadmap:
-  * ~~Reduce the number of duplicate sprites by updating the material color dynamically~~
-  * ~~Mechanism for loading more sprites upfront~~
+##v0.1 Roadmap (Core Functionality):
+  * ~~Mechanism for loading a large number of spritesheets up front~~
   * ~~Create caches to store/lookup independent parts of the LPC character sprites (chest vs body vs helm)~~ 
   * ~~Simple GUI that will allow you to change the character models at runtime~~
-  * ~~Move variables for sprite layers (chest vs body vs helm) into dictionaries to shorten code~~
   * ~~Create a character state to represent racial configurations and equipement to generate animations at runtime~~
+  * ~~Render animations whenever the character state has changed or player input~~
+  * ~~Reduce the number of duplicate spritesheets by updating the material color dynamically~~
+  * ~~Move variables for sprite layers (chest vs body vs helm) into dictionaries to shorten code~~
   * Look for LPC compliant assets that were not included in the online generator tool.
   * Create instructions/tutorial in a document or YouTube video.
   
-##v0.2 Roadmap
-  * Unit tests for v0.1... :)
-  * Exception handling?
+##v0.2 Roadmap (UI Tools & Improved Demo)
+  * QA: Unit Testing / Exception Handling for v0.1 and v0.2 :)
   * Race Creator Tool: Generate new LPC spritesheets (body, eyes) automatically using a color picker!
   * Improved UI: Drop down selectors and color pallettes for the Demo scene.
   * New Character Controller: Create non-playable character controller that is integrated with the LPC animator
   * Improved Demo Scene: Have NPCs/guards walk the perimiter of the sceen using the LPC animator.
   * New UI Functionality: Provide UI to spawn a new LPC character that walks the perimiter using presets/controls
   
-##v0.3 Roadmap:
+##v0.3 Roadmap (Multiplayer & Animation)
   * Network/Multiplayer: Packing and unpacking of "DNA" for network serialization.
   * Network/Multiplayer: LAN multiplayer request system
   * Network/Multiplayer: Network character controller that can be used during multiplayer
