@@ -20,7 +20,8 @@ namespace Assets.Scripts.Animation.ActionAnimations
             return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
         }
 
-        public ShootAction() : base(13) {
+        public ShootAction() : base() {
+            _numberOfFrames = 13;
         }
 
         public override string GetAnimationTag() {

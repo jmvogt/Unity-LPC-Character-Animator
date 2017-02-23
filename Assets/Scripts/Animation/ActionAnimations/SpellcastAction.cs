@@ -20,7 +20,8 @@ namespace Assets.Scripts.Animation.ActionAnimations
             return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
         }
 
-        public SpellcastAction() : base(7) {
+        public SpellcastAction() : base() {
+            _numberOfFrames = 7;
         }
 
         public override string GetAnimationTag() {

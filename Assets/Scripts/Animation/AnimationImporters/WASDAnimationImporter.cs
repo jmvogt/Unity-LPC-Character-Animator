@@ -1,6 +1,5 @@
-﻿using Assets.Scripts.Animation.AnimationDirections;
-using Assets.Scripts.Animation.DNABlocks;
-using Assets.Scripts.Animation.Interfaces;
+﻿using Assets.Scripts.Animation.Interfaces;
+using Assets.Scripts.Types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +13,13 @@ namespace Assets.Scripts.Animation.AnimationImporters
         private SingleAnimationImporter _s_importer;
         private SingleAnimationImporter _d_importer;
 
-        List<BaseAnimationDNABlock> IAnimationImporter.ImportAnimations(string spritesheetKey, BaseAnimationDirection direction) {
-            List<BaseAnimationDNABlock> animationList = new List<BaseAnimationDNABlock>();
+        List<AnimationDNABlock> IAnimationImporter.ImportAnimations(string spritesheetKey, string direction) {
+            List<AnimationDNABlock> animationList = new List<AnimationDNABlock>();
             AnimationImportUtil builder = new AnimationImportUtil();
-            animationList.Add(builder.BuildAnimation(_w_importer, spritesheetKey, new UpAnimationDirection()));
-            animationList.Add(builder.BuildAnimation(_a_importer, spritesheetKey, new LeftAnimationDirection()));
-            animationList.Add(builder.BuildAnimation(_s_importer, spritesheetKey, new DownAnimationDirection()));
-            animationList.Add(builder.BuildAnimation(_d_importer, spritesheetKey, new RightAnimationDirection()));
+            animationList.Add(builder.BuildAnimation(_w_importer, spritesheetKey, DirectionType.UP));
+            animationList.Add(builder.BuildAnimation(_a_importer, spritesheetKey, DirectionType.LEFT));
+            animationList.Add(builder.BuildAnimation(_s_importer, spritesheetKey, DirectionType.DOWN));
+            animationList.Add(builder.BuildAnimation(_d_importer, spritesheetKey, DirectionType.RIGHT));
             return animationList;
         }
 

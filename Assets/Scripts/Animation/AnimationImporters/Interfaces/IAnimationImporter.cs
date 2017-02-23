@@ -1,6 +1,4 @@
-﻿using Assets.Scripts.Animation.AnimationDirections;
-using Assets.Scripts.Animation.DNABlocks;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +8,7 @@ namespace Assets.Scripts.Animation.Interfaces
 {
     public interface IAnimationImporter
     {
-        List<BaseAnimationDNABlock> ImportAnimations(string spritesheetKey, BaseAnimationDirection direction);
+        List<AnimationDNABlock> ImportAnimations(string spritesheetKey, string direction);
 
     }
 }

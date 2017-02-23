@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Animation.AnimationDirections;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,15 +11,14 @@ namespace Assets.Scripts.Animation.Interfaces
 
         public abstract string GetAnimationTag();
 
-        public BaseAnimationDirection Direction { get { return _direction; } set { _direction = value; } }
+        public string Direction { get { return _direction; } set { _direction = value; } }
 
         protected int _numberOfFrames;
-        protected BaseAnimationDirection _direction;
+        protected string _direction;
         public int NumberOfFrames { get { return _numberOfFrames;} }
 
-        public BaseAction(int numberOfFrames) {
-            _numberOfFrames = numberOfFrames;
-            _direction = new NoAnimationDirection();
+        public BaseAction() {
+            
         }
 
         public abstract string GetAnimationType();

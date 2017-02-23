@@ -10,13 +10,13 @@ namespace Assets.Scripts.Animation.ActionAnimations
     public class IdleAction : BaseAction {
         public override IAnimationImporter GetAnimationImporter() {
             string animationTag = GetAnimationTag();
-            int numberOfFrames = _numberOfFrames;
             int spriteStartIndex = 0;
             bool stopOnFinalFrame = GetStopOnLastFrame();
             return new SingleAnimationImporter(animationTag, _numberOfFrames, spriteStartIndex, stopOnFinalFrame);
         }
 
-        public IdleAction() : base(1) {
+        public IdleAction() : base() {
+            _numberOfFrames = 1;
         }
 
         public override string GetAnimationTag() {
