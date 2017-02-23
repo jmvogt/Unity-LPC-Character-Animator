@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Animation.AnimationDirections;
-using Assets.Scripts.Animation.DNABlocks;
 using Assets.Scripts.Animation.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -14,8 +13,8 @@ namespace Assets.Scripts.Animation.AnimationImporters
         private SingleAnimationImporter _s_importer;
         private SingleAnimationImporter _d_importer;
 
-        List<BaseAnimationDNABlock> IAnimationImporter.ImportAnimations(string spritesheetKey, BaseAnimationDirection direction) {
-            List<BaseAnimationDNABlock> animationList = new List<BaseAnimationDNABlock>();
+        List<AnimationDNABlock> IAnimationImporter.ImportAnimations(string spritesheetKey, BaseAnimationDirection direction) {
+            List<AnimationDNABlock> animationList = new List<AnimationDNABlock>();
             AnimationImportUtil builder = new AnimationImportUtil();
             animationList.Add(builder.BuildAnimation(_w_importer, spritesheetKey, new UpAnimationDirection()));
             animationList.Add(builder.BuildAnimation(_a_importer, spritesheetKey, new LeftAnimationDirection()));

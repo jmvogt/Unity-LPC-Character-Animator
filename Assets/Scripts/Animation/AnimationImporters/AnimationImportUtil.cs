@@ -1,6 +1,4 @@
 ﻿using Assets.Scripts.Animation.AnimationDirections;
-using Assets.Scripts.Animation.DNABlocks;
-using Assets.Scripts.Animation.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +7,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Animation.AnimationImporters {
     public class AnimationImportUtil {
-        public BaseAnimationDNABlock BuildAnimation(SingleAnimationImporter animationDefinition, string spritesheetKey, BaseAnimationDirection direction) {
+        public AnimationDNABlock BuildAnimation(SingleAnimationImporter animationDefinition, string spritesheetKey, BaseAnimationDirection direction) {
             // TODO: Stop passing direction through here..
             List<Sprite> spriteList = new List<Sprite>();
 
@@ -17,11 +15,11 @@ namespace Assets.Scripts.Animation.AnimationImporters {
 
             for (int i = 0; i < animationDefinition.NumberOfFrames; i++) {
                 string spriteKey = animationKey + "_" + i;
-                Sprite sprite = LPCAtlasManager.GetSprite(spriteKey);
+                Sprite sprite = AtlasManager.GetSprite(spriteKey);
                 spriteList.Add(sprite);
             }
 
-            return new BaseAnimationDNABlock(animationKey, spriteList, direction);
+            return new AnimationDNABlock(animationKey, spriteList, direction);
         }
     }
 }
