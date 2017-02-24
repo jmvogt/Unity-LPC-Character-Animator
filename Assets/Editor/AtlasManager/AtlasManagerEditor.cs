@@ -36,6 +36,12 @@ public class AtlasManagerEditor : Editor
             LoadFiles(characterSprites);
             LoadFiles(equipmentSprites);
 
+            // update the model-list text file
+            using (StreamWriter outputFile = new StreamWriter("model-list.txt")) {
+                foreach (string model in am.modelList)
+                    outputFile.WriteLine(model);
+            }
+
         }
 
         if (GUILayout.Button("Unload")) {
