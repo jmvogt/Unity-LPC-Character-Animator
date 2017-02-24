@@ -7,8 +7,6 @@ public class AtlasManager : MonoBehaviour
 {
     static AtlasManager instance;
 
-    public double SpritesLoaded = 0;
-    public double SpritesTotal = 0;
     public double ModelsLoaded = 0;
     public double ModelsTotal = 0;
 

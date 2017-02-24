@@ -1,4 +1,4 @@
-Luke Mehl
+﻿Luke Mehl
 ---------
 Most of the female assets
 All layers in the tiaras group
@@ -205,9 +205,24 @@ Nila122
 ---------
 darkelf (male and female)
 darkelf2 (male and female)
-extra long hairstyle
+extra long / half messy hairstyles
 red2, black2, purple, brown2, gold hair recolors
+mask (male and female)
+apron (male and female)
+long ears (male and female)
+sleveless shirt
+scarf
+single-leather shoulder
+
 
 neo4cat6
 ---------
 Beard and Mustache
+
+ElizaWy
+---------
+body: black (male and female)
+
+DarkwallLKE
+---------
+crown

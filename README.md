@@ -26,11 +26,12 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
   * ~~Reduce the number of duplicate spritesheets by updating the material color dynamically~~
   * ~~Simple GUI to change the character models at runtime~~
   * ~~Move variables for sprite layers (chest vs body vs helm) into dictionaries to shorten code~~
-  * Look for LPC compliant assets that were not included in the online generator tool.
+  * ~~Look for more LPC compliant assets that were not included in the online generator tool~~
   * Create instructions/tutorial in a document or YouTube video.
   
 ##v0.2 Roadmap (UI Tools & Improved Demo)
-  * QA: Unit Testing / Exception Handling for v0.1 and v0.2 :)
+  * Sprite Support: Add more support for sprites such as weapons (knife/mace/short sword) and children.
+  * Sprite Support: Create appendage character types to handle things like lizard/drake fin, tail, horns, etc.
   * Race Creator Tool: Generate new LPC spritesheets (body, eyes) automatically using a color picker!
   * Improved GUI: Drop down selectors and color pallettes for the Demo scene.
   * New Character Controller: Create non-playable character controller that is integrated with the LPC animator
