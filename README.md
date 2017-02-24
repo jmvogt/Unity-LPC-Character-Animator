@@ -1,5 +1,7 @@
 # Unity LPC Character Animator
-Dynamically animate characters using Liberated Pixel Cup sprites
+Dynamically animate characters using Liberated Pixel Cup sprites 
+
+[Demo](http://jordanvogt.com/LPC-Animation-Demo.zip) - [Models for Demo](https://raw.githubusercontent.com/jmvogt/Unity-LPC-Character-Animator/master/model-list.txt)
 
 This asset allows you to animate a character by layering LPC art at runtime. Given that Unity 5+ doesn't allow for you to change the sprites being used within an Animation at runtime, I had to recreate my own LPC animator to handle the swapping of sprites. The alternative was to generate thousands of prefabs and animations, which would have bloated the project's size beyond anything I would feel is realistic for a 2D game.
 
@@ -24,7 +26,7 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
 (until I get a youtube video up)
   1. Open the project in unity. It will take a bit of time to import the assets as there are ~52k sprites. This will only happen the first time you open the project.
   2. Open the demo scene from the root Assets folder.
-  3. From the Hierarchy window, select the AtlasManager GameObject. Under the Atlas Manager script, click load. The first time this may take 15-20 seconds but the next time it should be much faster.
+  3. From the Hierarchy window, select the AtlasManager GameObject. You should see an Atlas Manager script component for this GameObject in the Inspector window. Click the "Load" button. The first time this may take 15-20 seconds but the next time it should be much faster.
   4. Once all the models have loaded, click on play. All sprites will be packed the first time you play, but the second time this will be skipped.
   5. Replace any slot on the left hand side with a value from the Atlas Manager script's Model List attribute. Additionally, you can provide a RGBT value on the right hand side to color the model.
   6. Click generate
