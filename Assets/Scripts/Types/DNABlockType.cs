@@ -6,6 +6,7 @@ using System.Text;
 namespace Assets.Scripts.Types {
     public static class DNABlockType {
         public const string BODY = "BODY";
+        public const string FACE = "FACE";
         public const string HAIR = "HAIR";
         public const string HEAD = "HEAD";
         public const string FACIALHAIR = "FACIALHAIR";
@@ -28,9 +29,9 @@ namespace Assets.Scripts.Types {
 
         public static string[] GetTypeList() {
 
-            return new string[20] {
+            return new string[21] {
                 BACK2, BACK, BODY, EARS, 
-                EYES, NOSE, FACIALHAIR, HAIR, 
+                EYES, NOSE, FACIALHAIR, FACE, HAIR, 
                 NECK, SHOULDER, WAIST, WRISTS, 
                 FEET, HANDS, HEAD, LEGS,
                 LEFTHAND, ARMS, CHEST, RIGHTHAND
