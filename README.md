@@ -3,6 +3,8 @@ Dynamically animate characters using Liberated Pixel Cup sprites
 
 This asset allows you to animate a character by layering LPC art at runtime. Given that Unity 5+ doesn't allow for you to change the sprites being used within an Animation at runtime, I had to recreate my own LPC animator to handle the swapping of sprites. The alternative was to generate thousands of prefabs and animations, which would have bloated the project's size beyond anything I would feel is realistic for a 2D game.
 
+I made this asset in an attempt to gain more knowledge about 2D gaming and Unity. I'm pretty new to Game Development in general so any tips or recommendations would be greatly appreciated! See my contact info at the bottom.
+
 ##OpenGameArt and the Liberated Pixel Cup
 OpenGameArt (OGA) is a community for users to share a variety of free/open source art. The Liberated Pixel Cup (LPC) was a contest kickstarted by OGA to create free art that was judged to ensure it was of the appropriate quality and matched a particular art style.
 
@@ -20,12 +22,12 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
 
 ##Quick Instructions
 (until I get a youtube video up)
-1. Open the project in unity. It may take a while for all of the assets to import as there are ~52k sprites.
-2. Open the demo scene
-3. From the Hierarchy window, select the AtlasManager GameObject. Under the Atlas Manager script, click load. The first time this may take 15-20 seconds but the next time should be much faster.
-4. Once all the models have loaded, click on the play button. All of the sprites will pack the first time playing, but the second time will be much faster.
-5. Replace any slot on the left hand side with a value from the Atlas Manager script's Model List attribute. Additionally, you can provide a RGBT value on the right hand side to color the model.
-6. Click generate
+  1. Open the project in unity. It will take a bit of time to import the assets as there are ~52k sprites. This will only happen the first time you open the project.
+  2. Open the demo scene from the root Assets folder.
+  3. From the Hierarchy window, select the AtlasManager GameObject. Under the Atlas Manager script, click load. The first time this may take 15-20 seconds but the next time it should be much faster.
+  4. Once all the models have loaded, click on play. All sprites will be packed the first time you play, but the second time this will be skipped.
+  5. Replace any slot on the left hand side with a value from the Atlas Manager script's Model List attribute. Additionally, you can provide a RGBT value on the right hand side to color the model.
+  6. Click generate
 
 ##v0.1 Roadmap (Core Functionality):
   * ~~Mechanism for loading a large number of spritesheets up front~~
@@ -54,4 +56,6 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
   * Network/Multiplayer: Ability to connect clients and see each other.
   * Animation: Improve animation speed for all action types (some are too fast..)
   
- 
+##Contact Info
+Jordan
+Fanoen@gmail.com
