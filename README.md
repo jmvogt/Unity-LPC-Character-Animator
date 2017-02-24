@@ -6,7 +6,7 @@ This asset allows you to animate a character by layering LPC art at runtime. Giv
 I made this asset in an attempt to gain more knowledge about 2D gaming and Unity. I'm pretty new to Game Development in general so any tips or recommendations would be greatly appreciated! See my contact info at the bottom.
 
 ##Demo
-There is not much error handling so the model name will need to match a string from the available model list. If a wrong string is used, fix the typo and regenerate. This will be improved with drop downs / color pickers in v0.2.
+There is not much error handling so the model names will need to match a string from the available model list. If a wrong string is used, fix the typo and regenerate. This will be improved with drop downs / color pickers in v0.2.
 
 [Demo](http://jordanvogt.com/LPC-Animation-Demo.zip) - [Models Available for the Demo](https://raw.githubusercontent.com/jmvogt/Unity-LPC-Character-Animator/master/model-list.txt)
 
