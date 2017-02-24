@@ -18,6 +18,15 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
  * Unity LPC Spritesheet Importer: https://bitcula.com/universal-lpc-spritesheet-unity-importer/
   * Github: https://github.com/bitcula/Universal-LPC-Spritesheet-Unity-Importer
 
+##Quick Instructions
+(until I get a youtube video up)
+1. Open the project in unity. It may take a while for all of the assets to import as there are ~52k sprites.
+2. Open the demo scene
+3. From the Hierarchy window, select the AtlasManager GameObject. Under the Atlas Manager script, click load. The first time this may take 15-20 seconds but the next time should be much faster.
+4. Once all the models have loaded, click on the play button. All of the sprites will pack the first time playing, but the second time will be much faster.
+5. Replace any slot on the left hand side with a value from the Atlas Manager script's Model List attribute. Additionally, you can provide a RGBT value on the right hand side to color the model.
+6. Click generate
+
 ##v0.1 Roadmap (Core Functionality):
   * ~~Mechanism for loading a large number of spritesheets up front~~
   * ~~Create caches to store/lookup independent parts of the LPC character sprites (chest vs body vs helm)~~ 
