@@ -10,6 +10,11 @@ There is not much error handling so the model names will need to match a string 
 
 [Demo](http://jordanvogt.com/LPC-Animation-Demo.zip) - [Models Available for the Demo](https://raw.githubusercontent.com/jmvogt/Unity-LPC-Character-Animator/master/model-list.txt)
 
+*  WASD for movement
+*  SPACE - Slash animation
+*  F - Thrust animation
+*  E - Shoot animation
+
 ##OpenGameArt and the Liberated Pixel Cup
 OpenGameArt (OGA) is a community for users to share a variety of free/open source art. The Liberated Pixel Cup (LPC) was a contest kickstarted by OGA to create free art that was judged to ensure it was of the appropriate quality and matched a particular art style.
 
