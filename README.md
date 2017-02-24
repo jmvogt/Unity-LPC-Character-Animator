@@ -3,7 +3,7 @@ Dynamically animate characters using Liberated Pixel Cup sprites
 
 This asset allows you to animate a character by layering LPC art at runtime. Given that Unity 5+ doesn't allow for you to change the sprites being used within an Animation at runtime, I had to recreate my own LPC animator to handle the swapping of sprites. The alternative was to generate thousands of prefabs and animations, which would have bloated the project's size beyond anything I would feel is realistic for a 2D game.
 
-I made this asset in an attempt to gain more knowledge about 2D gaming and Unity. I'm pretty new to Game Development in general so any tips or recommendations would be greatly appreciated! See my contact info at the bottom.
+I made this asset to gain more knowledge about 2D gaming and Unity. I'm pretty new to Game Development in general so any tips or recommendations would be greatly appreciated! See my contact info at the bottom.
 
 ##Demo
 There is not much error handling so the model names will need to match a string from the available model list. If a wrong string is used, fix the typo and regenerate. This will be improved with drop downs / color pickers in v0.2.
@@ -67,5 +67,5 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
   * Animation: Improve animation speed for all action types (some are too fast..)
   
 ##Contact Info
-Jordan
+Jordan  
 Fanoen@gmail.com
