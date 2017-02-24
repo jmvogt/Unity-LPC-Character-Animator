@@ -14,6 +14,10 @@ namespace Assets.Scripts.Animation
         public Dictionary<string, AnimationDNABlock> DNABlocks { get { return _dnaBlocks; } set { _dnaBlocks = value; } }
 
         public AnimationDNA() {
+            /*
+             *  Initialize a block for all DNA Types
+             */
+
             _dnaBlocks = new Dictionary<string, AnimationDNABlock>();
             foreach (string blockKey in DNABlockType.GetTypeList()) {
                 _dnaBlocks.Add(blockKey, new AnimationDNABlock());

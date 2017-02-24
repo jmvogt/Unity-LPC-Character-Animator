@@ -33,7 +33,7 @@ namespace Assets.Scripts.Animation.ActionAnimations
         }
 
         public override bool GetStopOnLastFrame() {
-            return true;
+            return false;
         }
     }
 }

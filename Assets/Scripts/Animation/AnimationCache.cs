@@ -24,12 +24,9 @@ namespace Assets.Scripts.Animation
 
         private Dictionary<string, Dictionary<string, AnimationDNABlock>> _cacheLookup;            
 
-        public static AnimationCache Instance
-        {
-            get 
-            {
-                if (instance == null)
-                {
+        public static AnimationCache Instance {
+            get  {
+                if (instance == null) {
                     instance = new AnimationCache();
                 }
                 return instance;

@@ -11,7 +11,7 @@ namespace Assets.Scripts.Animation.AnimationImporters {
         public AnimationDNABlock BuildAnimation(SingleAnimationImporter animationDefinition, string spritesheetKey, string direction) {
             string animationKey = spritesheetKey + "_" + animationDefinition.TagName;
 
-            // fetch all frames for an action/spritesheet into a list
+            // fetch all frames for an model/action/direction into a list
             List<Sprite> spriteList = new List<Sprite>();
             for (int i = 0; i < animationDefinition.NumberOfFrames; i++) {
                 string spriteKey = animationKey + "_" + i;

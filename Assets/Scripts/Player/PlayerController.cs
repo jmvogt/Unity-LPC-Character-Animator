@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 
     private BaseAction _newAction;
     private KeyCode _newInput;
+    private KeyCode _lastInput;
     private string _lastDirection;
 
     private GameObject _playerObject;
@@ -109,20 +110,20 @@ public class PlayerController : MonoBehaviour {
             _newInput = KeyCode.None;
         }
 
+        // continue using the last direction when the character stops moving
         if (newDirection == DirectionType.NONE)
             newDirection = _lastDirection;
 
-        _lastDirection = _newAction.Direction = newDirection;
+        bool sameAction = _lastDirection == newDirection && _lastInput == _newInput;
 
-        bool wasWalking = _charAnimator.CurrentAnimationAction is WalkAction;
-        bool sameDirection = _lastDirection == newDirection;
-
-        if ((wasWalking && !sameDirection) || _newInput != KeyCode.None || Player.characterDNA.IsDirty()) {
+        if (!sameAction || Player.characterDNA.IsDirty()) {
             _animationManager.UpdateDNAForAction(Player.characterDNA, Player.animationDNA, _newAction, newDirection);
             _charAnimator.AnimateAction(Player.animationDNA, _newAction);
         } else if (!Input.anyKey) {
             _charAnimator.StopOnFinalFrame(true);
         }
 
+        _lastDirection = _newAction.Direction = newDirection;
+        _lastInput = _newInput;
     }
 }

@@ -15,6 +15,9 @@ namespace Assets.Scripts.Animation
     public class AnimationManager
     {
         public void UpdateDNAForAction(CharacterDNA characterDNA, AnimationDNA animationDNA, BaseAction actionAnimation, string newDirection) {
+            /*
+             *  Uses the characterDNA to fetch the proper animations and update the animationDNA.
+             */
             foreach (string blockType in DNABlockType.GetTypeList()) {
                 CharacterDNABlock characterDNABlock = characterDNA.DNABlocks[blockType];
                 if (characterDNABlock.Enabled) {
@@ -28,8 +31,11 @@ namespace Assets.Scripts.Animation
         }
 
         private AnimationDNABlock getAnimation(string modelKey, BaseAction actionAnimation, string direction) {
+            /*
+             *  Fetches an animation from the animation store/cache
+             */
+
             AnimationCache animationStore = AnimationCache.Instance;
-            
             string animationKey = modelKey;
             if (!direction.Equals(DirectionType.NONE)) {
                 animationKey = String.Format("{0}_{1}_{2}", 
@@ -46,8 +52,12 @@ namespace Assets.Scripts.Animation
         }
 
         public void LoadAllAnimationsIntoCache() {
-            List<string> modelList = AtlasManager.GetModelList();
+            /*
+             *  Builds all animations from sprites and adds them to the cache.
+             *  This should be called when a scene is FIRST loaded, before initializing characters.
+             */
 
+            List<string> modelList = AtlasManager.GetModelList();
             for (int i = 0; i < modelList.Count; i++) {
                 LoadAnimationIntoCache(modelList[i]);
                 AtlasManager.IncrementModelLoaded();
@@ -55,15 +65,25 @@ namespace Assets.Scripts.Animation
         }
 
         public void LoadAnimationIntoCache(string modelKey) {
-            AnimationCache animationStore = AnimationCache.Instance;
-            List<BaseAction> actionsToImport = new List<BaseAction>();
-            actionsToImport.Add(new SlashAction());
-            actionsToImport.Add(new SpellcastAction());
-            actionsToImport.Add(new ThrustAction());
-            actionsToImport.Add(new WalkAction());
-            actionsToImport.Add(new ShootAction());
+            /*
+             *  Builds the animation object for all model, action, direction
+             *  combinations. Object is then added to the AnimationCache.
+             */
 
-            foreach (BaseAction actionAnimation in actionsToImport) { 
+            AnimationCache animationStore = AnimationCache.Instance;
+
+            // All directional actions
+            List<BaseAction> directionalActions = new List<BaseAction>();
+            directionalActions.Add(new SlashAction());
+            directionalActions.Add(new SpellcastAction());
+            directionalActions.Add(new ThrustAction());
+            directionalActions.Add(new WalkAction());
+            directionalActions.Add(new ShootAction());
+            directionalActions.Add(new DeathAction());
+
+            foreach (BaseAction actionAnimation in directionalActions) { 
+
+                // Use the respective importer for the action 
                 IAnimationImporter importer = actionAnimation.GetAnimationImporter();
                 List<AnimationDNABlock> newAnimations = importer.ImportAnimations(modelKey, DirectionType.DOWN);
 
@@ -76,6 +96,8 @@ namespace Assets.Scripts.Animation
                 }
             }
 
+            // The "Idle" action reuses the first image of the death animation, so we need
+            // to import the first frame of all death sprites without a direction tag.
             BaseAction deathAnimation = new DeathAction();
             IAnimationImporter deathImporter = deathAnimation.GetAnimationImporter();
             List<AnimationDNABlock> deathAnimations = deathImporter.ImportAnimations(modelKey, DirectionType.NONE);

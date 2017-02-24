@@ -25,7 +25,7 @@ public class CharacterAnimator : MonoBehaviour
         _stopOnFinalFrame = animationAction.GetStopOnLastFrame();
         _playing = true;
         _currentFrameNumber = 0;
-        _totalAnimTimeInSeconds = .4f;
+        _totalAnimTimeInSeconds = 2f;
     }
 
     public void UpdateAnimationTime(float totalAnimTimeInSeconds) {
@@ -46,16 +46,13 @@ public class CharacterAnimator : MonoBehaviour
         _currentAnimationAction = new IdleAction();
     }
 
-    void Update()
-    {
-        if (_playing)
-        {
+    void Update() {
+        if (_playing) {
             int currentFrameIndex = _currentFrameNumber % _currentAnimationAction.NumberOfFrames;
 
             _currentFrameNumber++;
 
-            if (_stopOnFinalFrame && _currentFrameNumber % _currentAnimationAction.NumberOfFrames == 0)
-            {
+            if (_stopOnFinalFrame && _currentFrameNumber % _currentAnimationAction.NumberOfFrames == 0) {
                 _playing = false;
                 foreach(string animationKey in _animationDNA.DNABlocks.Keys) {
                     RenderAnimationFrame(animationKey, 0);
@@ -64,8 +61,7 @@ public class CharacterAnimator : MonoBehaviour
             }
 
             float singleAnimTime = _totalAnimTimeInSeconds / _currentAnimationAction.NumberOfFrames;
-            if (_passedTime >= singleAnimTime)
-            {
+            if (_passedTime >= singleAnimTime) {
                 foreach (string animationKey in _animationDNA.DNABlocks.Keys) {
                     RenderAnimationFrame(animationKey, currentFrameIndex);
                 }

@@ -38,14 +38,6 @@ namespace Assets.Scripts.Scene {
         void InitializeCharacter() {
             Player.characterDNA = new CharacterDNA();
             Player.animationDNA = new AnimationDNA();
-            Player.characterDNA.UpdateBlock("NECK", modelTextLookup["NECK"], modelColorLookup["NECK"]);
-            Player.characterDNA.UpdateBlock("BACK", modelTextLookup["BACK"], modelColorLookup["BACK"]);
-            Player.characterDNA.UpdateBlock("CHEST", modelTextLookup["CHEST"], modelColorLookup["CHEST"]);
-            Player.characterDNA.UpdateBlock("FEET", modelTextLookup["FEET"], modelColorLookup["FEET"]);
-            Player.characterDNA.UpdateBlock("HAIR", modelTextLookup["HAIR"], modelColorLookup["HAIR"]);
-            Player.characterDNA.UpdateBlock("HANDS", modelTextLookup["HANDS"], modelColorLookup["HANDS"]);
-            Player.characterDNA.UpdateBlock("LEGS", modelTextLookup["LEGS"], modelColorLookup["LEGS"]);
-            Player.characterDNA.UpdateBlock("BODY", modelTextLookup["BODY"], modelColorLookup["BODY"]);
         }
 
         void InitializeCharacterUI() {
@@ -65,8 +57,10 @@ namespace Assets.Scripts.Scene {
                 modelBLookup[blockKey] = "";
                 modelTLookup[blockKey] = "";
             }
+        }
 
-            // setup some default values for the player
+        void InitializeDemoDNA() {
+            // this will populate the UI
             modelColorLookup["BACK"] = Color.red;
             modelColorLookup["NECK"] = Color.red;
             modelTextLookup["BACK"] = "back_female_cape";
@@ -77,14 +71,28 @@ namespace Assets.Scripts.Scene {
             modelTextLookup["HANDS"] = "hands_female_cloth";
             modelTextLookup["LEGS"] = "legs_female_pants";
             modelTextLookup["BODY"] = "body_female_dark";
+
+            // this will update the characterDNA, flagging it as dirty and causing the first frame to animate
+            Player.characterDNA.UpdateBlock("NECK", modelTextLookup["NECK"], modelColorLookup["NECK"]);
+            Player.characterDNA.UpdateBlock("BACK", modelTextLookup["BACK"], modelColorLookup["BACK"]);
+            Player.characterDNA.UpdateBlock("CHEST", modelTextLookup["CHEST"], modelColorLookup["CHEST"]);
+            Player.characterDNA.UpdateBlock("FEET", modelTextLookup["FEET"], modelColorLookup["FEET"]);
+            Player.characterDNA.UpdateBlock("HAIR", modelTextLookup["HAIR"], modelColorLookup["HAIR"]);
+            Player.characterDNA.UpdateBlock("HANDS", modelTextLookup["HANDS"], modelColorLookup["HANDS"]);
+            Player.characterDNA.UpdateBlock("LEGS", modelTextLookup["LEGS"], modelColorLookup["LEGS"]);
+            Player.characterDNA.UpdateBlock("BODY", modelTextLookup["BODY"], modelColorLookup["BODY"]);
         }
 
         void OnGUI() {
             if (!animationsLoaded) {
-                GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "Caching all sprites... " + Math.Floor((AtlasManager.GetModelsLoaded() / AtlasManager.GetModelsTotal() * 100)) + "%");
+                // Loading message
+                GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "Caching all sprites... " + 
+                    Math.Floor((AtlasManager.GetModelsLoaded() / AtlasManager.GetModelsTotal() * 100)) + "%");
                 if (AtlasManager.GetModelsLoaded() == AtlasManager.GetModelsTotal()) {
+                    // The sprites are all cached. Lets initialize the scene.
                     InitializeCharacterUI();
                     InitializeCharacter();
+                    InitializeDemoDNA();
                     animationsLoaded = true;
                     playerController.enabled = true;
                 }
@@ -101,10 +109,15 @@ namespace Assets.Scripts.Scene {
                     currentY += increaseYAmt;
                 }
 
+                // "generate" button
                 if (GUI.Button(new Rect(10, currentY, 75, 30), "Generate")) {
                     foreach (string blockKey in DNABlockType.GetTypeList()) {
                         if (modelTextLookup[blockKey].Length > 0) {
-                            Player.characterDNA.UpdateBlock(blockKey, modelTextLookup[blockKey], modelColorLookup[blockKey]);
+                            try { 
+                                Player.characterDNA.UpdateBlock(blockKey, modelTextLookup[blockKey], modelColorLookup[blockKey]);
+                            } catch (Exception ex) {
+                                Debug.Log(String.Format("ERROR when importing {0} model: {1}", blockKey, ex.Message));
+                            }
                         }
                     }
                 }
@@ -119,13 +132,21 @@ namespace Assets.Scripts.Scene {
                     modelBLookup[blockKey] = GUI.TextField(new Rect(Screen.width - 90, currentY, 35, 20), modelBLookup[blockKey], 25);
                     modelTLookup[blockKey] = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), modelTLookup[blockKey], 25);
                     try {
+                        float modelR, modelG, modelB, modelT;
+                        bool rIsFloat = float.TryParse(modelRLookup[blockKey], out modelR);
+                        bool gIsFloat = float.TryParse(modelGLookup[blockKey], out modelG);
+                        bool bIsFloat = float.TryParse(modelBLookup[blockKey], out modelB);
+                        bool tIsFloat = float.TryParse(modelTLookup[blockKey], out modelT);
+
                         modelColorLookup[blockKey] = new Color(
-                            float.Parse(modelRLookup[blockKey]) / 255f, 
-                            float.Parse(modelGLookup[blockKey]) / 255f, 
-                            float.Parse(modelBLookup[blockKey]) / 255f, 
-                            float.Parse(modelTLookup[blockKey]) / 255f
+                            rIsFloat ? modelR : 0 / 255f,
+                            gIsFloat ? modelG : 0 / 255f,
+                            bIsFloat ? modelB : 0 / 255f, 
+                            tIsFloat ? modelT : 0 / 255f
                         );
                     } catch (Exception ex) {
+                        Debug.Log(String.Format("ERROR when importing {0} color: {1}", blockKey, ex.Message));
+
                         // dont color the armor on parsing issues
                         modelColorLookup[blockKey] = Color.clear;
                     }
