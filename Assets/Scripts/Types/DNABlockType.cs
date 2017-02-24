@@ -28,8 +28,6 @@ namespace Assets.Scripts.Types {
 
         public static string[] GetTypeList() {
 
-            // Objects will be layered using the index order below. 
-            // For example, your weapons will render above your body.
             return new string[20] {
                 BACK2, BACK, BODY, EARS, 
                 EYES, NOSE, FACIALHAIR, HAIR, 
