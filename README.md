@@ -70,4 +70,4 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
   
 ##Contact Info
 Jordan  
-Fanoen@gmail.com
+contact@jordanvogt.com
