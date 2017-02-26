@@ -61,7 +61,10 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
   * Improved Demo Scene: Have NPCs/guards walk the perimiter of the sceen using the LPC animator.
   * New GUI Functionality: Spawn a LPC NPC that walks the perimiter using GUI presets/controls
   
-##v0.3 Roadmap (Multiplayer & Animation)
+##v0.3 Roadmap (LPC Enemy/Animal Sprites & Animations)
+  * Repeat the v0.1 Roadmap for LPC compliant Enemies/Animals.
+  
+##v0.4 Roadmap (Multiplayer & Animation)
   * Network/Multiplayer: Packing and unpacking of "DNA" for network serialization.
   * Network/Multiplayer: LAN multiplayer request system
   * Network/Multiplayer: Network character controller that can be used during multiplayer
