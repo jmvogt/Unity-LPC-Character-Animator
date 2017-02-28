@@ -16,6 +16,8 @@ Controls
 *  SPACE - Slash animation
 *  F - Thrust animation
 *  E - Shoot animation
+*  R - Spellcast animation
+*  Hold LSHIFT - Run faster
 
 ##OpenGameArt and the Liberated Pixel Cup
 OpenGameArt (OGA) is a community for users to share a variety of free/open source art. The Liberated Pixel Cup (LPC) was a contest kickstarted by OGA to create free art that was judged to ensure it was of the appropriate quality and matched a particular art style.
