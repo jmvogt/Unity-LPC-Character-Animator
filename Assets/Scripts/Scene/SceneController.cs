@@ -33,7 +33,7 @@ namespace Assets.Scripts.Scene {
         private Dictionary<string, string> modelRLookup;
         private Dictionary<string, string> modelGLookup;
         private Dictionary<string, string> modelBLookup;
-        private Dictionary<string, string> modelTLookup;
+        //private Dictionary<string, string> modelTLookup;
 
         void InitializeCharacter() {
             Player.characterDNA = new CharacterDNA();
@@ -44,7 +44,7 @@ namespace Assets.Scripts.Scene {
             modelRLookup = new Dictionary<string, string>();
             modelGLookup = new Dictionary<string, string>();
             modelBLookup = new Dictionary<string, string>();
-            modelTLookup = new Dictionary<string, string>();
+            //modelTLookup = new Dictionary<string, string>();
 
             modelTextLookup = new Dictionary<string, string>();
             modelColorLookup = new Dictionary<string, Color>();
@@ -55,7 +55,7 @@ namespace Assets.Scripts.Scene {
                 modelRLookup[blockKey] = "";
                 modelGLookup[blockKey] = "";
                 modelBLookup[blockKey] = "";
-                modelTLookup[blockKey] = "";
+                //modelTLookup[blockKey] = "";
             }
         }
 
@@ -112,37 +112,35 @@ namespace Assets.Scripts.Scene {
                 // "generate" button
                 if (GUI.Button(new Rect(10, currentY, 75, 30), "Generate")) {
                     foreach (string blockKey in DNABlockType.GetTypeList()) {
-                        if (modelTextLookup[blockKey].Length > 0) {
-                            try { 
-                                Player.characterDNA.UpdateBlock(blockKey, modelTextLookup[blockKey], modelColorLookup[blockKey]);
-                            } catch (Exception ex) {
-                                Debug.Log(String.Format("ERROR when importing {0} model: {1}", blockKey, ex.Message));
-                            }
+                        try { 
+                            Player.characterDNA.UpdateBlock(blockKey, modelTextLookup[blockKey], modelColorLookup[blockKey]);
+                        } catch (Exception ex) {
+                            Debug.Log(String.Format("ERROR when importing {0} model: {1}", blockKey, ex.Message));
                         }
                     }
                 }
 
                 // generate the model color text boxes
                 currentY = 35;
-                GUI.Label(new Rect(Screen.width - 230, 10, 220, 20), "Model Color RGBT Values (0-255)");
+                GUI.Label(new Rect(Screen.width - 230, 10, 220, 20), "Model Color RGB Values (0-255)");
                 foreach (string blockKey in DNABlockType.GetTypeList()) {
                     GUI.Label(new Rect(Screen.width - 240, currentY, 60, 20), String.Format("{0}:", blockKey.ToLower()));
-                    modelRLookup[blockKey] = GUI.TextField(new Rect(Screen.width - 170, currentY, 35, 20), modelRLookup[blockKey], 25);
-                    modelGLookup[blockKey] = GUI.TextField(new Rect(Screen.width - 130, currentY, 35, 20), modelGLookup[blockKey], 25);
-                    modelBLookup[blockKey] = GUI.TextField(new Rect(Screen.width - 90, currentY, 35, 20), modelBLookup[blockKey], 25);
-                    modelTLookup[blockKey] = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), modelTLookup[blockKey], 25);
+                    modelRLookup[blockKey] = GUI.TextField(new Rect(Screen.width - 130, currentY, 35, 20), modelRLookup[blockKey], 25);
+                    modelGLookup[blockKey] = GUI.TextField(new Rect(Screen.width - 90, currentY, 35, 20), modelGLookup[blockKey], 25);
+                    modelBLookup[blockKey] = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), modelBLookup[blockKey], 25);
+                    //modelTLookup[blockKey] = GUI.TextField(new Rect(Screen.width - 50, currentY, 35, 20), modelTLookup[blockKey], 25);
                     try {
-                        float modelR, modelG, modelB, modelT;
+                        float modelR, modelG, modelB;//, modelT;
                         bool rIsFloat = float.TryParse(modelRLookup[blockKey], out modelR);
                         bool gIsFloat = float.TryParse(modelGLookup[blockKey], out modelG);
                         bool bIsFloat = float.TryParse(modelBLookup[blockKey], out modelB);
-                        bool tIsFloat = float.TryParse(modelTLookup[blockKey], out modelT);
+                        //bool tIsFloat = float.TryParse(modelTLookup[blockKey], out modelT);
 
                         modelColorLookup[blockKey] = new Color(
-                            rIsFloat ? modelR : 0 / 255f,
-                            gIsFloat ? modelG : 0 / 255f,
-                            bIsFloat ? modelB : 0 / 255f, 
-                            tIsFloat ? modelT : 0 / 255f
+                            rIsFloat ? modelR/255f : 0,
+                            gIsFloat ? modelG/255f : 0,
+                            bIsFloat ? modelB/255f : 0,
+                            (rIsFloat || gIsFloat || bIsFloat) ? .85f : 0
                         );
                     } catch (Exception ex) {
                         Debug.Log(String.Format("ERROR when importing {0} color: {1}", blockKey, ex.Message));
@@ -152,6 +150,9 @@ namespace Assets.Scripts.Scene {
                     }
                     currentY += increaseYAmt;
                 }
+                GUI.Label(new Rect(Screen.width - 115, currentY, 30, 20), "R");
+                GUI.Label(new Rect(Screen.width - 80, currentY, 30, 20), "G");
+                GUI.Label(new Rect(Screen.width - 40, currentY, 30, 20), "B");
             }
         }
 

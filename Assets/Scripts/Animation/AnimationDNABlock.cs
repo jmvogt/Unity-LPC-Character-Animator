@@ -14,6 +14,7 @@ namespace Assets.Scripts.Animation {
         private Color _spriteColor;
         private bool _enabled;
         private int _sortingOrder;
+        private bool _isDirty;
 
         public string AnimationKey {
             get { return _animationKey; }
@@ -38,8 +39,11 @@ namespace Assets.Scripts.Animation {
 
         public bool Enabled { get { return _enabled; } set { _enabled = value; } }
 
+        public bool IsDirty { get { return _isDirty; } set { _isDirty = value; } }
+
         public void UpdateSpriteColor(Color spriteColor) {
             _spriteColor = spriteColor;
+            _isDirty = true;
         }
 
         public AnimationDNABlock(string animationKey, List<Sprite> spriteList, string direction, int sortingOrder) {
@@ -48,6 +52,7 @@ namespace Assets.Scripts.Animation {
             _direction = direction;
             _sortingOrder = sortingOrder;
             _enabled = true;
+            _isDirty = true;
         }
 
         public AnimationDNABlock() {

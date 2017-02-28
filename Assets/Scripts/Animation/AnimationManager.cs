@@ -20,11 +20,15 @@ namespace Assets.Scripts.Animation
              */
             foreach (string blockType in DNABlockType.GetTypeList()) {
                 CharacterDNABlock characterDNABlock = characterDNA.DNABlocks[blockType];
+                
                 if (characterDNABlock.Enabled) {
                     animationDNA.DNABlocks[blockType] = getAnimation(characterDNABlock.ModelKey, actionAnimation, newDirection);
                     AnimationDNABlock animationDNABlock = animationDNA.DNABlocks[blockType];
                     animationDNABlock.UpdateSpriteColor(characterDNABlock.ItemColor);
                     animationDNABlock.Enabled = true;
+                } else {
+                    // Disable the animation slot if the character slot isnt enabled
+                    animationDNA.DNABlocks[blockType].Enabled = false;
                 }
                 characterDNABlock.IsDirty = false;
             }

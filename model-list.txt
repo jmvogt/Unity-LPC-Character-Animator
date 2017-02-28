@@ -288,6 +288,5 @@ waist_female_platemail
 waist_female_no_th-sh_buckle
 waist_male_cloth
 waist_male_leather
-wrists_both_bracelet
 wrists_female_leather
 wrists_male_leather

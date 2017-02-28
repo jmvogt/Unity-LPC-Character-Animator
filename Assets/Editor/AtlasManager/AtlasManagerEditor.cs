@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System;
 using Assets.Scripts.Types;
+using Assets.Scripts.Animation;
 
 [CustomEditor(typeof(AtlasManager))]
 public class AtlasManagerEditor : Editor

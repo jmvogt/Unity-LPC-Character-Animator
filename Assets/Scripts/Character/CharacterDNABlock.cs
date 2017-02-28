@@ -42,6 +42,12 @@ namespace Assets.Scripts.Character {
             _itemColor = itemColor;
             _enabled = true;
             _isDirty = true;
+
+            // disable the character block if there is no model key
+            if (itemKey.Length > 0)
+                _enabled = true;
+            else
+                _enabled = false;
         }
 
         public void UpdateColor(Color itemColor) {
@@ -52,8 +58,13 @@ namespace Assets.Scripts.Character {
 
         public void UpdateModel(string modelKey) {
             _modelKey = modelKey;
-            _enabled = true;
             _isDirty = true;
+
+            // disable the character block if there is no model key
+            if (modelKey.Length > 0)
+                _enabled = true;
+            else
+                _enabled = false;
         }
     }
 }

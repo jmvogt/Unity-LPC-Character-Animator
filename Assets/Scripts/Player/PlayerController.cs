@@ -11,7 +11,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     private AnimationManager _animationManager;
-    private CharacterAnimator _charAnimator;
+    private AnimationRenderer _charAnimator;
 
     private BaseAction _newAction;
     private KeyCode _newInput;
@@ -24,17 +24,17 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
         //prepare character sprites
         _playerObject = GameObject.Find("/player");
-        _charAnimator = gameObject.AddComponent<CharacterAnimator>() as CharacterAnimator;
+        _charAnimator = gameObject.AddComponent<AnimationRenderer>() as AnimationRenderer;
         InitializeCharacterRenderers(_charAnimator);
 
         //set defaults
         _animationManager = new AnimationManager();
         _newAction = new IdleAction();
-        _lastDirection = DirectionType.NONE;
+        _lastDirection = DirectionType.DOWN;
         _moveSpeed = .0275f;
 	}
 
-    void InitializeCharacterRenderers(CharacterAnimator charAnimator) {
+    void InitializeCharacterRenderers(AnimationRenderer charAnimator) {
         Dictionary<string, SpriteRenderer> spriteRenderers = new Dictionary<string, SpriteRenderer>();
         foreach(string blockKey in DNABlockType.GetTypeList()) {
             GameObject blockObject = new GameObject(blockKey);
