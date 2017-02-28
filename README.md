@@ -35,8 +35,7 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
  * Unity LPC Spritesheet Importer: https://bitcula.com/universal-lpc-spritesheet-unity-importer/
   * Github: https://github.com/bitcula/Universal-LPC-Spritesheet-Unity-Importer
 
-##Quick Instructions
-(until I get a youtube video up)
+##Quick Instructions for Opening Project in Unity
   1. Open the project in unity. It will take a bit of time to import the assets as there are ~52k sprites. This will only happen the first time you open the project.
   2. Open the demo scene from the root Assets folder.
   3. From the Hierarchy window, select the AtlasManager GameObject. You should see an Atlas Manager script component for this GameObject in the Inspector window. Click the "Load" button. The first time this may take 15-20 seconds but the next time it should be much faster.
