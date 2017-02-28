@@ -10,6 +10,7 @@ There is not much error handling so the model names will need to match a string 
 
 *  [Demo](http://jordanvogt.com/LPC-Animation-Demo.zip)  
 *  [Models Available for the Demo](https://raw.githubusercontent.com/jmvogt/Unity-LPC-Character-Animator/master/model-list.txt)
+*  [YouTube Demonstration](https://www.youtube.com/watch?v=BGPDM8gL8yU)
 
 Controls
 *  WASD for movement
@@ -74,5 +75,5 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
   * Animation: Improve animation speed for all action types (some are too fast..)
   
 ##Contact Info
-Jordan  
+Jordan Vogt
 contact@jordanvogt.com
