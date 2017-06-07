@@ -5,7 +5,7 @@ This asset allows you to animate a character by layering LPC art at runtime. Giv
 
 I made this asset to gain more knowledge about 2D gaming and Unity. I'm pretty new to Game Development in general so any tips or recommendations would be greatly appreciated! See my contact info at the bottom.
 
-##Demo
+## Demo
 There is not much error handling so the model names will need to match a string from the available model list. This will be improved with drop downs / color pickers in v0.2.
 
 *  [Demo](http://jordanvogt.com/LPC-Animation-Demo.zip)  
@@ -20,13 +20,13 @@ Controls
 *  R - Spellcast animation
 *  Hold LSHIFT - Run faster
 
-##OpenGameArt and the Liberated Pixel Cup
+## OpenGameArt and the Liberated Pixel Cup
 OpenGameArt (OGA) is a community for users to share a variety of free/open source art. The Liberated Pixel Cup (LPC) was a contest kickstarted by OGA to create free art that was judged to ensure it was of the appropriate quality and matched a particular art style.
 
 * OpenGameArt Website: http://opengameart.org/
 * Liberated Pixel Cup Homepage: http://lpc.opengameart.org/
 
-##Special Credit
+## Special Credit
 This goes to the Online Universal LPC Spritesheet project and the Universal LPC Spritesheet Unity Importer project, as I would have given up after trying to manually import the beastly number of spreadsheets.
 
  * All of the artists contributing to LPC! A running list of those who are responsible for the sprites reused in this project can be found in authors-sprites.txt
@@ -35,7 +35,7 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
  * Unity LPC Spritesheet Importer: https://bitcula.com/universal-lpc-spritesheet-unity-importer/
   * Github: https://github.com/bitcula/Universal-LPC-Spritesheet-Unity-Importer
 
-##Quick Instructions for the Unity Project
+## Quick Instructions for the Unity Project
 (I will get a page up with pictures here soon..!)
   1. Open the project in unity. It will take a bit of time to import the assets as there are ~52k sprites. This will only happen the first time you open the project.
   2. Open the demo scene from the root Assets folder.
@@ -44,7 +44,7 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
   5. Replace any slot on the left hand side with a value from the Atlas Manager script's Model List attribute. Additionally, you can provide a RGB value on the right hand side to color the model.
   6. Click generate
 
-##v0.1 Roadmap (Core Functionality):
+## . v0.1 Roadmap (Core Functionality):
   * ~~Mechanism for loading a large number of spritesheets up front~~
   * ~~Create caches to store/lookup independent parts of the LPC character sprites (chest vs body vs helm)~~ 
   * ~~Create a character state to represent racial configurations and equipement~~
@@ -55,7 +55,7 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
   * ~~Look for more LPC compliant assets that were not included in the online generator tool~~
   * Create instructions/tutorial in a document or YouTube video.
   
-##v0.2 Roadmap (UI Tools & Improved Demo)
+## v0.2 Roadmap (UI Tools & Improved Demo)
   * Sprite Support: Add more support for sprites such as weapons (knife/mace/short sword) and children.
   * Sprite Support: Create appendage character types to handle things like lizard/drake fin, tail, horns, etc.
   * Race Creator Tool: Generate new LPC spritesheets (body, eyes) automatically using a color picker!
@@ -64,16 +64,16 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
   * Improved Demo Scene: Have NPCs/guards walk the perimiter of the sceen using the LPC animator.
   * New GUI Functionality: Spawn a LPC NPC that walks the perimiter using GUI presets/controls
   
-##v0.3 Roadmap (LPC Enemy/Animal Sprites & Animations)
+## v0.3 Roadmap (LPC Enemy/Animal Sprites & Animations)
   * Repeat the v0.1 Roadmap for LPC compliant Enemies/Animals.
   
-##v0.4 Roadmap (Multiplayer & Animation)
+## v0.4 Roadmap (Multiplayer & Animation)
   * Network/Multiplayer: Packing and unpacking of "DNA" for network serialization.
   * Network/Multiplayer: LAN multiplayer request system
   * Network/Multiplayer: Network character controller that can be used during multiplayer
   * Network/Multiplayer: Ability to connect clients and see each other.
   * Animation: Improve animation speed for all action types (some are too fast..)
   
-##Contact Info
+## Contact Info
 Jordan Vogt
 contact@jordanvogt.com
