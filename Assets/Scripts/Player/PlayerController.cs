@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour {
 
     private GameObject _playerObject;
     private float _moveSpeed;
+
+    private bool _movingHorizontally;
+    private bool _movingVertically;
     
 	void Start () {
         //prepare character sprites
@@ -32,6 +35,8 @@ public class PlayerController : MonoBehaviour {
         _newAction = new IdleAction();
         _lastDirection = DirectionType.DOWN;
         _moveSpeed = .0275f;
+        _movingHorizontally = false;
+        _movingVertically = false;
 	}
 
     void InitializeCharacterRenderers(AnimationRenderer charAnimator) {
@@ -60,37 +65,52 @@ public class PlayerController : MonoBehaviour {
         }
 
         float moveHorizontal = Input.GetAxis("Horizontal");
-        if (moveHorizontal > 0)
-            gameObject.transform.position += new Vector3(1, 0, 0) * _moveSpeed;
-        else if (moveHorizontal < 0)
-            gameObject.transform.position += new Vector3(-1, 0, 0) * _moveSpeed;
+        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
+            _movingHorizontally = false;
+        else if (moveHorizontal != 0)
+        {
+            _movingHorizontally = true;
+            if (moveHorizontal > 0)
+                gameObject.transform.position += new Vector3(1, 0, 0) * _moveSpeed;
+            else if (moveHorizontal < 0)
+                gameObject.transform.position += new Vector3(-1, 0, 0) * _moveSpeed;
+        }
 
         float moveVertical = Input.GetAxis("Vertical");
-        if (moveVertical > 0)
-            gameObject.transform.position += new Vector3(0, 1, 0) * _moveSpeed;
-        else if (moveVertical < 0)
-            gameObject.transform.position += new Vector3(0, -1, 0) * _moveSpeed;
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S))
+            _movingVertically = false;
+        else if (moveVertical != 0)
+        {
+            _movingVertically = true;
+            if (moveVertical > 0)
+                gameObject.transform.position += new Vector3(0, 1, 0) * _moveSpeed;
+            else if (moveVertical < 0)
+                gameObject.transform.position += new Vector3(0, -1, 0) * _moveSpeed;
+        }
     }
 
     void UpdateAnimation() {
         string newDirection = DirectionType.NONE;
-        if (Input.GetKeyDown(KeyCode.W) && _newInput != KeyCode.W) {
+        _newInput = KeyCode.None;
+        if (Input.GetKey(KeyCode.W) || Input.GetKeyDown(KeyCode.W) && _lastInput != KeyCode.W) {
             newDirection = DirectionType.UP;
             _newAction = new WalkAction();
             _newInput = KeyCode.W;
-        } else if (Input.GetKeyDown(KeyCode.A) && _newInput != KeyCode.A) {
+        } else if (Input.GetKey(KeyCode.A) || Input.GetKeyDown(KeyCode.A) && _lastInput != KeyCode.A) {
             newDirection = DirectionType.LEFT;
             _newAction = new WalkAction();
             _newInput = KeyCode.A;
-        } else if (Input.GetKeyDown(KeyCode.S) && _newInput != KeyCode.S) {
+        } else if (Input.GetKey(KeyCode.S) || Input.GetKeyDown(KeyCode.S) && _lastInput != KeyCode.S) {
             newDirection = DirectionType.DOWN;
             _newAction = new WalkAction();
             _newInput = KeyCode.S;
-        } else if (Input.GetKeyDown(KeyCode.D) && _newInput != KeyCode.D) {
+        } else if (Input.GetKey(KeyCode.D) || Input.GetKeyDown(KeyCode.D) && _lastInput != KeyCode.D) {
             newDirection = DirectionType.RIGHT;
             _newAction = new WalkAction();
             _newInput = KeyCode.D;
-        } else if (Input.GetKeyDown(KeyCode.Space)) {
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
             newDirection = _lastDirection;
             _newAction = new SlashAction();
             _newInput = KeyCode.Space;
@@ -106,8 +126,6 @@ public class PlayerController : MonoBehaviour {
             newDirection = _lastDirection;
             _newAction = new ShootAction();
             _newInput = KeyCode.E;
-        } else {
-            _newInput = KeyCode.None;
         }
 
         // continue using the last direction when the character stops moving
@@ -116,10 +134,12 @@ public class PlayerController : MonoBehaviour {
 
         bool sameAction = _lastDirection == newDirection && _lastInput == _newInput;
 
+        // if there is a new action or the characterDNA has changed, animate the current player state
         if (!sameAction || Player.characterDNA.IsDirty()) {
             _animationManager.UpdateDNAForAction(Player.characterDNA, Player.animationDNA, _newAction, newDirection);
             _charAnimator.AnimateAction(Player.animationDNA, _newAction);
-        } else if (!Input.anyKey) {
+        } else if (_newInput == KeyCode.None && _movingHorizontally && _movingVertically) {
+            // if there is no movement, stop on the final frame of the current animation
             _charAnimator.StopOnFinalFrame(true);
         }
 

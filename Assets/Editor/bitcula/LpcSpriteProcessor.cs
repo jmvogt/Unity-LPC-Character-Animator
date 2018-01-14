@@ -98,7 +98,7 @@ public class LpcSpriteProcessor : AssetPostprocessor {
                 //Debug.Log("SPRITE PATH: " + assetImporter.assetPath);
 
                 string prefix = "";
-                for (int i = 4; i < path_branch.Length; i++)
+                for (int i = 3; i < path_branch.Length; i++)
                 {
                     string node = path_branch[i];
                     string[] split_node = node.Split('.');
