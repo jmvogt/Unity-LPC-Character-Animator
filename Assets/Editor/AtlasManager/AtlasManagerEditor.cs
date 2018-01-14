@@ -9,8 +9,8 @@ using Assets.Scripts.Animation;
 [CustomEditor(typeof(AtlasManager))]
 public class AtlasManagerEditor : Editor
 {
-    const string pathToCharacterTextures = "/Sprites/Character/";
-    const string pathToEquipmentTextures = "/Sprites/Equipment/";
+    const string pathToCharacterTextures = "/Sprites/Standard/Character/";
+    const string pathToEquipmentTextures = "/Sprites/Standard/Equipment/";
 
     private AtlasManager am;
     private bool dirty;
@@ -88,7 +88,7 @@ public class AtlasManagerEditor : Editor
          */
         string[] path_branch = filepath.Split('/');
         string prefix = "";
-        for (int i = 3; i < path_branch.Length - 1; i++) {
+        for (int i = 4; i < path_branch.Length - 1; i++) {
             string node = path_branch[i];
             string[] split_node = node.Split('.');
 
