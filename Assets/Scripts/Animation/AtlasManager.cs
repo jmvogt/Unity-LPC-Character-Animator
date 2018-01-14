@@ -24,13 +24,19 @@ public class AtlasManager : MonoBehaviour
             AtlasLookup[bodyKey] = new Dictionary<string, Sprite>();
         }
 
+        int i = 0;
         // Sort each sprite in the spritelist into respective dictionary
         foreach (Sprite sprite in spriteList) {
+            i++;
             string atlasKey = sprite.name.Split('_')[0].ToUpper();
-            AtlasLookup[atlasKey][sprite.name] = sprite;
+            try {
+                AtlasLookup[atlasKey][sprite.name] = sprite;
+            } catch (Exception ex) {
+                Debug.Log(string.Format("Failed to load sprite for atlas key; {0} sprite name {1}", atlasKey, sprite.name));
+            }
         }
 
-        instance = this;
+        instance = GetComponent<AtlasManager>();
     }
 
     static public Sprite GetSprite(string name)
