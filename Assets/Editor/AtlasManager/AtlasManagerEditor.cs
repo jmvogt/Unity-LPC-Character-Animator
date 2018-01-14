@@ -74,6 +74,7 @@ public class AtlasManagerEditor : Editor
             foreach (object o in items) {
                 if (o is Sprite) {
                     Sprite s = o as Sprite;
+                    Debug.Log(s.name);
                     am.spriteList.Add(s);
                     dirty = true;
                 }

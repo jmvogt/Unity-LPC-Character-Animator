@@ -360,6 +360,185 @@ TextureImporter:
     21300706: torso_shirts_sleeveless_female_shirt_tanktop_sc_t_4
     21300708: torso_shirts_sleeveless_female_shirt_tanktop_sc_t_5
     21300710: torso_shirts_sleeveless_female_shirt_tanktop_sc_t_6
+    21300712: chest_female_shirt_tanktop_hu_0
+    21300714: chest_female_shirt_tanktop_hu_1
+    21300716: chest_female_shirt_tanktop_hu_2
+    21300718: chest_female_shirt_tanktop_hu_3
+    21300720: chest_female_shirt_tanktop_hu_4
+    21300722: chest_female_shirt_tanktop_hu_5
+    21300724: chest_female_shirt_tanktop_sh_r_0
+    21300726: chest_female_shirt_tanktop_sh_r_1
+    21300728: chest_female_shirt_tanktop_sh_r_2
+    21300730: chest_female_shirt_tanktop_sh_r_3
+    21300732: chest_female_shirt_tanktop_sh_r_4
+    21300734: chest_female_shirt_tanktop_sh_r_5
+    21300736: chest_female_shirt_tanktop_sh_r_6
+    21300738: chest_female_shirt_tanktop_sh_r_7
+    21300740: chest_female_shirt_tanktop_sh_r_8
+    21300742: chest_female_shirt_tanktop_sh_r_9
+    21300744: chest_female_shirt_tanktop_sh_r_10
+    21300746: chest_female_shirt_tanktop_sh_r_11
+    21300748: chest_female_shirt_tanktop_sh_r_12
+    21300750: chest_female_shirt_tanktop_sh_d_0
+    21300752: chest_female_shirt_tanktop_sh_d_1
+    21300754: chest_female_shirt_tanktop_sh_d_2
+    21300756: chest_female_shirt_tanktop_sh_d_3
+    21300758: chest_female_shirt_tanktop_sh_d_4
+    21300760: chest_female_shirt_tanktop_sh_d_5
+    21300762: chest_female_shirt_tanktop_sh_d_6
+    21300764: chest_female_shirt_tanktop_sh_d_7
+    21300766: chest_female_shirt_tanktop_sh_d_8
+    21300768: chest_female_shirt_tanktop_sh_d_9
+    21300770: chest_female_shirt_tanktop_sh_d_10
+    21300772: chest_female_shirt_tanktop_sh_d_11
+    21300774: chest_female_shirt_tanktop_sh_d_12
+    21300776: chest_female_shirt_tanktop_sh_l_0
+    21300778: chest_female_shirt_tanktop_sh_l_1
+    21300780: chest_female_shirt_tanktop_sh_l_2
+    21300782: chest_female_shirt_tanktop_sh_l_3
+    21300784: chest_female_shirt_tanktop_sh_l_4
+    21300786: chest_female_shirt_tanktop_sh_l_5
+    21300788: chest_female_shirt_tanktop_sh_l_6
+    21300790: chest_female_shirt_tanktop_sh_l_7
+    21300792: chest_female_shirt_tanktop_sh_l_8
+    21300794: chest_female_shirt_tanktop_sh_l_9
+    21300796: chest_female_shirt_tanktop_sh_l_10
+    21300798: chest_female_shirt_tanktop_sh_l_11
+    21300800: chest_female_shirt_tanktop_sh_l_12
+    21300802: chest_female_shirt_tanktop_sh_t_0
+    21300804: chest_female_shirt_tanktop_sh_t_1
+    21300806: chest_female_shirt_tanktop_sh_t_2
+    21300808: chest_female_shirt_tanktop_sh_t_3
+    21300810: chest_female_shirt_tanktop_sh_t_4
+    21300812: chest_female_shirt_tanktop_sh_t_5
+    21300814: chest_female_shirt_tanktop_sh_t_6
+    21300816: chest_female_shirt_tanktop_sh_t_7
+    21300818: chest_female_shirt_tanktop_sh_t_8
+    21300820: chest_female_shirt_tanktop_sh_t_9
+    21300822: chest_female_shirt_tanktop_sh_t_10
+    21300824: chest_female_shirt_tanktop_sh_t_11
+    21300826: chest_female_shirt_tanktop_sh_t_12
+    21300828: chest_female_shirt_tanktop_sl_r_0
+    21300830: chest_female_shirt_tanktop_sl_r_1
+    21300832: chest_female_shirt_tanktop_sl_r_2
+    21300834: chest_female_shirt_tanktop_sl_r_3
+    21300836: chest_female_shirt_tanktop_sl_r_4
+    21300838: chest_female_shirt_tanktop_sl_r_5
+    21300840: chest_female_shirt_tanktop_sl_d_0
+    21300842: chest_female_shirt_tanktop_sl_d_1
+    21300844: chest_female_shirt_tanktop_sl_d_2
+    21300846: chest_female_shirt_tanktop_sl_d_3
+    21300848: chest_female_shirt_tanktop_sl_d_4
+    21300850: chest_female_shirt_tanktop_sl_d_5
+    21300852: chest_female_shirt_tanktop_sl_l_0
+    21300854: chest_female_shirt_tanktop_sl_l_1
+    21300856: chest_female_shirt_tanktop_sl_l_2
+    21300858: chest_female_shirt_tanktop_sl_l_3
+    21300860: chest_female_shirt_tanktop_sl_l_4
+    21300862: chest_female_shirt_tanktop_sl_l_5
+    21300864: chest_female_shirt_tanktop_sl_t_0
+    21300866: chest_female_shirt_tanktop_sl_t_1
+    21300868: chest_female_shirt_tanktop_sl_t_2
+    21300870: chest_female_shirt_tanktop_sl_t_3
+    21300872: chest_female_shirt_tanktop_sl_t_4
+    21300874: chest_female_shirt_tanktop_sl_t_5
+    21300876: chest_female_shirt_tanktop_wc_r_0
+    21300878: chest_female_shirt_tanktop_wc_r_1
+    21300880: chest_female_shirt_tanktop_wc_r_2
+    21300882: chest_female_shirt_tanktop_wc_r_3
+    21300884: chest_female_shirt_tanktop_wc_r_4
+    21300886: chest_female_shirt_tanktop_wc_r_5
+    21300888: chest_female_shirt_tanktop_wc_r_6
+    21300890: chest_female_shirt_tanktop_wc_r_7
+    21300892: chest_female_shirt_tanktop_wc_r_8
+    21300894: chest_female_shirt_tanktop_wc_d_0
+    21300896: chest_female_shirt_tanktop_wc_d_1
+    21300898: chest_female_shirt_tanktop_wc_d_2
+    21300900: chest_female_shirt_tanktop_wc_d_3
+    21300902: chest_female_shirt_tanktop_wc_d_4
+    21300904: chest_female_shirt_tanktop_wc_d_5
+    21300906: chest_female_shirt_tanktop_wc_d_6
+    21300908: chest_female_shirt_tanktop_wc_d_7
+    21300910: chest_female_shirt_tanktop_wc_d_8
+    21300912: chest_female_shirt_tanktop_wc_l_0
+    21300914: chest_female_shirt_tanktop_wc_l_1
+    21300916: chest_female_shirt_tanktop_wc_l_2
+    21300918: chest_female_shirt_tanktop_wc_l_3
+    21300920: chest_female_shirt_tanktop_wc_l_4
+    21300922: chest_female_shirt_tanktop_wc_l_5
+    21300924: chest_female_shirt_tanktop_wc_l_6
+    21300926: chest_female_shirt_tanktop_wc_l_7
+    21300928: chest_female_shirt_tanktop_wc_l_8
+    21300930: chest_female_shirt_tanktop_wc_t_0
+    21300932: chest_female_shirt_tanktop_wc_t_1
+    21300934: chest_female_shirt_tanktop_wc_t_2
+    21300936: chest_female_shirt_tanktop_wc_t_3
+    21300938: chest_female_shirt_tanktop_wc_t_4
+    21300940: chest_female_shirt_tanktop_wc_t_5
+    21300942: chest_female_shirt_tanktop_wc_t_6
+    21300944: chest_female_shirt_tanktop_wc_t_7
+    21300946: chest_female_shirt_tanktop_wc_t_8
+    21300948: chest_female_shirt_tanktop_th_r_0
+    21300950: chest_female_shirt_tanktop_th_r_1
+    21300952: chest_female_shirt_tanktop_th_r_2
+    21300954: chest_female_shirt_tanktop_th_r_3
+    21300956: chest_female_shirt_tanktop_th_r_4
+    21300958: chest_female_shirt_tanktop_th_r_5
+    21300960: chest_female_shirt_tanktop_th_r_6
+    21300962: chest_female_shirt_tanktop_th_r_7
+    21300964: chest_female_shirt_tanktop_th_d_0
+    21300966: chest_female_shirt_tanktop_th_d_1
+    21300968: chest_female_shirt_tanktop_th_d_2
+    21300970: chest_female_shirt_tanktop_th_d_3
+    21300972: chest_female_shirt_tanktop_th_d_4
+    21300974: chest_female_shirt_tanktop_th_d_5
+    21300976: chest_female_shirt_tanktop_th_d_6
+    21300978: chest_female_shirt_tanktop_th_d_7
+    21300980: chest_female_shirt_tanktop_th_l_0
+    21300982: chest_female_shirt_tanktop_th_l_1
+    21300984: chest_female_shirt_tanktop_th_l_2
+    21300986: chest_female_shirt_tanktop_th_l_3
+    21300988: chest_female_shirt_tanktop_th_l_4
+    21300990: chest_female_shirt_tanktop_th_l_5
+    21300992: chest_female_shirt_tanktop_th_l_6
+    21300994: chest_female_shirt_tanktop_th_l_7
+    21300996: chest_female_shirt_tanktop_th_t_0
+    21300998: chest_female_shirt_tanktop_th_t_1
+    21301000: chest_female_shirt_tanktop_th_t_2
+    21301002: chest_female_shirt_tanktop_th_t_3
+    21301004: chest_female_shirt_tanktop_th_t_4
+    21301006: chest_female_shirt_tanktop_th_t_5
+    21301008: chest_female_shirt_tanktop_th_t_6
+    21301010: chest_female_shirt_tanktop_th_t_7
+    21301012: chest_female_shirt_tanktop_sc_r_0
+    21301014: chest_female_shirt_tanktop_sc_r_1
+    21301016: chest_female_shirt_tanktop_sc_r_2
+    21301018: chest_female_shirt_tanktop_sc_r_3
+    21301020: chest_female_shirt_tanktop_sc_r_4
+    21301022: chest_female_shirt_tanktop_sc_r_5
+    21301024: chest_female_shirt_tanktop_sc_r_6
+    21301026: chest_female_shirt_tanktop_sc_d_0
+    21301028: chest_female_shirt_tanktop_sc_d_1
+    21301030: chest_female_shirt_tanktop_sc_d_2
+    21301032: chest_female_shirt_tanktop_sc_d_3
+    21301034: chest_female_shirt_tanktop_sc_d_4
+    21301036: chest_female_shirt_tanktop_sc_d_5
+    21301038: chest_female_shirt_tanktop_sc_d_6
+    21301040: chest_female_shirt_tanktop_sc_l_0
+    21301042: chest_female_shirt_tanktop_sc_l_1
+    21301044: chest_female_shirt_tanktop_sc_l_2
+    21301046: chest_female_shirt_tanktop_sc_l_3
+    21301048: chest_female_shirt_tanktop_sc_l_4
+    21301050: chest_female_shirt_tanktop_sc_l_5
+    21301052: chest_female_shirt_tanktop_sc_l_6
+    21301054: chest_female_shirt_tanktop_sc_t_0
+    21301056: chest_female_shirt_tanktop_sc_t_1
+    21301058: chest_female_shirt_tanktop_sc_t_2
+    21301060: chest_female_shirt_tanktop_sc_t_3
+    21301062: chest_female_shirt_tanktop_sc_t_4
+    21301064: chest_female_shirt_tanktop_sc_t_5
+    21301066: chest_female_shirt_tanktop_sc_t_6
+  externalObjects: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -368,6 +547,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -383,10 +564,13 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: 0
     aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -408,17 +592,19 @@ TextureImporter:
   platformSettings:
   - buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_hu_0
+      name: chest_female_shirt_tanktop_hu_0
       rect:
         serializedVersion: 2
         x: 0
@@ -429,9 +615,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_hu_1
+      name: chest_female_shirt_tanktop_hu_1
       rect:
         serializedVersion: 2
         x: 64
@@ -442,9 +629,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_hu_2
+      name: chest_female_shirt_tanktop_hu_2
       rect:
         serializedVersion: 2
         x: 128
@@ -455,9 +643,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_hu_3
+      name: chest_female_shirt_tanktop_hu_3
       rect:
         serializedVersion: 2
         x: 192
@@ -468,9 +657,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_hu_4
+      name: chest_female_shirt_tanktop_hu_4
       rect:
         serializedVersion: 2
         x: 256
@@ -481,9 +671,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_hu_5
+      name: chest_female_shirt_tanktop_hu_5
       rect:
         serializedVersion: 2
         x: 320
@@ -494,9 +685,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_r_0
+      name: chest_female_shirt_tanktop_sh_r_0
       rect:
         serializedVersion: 2
         x: 0
@@ -507,9 +699,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_r_1
+      name: chest_female_shirt_tanktop_sh_r_1
       rect:
         serializedVersion: 2
         x: 64
@@ -520,9 +713,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_r_2
+      name: chest_female_shirt_tanktop_sh_r_2
       rect:
         serializedVersion: 2
         x: 128
@@ -533,9 +727,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_r_3
+      name: chest_female_shirt_tanktop_sh_r_3
       rect:
         serializedVersion: 2
         x: 192
@@ -546,9 +741,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_r_4
+      name: chest_female_shirt_tanktop_sh_r_4
       rect:
         serializedVersion: 2
         x: 256
@@ -559,9 +755,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_r_5
+      name: chest_female_shirt_tanktop_sh_r_5
       rect:
         serializedVersion: 2
         x: 320
@@ -572,9 +769,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_r_6
+      name: chest_female_shirt_tanktop_sh_r_6
       rect:
         serializedVersion: 2
         x: 384
@@ -585,9 +783,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_r_7
+      name: chest_female_shirt_tanktop_sh_r_7
       rect:
         serializedVersion: 2
         x: 448
@@ -598,9 +797,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_r_8
+      name: chest_female_shirt_tanktop_sh_r_8
       rect:
         serializedVersion: 2
         x: 512
@@ -611,9 +811,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_r_9
+      name: chest_female_shirt_tanktop_sh_r_9
       rect:
         serializedVersion: 2
         x: 576
@@ -624,9 +825,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_r_10
+      name: chest_female_shirt_tanktop_sh_r_10
       rect:
         serializedVersion: 2
         x: 640
@@ -637,9 +839,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_r_11
+      name: chest_female_shirt_tanktop_sh_r_11
       rect:
         serializedVersion: 2
         x: 704
@@ -650,9 +853,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_r_12
+      name: chest_female_shirt_tanktop_sh_r_12
       rect:
         serializedVersion: 2
         x: 768
@@ -663,9 +867,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_d_0
+      name: chest_female_shirt_tanktop_sh_d_0
       rect:
         serializedVersion: 2
         x: 0
@@ -676,9 +881,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_d_1
+      name: chest_female_shirt_tanktop_sh_d_1
       rect:
         serializedVersion: 2
         x: 64
@@ -689,9 +895,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_d_2
+      name: chest_female_shirt_tanktop_sh_d_2
       rect:
         serializedVersion: 2
         x: 128
@@ -702,9 +909,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_d_3
+      name: chest_female_shirt_tanktop_sh_d_3
       rect:
         serializedVersion: 2
         x: 192
@@ -715,9 +923,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_d_4
+      name: chest_female_shirt_tanktop_sh_d_4
       rect:
         serializedVersion: 2
         x: 256
@@ -728,9 +937,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_d_5
+      name: chest_female_shirt_tanktop_sh_d_5
       rect:
         serializedVersion: 2
         x: 320
@@ -741,9 +951,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_d_6
+      name: chest_female_shirt_tanktop_sh_d_6
       rect:
         serializedVersion: 2
         x: 384
@@ -754,9 +965,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_d_7
+      name: chest_female_shirt_tanktop_sh_d_7
       rect:
         serializedVersion: 2
         x: 448
@@ -767,9 +979,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_d_8
+      name: chest_female_shirt_tanktop_sh_d_8
       rect:
         serializedVersion: 2
         x: 512
@@ -780,9 +993,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_d_9
+      name: chest_female_shirt_tanktop_sh_d_9
       rect:
         serializedVersion: 2
         x: 576
@@ -793,9 +1007,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_d_10
+      name: chest_female_shirt_tanktop_sh_d_10
       rect:
         serializedVersion: 2
         x: 640
@@ -806,9 +1021,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_d_11
+      name: chest_female_shirt_tanktop_sh_d_11
       rect:
         serializedVersion: 2
         x: 704
@@ -819,9 +1035,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_d_12
+      name: chest_female_shirt_tanktop_sh_d_12
       rect:
         serializedVersion: 2
         x: 768
@@ -832,9 +1049,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_l_0
+      name: chest_female_shirt_tanktop_sh_l_0
       rect:
         serializedVersion: 2
         x: 0
@@ -845,9 +1063,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_l_1
+      name: chest_female_shirt_tanktop_sh_l_1
       rect:
         serializedVersion: 2
         x: 64
@@ -858,9 +1077,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_l_2
+      name: chest_female_shirt_tanktop_sh_l_2
       rect:
         serializedVersion: 2
         x: 128
@@ -871,9 +1091,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_l_3
+      name: chest_female_shirt_tanktop_sh_l_3
       rect:
         serializedVersion: 2
         x: 192
@@ -884,9 +1105,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_l_4
+      name: chest_female_shirt_tanktop_sh_l_4
       rect:
         serializedVersion: 2
         x: 256
@@ -897,9 +1119,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_l_5
+      name: chest_female_shirt_tanktop_sh_l_5
       rect:
         serializedVersion: 2
         x: 320
@@ -910,9 +1133,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_l_6
+      name: chest_female_shirt_tanktop_sh_l_6
       rect:
         serializedVersion: 2
         x: 384
@@ -923,9 +1147,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_l_7
+      name: chest_female_shirt_tanktop_sh_l_7
       rect:
         serializedVersion: 2
         x: 448
@@ -936,9 +1161,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_l_8
+      name: chest_female_shirt_tanktop_sh_l_8
       rect:
         serializedVersion: 2
         x: 512
@@ -949,9 +1175,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_l_9
+      name: chest_female_shirt_tanktop_sh_l_9
       rect:
         serializedVersion: 2
         x: 576
@@ -962,9 +1189,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_l_10
+      name: chest_female_shirt_tanktop_sh_l_10
       rect:
         serializedVersion: 2
         x: 640
@@ -975,9 +1203,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_l_11
+      name: chest_female_shirt_tanktop_sh_l_11
       rect:
         serializedVersion: 2
         x: 704
@@ -988,9 +1217,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_l_12
+      name: chest_female_shirt_tanktop_sh_l_12
       rect:
         serializedVersion: 2
         x: 768
@@ -1001,9 +1231,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_t_0
+      name: chest_female_shirt_tanktop_sh_t_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1014,9 +1245,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_t_1
+      name: chest_female_shirt_tanktop_sh_t_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1027,9 +1259,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_t_2
+      name: chest_female_shirt_tanktop_sh_t_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1040,9 +1273,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_t_3
+      name: chest_female_shirt_tanktop_sh_t_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1053,9 +1287,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_t_4
+      name: chest_female_shirt_tanktop_sh_t_4
       rect:
         serializedVersion: 2
         x: 256
@@ -1066,9 +1301,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_t_5
+      name: chest_female_shirt_tanktop_sh_t_5
       rect:
         serializedVersion: 2
         x: 320
@@ -1079,9 +1315,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_t_6
+      name: chest_female_shirt_tanktop_sh_t_6
       rect:
         serializedVersion: 2
         x: 384
@@ -1092,9 +1329,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_t_7
+      name: chest_female_shirt_tanktop_sh_t_7
       rect:
         serializedVersion: 2
         x: 448
@@ -1105,9 +1343,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_t_8
+      name: chest_female_shirt_tanktop_sh_t_8
       rect:
         serializedVersion: 2
         x: 512
@@ -1118,9 +1357,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_t_9
+      name: chest_female_shirt_tanktop_sh_t_9
       rect:
         serializedVersion: 2
         x: 576
@@ -1131,9 +1371,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_t_10
+      name: chest_female_shirt_tanktop_sh_t_10
       rect:
         serializedVersion: 2
         x: 640
@@ -1144,9 +1385,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_t_11
+      name: chest_female_shirt_tanktop_sh_t_11
       rect:
         serializedVersion: 2
         x: 704
@@ -1157,9 +1399,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sh_t_12
+      name: chest_female_shirt_tanktop_sh_t_12
       rect:
         serializedVersion: 2
         x: 768
@@ -1170,9 +1413,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_r_0
+      name: chest_female_shirt_tanktop_sl_r_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1183,9 +1427,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_r_1
+      name: chest_female_shirt_tanktop_sl_r_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1196,9 +1441,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_r_2
+      name: chest_female_shirt_tanktop_sl_r_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1209,9 +1455,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_r_3
+      name: chest_female_shirt_tanktop_sl_r_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1222,9 +1469,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_r_4
+      name: chest_female_shirt_tanktop_sl_r_4
       rect:
         serializedVersion: 2
         x: 256
@@ -1235,9 +1483,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_r_5
+      name: chest_female_shirt_tanktop_sl_r_5
       rect:
         serializedVersion: 2
         x: 320
@@ -1248,9 +1497,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_d_0
+      name: chest_female_shirt_tanktop_sl_d_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1261,9 +1511,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_d_1
+      name: chest_female_shirt_tanktop_sl_d_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1274,9 +1525,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_d_2
+      name: chest_female_shirt_tanktop_sl_d_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1287,9 +1539,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_d_3
+      name: chest_female_shirt_tanktop_sl_d_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1300,9 +1553,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_d_4
+      name: chest_female_shirt_tanktop_sl_d_4
       rect:
         serializedVersion: 2
         x: 256
@@ -1313,9 +1567,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_d_5
+      name: chest_female_shirt_tanktop_sl_d_5
       rect:
         serializedVersion: 2
         x: 320
@@ -1326,9 +1581,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_l_0
+      name: chest_female_shirt_tanktop_sl_l_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1339,9 +1595,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_l_1
+      name: chest_female_shirt_tanktop_sl_l_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1352,9 +1609,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_l_2
+      name: chest_female_shirt_tanktop_sl_l_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1365,9 +1623,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_l_3
+      name: chest_female_shirt_tanktop_sl_l_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1378,9 +1637,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_l_4
+      name: chest_female_shirt_tanktop_sl_l_4
       rect:
         serializedVersion: 2
         x: 256
@@ -1391,9 +1651,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_l_5
+      name: chest_female_shirt_tanktop_sl_l_5
       rect:
         serializedVersion: 2
         x: 320
@@ -1404,9 +1665,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_t_0
+      name: chest_female_shirt_tanktop_sl_t_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1417,9 +1679,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_t_1
+      name: chest_female_shirt_tanktop_sl_t_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1430,9 +1693,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_t_2
+      name: chest_female_shirt_tanktop_sl_t_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1443,9 +1707,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_t_3
+      name: chest_female_shirt_tanktop_sl_t_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1456,9 +1721,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_t_4
+      name: chest_female_shirt_tanktop_sl_t_4
       rect:
         serializedVersion: 2
         x: 256
@@ -1469,9 +1735,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sl_t_5
+      name: chest_female_shirt_tanktop_sl_t_5
       rect:
         serializedVersion: 2
         x: 320
@@ -1482,9 +1749,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_r_0
+      name: chest_female_shirt_tanktop_wc_r_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1495,9 +1763,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_r_1
+      name: chest_female_shirt_tanktop_wc_r_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1508,9 +1777,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_r_2
+      name: chest_female_shirt_tanktop_wc_r_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1521,9 +1791,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_r_3
+      name: chest_female_shirt_tanktop_wc_r_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1534,9 +1805,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_r_4
+      name: chest_female_shirt_tanktop_wc_r_4
       rect:
         serializedVersion: 2
         x: 256
@@ -1547,9 +1819,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_r_5
+      name: chest_female_shirt_tanktop_wc_r_5
       rect:
         serializedVersion: 2
         x: 320
@@ -1560,9 +1833,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_r_6
+      name: chest_female_shirt_tanktop_wc_r_6
       rect:
         serializedVersion: 2
         x: 384
@@ -1573,9 +1847,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_r_7
+      name: chest_female_shirt_tanktop_wc_r_7
       rect:
         serializedVersion: 2
         x: 448
@@ -1586,9 +1861,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_r_8
+      name: chest_female_shirt_tanktop_wc_r_8
       rect:
         serializedVersion: 2
         x: 512
@@ -1599,9 +1875,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_d_0
+      name: chest_female_shirt_tanktop_wc_d_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1612,9 +1889,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_d_1
+      name: chest_female_shirt_tanktop_wc_d_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1625,9 +1903,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_d_2
+      name: chest_female_shirt_tanktop_wc_d_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1638,9 +1917,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_d_3
+      name: chest_female_shirt_tanktop_wc_d_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1651,9 +1931,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_d_4
+      name: chest_female_shirt_tanktop_wc_d_4
       rect:
         serializedVersion: 2
         x: 256
@@ -1664,9 +1945,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_d_5
+      name: chest_female_shirt_tanktop_wc_d_5
       rect:
         serializedVersion: 2
         x: 320
@@ -1677,9 +1959,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_d_6
+      name: chest_female_shirt_tanktop_wc_d_6
       rect:
         serializedVersion: 2
         x: 384
@@ -1690,9 +1973,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_d_7
+      name: chest_female_shirt_tanktop_wc_d_7
       rect:
         serializedVersion: 2
         x: 448
@@ -1703,9 +1987,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_d_8
+      name: chest_female_shirt_tanktop_wc_d_8
       rect:
         serializedVersion: 2
         x: 512
@@ -1716,9 +2001,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_l_0
+      name: chest_female_shirt_tanktop_wc_l_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1729,9 +2015,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_l_1
+      name: chest_female_shirt_tanktop_wc_l_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1742,9 +2029,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_l_2
+      name: chest_female_shirt_tanktop_wc_l_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1755,9 +2043,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_l_3
+      name: chest_female_shirt_tanktop_wc_l_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1768,9 +2057,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_l_4
+      name: chest_female_shirt_tanktop_wc_l_4
       rect:
         serializedVersion: 2
         x: 256
@@ -1781,9 +2071,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_l_5
+      name: chest_female_shirt_tanktop_wc_l_5
       rect:
         serializedVersion: 2
         x: 320
@@ -1794,9 +2085,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_l_6
+      name: chest_female_shirt_tanktop_wc_l_6
       rect:
         serializedVersion: 2
         x: 384
@@ -1807,9 +2099,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_l_7
+      name: chest_female_shirt_tanktop_wc_l_7
       rect:
         serializedVersion: 2
         x: 448
@@ -1820,9 +2113,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_l_8
+      name: chest_female_shirt_tanktop_wc_l_8
       rect:
         serializedVersion: 2
         x: 512
@@ -1833,9 +2127,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_t_0
+      name: chest_female_shirt_tanktop_wc_t_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1846,9 +2141,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_t_1
+      name: chest_female_shirt_tanktop_wc_t_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1859,9 +2155,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_t_2
+      name: chest_female_shirt_tanktop_wc_t_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1872,9 +2169,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_t_3
+      name: chest_female_shirt_tanktop_wc_t_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1885,9 +2183,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_t_4
+      name: chest_female_shirt_tanktop_wc_t_4
       rect:
         serializedVersion: 2
         x: 256
@@ -1898,9 +2197,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_t_5
+      name: chest_female_shirt_tanktop_wc_t_5
       rect:
         serializedVersion: 2
         x: 320
@@ -1911,9 +2211,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_t_6
+      name: chest_female_shirt_tanktop_wc_t_6
       rect:
         serializedVersion: 2
         x: 384
@@ -1924,9 +2225,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_t_7
+      name: chest_female_shirt_tanktop_wc_t_7
       rect:
         serializedVersion: 2
         x: 448
@@ -1937,9 +2239,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_wc_t_8
+      name: chest_female_shirt_tanktop_wc_t_8
       rect:
         serializedVersion: 2
         x: 512
@@ -1950,9 +2253,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_r_0
+      name: chest_female_shirt_tanktop_th_r_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1963,9 +2267,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_r_1
+      name: chest_female_shirt_tanktop_th_r_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1976,9 +2281,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_r_2
+      name: chest_female_shirt_tanktop_th_r_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1989,9 +2295,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_r_3
+      name: chest_female_shirt_tanktop_th_r_3
       rect:
         serializedVersion: 2
         x: 192
@@ -2002,9 +2309,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_r_4
+      name: chest_female_shirt_tanktop_th_r_4
       rect:
         serializedVersion: 2
         x: 256
@@ -2015,9 +2323,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_r_5
+      name: chest_female_shirt_tanktop_th_r_5
       rect:
         serializedVersion: 2
         x: 320
@@ -2028,9 +2337,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_r_6
+      name: chest_female_shirt_tanktop_th_r_6
       rect:
         serializedVersion: 2
         x: 384
@@ -2041,9 +2351,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_r_7
+      name: chest_female_shirt_tanktop_th_r_7
       rect:
         serializedVersion: 2
         x: 448
@@ -2054,9 +2365,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_d_0
+      name: chest_female_shirt_tanktop_th_d_0
       rect:
         serializedVersion: 2
         x: 0
@@ -2067,9 +2379,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_d_1
+      name: chest_female_shirt_tanktop_th_d_1
       rect:
         serializedVersion: 2
         x: 64
@@ -2080,9 +2393,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_d_2
+      name: chest_female_shirt_tanktop_th_d_2
       rect:
         serializedVersion: 2
         x: 128
@@ -2093,9 +2407,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_d_3
+      name: chest_female_shirt_tanktop_th_d_3
       rect:
         serializedVersion: 2
         x: 192
@@ -2106,9 +2421,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_d_4
+      name: chest_female_shirt_tanktop_th_d_4
       rect:
         serializedVersion: 2
         x: 256
@@ -2119,9 +2435,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_d_5
+      name: chest_female_shirt_tanktop_th_d_5
       rect:
         serializedVersion: 2
         x: 320
@@ -2132,9 +2449,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_d_6
+      name: chest_female_shirt_tanktop_th_d_6
       rect:
         serializedVersion: 2
         x: 384
@@ -2145,9 +2463,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_d_7
+      name: chest_female_shirt_tanktop_th_d_7
       rect:
         serializedVersion: 2
         x: 448
@@ -2158,9 +2477,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_l_0
+      name: chest_female_shirt_tanktop_th_l_0
       rect:
         serializedVersion: 2
         x: 0
@@ -2171,9 +2491,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_l_1
+      name: chest_female_shirt_tanktop_th_l_1
       rect:
         serializedVersion: 2
         x: 64
@@ -2184,9 +2505,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_l_2
+      name: chest_female_shirt_tanktop_th_l_2
       rect:
         serializedVersion: 2
         x: 128
@@ -2197,9 +2519,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_l_3
+      name: chest_female_shirt_tanktop_th_l_3
       rect:
         serializedVersion: 2
         x: 192
@@ -2210,9 +2533,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_l_4
+      name: chest_female_shirt_tanktop_th_l_4
       rect:
         serializedVersion: 2
         x: 256
@@ -2223,9 +2547,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_l_5
+      name: chest_female_shirt_tanktop_th_l_5
       rect:
         serializedVersion: 2
         x: 320
@@ -2236,9 +2561,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_l_6
+      name: chest_female_shirt_tanktop_th_l_6
       rect:
         serializedVersion: 2
         x: 384
@@ -2249,9 +2575,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_l_7
+      name: chest_female_shirt_tanktop_th_l_7
       rect:
         serializedVersion: 2
         x: 448
@@ -2262,9 +2589,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_t_0
+      name: chest_female_shirt_tanktop_th_t_0
       rect:
         serializedVersion: 2
         x: 0
@@ -2275,9 +2603,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_t_1
+      name: chest_female_shirt_tanktop_th_t_1
       rect:
         serializedVersion: 2
         x: 64
@@ -2288,9 +2617,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_t_2
+      name: chest_female_shirt_tanktop_th_t_2
       rect:
         serializedVersion: 2
         x: 128
@@ -2301,9 +2631,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_t_3
+      name: chest_female_shirt_tanktop_th_t_3
       rect:
         serializedVersion: 2
         x: 192
@@ -2314,9 +2645,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_t_4
+      name: chest_female_shirt_tanktop_th_t_4
       rect:
         serializedVersion: 2
         x: 256
@@ -2327,9 +2659,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_t_5
+      name: chest_female_shirt_tanktop_th_t_5
       rect:
         serializedVersion: 2
         x: 320
@@ -2340,9 +2673,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_t_6
+      name: chest_female_shirt_tanktop_th_t_6
       rect:
         serializedVersion: 2
         x: 384
@@ -2353,9 +2687,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_th_t_7
+      name: chest_female_shirt_tanktop_th_t_7
       rect:
         serializedVersion: 2
         x: 448
@@ -2366,9 +2701,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_r_0
+      name: chest_female_shirt_tanktop_sc_r_0
       rect:
         serializedVersion: 2
         x: 0
@@ -2379,9 +2715,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_r_1
+      name: chest_female_shirt_tanktop_sc_r_1
       rect:
         serializedVersion: 2
         x: 64
@@ -2392,9 +2729,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_r_2
+      name: chest_female_shirt_tanktop_sc_r_2
       rect:
         serializedVersion: 2
         x: 128
@@ -2405,9 +2743,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_r_3
+      name: chest_female_shirt_tanktop_sc_r_3
       rect:
         serializedVersion: 2
         x: 192
@@ -2418,9 +2757,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_r_4
+      name: chest_female_shirt_tanktop_sc_r_4
       rect:
         serializedVersion: 2
         x: 256
@@ -2431,9 +2771,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_r_5
+      name: chest_female_shirt_tanktop_sc_r_5
       rect:
         serializedVersion: 2
         x: 320
@@ -2444,9 +2785,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_r_6
+      name: chest_female_shirt_tanktop_sc_r_6
       rect:
         serializedVersion: 2
         x: 384
@@ -2457,9 +2799,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_d_0
+      name: chest_female_shirt_tanktop_sc_d_0
       rect:
         serializedVersion: 2
         x: 0
@@ -2470,9 +2813,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_d_1
+      name: chest_female_shirt_tanktop_sc_d_1
       rect:
         serializedVersion: 2
         x: 64
@@ -2483,9 +2827,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_d_2
+      name: chest_female_shirt_tanktop_sc_d_2
       rect:
         serializedVersion: 2
         x: 128
@@ -2496,9 +2841,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_d_3
+      name: chest_female_shirt_tanktop_sc_d_3
       rect:
         serializedVersion: 2
         x: 192
@@ -2509,9 +2855,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_d_4
+      name: chest_female_shirt_tanktop_sc_d_4
       rect:
         serializedVersion: 2
         x: 256
@@ -2522,9 +2869,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_d_5
+      name: chest_female_shirt_tanktop_sc_d_5
       rect:
         serializedVersion: 2
         x: 320
@@ -2535,9 +2883,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_d_6
+      name: chest_female_shirt_tanktop_sc_d_6
       rect:
         serializedVersion: 2
         x: 384
@@ -2548,9 +2897,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_l_0
+      name: chest_female_shirt_tanktop_sc_l_0
       rect:
         serializedVersion: 2
         x: 0
@@ -2561,9 +2911,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_l_1
+      name: chest_female_shirt_tanktop_sc_l_1
       rect:
         serializedVersion: 2
         x: 64
@@ -2574,9 +2925,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_l_2
+      name: chest_female_shirt_tanktop_sc_l_2
       rect:
         serializedVersion: 2
         x: 128
@@ -2587,9 +2939,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_l_3
+      name: chest_female_shirt_tanktop_sc_l_3
       rect:
         serializedVersion: 2
         x: 192
@@ -2600,9 +2953,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_l_4
+      name: chest_female_shirt_tanktop_sc_l_4
       rect:
         serializedVersion: 2
         x: 256
@@ -2613,9 +2967,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_l_5
+      name: chest_female_shirt_tanktop_sc_l_5
       rect:
         serializedVersion: 2
         x: 320
@@ -2626,9 +2981,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_l_6
+      name: chest_female_shirt_tanktop_sc_l_6
       rect:
         serializedVersion: 2
         x: 384
@@ -2639,9 +2995,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_t_0
+      name: chest_female_shirt_tanktop_sc_t_0
       rect:
         serializedVersion: 2
         x: 0
@@ -2652,9 +3009,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_t_1
+      name: chest_female_shirt_tanktop_sc_t_1
       rect:
         serializedVersion: 2
         x: 64
@@ -2665,9 +3023,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_t_2
+      name: chest_female_shirt_tanktop_sc_t_2
       rect:
         serializedVersion: 2
         x: 128
@@ -2678,9 +3037,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_t_3
+      name: chest_female_shirt_tanktop_sc_t_3
       rect:
         serializedVersion: 2
         x: 192
@@ -2691,9 +3051,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_t_4
+      name: chest_female_shirt_tanktop_sc_t_4
       rect:
         serializedVersion: 2
         x: 256
@@ -2704,9 +3065,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_t_5
+      name: chest_female_shirt_tanktop_sc_t_5
       rect:
         serializedVersion: 2
         x: 320
@@ -2717,9 +3079,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: torso_shirts_sleeveless_female_shirt_tanktop_sc_t_6
+      name: chest_female_shirt_tanktop_sc_t_6
       rect:
         serializedVersion: 2
         x: 384
@@ -2730,8 +3093,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     outline: []
+    physicsShape: []
   spritePackingTag: character
   userData: 
   assetBundleName: 

@@ -95,12 +95,14 @@ public class LpcSpriteProcessor : AssetPostprocessor {
 				}
 
                 string[] path_branch = assetImporter.assetPath.Split('/');
+                Debug.Log("ASSET PATH: " + assetImporter.assetPath);
 
                 string prefix = "";
                 for (int i = 3; i < path_branch.Length; i++)
                 {
                     string node = path_branch[i];
                     string[] split_node = node.Split('.');
+                    Debug.Log("PATH BRANCH: " + node);
 
                     prefix += string.Format("{0}_", split_node[0]);
                 }
@@ -108,7 +110,11 @@ public class LpcSpriteProcessor : AssetPostprocessor {
                 Debug.Log("ASSET PREFIX:" + prefix);
 
 				string namePrefix = ResolveLpcNamePrefix (row, prefix);
+
+                Debug.Log("ASSET COLUMN: " + col);
 				meta.name = namePrefix + col;
+
+                Debug.Log("ASSET NAME: " + meta.name);
 				metas.Add(meta);
 			}
 		}

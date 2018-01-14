@@ -182,6 +182,185 @@ TextureImporter:
     21300350: sc_t_4
     21300352: sc_t_5
     21300354: sc_t_6
+    21300356: body_male_dark_hu_0
+    21300358: body_male_dark_hu_1
+    21300360: body_male_dark_hu_2
+    21300362: body_male_dark_hu_3
+    21300364: body_male_dark_hu_4
+    21300366: body_male_dark_hu_5
+    21300368: body_male_dark_sh_r_0
+    21300370: body_male_dark_sh_r_1
+    21300372: body_male_dark_sh_r_2
+    21300374: body_male_dark_sh_r_3
+    21300376: body_male_dark_sh_r_4
+    21300378: body_male_dark_sh_r_5
+    21300380: body_male_dark_sh_r_6
+    21300382: body_male_dark_sh_r_7
+    21300384: body_male_dark_sh_r_8
+    21300386: body_male_dark_sh_r_9
+    21300388: body_male_dark_sh_r_10
+    21300390: body_male_dark_sh_r_11
+    21300392: body_male_dark_sh_r_12
+    21300394: body_male_dark_sh_d_0
+    21300396: body_male_dark_sh_d_1
+    21300398: body_male_dark_sh_d_2
+    21300400: body_male_dark_sh_d_3
+    21300402: body_male_dark_sh_d_4
+    21300404: body_male_dark_sh_d_5
+    21300406: body_male_dark_sh_d_6
+    21300408: body_male_dark_sh_d_7
+    21300410: body_male_dark_sh_d_8
+    21300412: body_male_dark_sh_d_9
+    21300414: body_male_dark_sh_d_10
+    21300416: body_male_dark_sh_d_11
+    21300418: body_male_dark_sh_d_12
+    21300420: body_male_dark_sh_l_0
+    21300422: body_male_dark_sh_l_1
+    21300424: body_male_dark_sh_l_2
+    21300426: body_male_dark_sh_l_3
+    21300428: body_male_dark_sh_l_4
+    21300430: body_male_dark_sh_l_5
+    21300432: body_male_dark_sh_l_6
+    21300434: body_male_dark_sh_l_7
+    21300436: body_male_dark_sh_l_8
+    21300438: body_male_dark_sh_l_9
+    21300440: body_male_dark_sh_l_10
+    21300442: body_male_dark_sh_l_11
+    21300444: body_male_dark_sh_l_12
+    21300446: body_male_dark_sh_t_0
+    21300448: body_male_dark_sh_t_1
+    21300450: body_male_dark_sh_t_2
+    21300452: body_male_dark_sh_t_3
+    21300454: body_male_dark_sh_t_4
+    21300456: body_male_dark_sh_t_5
+    21300458: body_male_dark_sh_t_6
+    21300460: body_male_dark_sh_t_7
+    21300462: body_male_dark_sh_t_8
+    21300464: body_male_dark_sh_t_9
+    21300466: body_male_dark_sh_t_10
+    21300468: body_male_dark_sh_t_11
+    21300470: body_male_dark_sh_t_12
+    21300472: body_male_dark_sl_r_0
+    21300474: body_male_dark_sl_r_1
+    21300476: body_male_dark_sl_r_2
+    21300478: body_male_dark_sl_r_3
+    21300480: body_male_dark_sl_r_4
+    21300482: body_male_dark_sl_r_5
+    21300484: body_male_dark_sl_d_0
+    21300486: body_male_dark_sl_d_1
+    21300488: body_male_dark_sl_d_2
+    21300490: body_male_dark_sl_d_3
+    21300492: body_male_dark_sl_d_4
+    21300494: body_male_dark_sl_d_5
+    21300496: body_male_dark_sl_l_0
+    21300498: body_male_dark_sl_l_1
+    21300500: body_male_dark_sl_l_2
+    21300502: body_male_dark_sl_l_3
+    21300504: body_male_dark_sl_l_4
+    21300506: body_male_dark_sl_l_5
+    21300508: body_male_dark_sl_t_0
+    21300510: body_male_dark_sl_t_1
+    21300512: body_male_dark_sl_t_2
+    21300514: body_male_dark_sl_t_3
+    21300516: body_male_dark_sl_t_4
+    21300518: body_male_dark_sl_t_5
+    21300520: body_male_dark_wc_r_0
+    21300522: body_male_dark_wc_r_1
+    21300524: body_male_dark_wc_r_2
+    21300526: body_male_dark_wc_r_3
+    21300528: body_male_dark_wc_r_4
+    21300530: body_male_dark_wc_r_5
+    21300532: body_male_dark_wc_r_6
+    21300534: body_male_dark_wc_r_7
+    21300536: body_male_dark_wc_r_8
+    21300538: body_male_dark_wc_d_0
+    21300540: body_male_dark_wc_d_1
+    21300542: body_male_dark_wc_d_2
+    21300544: body_male_dark_wc_d_3
+    21300546: body_male_dark_wc_d_4
+    21300548: body_male_dark_wc_d_5
+    21300550: body_male_dark_wc_d_6
+    21300552: body_male_dark_wc_d_7
+    21300554: body_male_dark_wc_d_8
+    21300556: body_male_dark_wc_l_0
+    21300558: body_male_dark_wc_l_1
+    21300560: body_male_dark_wc_l_2
+    21300562: body_male_dark_wc_l_3
+    21300564: body_male_dark_wc_l_4
+    21300566: body_male_dark_wc_l_5
+    21300568: body_male_dark_wc_l_6
+    21300570: body_male_dark_wc_l_7
+    21300572: body_male_dark_wc_l_8
+    21300574: body_male_dark_wc_t_0
+    21300576: body_male_dark_wc_t_1
+    21300578: body_male_dark_wc_t_2
+    21300580: body_male_dark_wc_t_3
+    21300582: body_male_dark_wc_t_4
+    21300584: body_male_dark_wc_t_5
+    21300586: body_male_dark_wc_t_6
+    21300588: body_male_dark_wc_t_7
+    21300590: body_male_dark_wc_t_8
+    21300592: body_male_dark_th_r_0
+    21300594: body_male_dark_th_r_1
+    21300596: body_male_dark_th_r_2
+    21300598: body_male_dark_th_r_3
+    21300600: body_male_dark_th_r_4
+    21300602: body_male_dark_th_r_5
+    21300604: body_male_dark_th_r_6
+    21300606: body_male_dark_th_r_7
+    21300608: body_male_dark_th_d_0
+    21300610: body_male_dark_th_d_1
+    21300612: body_male_dark_th_d_2
+    21300614: body_male_dark_th_d_3
+    21300616: body_male_dark_th_d_4
+    21300618: body_male_dark_th_d_5
+    21300620: body_male_dark_th_d_6
+    21300622: body_male_dark_th_d_7
+    21300624: body_male_dark_th_l_0
+    21300626: body_male_dark_th_l_1
+    21300628: body_male_dark_th_l_2
+    21300630: body_male_dark_th_l_3
+    21300632: body_male_dark_th_l_4
+    21300634: body_male_dark_th_l_5
+    21300636: body_male_dark_th_l_6
+    21300638: body_male_dark_th_l_7
+    21300640: body_male_dark_th_t_0
+    21300642: body_male_dark_th_t_1
+    21300644: body_male_dark_th_t_2
+    21300646: body_male_dark_th_t_3
+    21300648: body_male_dark_th_t_4
+    21300650: body_male_dark_th_t_5
+    21300652: body_male_dark_th_t_6
+    21300654: body_male_dark_th_t_7
+    21300656: body_male_dark_sc_r_0
+    21300658: body_male_dark_sc_r_1
+    21300660: body_male_dark_sc_r_2
+    21300662: body_male_dark_sc_r_3
+    21300664: body_male_dark_sc_r_4
+    21300666: body_male_dark_sc_r_5
+    21300668: body_male_dark_sc_r_6
+    21300670: body_male_dark_sc_d_0
+    21300672: body_male_dark_sc_d_1
+    21300674: body_male_dark_sc_d_2
+    21300676: body_male_dark_sc_d_3
+    21300678: body_male_dark_sc_d_4
+    21300680: body_male_dark_sc_d_5
+    21300682: body_male_dark_sc_d_6
+    21300684: body_male_dark_sc_l_0
+    21300686: body_male_dark_sc_l_1
+    21300688: body_male_dark_sc_l_2
+    21300690: body_male_dark_sc_l_3
+    21300692: body_male_dark_sc_l_4
+    21300694: body_male_dark_sc_l_5
+    21300696: body_male_dark_sc_l_6
+    21300698: body_male_dark_sc_t_0
+    21300700: body_male_dark_sc_t_1
+    21300702: body_male_dark_sc_t_2
+    21300704: body_male_dark_sc_t_3
+    21300706: body_male_dark_sc_t_4
+    21300708: body_male_dark_sc_t_5
+    21300710: body_male_dark_sc_t_6
+  externalObjects: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -190,6 +369,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -205,10 +386,13 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: 0
     aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -230,41 +414,49 @@ TextureImporter:
   platformSettings:
   - buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   - buildTarget: Standalone
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   - buildTarget: iPhone
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   - buildTarget: Android
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hu_0
+      name: body_male_dark_hu_0
       rect:
         serializedVersion: 2
         x: 0
@@ -275,9 +467,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: hu_1
+      name: body_male_dark_hu_1
       rect:
         serializedVersion: 2
         x: 64
@@ -288,9 +481,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: hu_2
+      name: body_male_dark_hu_2
       rect:
         serializedVersion: 2
         x: 128
@@ -301,9 +495,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: hu_3
+      name: body_male_dark_hu_3
       rect:
         serializedVersion: 2
         x: 192
@@ -314,9 +509,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: hu_4
+      name: body_male_dark_hu_4
       rect:
         serializedVersion: 2
         x: 256
@@ -327,9 +523,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: hu_5
+      name: body_male_dark_hu_5
       rect:
         serializedVersion: 2
         x: 320
@@ -340,9 +537,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_r_0
+      name: body_male_dark_sh_r_0
       rect:
         serializedVersion: 2
         x: 0
@@ -353,9 +551,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_r_1
+      name: body_male_dark_sh_r_1
       rect:
         serializedVersion: 2
         x: 64
@@ -366,9 +565,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_r_2
+      name: body_male_dark_sh_r_2
       rect:
         serializedVersion: 2
         x: 128
@@ -379,9 +579,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_r_3
+      name: body_male_dark_sh_r_3
       rect:
         serializedVersion: 2
         x: 192
@@ -392,9 +593,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_r_4
+      name: body_male_dark_sh_r_4
       rect:
         serializedVersion: 2
         x: 256
@@ -405,9 +607,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_r_5
+      name: body_male_dark_sh_r_5
       rect:
         serializedVersion: 2
         x: 320
@@ -418,9 +621,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_r_6
+      name: body_male_dark_sh_r_6
       rect:
         serializedVersion: 2
         x: 384
@@ -431,9 +635,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_r_7
+      name: body_male_dark_sh_r_7
       rect:
         serializedVersion: 2
         x: 448
@@ -444,9 +649,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_r_8
+      name: body_male_dark_sh_r_8
       rect:
         serializedVersion: 2
         x: 512
@@ -457,9 +663,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_r_9
+      name: body_male_dark_sh_r_9
       rect:
         serializedVersion: 2
         x: 576
@@ -470,9 +677,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_r_10
+      name: body_male_dark_sh_r_10
       rect:
         serializedVersion: 2
         x: 640
@@ -483,9 +691,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_r_11
+      name: body_male_dark_sh_r_11
       rect:
         serializedVersion: 2
         x: 704
@@ -496,9 +705,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_r_12
+      name: body_male_dark_sh_r_12
       rect:
         serializedVersion: 2
         x: 768
@@ -509,9 +719,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_d_0
+      name: body_male_dark_sh_d_0
       rect:
         serializedVersion: 2
         x: 0
@@ -522,9 +733,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_d_1
+      name: body_male_dark_sh_d_1
       rect:
         serializedVersion: 2
         x: 64
@@ -535,9 +747,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_d_2
+      name: body_male_dark_sh_d_2
       rect:
         serializedVersion: 2
         x: 128
@@ -548,9 +761,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_d_3
+      name: body_male_dark_sh_d_3
       rect:
         serializedVersion: 2
         x: 192
@@ -561,9 +775,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_d_4
+      name: body_male_dark_sh_d_4
       rect:
         serializedVersion: 2
         x: 256
@@ -574,9 +789,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_d_5
+      name: body_male_dark_sh_d_5
       rect:
         serializedVersion: 2
         x: 320
@@ -587,9 +803,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_d_6
+      name: body_male_dark_sh_d_6
       rect:
         serializedVersion: 2
         x: 384
@@ -600,9 +817,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_d_7
+      name: body_male_dark_sh_d_7
       rect:
         serializedVersion: 2
         x: 448
@@ -613,9 +831,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_d_8
+      name: body_male_dark_sh_d_8
       rect:
         serializedVersion: 2
         x: 512
@@ -626,9 +845,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_d_9
+      name: body_male_dark_sh_d_9
       rect:
         serializedVersion: 2
         x: 576
@@ -639,9 +859,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_d_10
+      name: body_male_dark_sh_d_10
       rect:
         serializedVersion: 2
         x: 640
@@ -652,9 +873,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_d_11
+      name: body_male_dark_sh_d_11
       rect:
         serializedVersion: 2
         x: 704
@@ -665,9 +887,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_d_12
+      name: body_male_dark_sh_d_12
       rect:
         serializedVersion: 2
         x: 768
@@ -678,9 +901,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_l_0
+      name: body_male_dark_sh_l_0
       rect:
         serializedVersion: 2
         x: 0
@@ -691,9 +915,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_l_1
+      name: body_male_dark_sh_l_1
       rect:
         serializedVersion: 2
         x: 64
@@ -704,9 +929,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_l_2
+      name: body_male_dark_sh_l_2
       rect:
         serializedVersion: 2
         x: 128
@@ -717,9 +943,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_l_3
+      name: body_male_dark_sh_l_3
       rect:
         serializedVersion: 2
         x: 192
@@ -730,9 +957,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_l_4
+      name: body_male_dark_sh_l_4
       rect:
         serializedVersion: 2
         x: 256
@@ -743,9 +971,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_l_5
+      name: body_male_dark_sh_l_5
       rect:
         serializedVersion: 2
         x: 320
@@ -756,9 +985,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_l_6
+      name: body_male_dark_sh_l_6
       rect:
         serializedVersion: 2
         x: 384
@@ -769,9 +999,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_l_7
+      name: body_male_dark_sh_l_7
       rect:
         serializedVersion: 2
         x: 448
@@ -782,9 +1013,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_l_8
+      name: body_male_dark_sh_l_8
       rect:
         serializedVersion: 2
         x: 512
@@ -795,9 +1027,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_l_9
+      name: body_male_dark_sh_l_9
       rect:
         serializedVersion: 2
         x: 576
@@ -808,9 +1041,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_l_10
+      name: body_male_dark_sh_l_10
       rect:
         serializedVersion: 2
         x: 640
@@ -821,9 +1055,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_l_11
+      name: body_male_dark_sh_l_11
       rect:
         serializedVersion: 2
         x: 704
@@ -834,9 +1069,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_l_12
+      name: body_male_dark_sh_l_12
       rect:
         serializedVersion: 2
         x: 768
@@ -847,9 +1083,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_t_0
+      name: body_male_dark_sh_t_0
       rect:
         serializedVersion: 2
         x: 0
@@ -860,9 +1097,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_t_1
+      name: body_male_dark_sh_t_1
       rect:
         serializedVersion: 2
         x: 64
@@ -873,9 +1111,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_t_2
+      name: body_male_dark_sh_t_2
       rect:
         serializedVersion: 2
         x: 128
@@ -886,9 +1125,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_t_3
+      name: body_male_dark_sh_t_3
       rect:
         serializedVersion: 2
         x: 192
@@ -899,9 +1139,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_t_4
+      name: body_male_dark_sh_t_4
       rect:
         serializedVersion: 2
         x: 256
@@ -912,9 +1153,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_t_5
+      name: body_male_dark_sh_t_5
       rect:
         serializedVersion: 2
         x: 320
@@ -925,9 +1167,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_t_6
+      name: body_male_dark_sh_t_6
       rect:
         serializedVersion: 2
         x: 384
@@ -938,9 +1181,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_t_7
+      name: body_male_dark_sh_t_7
       rect:
         serializedVersion: 2
         x: 448
@@ -951,9 +1195,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_t_8
+      name: body_male_dark_sh_t_8
       rect:
         serializedVersion: 2
         x: 512
@@ -964,9 +1209,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_t_9
+      name: body_male_dark_sh_t_9
       rect:
         serializedVersion: 2
         x: 576
@@ -977,9 +1223,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_t_10
+      name: body_male_dark_sh_t_10
       rect:
         serializedVersion: 2
         x: 640
@@ -990,9 +1237,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_t_11
+      name: body_male_dark_sh_t_11
       rect:
         serializedVersion: 2
         x: 704
@@ -1003,9 +1251,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sh_t_12
+      name: body_male_dark_sh_t_12
       rect:
         serializedVersion: 2
         x: 768
@@ -1016,9 +1265,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_r_0
+      name: body_male_dark_sl_r_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1029,9 +1279,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_r_1
+      name: body_male_dark_sl_r_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1042,9 +1293,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_r_2
+      name: body_male_dark_sl_r_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1055,9 +1307,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_r_3
+      name: body_male_dark_sl_r_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1068,9 +1321,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_r_4
+      name: body_male_dark_sl_r_4
       rect:
         serializedVersion: 2
         x: 256
@@ -1081,9 +1335,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_r_5
+      name: body_male_dark_sl_r_5
       rect:
         serializedVersion: 2
         x: 320
@@ -1094,9 +1349,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_d_0
+      name: body_male_dark_sl_d_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1107,9 +1363,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_d_1
+      name: body_male_dark_sl_d_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1120,9 +1377,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_d_2
+      name: body_male_dark_sl_d_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1133,9 +1391,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_d_3
+      name: body_male_dark_sl_d_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1146,9 +1405,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_d_4
+      name: body_male_dark_sl_d_4
       rect:
         serializedVersion: 2
         x: 256
@@ -1159,9 +1419,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_d_5
+      name: body_male_dark_sl_d_5
       rect:
         serializedVersion: 2
         x: 320
@@ -1172,9 +1433,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_l_0
+      name: body_male_dark_sl_l_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1185,9 +1447,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_l_1
+      name: body_male_dark_sl_l_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1198,9 +1461,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_l_2
+      name: body_male_dark_sl_l_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1211,9 +1475,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_l_3
+      name: body_male_dark_sl_l_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1224,9 +1489,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_l_4
+      name: body_male_dark_sl_l_4
       rect:
         serializedVersion: 2
         x: 256
@@ -1237,9 +1503,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_l_5
+      name: body_male_dark_sl_l_5
       rect:
         serializedVersion: 2
         x: 320
@@ -1250,9 +1517,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_t_0
+      name: body_male_dark_sl_t_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1263,9 +1531,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_t_1
+      name: body_male_dark_sl_t_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1276,9 +1545,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_t_2
+      name: body_male_dark_sl_t_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1289,9 +1559,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_t_3
+      name: body_male_dark_sl_t_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1302,9 +1573,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_t_4
+      name: body_male_dark_sl_t_4
       rect:
         serializedVersion: 2
         x: 256
@@ -1315,9 +1587,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sl_t_5
+      name: body_male_dark_sl_t_5
       rect:
         serializedVersion: 2
         x: 320
@@ -1328,9 +1601,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_r_0
+      name: body_male_dark_wc_r_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1341,9 +1615,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_r_1
+      name: body_male_dark_wc_r_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1354,9 +1629,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_r_2
+      name: body_male_dark_wc_r_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1367,9 +1643,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_r_3
+      name: body_male_dark_wc_r_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1380,9 +1657,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_r_4
+      name: body_male_dark_wc_r_4
       rect:
         serializedVersion: 2
         x: 256
@@ -1393,9 +1671,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_r_5
+      name: body_male_dark_wc_r_5
       rect:
         serializedVersion: 2
         x: 320
@@ -1406,9 +1685,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_r_6
+      name: body_male_dark_wc_r_6
       rect:
         serializedVersion: 2
         x: 384
@@ -1419,9 +1699,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_r_7
+      name: body_male_dark_wc_r_7
       rect:
         serializedVersion: 2
         x: 448
@@ -1432,9 +1713,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_r_8
+      name: body_male_dark_wc_r_8
       rect:
         serializedVersion: 2
         x: 512
@@ -1445,9 +1727,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_d_0
+      name: body_male_dark_wc_d_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1458,9 +1741,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_d_1
+      name: body_male_dark_wc_d_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1471,9 +1755,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_d_2
+      name: body_male_dark_wc_d_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1484,9 +1769,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_d_3
+      name: body_male_dark_wc_d_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1497,9 +1783,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_d_4
+      name: body_male_dark_wc_d_4
       rect:
         serializedVersion: 2
         x: 256
@@ -1510,9 +1797,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_d_5
+      name: body_male_dark_wc_d_5
       rect:
         serializedVersion: 2
         x: 320
@@ -1523,9 +1811,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_d_6
+      name: body_male_dark_wc_d_6
       rect:
         serializedVersion: 2
         x: 384
@@ -1536,9 +1825,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_d_7
+      name: body_male_dark_wc_d_7
       rect:
         serializedVersion: 2
         x: 448
@@ -1549,9 +1839,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_d_8
+      name: body_male_dark_wc_d_8
       rect:
         serializedVersion: 2
         x: 512
@@ -1562,9 +1853,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_l_0
+      name: body_male_dark_wc_l_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1575,9 +1867,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_l_1
+      name: body_male_dark_wc_l_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1588,9 +1881,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_l_2
+      name: body_male_dark_wc_l_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1601,9 +1895,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_l_3
+      name: body_male_dark_wc_l_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1614,9 +1909,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_l_4
+      name: body_male_dark_wc_l_4
       rect:
         serializedVersion: 2
         x: 256
@@ -1627,9 +1923,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_l_5
+      name: body_male_dark_wc_l_5
       rect:
         serializedVersion: 2
         x: 320
@@ -1640,9 +1937,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_l_6
+      name: body_male_dark_wc_l_6
       rect:
         serializedVersion: 2
         x: 384
@@ -1653,9 +1951,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_l_7
+      name: body_male_dark_wc_l_7
       rect:
         serializedVersion: 2
         x: 448
@@ -1666,9 +1965,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_l_8
+      name: body_male_dark_wc_l_8
       rect:
         serializedVersion: 2
         x: 512
@@ -1679,9 +1979,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_t_0
+      name: body_male_dark_wc_t_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1692,9 +1993,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_t_1
+      name: body_male_dark_wc_t_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1705,9 +2007,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_t_2
+      name: body_male_dark_wc_t_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1718,9 +2021,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_t_3
+      name: body_male_dark_wc_t_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1731,9 +2035,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_t_4
+      name: body_male_dark_wc_t_4
       rect:
         serializedVersion: 2
         x: 256
@@ -1744,9 +2049,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_t_5
+      name: body_male_dark_wc_t_5
       rect:
         serializedVersion: 2
         x: 320
@@ -1757,9 +2063,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_t_6
+      name: body_male_dark_wc_t_6
       rect:
         serializedVersion: 2
         x: 384
@@ -1770,9 +2077,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_t_7
+      name: body_male_dark_wc_t_7
       rect:
         serializedVersion: 2
         x: 448
@@ -1783,9 +2091,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: wc_t_8
+      name: body_male_dark_wc_t_8
       rect:
         serializedVersion: 2
         x: 512
@@ -1796,9 +2105,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_r_0
+      name: body_male_dark_th_r_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1809,9 +2119,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_r_1
+      name: body_male_dark_th_r_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1822,9 +2133,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_r_2
+      name: body_male_dark_th_r_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1835,9 +2147,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_r_3
+      name: body_male_dark_th_r_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1848,9 +2161,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_r_4
+      name: body_male_dark_th_r_4
       rect:
         serializedVersion: 2
         x: 256
@@ -1861,9 +2175,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_r_5
+      name: body_male_dark_th_r_5
       rect:
         serializedVersion: 2
         x: 320
@@ -1874,9 +2189,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_r_6
+      name: body_male_dark_th_r_6
       rect:
         serializedVersion: 2
         x: 384
@@ -1887,9 +2203,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_r_7
+      name: body_male_dark_th_r_7
       rect:
         serializedVersion: 2
         x: 448
@@ -1900,9 +2217,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_d_0
+      name: body_male_dark_th_d_0
       rect:
         serializedVersion: 2
         x: 0
@@ -1913,9 +2231,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_d_1
+      name: body_male_dark_th_d_1
       rect:
         serializedVersion: 2
         x: 64
@@ -1926,9 +2245,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_d_2
+      name: body_male_dark_th_d_2
       rect:
         serializedVersion: 2
         x: 128
@@ -1939,9 +2259,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_d_3
+      name: body_male_dark_th_d_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1952,9 +2273,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_d_4
+      name: body_male_dark_th_d_4
       rect:
         serializedVersion: 2
         x: 256
@@ -1965,9 +2287,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_d_5
+      name: body_male_dark_th_d_5
       rect:
         serializedVersion: 2
         x: 320
@@ -1978,9 +2301,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_d_6
+      name: body_male_dark_th_d_6
       rect:
         serializedVersion: 2
         x: 384
@@ -1991,9 +2315,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_d_7
+      name: body_male_dark_th_d_7
       rect:
         serializedVersion: 2
         x: 448
@@ -2004,9 +2329,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_l_0
+      name: body_male_dark_th_l_0
       rect:
         serializedVersion: 2
         x: 0
@@ -2017,9 +2343,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_l_1
+      name: body_male_dark_th_l_1
       rect:
         serializedVersion: 2
         x: 64
@@ -2030,9 +2357,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_l_2
+      name: body_male_dark_th_l_2
       rect:
         serializedVersion: 2
         x: 128
@@ -2043,9 +2371,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_l_3
+      name: body_male_dark_th_l_3
       rect:
         serializedVersion: 2
         x: 192
@@ -2056,9 +2385,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_l_4
+      name: body_male_dark_th_l_4
       rect:
         serializedVersion: 2
         x: 256
@@ -2069,9 +2399,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_l_5
+      name: body_male_dark_th_l_5
       rect:
         serializedVersion: 2
         x: 320
@@ -2082,9 +2413,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_l_6
+      name: body_male_dark_th_l_6
       rect:
         serializedVersion: 2
         x: 384
@@ -2095,9 +2427,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_l_7
+      name: body_male_dark_th_l_7
       rect:
         serializedVersion: 2
         x: 448
@@ -2108,9 +2441,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_t_0
+      name: body_male_dark_th_t_0
       rect:
         serializedVersion: 2
         x: 0
@@ -2121,9 +2455,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_t_1
+      name: body_male_dark_th_t_1
       rect:
         serializedVersion: 2
         x: 64
@@ -2134,9 +2469,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_t_2
+      name: body_male_dark_th_t_2
       rect:
         serializedVersion: 2
         x: 128
@@ -2147,9 +2483,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_t_3
+      name: body_male_dark_th_t_3
       rect:
         serializedVersion: 2
         x: 192
@@ -2160,9 +2497,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_t_4
+      name: body_male_dark_th_t_4
       rect:
         serializedVersion: 2
         x: 256
@@ -2173,9 +2511,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_t_5
+      name: body_male_dark_th_t_5
       rect:
         serializedVersion: 2
         x: 320
@@ -2186,9 +2525,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_t_6
+      name: body_male_dark_th_t_6
       rect:
         serializedVersion: 2
         x: 384
@@ -2199,9 +2539,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: th_t_7
+      name: body_male_dark_th_t_7
       rect:
         serializedVersion: 2
         x: 448
@@ -2212,9 +2553,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_r_0
+      name: body_male_dark_sc_r_0
       rect:
         serializedVersion: 2
         x: 0
@@ -2225,9 +2567,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_r_1
+      name: body_male_dark_sc_r_1
       rect:
         serializedVersion: 2
         x: 64
@@ -2238,9 +2581,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_r_2
+      name: body_male_dark_sc_r_2
       rect:
         serializedVersion: 2
         x: 128
@@ -2251,9 +2595,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_r_3
+      name: body_male_dark_sc_r_3
       rect:
         serializedVersion: 2
         x: 192
@@ -2264,9 +2609,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_r_4
+      name: body_male_dark_sc_r_4
       rect:
         serializedVersion: 2
         x: 256
@@ -2277,9 +2623,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_r_5
+      name: body_male_dark_sc_r_5
       rect:
         serializedVersion: 2
         x: 320
@@ -2290,9 +2637,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_r_6
+      name: body_male_dark_sc_r_6
       rect:
         serializedVersion: 2
         x: 384
@@ -2303,9 +2651,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_d_0
+      name: body_male_dark_sc_d_0
       rect:
         serializedVersion: 2
         x: 0
@@ -2316,9 +2665,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_d_1
+      name: body_male_dark_sc_d_1
       rect:
         serializedVersion: 2
         x: 64
@@ -2329,9 +2679,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_d_2
+      name: body_male_dark_sc_d_2
       rect:
         serializedVersion: 2
         x: 128
@@ -2342,9 +2693,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_d_3
+      name: body_male_dark_sc_d_3
       rect:
         serializedVersion: 2
         x: 192
@@ -2355,9 +2707,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_d_4
+      name: body_male_dark_sc_d_4
       rect:
         serializedVersion: 2
         x: 256
@@ -2368,9 +2721,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_d_5
+      name: body_male_dark_sc_d_5
       rect:
         serializedVersion: 2
         x: 320
@@ -2381,9 +2735,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_d_6
+      name: body_male_dark_sc_d_6
       rect:
         serializedVersion: 2
         x: 384
@@ -2394,9 +2749,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_l_0
+      name: body_male_dark_sc_l_0
       rect:
         serializedVersion: 2
         x: 0
@@ -2407,9 +2763,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_l_1
+      name: body_male_dark_sc_l_1
       rect:
         serializedVersion: 2
         x: 64
@@ -2420,9 +2777,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_l_2
+      name: body_male_dark_sc_l_2
       rect:
         serializedVersion: 2
         x: 128
@@ -2433,9 +2791,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_l_3
+      name: body_male_dark_sc_l_3
       rect:
         serializedVersion: 2
         x: 192
@@ -2446,9 +2805,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_l_4
+      name: body_male_dark_sc_l_4
       rect:
         serializedVersion: 2
         x: 256
@@ -2459,9 +2819,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_l_5
+      name: body_male_dark_sc_l_5
       rect:
         serializedVersion: 2
         x: 320
@@ -2472,9 +2833,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_l_6
+      name: body_male_dark_sc_l_6
       rect:
         serializedVersion: 2
         x: 384
@@ -2485,9 +2847,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_t_0
+      name: body_male_dark_sc_t_0
       rect:
         serializedVersion: 2
         x: 0
@@ -2498,9 +2861,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_t_1
+      name: body_male_dark_sc_t_1
       rect:
         serializedVersion: 2
         x: 64
@@ -2511,9 +2875,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_t_2
+      name: body_male_dark_sc_t_2
       rect:
         serializedVersion: 2
         x: 128
@@ -2524,9 +2889,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_t_3
+      name: body_male_dark_sc_t_3
       rect:
         serializedVersion: 2
         x: 192
@@ -2537,9 +2903,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_t_4
+      name: body_male_dark_sc_t_4
       rect:
         serializedVersion: 2
         x: 256
@@ -2550,9 +2917,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_t_5
+      name: body_male_dark_sc_t_5
       rect:
         serializedVersion: 2
         x: 320
@@ -2563,9 +2931,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: sc_t_6
+      name: body_male_dark_sc_t_6
       rect:
         serializedVersion: 2
         x: 384
@@ -2576,8 +2945,10 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
     outline: []
+    physicsShape: []
   spritePackingTag: character
   userData: 
   assetBundleName: 
