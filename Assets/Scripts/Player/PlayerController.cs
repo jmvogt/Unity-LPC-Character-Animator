@@ -23,11 +23,15 @@ public class PlayerController : MonoBehaviour {
 
     private bool _movingHorizontally;
     private bool _movingVertically;
-    
+    private bool _isAttacking;
+
+    private Rigidbody2D _rigidbody;
+
 	void Start () {
         //prepare character sprites
         _playerObject = GameObject.Find("/player");
         _charAnimator = gameObject.AddComponent<AnimationRenderer>() as AnimationRenderer;
+        _rigidbody = GetComponent<Rigidbody2D>();
         InitializeCharacterRenderers(_charAnimator);
 
         //set defaults
@@ -37,6 +41,8 @@ public class PlayerController : MonoBehaviour {
         _moveSpeed = .0275f;
         _movingHorizontally = false;
         _movingVertically = false;
+        _isAttacking = false;
+        
 	}
 
     void InitializeCharacterRenderers(AnimationRenderer charAnimator) {
@@ -51,8 +57,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update() {
-        UpdatePositioning();
         UpdateAnimation();
+        UpdatePositioning();
     }
 
     void UpdatePositioning() {
@@ -65,72 +71,88 @@ public class PlayerController : MonoBehaviour {
         }
 
         float moveHorizontal = Input.GetAxis("Horizontal");
-        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
-            _movingHorizontally = false;
-        else if (moveHorizontal != 0)
-        {
-            _movingHorizontally = true;
-            if (moveHorizontal > 0)
-                gameObject.transform.position += new Vector3(1, 0, 0) * _moveSpeed;
-            else if (moveHorizontal < 0)
-                gameObject.transform.position += new Vector3(-1, 0, 0) * _moveSpeed;
-        }
-
         float moveVertical = Input.GetAxis("Vertical");
-        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S))
-            _movingVertically = false;
-        else if (moveVertical != 0)
-        {
-            _movingVertically = true;
-            if (moveVertical > 0)
-                gameObject.transform.position += new Vector3(0, 1, 0) * _moveSpeed;
-            else if (moveVertical < 0)
-                gameObject.transform.position += new Vector3(0, -1, 0) * _moveSpeed;
-        }
+
+        
+        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+        Debug.Log("Force: " + movement);
+        //_rigidbody.AddForce(movement * _moveSpeed);
+
+        _rigidbody.MovePosition(_rigidbody.position + movement * _moveSpeed);
+        
+        //float moveHorizontal = Input.GetAxis("Horizontal");
+        //if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
+        //    _movingHorizontally = false;
+        //else if (moveHorizontal != 0 && !_isAttacking)
+        //{
+        //    _movingHorizontally = true;
+        //    if (moveHorizontal > 0)
+        //        gameObject.transform.position += new Vector3(1, 0, 0) * _moveSpeed;
+        //    else if (moveHorizontal < 0)
+        //        gameObject.transform.position += new Vector3(-1, 0, 0) * _moveSpeed;
+        //}
+
+        //float moveVertical = Input.GetAxis("Vertical");
+        //if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S))
+        //    _movingVertically = false;
+        //else if (moveVertical != 0 && !_isAttacking)
+        //{
+        //    _movingVertically = true;
+        //    if (moveVertical > 0)
+        //        gameObject.transform.position += new Vector3(0, 1, 0) * _moveSpeed;
+        //    else if (moveVertical < 0)
+        //        gameObject.transform.position += new Vector3(0, -1, 0) * _moveSpeed;
+        //}
     }
 
     void UpdateAnimation() {
         string newDirection = DirectionType.NONE;
-        _newInput = KeyCode.None;
-        if (Input.GetKey(KeyCode.W) || Input.GetKeyDown(KeyCode.W) && _lastInput != KeyCode.W) {
+        if (Input.GetKeyDown(KeyCode.W)) {
             newDirection = DirectionType.UP;
             _newAction = new WalkAction();
             _newInput = KeyCode.W;
-        } else if (Input.GetKey(KeyCode.A) || Input.GetKeyDown(KeyCode.A) && _lastInput != KeyCode.A) {
+            _isAttacking = false;
+        } else if (Input.GetKeyDown(KeyCode.A)) {
             newDirection = DirectionType.LEFT;
             _newAction = new WalkAction();
             _newInput = KeyCode.A;
-        } else if (Input.GetKey(KeyCode.S) || Input.GetKeyDown(KeyCode.S) && _lastInput != KeyCode.S) {
+            _isAttacking = false;
+        } else if (Input.GetKeyDown(KeyCode.S)) {
             newDirection = DirectionType.DOWN;
             _newAction = new WalkAction();
             _newInput = KeyCode.S;
-        } else if (Input.GetKey(KeyCode.D) || Input.GetKeyDown(KeyCode.D) && _lastInput != KeyCode.D) {
+            _isAttacking = false;
+        } else if (Input.GetKeyDown(KeyCode.D)) {
             newDirection = DirectionType.RIGHT;
             _newAction = new WalkAction();
             _newInput = KeyCode.D;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            newDirection = _lastDirection;
+            _isAttacking = false;
+        } else if (Input.GetKeyDown(KeyCode.Space)) {
             _newAction = new SlashAction();
             _newInput = KeyCode.Space;
+            _isAttacking = true;
         } else if (Input.GetKeyDown(KeyCode.F)) {
-            newDirection = _lastDirection;
             _newAction = new ThrustAction();
             _newInput = KeyCode.F;
+            _isAttacking = true;
         } else if (Input.GetKeyDown(KeyCode.R)) {
-            newDirection = _lastDirection;
             _newAction = new SpellcastAction();
             _newInput = KeyCode.R;
+            _isAttacking = true;
         } else if (Input.GetKeyDown(KeyCode.E)) {
-            newDirection = _lastDirection;
             _newAction = new ShootAction();
             _newInput = KeyCode.E;
+            _isAttacking = true;
+        } else {
+            _newInput = KeyCode.None;
         }
 
         // continue using the last direction when the character stops moving
         if (newDirection == DirectionType.NONE)
             newDirection = _lastDirection;
+         
+        Debug.Log("Last Input: " + _lastInput);
+        Debug.Log("New Input: " + _newInput);
 
         bool sameAction = _lastDirection == newDirection && _lastInput == _newInput;
 
@@ -138,7 +160,7 @@ public class PlayerController : MonoBehaviour {
         if (!sameAction || Player.characterDNA.IsDirty()) {
             _animationManager.UpdateDNAForAction(Player.characterDNA, Player.animationDNA, _newAction, newDirection);
             _charAnimator.AnimateAction(Player.animationDNA, _newAction);
-        } else if (_newInput == KeyCode.None && _movingHorizontally && _movingVertically) {
+        } else if (!Input.anyKey) {
             // if there is no movement, stop on the final frame of the current animation
             _charAnimator.StopOnFinalFrame(true);
         }
