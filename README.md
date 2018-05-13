@@ -39,7 +39,9 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
 (I will get a page up with pictures here soon..!)
   1. Open the project in unity. It will take a bit of time to import the assets as there are ~52k sprites. This will only happen the first time you open the project.
   2. Open the demo scene from the root Assets folder.
-  3. From the Hierarchy window, select the AtlasManager GameObject. You should see an Atlas Manager script component for this GameObject in the Inspector window. Click the "Load" button. The first time this may take 15-20 seconds but the next time it should be much faster.
+  ![Open Demo Scene](Images/step1.png)
+  3. From the Hierarchy window, select the AtlasManager GameObject. You should see an Atlas Manager script component for this GameObject in the Inspector window. If any models are already loaded the first time you go through this process, click on "Unload". Next, click the "Load" button. The first time this may take 15-20 seconds but the next time it should be much faster.
+    ![Open Demo Scene](Images/step2.png)
   4. Once all the models have loaded, click on play. All sprites will be packed the first time you play, but the second time this will be skipped.
   5. Replace any slot on the left hand side with a value from the Atlas Manager script's Model List attribute. Additionally, you can provide a RGB value on the right hand side to color the model.
   6. Click generate
