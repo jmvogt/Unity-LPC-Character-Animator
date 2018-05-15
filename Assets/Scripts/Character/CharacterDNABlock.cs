@@ -1,70 +1,66 @@
-﻿using Assets.Scripts.Animation.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.Character {
-
-    public class CharacterDNABlock {
-
-        private string _modelKey;
-        private Color _itemColor;
-        private bool _enabled;
-        private bool _isDirty;
-
-        public string ModelKey { get { return _modelKey; } set { _modelKey = value; } }
-
-        public Color ItemColor { get { return _itemColor; } set { _itemColor = value; } }
-
-        public bool Enabled { get { return _enabled; } set { _enabled = value; } }
-
-        public bool IsDirty { get { return _isDirty; } set { _isDirty = value; } }
-
-        public CharacterDNABlock() {
-            _modelKey = "UNKNOWN";
-            _itemColor = new Color();
-            _enabled = false;
-            _isDirty = false;
+namespace Assets.Scripts.Character
+{
+    public class CharacterDNABlock
+    {
+        public CharacterDNABlock()
+        {
+            ModelKey = "UNKNOWN";
+            ItemColor = new Color();
+            Enabled = false;
+            IsDirty = false;
         }
 
-        public CharacterDNABlock(string itemKey) {
+        public CharacterDNABlock(string itemKey)
+        {
             Update(itemKey, new Color());
         }
 
-        public CharacterDNABlock(string itemKey, Color itemColor) {
+        public CharacterDNABlock(string itemKey, Color itemColor)
+        {
             Update(itemKey, itemColor);
         }
 
-        public void Update(string itemKey, Color itemColor) {
-            _modelKey = itemKey;
-            _itemColor = itemColor;
-            _enabled = true;
-            _isDirty = true;
+        public string ModelKey { get; set; }
+
+        public Color ItemColor { get; set; }
+
+        public bool Enabled { get; set; }
+
+        public bool IsDirty { get; set; }
+
+        public void Update(string itemKey, Color itemColor)
+        {
+            ModelKey = itemKey;
+            ItemColor = itemColor;
+            Enabled = true;
+            IsDirty = true;
 
             // disable the character block if there is no model key
             if (itemKey.Length > 0)
-                _enabled = true;
+                Enabled = true;
             else
-                _enabled = false;
+                Enabled = false;
         }
 
-        public void UpdateColor(Color itemColor) {
-            _itemColor = itemColor;
-            _enabled = true;
-            _isDirty = true;
+        public void UpdateColor(Color itemColor)
+        {
+            ItemColor = itemColor;
+            Enabled = true;
+            IsDirty = true;
         }
 
-        public void UpdateModel(string modelKey) {
-            _modelKey = modelKey;
-            _isDirty = true;
+        public void UpdateModel(string modelKey)
+        {
+            ModelKey = modelKey;
+            IsDirty = true;
 
             // disable the character block if there is no model key
             if (modelKey.Length > 0)
-                _enabled = true;
+                Enabled = true;
             else
-                _enabled = false;
+                Enabled = false;
         }
     }
 }

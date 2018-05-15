@@ -1,75 +1,78 @@
-﻿using Assets.Scripts.Types;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Assets.Scripts.Types;
 using UnityEngine;
+// ReSharper disable UnusedMember.Local
 
 public class AtlasManager : MonoBehaviour
 {
-    static AtlasManager instance;
-
-    public double ModelsLoaded = 0;
-    public double ModelsTotal = 0;
+    private static AtlasManager _instance;
+    private readonly Dictionary<string, Dictionary<string, Sprite>> _atlasLookup = new Dictionary<string, Dictionary<string, Sprite>>();
+    public readonly List<string> ModelList = new List<string>();
+    public int ModelsLoaded;
+    public int ModelsTotal = 0;
 
     [HideInInspector]
     public List<Sprite> spriteList = new List<Sprite>();
 
-    public Dictionary<string, Dictionary<string,Sprite>> AtlasLookup = new Dictionary<string, Dictionary<string,Sprite>>();
-
-    public List<string> modelList = new List<string>();
-
-    void Start()
+    private void Start()
     {
         // Initialize atlas dictionaries for all block types
-        foreach (string bodyKey in DNABlockType.GetTypeList()) {
-            AtlasLookup[bodyKey] = new Dictionary<string, Sprite>();
+        foreach (var bodyKey in DNABlockType.TypeList)
+        {
+            _atlasLookup[bodyKey] = new Dictionary<string, Sprite>();
         }
 
-        int i = 0;
         // Sort each sprite in the spritelist into respective dictionary
-        foreach (Sprite sprite in spriteList) {
-            i++;
-            string atlasKey = sprite.name.Split('_')[0].ToUpper();
-            try {
-                AtlasLookup[atlasKey][sprite.name] = sprite;
-            } catch (Exception ex) {
-                Debug.Log(string.Format("Failed to load sprite for atlas key; {0} sprite name {1}", atlasKey, sprite.name));
+        foreach (var sprite in spriteList)
+        {
+            var atlasKey = sprite.name.Split('_')[0].ToUpper();
+            try
+            {
+                _atlasLookup[atlasKey][sprite.name] = sprite;
+            }
+            catch (Exception)
+            {
+                Debug.Log($"Failed to load sprite for atlas key; {atlasKey} sprite name {sprite.name}");
             }
         }
 
-        instance = GetComponent<AtlasManager>();
+        _instance = GetComponent<AtlasManager>();
     }
 
-    static public Sprite GetSprite(string name)
+    public static Sprite GetSprite(string name)
     {
-        if (instance == null) {
+        if (_instance == null)
+        {
             throw new Exception("Sprites not loaded into the AtlasManager! " +
-                "Add the LPCAtlasManagerEditor script to a GameObject and click Load.");
+                                "Add the LPCAtlasManagerEditor script to a GameObject and click Load.");
         }
 
-        Dictionary<string, Sprite> collection = instance.AtlasLookup[name.Split('_')[0].ToUpper()];
+        var collection = _instance._atlasLookup[name.Split('_')[0].ToUpper()];
 
         if (collection.ContainsKey(name))
-        {
             return collection[name];
-        } else {
-            Debug.Log("MISSING SPRITE!");
-            throw new Exception("MISSING SPRITE!");
-        }
+        Debug.Log("MISSING SPRITE!");
+        throw new Exception("MISSING SPRITE!");
     }
 
-    public static List<string> GetModelList() {
-        return instance.modelList;
+    public static List<string> GetModelList()
+    {
+        return _instance.ModelList;
     }
 
-    public static void IncrementModelLoaded() {
-        instance.ModelsLoaded++;
+    public static void IncrementModelLoaded()
+    {
+        _instance.ModelsLoaded++;
     }
 
-    public static double GetModelsTotal() {
-        return instance.ModelsTotal;
+    public static int GetModelsTotal()
+    {
+        return _instance.ModelsTotal;
     }
 
-    public static double GetModelsLoaded() {
-        return instance.ModelsLoaded;
+    public static int GetModelsLoaded()
+    {
+        return _instance.ModelsLoaded;
     }
 }

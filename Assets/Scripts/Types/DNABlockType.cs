@@ -1,53 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace Assets.Scripts.Types {
-    public static class DNABlockType {
-        public const string BODY = "BODY";
-        public const string FACE = "FACE";
-        public const string HAIR = "HAIR";
-        public const string HEAD = "HEAD";
-        public const string FACIALHAIR = "FACIALHAIR";
-        public const string EARS = "EARS";
-        public const string EYES = "EYES";
-        public const string NOSE = "NOSE";
-        public const string NECK = "NECK";
-        public const string CHEST = "CHEST";
-        public const string SHOULDER = "SHOULDER";
-        public const string ARMS = "ARMS";
-        public const string WRISTS = "WRISTS";
-        public const string HANDS = "HANDS";
-        public const string BACK = "BACK";
-        public const string BACK2 = "BACK2";
-        public const string WAIST = "WAIST";
-        public const string LEGS = "LEGS";
-        public const string FEET = "FEET";
-        public const string RIGHTHAND = "RIGHTHAND";
-        public const string LEFTHAND = "LEFTHAND";
+namespace Assets.Scripts.Types
+{
+    public static class DNABlockType
+    {
+        public const string Body = "BODY";
+        public const string Face = "FACE";
+        public const string Hair = "HAIR";
+        public const string Head = "HEAD";
+        public const string FacialHair = "FACIALHAIR";
+        public const string Ears = "EARS";
+        public const string Eyes = "EYES";
+        public const string Nose = "NOSE";
+        public const string Neck = "NECK";
+        public const string Chest = "CHEST";
+        public const string Shoulder = "SHOULDER";
+        public const string Arms = "ARMS";
+        public const string Wrists = "WRISTS";
+        public const string Hands = "HANDS";
+        public const string Back = "BACK";
+        public const string Back2 = "BACK2";
+        public const string Waist = "WAIST";
+        public const string Legs = "LEGS";
+        public const string Feet = "FEET";
+        public const string Righthand = "RIGHTHAND";
+        public const string Lefthand = "LEFTHAND";
 
-        public static string[] GetTypeList() {
+        public static readonly string[] TypeList = {
+            Back2, Back, Body, Ears,
+            Eyes, Nose, FacialHair, Face, Hair,
+            Neck, Shoulder, Waist, Wrists,
+            Feet, Hands, Head, Legs,
+            Lefthand, Arms, Chest, Righthand
+        };
 
-            return new string[21] {
-                BACK2, BACK, BODY, EARS, 
-                EYES, NOSE, FACIALHAIR, FACE, HAIR, 
-                NECK, SHOULDER, WAIST, WRISTS, 
-                FEET, HANDS, HEAD, LEGS,
-                LEFTHAND, ARMS, CHEST, RIGHTHAND
-            };
-        }
-
-        public static int GetSortingOrder(string blockType, string direction) {
-            string[] typeList = GetTypeList();
-            int index = Array.IndexOf(typeList, blockType);
-            if (direction == DirectionType.UP &&
-                (blockType == DNABlockType.BACK || blockType == DNABlockType.BACK2)) {
-                    // BACK2 will be on top of BACK when facing up
-                    return (typeList.Length - index) * 100;
-            } else {
-                return index;
+        public static int GetSortingOrder(string blockType, string direction)
+        {
+            var index = Array.IndexOf(TypeList, blockType);
+            if (direction == DirectionType.Up &&
+                (blockType == Back || blockType == Back2))
+            {
+                // BACK2 will be on top of BACK when facing up
+                return (TypeList.Length - index) * 100;
             }
+
+            return index;
         }
     }
 }

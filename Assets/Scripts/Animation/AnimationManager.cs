@@ -1,101 +1,94 @@
-﻿using Assets.Scripts.Animation.ActionAnimations;
+﻿using System.Collections.Generic;
+using Assets.Scripts.Animation.ActionAnimations;
 using Assets.Scripts.Animation.Interfaces;
 using Assets.Scripts.Character;
 using Assets.Scripts.Types;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using UnityEngine;
 
 namespace Assets.Scripts.Animation
 {
-    
     public class AnimationManager
     {
-        public void UpdateDNAForAction(CharacterDNA characterDNA, AnimationDNA animationDNA, BaseAction actionAnimation, string newDirection) {
-            /*
-             *  Uses the characterDNA to fetch the proper animations and update the animationDNA.
-             */
-            foreach (string blockType in DNABlockType.GetTypeList()) {
-                CharacterDNABlock characterDNABlock = characterDNA.DNABlocks[blockType];
-                
-                if (characterDNABlock.Enabled) {
-                    animationDNA.DNABlocks[blockType] = getAnimation(characterDNABlock.ModelKey, actionAnimation, newDirection);
-                    AnimationDNABlock animationDNABlock = animationDNA.DNABlocks[blockType];
+        public AnimationManager()
+        {
+            // All directional actions
+            _directionalActions = new List<BaseAction>
+            {
+                new SlashAction(),
+                new SpellcastAction(),
+                new ThrustAction(),
+                new WalkAction(),
+                new ShootAction(),
+                new DeathAction()
+            };
+        }
+
+        private readonly List<BaseAction> _directionalActions;
+
+        public static void UpdateDNAForAction(CharacterDNA characterDNA, AnimationDNA animationDNA, BaseAction actionAnimation, string newDirection)
+        {
+            // Uses the characterDNA to fetch the proper animations and update the animationDNA.
+            foreach (var blockType in DNABlockType.TypeList)
+            {
+                var characterDNABlock = characterDNA.DNABlocks[blockType];
+
+                if (characterDNABlock.Enabled)
+                {
+                    animationDNA.DNABlocks[blockType] = GetAnimation(characterDNABlock.ModelKey, actionAnimation, newDirection);
+                    var animationDNABlock = animationDNA.DNABlocks[blockType];
                     animationDNABlock.UpdateSpriteColor(characterDNABlock.ItemColor);
                     animationDNABlock.Enabled = true;
-                } else {
+                }
+                else
+                {
                     // Disable the animation slot if the character slot isnt enabled
                     animationDNA.DNABlocks[blockType].Enabled = false;
                 }
+
                 characterDNABlock.IsDirty = false;
             }
         }
 
-        private AnimationDNABlock getAnimation(string modelKey, BaseAction actionAnimation, string direction) {
-            /*
-             *  Fetches an animation from the animation store/cache
-             */
-
-            AnimationCache animationStore = AnimationCache.Instance;
-            string animationKey = modelKey;
-            if (!direction.Equals(DirectionType.NONE)) {
-                animationKey = String.Format("{0}_{1}_{2}", 
-                    animationKey, 
-                    actionAnimation.GetAnimationTag(),
-                    DirectionType.GetAnimationForDirection(direction));
-            } else {
-                animationKey = String.Format("{0}_{1}",
-                    animationKey,
-                    actionAnimation.GetAnimationTag());
-            }
+        private static AnimationDNABlock GetAnimation(string modelKey, BaseAction actionAnimation, string direction)
+        {
+            // Fetches an animation from the animation store/cache
+            var animationStore = AnimationCache.Instance;
+            var animationKey = modelKey;
+            animationKey = direction.Equals(DirectionType.None)
+                ? $"{animationKey}_{actionAnimation.GetAnimationTag()}"
+                : $"{animationKey}_{actionAnimation.GetAnimationTag()}_{DirectionType.GetAnimationForDirection(direction)}";
 
             return animationStore.Get(animationKey);
         }
 
-        public void LoadAllAnimationsIntoCache() {
-            /*
-             *  Builds all animations from sprites and adds them to the cache.
-             *  This should be called when a scene is FIRST loaded, before initializing characters.
-             */
+        public void LoadAllAnimationsIntoCache()
+        {
+            //Builds all animations from sprites and adds them to the cache.
+            //This should be called when a scene is FIRST loaded, before initializing characters.
 
-            List<string> modelList = AtlasManager.GetModelList();
-            for (int i = 0; i < modelList.Count; i++) {
-                LoadAnimationIntoCache(modelList[i]);
+            var modelList = AtlasManager.GetModelList();
+            foreach (var model in modelList)
+            {
+                LoadAnimationIntoCache(model);
                 AtlasManager.IncrementModelLoaded();
             }
         }
 
-        public void LoadAnimationIntoCache(string modelKey) {
-            /*
-             *  Builds the animation object for all model, action, direction
-             *  combinations. Object is then added to the AnimationCache.
-             */
+        private void LoadAnimationIntoCache(string modelKey)
+        {
+            // Builds the animation object for all model, action, direction
+            // combinations. Object is then added to the AnimationCache.
 
-            AnimationCache animationStore = AnimationCache.Instance;
+            var animationStore = AnimationCache.Instance;
 
-            // All directional actions
-            List<BaseAction> directionalActions = new List<BaseAction>();
-            directionalActions.Add(new SlashAction());
-            directionalActions.Add(new SpellcastAction());
-            directionalActions.Add(new ThrustAction());
-            directionalActions.Add(new WalkAction());
-            directionalActions.Add(new ShootAction());
-            directionalActions.Add(new DeathAction());
-
-            foreach (BaseAction actionAnimation in directionalActions) { 
-
+            foreach (var actionAnimation in _directionalActions)
+            {
                 // Use the respective importer for the action 
-                IAnimationImporter importer = actionAnimation.GetAnimationImporter();
-                List<AnimationDNABlock> newAnimations = importer.ImportAnimations(modelKey, DirectionType.DOWN);
+                var importer = actionAnimation.GetAnimationImporter();
+                var newAnimations = importer.ImportAnimations(modelKey, DirectionType.Down);
 
-                foreach (AnimationDNABlock newAnimation in newAnimations) {
-                    string animationKey = String.Format("{0}_{1}_{2}",
-                            modelKey,
-                            actionAnimation.GetAnimationTag(),
-                            DirectionType.GetAnimationForDirection(newAnimation.Direction));
+                foreach (var newAnimation in newAnimations)
+                {
+                    var animationKey = $"{modelKey}_{actionAnimation.GetAnimationTag()}_{DirectionType.GetAnimationForDirection(newAnimation.Direction)}";
                     animationStore.Add(animationKey, newAnimation);
                 }
             }
@@ -103,13 +96,12 @@ namespace Assets.Scripts.Animation
             // The "Idle" action reuses the first image of the death animation, so we need
             // to import the first frame of all death sprites without a direction tag.
             BaseAction deathAnimation = new DeathAction();
-            IAnimationImporter deathImporter = deathAnimation.GetAnimationImporter();
-            List<AnimationDNABlock> deathAnimations = deathImporter.ImportAnimations(modelKey, DirectionType.NONE);
+            var deathImporter = deathAnimation.GetAnimationImporter();
+            var deathAnimations = deathImporter.ImportAnimations(modelKey, DirectionType.None);
 
-            foreach (AnimationDNABlock newAnimation in deathAnimations) {
-                string animationKey = String.Format("{0}_{1}",
-                        modelKey,
-                        deathAnimation.GetAnimationTag());
+            foreach (var newAnimation in deathAnimations)
+            {
+                var animationKey = $"{modelKey}_{deathAnimation.GetAnimationTag()}";
                 animationStore.Add(animationKey, newAnimation);
             }
         }

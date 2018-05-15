@@ -1,38 +1,37 @@
 ﻿using Assets.Scripts.Animation.AnimationImporters;
 using Assets.Scripts.Animation.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Assets.Scripts.Animation.ActionAnimations
 {
-    class SlashAction : BaseAction {
-        public override IAnimationImporter GetAnimationImporter() {
-            SingleAnimationImporter downAnimation = new SingleAnimationImporter(
-                String.Format("{0}_d", GetAnimationTag()), _numberOfFrames, 86, GetStopOnLastFrame());
-            SingleAnimationImporter leftAnimation = new SingleAnimationImporter(
-                String.Format("{0}_l", GetAnimationTag()), _numberOfFrames, 92, GetStopOnLastFrame());
-            SingleAnimationImporter rightAnimation = new SingleAnimationImporter(
-                String.Format("{0}_r", GetAnimationTag()), _numberOfFrames, 98, GetStopOnLastFrame());
-            SingleAnimationImporter upAnimation = new SingleAnimationImporter(
-                String.Format("{0}_t", GetAnimationTag()), _numberOfFrames, 104, GetStopOnLastFrame());
-            return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
-        }
-
-        public SlashAction() : base() {
+    internal class SlashAction : BaseAction
+    {
+        public SlashAction()
+        {
             _numberOfFrames = 6;
         }
 
-        public override string GetAnimationTag() {
+        public override IAnimationImporter GetAnimationImporter()
+        {
+            var downAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_d", _numberOfFrames, 86, GetStopOnLastFrame());
+            var leftAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_l", _numberOfFrames, 92, GetStopOnLastFrame());
+            var rightAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_r", _numberOfFrames, 98, GetStopOnLastFrame());
+            var upAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_t", _numberOfFrames, 104, GetStopOnLastFrame());
+
+            return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
+        }
+
+        public override string GetAnimationTag()
+        {
             return "sl";
         }
 
-        public override string GetAnimationType() {
+        public override string GetAnimationType()
+        {
             return "slash";
         }
 
-        public override bool GetStopOnLastFrame() {
+        public override bool GetStopOnLastFrame()
+        {
             return false;
         }
     }

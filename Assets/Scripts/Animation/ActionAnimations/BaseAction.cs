@@ -1,25 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Assets.Scripts.Animation.Interfaces
+﻿namespace Assets.Scripts.Animation.Interfaces
 {
     public abstract class BaseAction
     {
+        protected string _direction;
+
+        protected int _numberOfFrames;
+
+        public string Direction
+        {
+            get { return _direction; }
+            set { _direction = value; }
+        }
+
+        public int NumberOfFrames => _numberOfFrames;
         public abstract IAnimationImporter GetAnimationImporter();
 
         public abstract string GetAnimationTag();
-
-        public string Direction { get { return _direction; } set { _direction = value; } }
-
-        protected int _numberOfFrames;
-        protected string _direction;
-        public int NumberOfFrames { get { return _numberOfFrames;} }
-
-        public BaseAction() {
-            
-        }
 
         public abstract string GetAnimationType();
 

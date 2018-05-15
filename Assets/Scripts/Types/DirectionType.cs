@@ -1,25 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿namespace Assets.Scripts.Types
+{
+    public static class DirectionType
+    {
+        public const string None = "NONE";
+        public const string Left = "LEFT";
+        public const string Right = "RIGHT";
+        public const string Up = "UP";
+        public const string Down = "DOWN";
 
-namespace Assets.Scripts.Types {
-    public static class DirectionType {
-        public const string NONE = "NONE";
-        public const string LEFT = "LEFT";
-        public const string RIGHT = "RIGHT";
-        public const string UP = "UP";
-        public const string DOWN = "DOWN";
-
-        public static string GetAnimationForDirection(string direction) {
-            switch (direction) {
-                case "LEFT":
+        public static string GetAnimationForDirection(string direction)
+        {
+            switch (direction)
+            {
+                case Left:
                     return "l";
-                case "RIGHT":
+                case Right:
                     return "r";
-                case "UP":
+                case Up:
                     return "t";
-                case "DOWN":
+                case Down:
                     return "d";
                 default:
                     return "";

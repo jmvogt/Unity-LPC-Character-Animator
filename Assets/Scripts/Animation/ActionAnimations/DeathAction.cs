@@ -1,33 +1,35 @@
 ﻿using Assets.Scripts.Animation.AnimationImporters;
 using Assets.Scripts.Animation.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Assets.Scripts.Animation.ActionAnimations
 {
-    public class DeathAction : BaseAction {
-        public override IAnimationImporter GetAnimationImporter() {
-            string animationTag = GetAnimationTag();
-            int spriteStartIndex = _numberOfFrames;
-            bool stopOnFinalFrame = GetStopOnLastFrame();
-            return new SingleAnimationImporter(animationTag, _numberOfFrames, spriteStartIndex, stopOnFinalFrame);
-        }
-
-        public DeathAction() : base() {
+    public class DeathAction : BaseAction
+    {
+        public DeathAction()
+        {
             _numberOfFrames = 6;
         }
 
-        public override string GetAnimationTag() {
+        public override IAnimationImporter GetAnimationImporter()
+        {
+            var animationTag = GetAnimationTag();
+            var spriteStartIndex = _numberOfFrames;
+            var stopOnFinalFrame = GetStopOnLastFrame();
+            return new SingleAnimationImporter(animationTag, _numberOfFrames, spriteStartIndex, stopOnFinalFrame);
+        }
+
+        public override string GetAnimationTag()
+        {
             return "hu";
         }
 
-        public override string GetAnimationType() {
+        public override string GetAnimationType()
+        {
             return "death";
         }
 
-        public override bool GetStopOnLastFrame() {
+        public override bool GetStopOnLastFrame()
+        {
             return true;
         }
     }

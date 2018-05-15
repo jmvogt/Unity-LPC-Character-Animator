@@ -57,7 +57,7 @@ namespace Assets.Scripts.Animation {
 
         public AnimationDNABlock() {
             _animationKey = "UNKNOWN";
-            _direction = DirectionType.NONE;
+            _direction = DirectionType.None;
             _enabled = false;
             _sortingOrder = -99;
         }
