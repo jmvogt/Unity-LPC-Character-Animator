@@ -7,7 +7,7 @@ namespace Assets.Scripts.Animation.ActionAnimations
     {
         public IdleAction()
         {
-            _numberOfFrames = 1;
+            NumberOfFrames = 1;
         }
 
         public override IAnimationImporter GetAnimationImporter()
@@ -15,7 +15,7 @@ namespace Assets.Scripts.Animation.ActionAnimations
             var animationTag = GetAnimationTag();
             var spriteStartIndex = 0;
             var stopOnFinalFrame = GetStopOnLastFrame();
-            return new SingleAnimationImporter(animationTag, _numberOfFrames, spriteStartIndex, stopOnFinalFrame);
+            return new SingleAnimationImporter(animationTag, NumberOfFrames, spriteStartIndex, stopOnFinalFrame);
         }
 
         public override string GetAnimationTag()

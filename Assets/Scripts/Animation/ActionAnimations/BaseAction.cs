@@ -2,17 +2,11 @@
 {
     public abstract class BaseAction
     {
-        protected string _direction;
+        public string Direction { get; set; }
 
-        protected int _numberOfFrames;
+        public int NumberOfFrames { get; protected set; }
+        public int FramesPerSecond { get; protected set; }
 
-        public string Direction
-        {
-            get { return _direction; }
-            set { _direction = value; }
-        }
-
-        public int NumberOfFrames => _numberOfFrames;
         public abstract IAnimationImporter GetAnimationImporter();
 
         public abstract string GetAnimationTag();

@@ -7,15 +7,15 @@ namespace Assets.Scripts.Animation.ActionAnimations
     {
         public DeathAction()
         {
-            _numberOfFrames = 6;
+            NumberOfFrames = 6;
         }
 
         public override IAnimationImporter GetAnimationImporter()
         {
             var animationTag = GetAnimationTag();
-            var spriteStartIndex = _numberOfFrames;
+            var spriteStartIndex = NumberOfFrames;
             var stopOnFinalFrame = GetStopOnLastFrame();
-            return new SingleAnimationImporter(animationTag, _numberOfFrames, spriteStartIndex, stopOnFinalFrame);
+            return new SingleAnimationImporter(animationTag, NumberOfFrames, spriteStartIndex, stopOnFinalFrame);
         }
 
         public override string GetAnimationTag()

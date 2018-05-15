@@ -53,14 +53,14 @@ namespace Assets.Scripts.Animation
         private void Update()
         {
             if (!_playing) return;
-
-            var currentFrameIndex = _currentFrameNumber % CurrentAnimationAction.NumberOfFrames;
+            var hasAnimationKeys = _animationDNA?.DNABlocks?.Keys.Any() == true;
+            if (!hasAnimationKeys) return;
 
             _currentFrameNumber++;
+            _passedTime += Time.deltaTime;
+            var currentFrameIndex = _currentFrameNumber % CurrentAnimationAction.NumberOfFrames;
 
-            var hasAnimationKeys = _animationDNA?.DNABlocks?.Keys.Any() == true;
-
-            if (hasAnimationKeys && _stopOnFinalFrame && _currentFrameNumber % CurrentAnimationAction.NumberOfFrames == 0)
+            if (_stopOnFinalFrame && _currentFrameNumber % CurrentAnimationAction.NumberOfFrames == 0)
             {
                 _playing = false;
                 foreach (var animationKey in _animationDNA.DNABlocks.Keys)
@@ -72,7 +72,7 @@ namespace Assets.Scripts.Animation
             }
 
             var singleAnimTime = _totalAnimTimeInSeconds / CurrentAnimationAction.NumberOfFrames;
-            if (hasAnimationKeys && _passedTime >= singleAnimTime)
+            if (_passedTime >= singleAnimTime)
             {
                 foreach (var animationKey in _animationDNA.DNABlocks.Keys)
                 {
@@ -81,8 +81,6 @@ namespace Assets.Scripts.Animation
 
                 _passedTime -= singleAnimTime;
             }
-
-            _passedTime += Time.deltaTime;
         }
 
         private void RenderAnimationFrame(string animationKey, int currentFrameIndex)

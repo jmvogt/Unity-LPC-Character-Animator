@@ -1,65 +1,41 @@
-﻿using Assets.Scripts.Types;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using Assets.Scripts.Types;
 using UnityEngine;
 
-namespace Assets.Scripts.Animation {
-    public class AnimationDNABlock {
-        
-        private string _animationKey;
-        private List<Sprite> _spriteList;
-        private string _direction;
-        private Color _spriteColor;
-        private bool _enabled;
-        private int _sortingOrder;
-        private bool _isDirty;
-
-        public string AnimationKey {
-            get { return _animationKey; }
+namespace Assets.Scripts.Animation
+{
+    public class AnimationDNABlock
+    {
+        public AnimationDNABlock(string animationKey, List<Sprite> spriteList, string direction, int sortingOrder)
+        {
+            AnimationKey = animationKey;
+            SpriteList = spriteList;
+            Direction = direction;
+            SortingOrder = sortingOrder;
+            Enabled = true;
+            IsDirty = true;
         }
 
-        public List<Sprite> SpriteList {
-            get { return _spriteList; }
+        public AnimationDNABlock()
+        {
+            AnimationKey = "UNKNOWN";
+            Direction = DirectionType.None;
+            Enabled = false;
+            SortingOrder = -99;
         }
 
-        public int SortingOrder {
-            get { return _sortingOrder; }
-        }
+        public string AnimationKey { get; }
+        public List<Sprite> SpriteList { get; }
+        public int SortingOrder { get; }
+        public string Direction { get; }
+        public bool Enabled { get; set; }
+        public bool IsDirty { get; set; }
+        public Color SpriteColor { get; private set; }
 
-        public string Direction {
-            get { return _direction; }
-            set { _direction = value; }
-        }
-
-        public Color SpriteColor {
-            get { return _spriteColor; }
-        }
-
-        public bool Enabled { get { return _enabled; } set { _enabled = value; } }
-
-        public bool IsDirty { get { return _isDirty; } set { _isDirty = value; } }
-
-        public void UpdateSpriteColor(Color spriteColor) {
-            _spriteColor = spriteColor;
-            _isDirty = true;
-        }
-
-        public AnimationDNABlock(string animationKey, List<Sprite> spriteList, string direction, int sortingOrder) {
-            _animationKey = animationKey;
-            _spriteList = spriteList;
-            _direction = direction;
-            _sortingOrder = sortingOrder;
-            _enabled = true;
-            _isDirty = true;
-        }
-
-        public AnimationDNABlock() {
-            _animationKey = "UNKNOWN";
-            _direction = DirectionType.None;
-            _enabled = false;
-            _sortingOrder = -99;
+        public void UpdateSpriteColor(Color spriteColor)
+        {
+            SpriteColor = spriteColor;
+            IsDirty = true;
         }
     }
 }

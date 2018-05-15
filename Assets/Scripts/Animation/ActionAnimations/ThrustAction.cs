@@ -7,15 +7,15 @@ namespace Assets.Scripts.Animation.ActionAnimations
     {
         public ThrustAction()
         {
-            _numberOfFrames = 8;
+            NumberOfFrames = 8;
         }
 
         public override IAnimationImporter GetAnimationImporter()
         {
-            var downAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_d", _numberOfFrames, 110, GetStopOnLastFrame());
-            var leftAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_l", _numberOfFrames, 118, GetStopOnLastFrame());
-            var rightAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_r", _numberOfFrames, 126, GetStopOnLastFrame());
-            var upAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_t", _numberOfFrames, 134, GetStopOnLastFrame());
+            var downAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_d", NumberOfFrames, 110, GetStopOnLastFrame());
+            var leftAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_l", NumberOfFrames, 118, GetStopOnLastFrame());
+            var rightAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_r", NumberOfFrames, 126, GetStopOnLastFrame());
+            var upAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_t", NumberOfFrames, 134, GetStopOnLastFrame());
 
             return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
         }

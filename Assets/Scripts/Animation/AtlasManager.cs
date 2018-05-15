@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Assets.Scripts.Core;
 using Assets.Scripts.Types;
 using UnityEngine;
 // ReSharper disable UnusedMember.Local
@@ -7,7 +8,7 @@ using UnityEngine;
 
 public class AtlasManager : MonoBehaviour
 {
-    private static AtlasManager _instance;
+    public static AtlasManager Instance;
     private readonly Dictionary<string, Dictionary<string, Sprite>> _atlasLookup = new Dictionary<string, Dictionary<string, Sprite>>();
     public List<string> ModelList = new List<string>();
     public int ModelsLoaded;
@@ -38,42 +39,31 @@ public class AtlasManager : MonoBehaviour
             }
         }
 
-        _instance = GetComponent<AtlasManager>();
+        Instance = GetComponent<AtlasManager>();
     }
 
-    public static Sprite GetSprite(string name)
+    public Sprite GetSprite(string nameSprite)
     {
-        if (_instance == null)
+        if (Instance == null)
         {
             throw new Exception("Sprites not loaded into the AtlasManager! " +
                                 "Add the LPCAtlasManagerEditor script to a GameObject and click Load.");
         }
 
-        var collection = _instance._atlasLookup[name.Split('_')[0].ToUpper()];
+        var collection = Instance._atlasLookup[nameSprite.Split('_')[0].ToUpper()];
+        var item = collection.SafeGet(nameSprite);
 
-        if (collection.ContainsKey(name))
-            return collection[name];
-        Debug.Log("MISSING SPRITE!");
-        throw new Exception("MISSING SPRITE!");
+        if (item == null)
+        {
+            Debug.Log("MISSING SPRITE!");
+            throw new Exception("MISSING SPRITE!");
+        }
+
+        return collection[nameSprite];
     }
 
-    public static List<string> GetModelList()
+    public void IncrementModelLoaded()
     {
-        return _instance.ModelList;
-    }
-
-    public static void IncrementModelLoaded()
-    {
-        _instance.ModelsLoaded++;
-    }
-
-    public static int GetModelsTotal()
-    {
-        return _instance.ModelsTotal;
-    }
-
-    public static int GetModelsLoaded()
-    {
-        return _instance.ModelsLoaded;
+        Instance.ModelsLoaded++;
     }
 }

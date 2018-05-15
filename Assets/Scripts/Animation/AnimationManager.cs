@@ -72,11 +72,11 @@ namespace Assets.Scripts.Animation
             //Builds all animations from sprites and adds them to the cache.
             //This should be called when a scene is FIRST loaded, before initializing characters.
 
-            var modelList = AtlasManager.GetModelList();
+            var modelList = AtlasManager.Instance.ModelList;
             foreach (var model in modelList)
             {
                 LoadAnimationIntoCache(model);
-                AtlasManager.IncrementModelLoaded();
+                AtlasManager.Instance.IncrementModelLoaded();
             }
         }
 

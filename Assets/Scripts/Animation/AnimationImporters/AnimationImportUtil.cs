@@ -15,7 +15,7 @@ namespace Assets.Scripts.Animation.AnimationImporters
             for (var i = 0; i < animationDefinition.NumberOfFrames; i++)
             {
                 var spriteKey = animationKey + "_" + i;
-                var sprite = AtlasManager.GetSprite(spriteKey);
+                var sprite = AtlasManager.Instance.GetSprite(spriteKey);
                 spriteList.Add(sprite);
             }
 

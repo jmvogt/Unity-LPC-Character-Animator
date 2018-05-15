@@ -91,9 +91,11 @@ namespace Assets.Scripts.Scene
         {
             if (!_animationsLoaded)
             {
+                var modelsLoaded = AtlasManager.Instance.ModelsLoaded;
+                var modelsTotal = AtlasManager.Instance.ModelsTotal;
                 // Loading message
-                GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "Caching all sprites... " + Math.Floor((double)AtlasManager.GetModelsLoaded() / AtlasManager.GetModelsTotal() * 100) + "%");
-                if (AtlasManager.GetModelsLoaded() == AtlasManager.GetModelsTotal()) return;
+                GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "Caching all sprites... " + Math.Floor((double)modelsLoaded / modelsTotal * 100) + "%");
+                if (modelsLoaded == modelsTotal) return;
 
                 // The sprites are all cached. Lets initialize the scene.
                 InitializeCharacterUI();
