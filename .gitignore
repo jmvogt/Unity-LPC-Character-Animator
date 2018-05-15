@@ -79,3 +79,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+/_ReSharper.Caches/ReSharperPlatformVs1512_4c0d67a1.Unity-LPC-Character-Animator.00
+/UnityPackageManager/manifest.json
+/.vs/config/applicationhost.config
