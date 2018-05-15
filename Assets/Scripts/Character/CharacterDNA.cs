@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts.Types;
 using UnityEngine;
 
@@ -11,16 +12,7 @@ namespace Assets.Scripts.Character
         // stats (race, hair, etc..) as well as their armor/weapons rather 
         // than being lumped together into one class
 
-        public CharacterDNA()
-        {
-            DNABlocks = new Dictionary<string, CharacterDNABlock>();
-            foreach (var blockKey in DNABlockType.TypeList)
-            {
-                DNABlocks.Add(blockKey, new CharacterDNABlock());
-            }
-        }
-
-        public Dictionary<string, CharacterDNABlock> DNABlocks { get; set; }
+        public Dictionary<string, CharacterDNABlock> DNABlocks { get; } = DNABlockType.TypeList.ToDictionary(bt => bt, v => new CharacterDNABlock());
 
         public void UpdateBlock(string blockKey, string itemKey, Color color)
         {

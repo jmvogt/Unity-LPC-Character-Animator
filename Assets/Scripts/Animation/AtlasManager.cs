@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using Assets.Scripts.Types;
 using UnityEngine;
 // ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Global
 
 public class AtlasManager : MonoBehaviour
 {
     private static AtlasManager _instance;
     private readonly Dictionary<string, Dictionary<string, Sprite>> _atlasLookup = new Dictionary<string, Dictionary<string, Sprite>>();
-    public readonly List<string> ModelList = new List<string>();
+    public List<string> ModelList = new List<string>();
     public int ModelsLoaded;
     public int ModelsTotal = 0;
 
     [HideInInspector]
-    public List<Sprite> spriteList = new List<Sprite>();
+    public List<Sprite> SpriteList = new List<Sprite>();
 
     private void Start()
     {
@@ -24,7 +25,7 @@ public class AtlasManager : MonoBehaviour
         }
 
         // Sort each sprite in the spritelist into respective dictionary
-        foreach (var sprite in spriteList)
+        foreach (var sprite in SpriteList)
         {
             var atlasKey = sprite.name.Split('_')[0].ToUpper();
             try

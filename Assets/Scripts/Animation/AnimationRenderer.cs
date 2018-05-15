@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts.Animation.ActionAnimations;
 using Assets.Scripts.Animation.Interfaces;
 using UnityEngine;
@@ -51,43 +52,44 @@ namespace Assets.Scripts.Animation
 
         private void Update()
         {
-            if (_playing)
+            if (!_playing) return;
+
+            var currentFrameIndex = _currentFrameNumber % CurrentAnimationAction.NumberOfFrames;
+
+            _currentFrameNumber++;
+
+            var hasAnimationKeys = _animationDNA?.DNABlocks?.Keys.Any() == true;
+
+            if (hasAnimationKeys && _stopOnFinalFrame && _currentFrameNumber % CurrentAnimationAction.NumberOfFrames == 0)
             {
-                var currentFrameIndex = _currentFrameNumber % CurrentAnimationAction.NumberOfFrames;
-
-                _currentFrameNumber++;
-
-                if (_stopOnFinalFrame && _currentFrameNumber % CurrentAnimationAction.NumberOfFrames == 0)
+                _playing = false;
+                foreach (var animationKey in _animationDNA.DNABlocks.Keys)
                 {
-                    _playing = false;
-                    foreach (var animationKey in _animationDNA.DNABlocks.Keys)
-                    {
-                        RenderAnimationFrame(animationKey, 0);
-                    }
-
-                    return;
+                    RenderAnimationFrame(animationKey, 0);
                 }
 
-                var singleAnimTime = _totalAnimTimeInSeconds / CurrentAnimationAction.NumberOfFrames;
-                if (_passedTime >= singleAnimTime)
-                {
-                    foreach (var animationKey in _animationDNA.DNABlocks.Keys)
-                    {
-                        RenderAnimationFrame(animationKey, currentFrameIndex);
-                    }
-
-                    _passedTime -= singleAnimTime;
-                }
-
-                _passedTime += Time.deltaTime;
+                return;
             }
+
+            var singleAnimTime = _totalAnimTimeInSeconds / CurrentAnimationAction.NumberOfFrames;
+            if (hasAnimationKeys && _passedTime >= singleAnimTime)
+            {
+                foreach (var animationKey in _animationDNA.DNABlocks.Keys)
+                {
+                    RenderAnimationFrame(animationKey, currentFrameIndex);
+                }
+
+                _passedTime -= singleAnimTime;
+            }
+
+            _passedTime += Time.deltaTime;
         }
 
         private void RenderAnimationFrame(string animationKey, int currentFrameIndex)
         {
             var animationDNABlock = _animationDNA.DNABlocks[animationKey];
             var rendererCurrent = _spriteRenderers[animationKey];
-            if (animationDNABlock.Enabled)
+            if (animationDNABlock?.Enabled == true)
             {
                 rendererCurrent.sprite = animationDNABlock.SpriteList[currentFrameIndex];
                 rendererCurrent.sortingOrder = animationDNABlock.SortingOrder;

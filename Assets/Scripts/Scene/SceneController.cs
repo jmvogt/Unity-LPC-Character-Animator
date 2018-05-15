@@ -93,7 +93,7 @@ namespace Assets.Scripts.Scene
             {
                 // Loading message
                 GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "Caching all sprites... " + Math.Floor((double)AtlasManager.GetModelsLoaded() / AtlasManager.GetModelsTotal() * 100) + "%");
-                if (AtlasManager.GetModelsLoaded() != AtlasManager.GetModelsTotal()) return;
+                if (AtlasManager.GetModelsLoaded() == AtlasManager.GetModelsTotal()) return;
 
                 // The sprites are all cached. Lets initialize the scene.
                 InitializeCharacterUI();

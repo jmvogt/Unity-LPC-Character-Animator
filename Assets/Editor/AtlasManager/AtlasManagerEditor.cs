@@ -19,10 +19,10 @@ public class AtlasManagerEditor : Editor
 
         _dirty = false;
 
-        if (_am?.spriteList == null)
+        if (_am?.SpriteList == null)
         {
             _am = _am ?? new AtlasManager();
-            _am.spriteList = new List<Sprite>();
+            _am.SpriteList = new List<Sprite>();
             _dirty = true;
         }
 
@@ -74,7 +74,7 @@ public class AtlasManagerEditor : Editor
                 if (s == null) continue;
 
                 Debug.Log(s.name);
-                _am.spriteList.Add(s);
+                _am.SpriteList.Add(s);
                 _dirty = true;
             }
         }
@@ -103,7 +103,7 @@ public class AtlasManagerEditor : Editor
     private void UnloadSprites()
     {
         _am.ModelList.Clear();
-        _am.spriteList.Clear();
+        _am.SpriteList.Clear();
         _am.ModelsLoaded = 0;
         _am.ModelsTotal = 0;
     }

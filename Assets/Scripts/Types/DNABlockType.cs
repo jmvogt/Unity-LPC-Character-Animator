@@ -23,15 +23,15 @@ namespace Assets.Scripts.Types
         public const string Waist = "WAIST";
         public const string Legs = "LEGS";
         public const string Feet = "FEET";
-        public const string Righthand = "RIGHTHAND";
-        public const string Lefthand = "LEFTHAND";
+        public const string RightHand = "RIGHTHAND";
+        public const string LeftHand = "LEFTHAND";
 
         public static readonly string[] TypeList = {
             Back2, Back, Body, Ears,
             Eyes, Nose, FacialHair, Face, Hair,
             Neck, Shoulder, Waist, Wrists,
             Feet, Hands, Head, Legs,
-            Lefthand, Arms, Chest, Righthand
+            LeftHand, Arms, Chest, RightHand
         };
 
         public static int GetSortingOrder(string blockType, string direction)

@@ -3,6 +3,7 @@ using Assets.Scripts.Animation.ActionAnimations;
 using Assets.Scripts.Animation.Interfaces;
 using Assets.Scripts.Character;
 using Assets.Scripts.Types;
+using UnityEngine;
 
 namespace Assets.Scripts.Animation
 {
@@ -35,6 +36,12 @@ namespace Assets.Scripts.Animation
                 {
                     animationDNA.DNABlocks[blockType] = GetAnimation(characterDNABlock.ModelKey, actionAnimation, newDirection);
                     var animationDNABlock = animationDNA.DNABlocks[blockType];
+                    if (animationDNABlock == null)
+                    {
+                        Debug.Log($"Block not found: {blockType}");
+                        continue;
+                    }
+
                     animationDNABlock.UpdateSpriteColor(characterDNABlock.ItemColor);
                     animationDNABlock.Enabled = true;
                 }
