@@ -74,30 +74,44 @@ public class PlayerController : MonoBehaviour
         var absHorizontal = Mathf.Abs(moveHorizontal);
         var absVertical = Mathf.Abs(moveVertical);
 
+        var isDiagonal = absVertical > 0 && absVertical > 0;
+        if (isDiagonal) moveAmount *= 0.75f; // account for diagonal movement speed increase
+
         if (moveHorizontal > 0)
         {
-            SpeedCurrent *= absHorizontal;
             gameObject.transform.position += Vector3.right * moveAmount * absHorizontal;
         }
         else if (moveHorizontal < 0)
         {
-            SpeedCurrent *= absHorizontal;
             gameObject.transform.position += Vector3.left * moveAmount * absHorizontal;
         }
 
         if (moveVertical > 0)
         {
-            SpeedCurrent *= absVertical;
-            gameObject.transform.position += Vector3.up * moveAmount * moveVertical;
+            gameObject.transform.position += Vector3.up * moveAmount * absVertical;
         }
         else if (moveVertical < 0)
         {
-            SpeedCurrent *= absVertical;
             gameObject.transform.position += Vector3.down * moveAmount * absVertical;
         }
 
-        SpeedAnimation = SpeedCurrent;
         _isStillMoving = absHorizontal > 0 || absVertical > 0;
+
+        if (_isStillMoving)
+        {
+            if (isDiagonal)
+            {
+                SpeedAnimation = SpeedCurrent * Mathf.Min(absHorizontal, absVertical);
+            }
+            else if (absHorizontal > 0)
+            {
+                SpeedAnimation = SpeedCurrent * absHorizontal;
+            }
+            else if (absVertical > 0)
+            {
+                SpeedAnimation = SpeedCurrent * absVertical;
+            }
+        }
     }
 
     private void UpdateAnimation()
