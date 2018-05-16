@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
     private GameObject _playerObject;
     public float MoveSpeed = 1;
     public float MoveSpeedCurrent = 1;
-    private bool _isStillMoving;
 
     private void Start()
     {
@@ -66,42 +65,44 @@ public class PlayerController : MonoBehaviour
         }
 
         var moveHorizontal = Input.GetAxis("Horizontal");
+        var absHorizontal = Mathf.Abs(moveHorizontal);
         var moveVertical = Input.GetAxis("Vertical");
-        _isStillMoving = Mathf.Abs(moveHorizontal) > 0 || Mathf.Abs(moveVertical) > 0;
+        var absVertical = Mathf.Abs(moveVertical);
+        var isStillMoving = absHorizontal > 0 || absVertical > 0;
 
-        if (!_isStillMoving)
+        if (!isStillMoving)
         {
             MoveSpeedCurrent = 0;
+            _charAnimator.UpdateAnimationTime(1 / MoveSpeedCurrent);
             return;
         }
+        _charAnimator.UpdateAnimationTime(1 / MoveSpeedCurrent);
 
         if (moveHorizontal > 0)
         {
-            MoveSpeedCurrent *= Mathf.Abs(moveHorizontal);
+            MoveSpeedCurrent *= absHorizontal;
             var moveAmount = MoveSpeedCurrent * Time.deltaTime;
             gameObject.transform.position += Vector3.right * moveAmount;
         }
         else if (moveHorizontal < 0)
         {
-            MoveSpeedCurrent *= Mathf.Abs(moveHorizontal);
+            MoveSpeedCurrent *= absHorizontal;
             var moveAmount = MoveSpeedCurrent * Time.deltaTime;
             gameObject.transform.position += Vector3.left * moveAmount;
         }
 
         if (moveVertical > 0)
         {
-            MoveSpeedCurrent *= Mathf.Abs(moveVertical);
+            MoveSpeedCurrent *= absVertical;
             var moveAmount = MoveSpeedCurrent * Time.deltaTime;
             gameObject.transform.position += Vector3.up * moveAmount;
         }
         else if (moveVertical < 0)
         {
-            MoveSpeedCurrent *= Mathf.Abs(moveVertical);
+            MoveSpeedCurrent *= absVertical;
             var moveAmount = MoveSpeedCurrent * Time.deltaTime;
             gameObject.transform.position += Vector3.down * moveAmount;
         }
-
-        _charAnimator.UpdateAnimationTime(1 / MoveSpeedCurrent);
     }
 
     private void UpdateAnimation()
@@ -169,9 +170,9 @@ public class PlayerController : MonoBehaviour
             AnimationManager.UpdateDNAForAction(Player.CharacterDNA, Player.AnimationDNA, _newAction, newDirection);
             _charAnimator.AnimateAction(Player.AnimationDNA, _newAction);
         }
-        else if (!Input.anyKey && !_isStillMoving)
+        else if (!Input.anyKey)
         {
-            _charAnimator.StopOnFinalFrame(true, true);
+            _charAnimator.ResetAnimation();
         }
 
         _lastDirection = _newAction.Direction = newDirection;
