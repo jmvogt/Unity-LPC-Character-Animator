@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private GameObject _playerObject;
     public float MoveSpeed = 1;
     public float MoveSpeedCurrent = 1;
+    private bool _isStillMoving;
 
     private void Start()
     {
@@ -58,51 +59,28 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             MoveSpeedCurrent = MoveSpeed * 2;
+            _charAnimator.UpdateAnimationTime(1 / MoveSpeedCurrent);
         }
         else
         {
             MoveSpeedCurrent = MoveSpeed * 1;
-        }
-
-        var moveHorizontal = Input.GetAxis("Horizontal");
-        var absHorizontal = Mathf.Abs(moveHorizontal);
-        var moveVertical = Input.GetAxis("Vertical");
-        var absVertical = Mathf.Abs(moveVertical);
-        var isStillMoving = absHorizontal > 0 || absVertical > 0;
-
-        if (!isStillMoving)
-        {
-            MoveSpeedCurrent = 0;
             _charAnimator.UpdateAnimationTime(1 / MoveSpeedCurrent);
-            return;
         }
-        _charAnimator.UpdateAnimationTime(1 / MoveSpeedCurrent);
 
+        var moveAmount = MoveSpeedCurrent * Time.deltaTime;
+        var moveHorizontal = Input.GetAxis("Horizontal");
         if (moveHorizontal > 0)
-        {
-            MoveSpeedCurrent *= absHorizontal;
-            var moveAmount = MoveSpeedCurrent * Time.deltaTime;
-            gameObject.transform.position += Vector3.right * moveAmount;
-        }
+            gameObject.transform.position += new Vector3(1, 0, 0) * moveAmount * Mathf.Ceil(moveHorizontal);
         else if (moveHorizontal < 0)
-        {
-            MoveSpeedCurrent *= absHorizontal;
-            var moveAmount = MoveSpeedCurrent * Time.deltaTime;
-            gameObject.transform.position += Vector3.left * moveAmount;
-        }
+            gameObject.transform.position += new Vector3(-1, 0, 0) * moveAmount * Mathf.Ceil(Mathf.Abs(moveHorizontal));
 
+        var moveVertical = Input.GetAxis("Vertical");
         if (moveVertical > 0)
-        {
-            MoveSpeedCurrent *= absVertical;
-            var moveAmount = MoveSpeedCurrent * Time.deltaTime;
-            gameObject.transform.position += Vector3.up * moveAmount;
-        }
+            gameObject.transform.position += new Vector3(0, 1, 0) * moveAmount * Mathf.Ceil(moveVertical);
         else if (moveVertical < 0)
-        {
-            MoveSpeedCurrent *= absVertical;
-            var moveAmount = MoveSpeedCurrent * Time.deltaTime;
-            gameObject.transform.position += Vector3.down * moveAmount;
-        }
+            gameObject.transform.position += new Vector3(0, -1, 0) * moveAmount * Mathf.Ceil(Mathf.Abs(moveVertical));
+
+        _isStillMoving = Mathf.Abs(moveHorizontal) > 0 || Mathf.Abs(moveVertical) > 0;
     }
 
     private void UpdateAnimation()
@@ -170,9 +148,9 @@ public class PlayerController : MonoBehaviour
             AnimationManager.UpdateDNAForAction(Player.CharacterDNA, Player.AnimationDNA, _newAction, newDirection);
             _charAnimator.AnimateAction(Player.AnimationDNA, _newAction);
         }
-        else if (!Input.anyKey)
+        else if (!Input.anyKey && !_isStillMoving)
         {
-            _charAnimator.ResetAnimation();
+            _charAnimator.StopOnFinalFrame(true, true);
         }
 
         _lastDirection = _newAction.Direction = newDirection;
