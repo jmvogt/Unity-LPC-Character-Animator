@@ -18,8 +18,10 @@ public class PlayerController : MonoBehaviour
     private BaseAction _newAction;
     private KeyCode _newInput;
     private GameObject _playerObject;
-    public float MoveSpeed = 1;
-    public float MoveSpeedCurrent = 1;
+    public float SpeedWalk = 1;
+    public float SpeedRun = 2;
+    public float SpeedAnimation = 1;
+    public float SpeedCurrent = 1;
     private bool _isStillMoving;
 
     private void Start()
@@ -58,29 +60,44 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            MoveSpeedCurrent = MoveSpeed * 2;
-            _charAnimator.UpdateAnimationTime(1 / MoveSpeedCurrent);
+            SpeedCurrent = SpeedRun;
         }
         else
         {
-            MoveSpeedCurrent = MoveSpeed * 1;
-            _charAnimator.UpdateAnimationTime(1 / MoveSpeedCurrent);
+            SpeedCurrent = SpeedWalk;
         }
 
-        var moveAmount = MoveSpeedCurrent * Time.deltaTime;
+        var moveAmount = SpeedCurrent * Time.deltaTime;
         var moveHorizontal = Input.GetAxis("Horizontal");
-        if (moveHorizontal > 0)
-            gameObject.transform.position += new Vector3(1, 0, 0) * moveAmount * Mathf.Ceil(moveHorizontal);
-        else if (moveHorizontal < 0)
-            gameObject.transform.position += new Vector3(-1, 0, 0) * moveAmount * Mathf.Ceil(Mathf.Abs(moveHorizontal));
-
         var moveVertical = Input.GetAxis("Vertical");
-        if (moveVertical > 0)
-            gameObject.transform.position += new Vector3(0, 1, 0) * moveAmount * Mathf.Ceil(moveVertical);
-        else if (moveVertical < 0)
-            gameObject.transform.position += new Vector3(0, -1, 0) * moveAmount * Mathf.Ceil(Mathf.Abs(moveVertical));
 
-        _isStillMoving = Mathf.Abs(moveHorizontal) > 0 || Mathf.Abs(moveVertical) > 0;
+        var absHorizontal = Mathf.Abs(moveHorizontal);
+        var absVertical = Mathf.Abs(moveVertical);
+
+        if (moveHorizontal > 0)
+        {
+            SpeedCurrent *= absHorizontal;
+            gameObject.transform.position += Vector3.right * moveAmount * absHorizontal;
+        }
+        else if (moveHorizontal < 0)
+        {
+            SpeedCurrent *= absHorizontal;
+            gameObject.transform.position += Vector3.left * moveAmount * absHorizontal;
+        }
+
+        if (moveVertical > 0)
+        {
+            SpeedCurrent *= absVertical;
+            gameObject.transform.position += Vector3.up * moveAmount * moveVertical;
+        }
+        else if (moveVertical < 0)
+        {
+            SpeedCurrent *= absVertical;
+            gameObject.transform.position += Vector3.down * moveAmount * absVertical;
+        }
+
+        SpeedAnimation = SpeedCurrent;
+        _isStillMoving = absHorizontal > 0 || absVertical > 0;
     }
 
     private void UpdateAnimation()
@@ -112,27 +129,33 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
-            newDirection = _lastDirection;
             _newAction = new SlashAction();
             _newInput = KeyCode.Space;
+            SpeedAnimation = 1.0f;
         }
         else if (Input.GetKeyDown(KeyCode.F))
         {
-            newDirection = _lastDirection;
             _newAction = new ThrustAction();
             _newInput = KeyCode.F;
+            SpeedAnimation = 1.0f;
         }
         else if (Input.GetKeyDown(KeyCode.R))
         {
-            newDirection = _lastDirection;
             _newAction = new SpellcastAction();
             _newInput = KeyCode.R;
+            SpeedAnimation = 1.0f;
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            newDirection = _lastDirection;
             _newAction = new ShootAction();
             _newInput = KeyCode.E;
+            SpeedAnimation = 1.0f;
+        }
+        else if (Input.GetKeyDown(KeyCode.X))
+        {
+            _newAction = new DeathAction();
+            _newInput = KeyCode.X;
+            SpeedAnimation = 1.0f;
         }
         else
             _newInput = KeyCode.None;
@@ -143,6 +166,8 @@ public class PlayerController : MonoBehaviour
 
         var sameAction = _lastDirection == newDirection && _lastInput == _newInput;
 
+        _charAnimator.UpdateAnimationTime(1 / SpeedAnimation);
+
         if (!sameAction || Player.CharacterDNA.IsDirty())
         {
             AnimationManager.UpdateDNAForAction(Player.CharacterDNA, Player.AnimationDNA, _newAction, newDirection);
@@ -150,7 +175,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (!Input.anyKey && !_isStillMoving)
         {
-            _charAnimator.StopOnFinalFrame(true, true);
+            _charAnimator.ResetAnimation();
         }
 
         _lastDirection = _newAction.Direction = newDirection;

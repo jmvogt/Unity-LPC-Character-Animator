@@ -25,7 +25,7 @@ namespace Assets.Scripts.Animation
             CurrentAnimationAction = animationAction;
             _stopOnFinalFrame = animationAction.StopOnLastFrame;
             _playing = true;
-            _currentFrameNumber = 0;
+            _currentFrameNumber = 1; // starting on frame 1 makes the animation more snappy
             _totalAnimTimeInSeconds = 2f;
         }
 
