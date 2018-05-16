@@ -59,28 +59,49 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             MoveSpeedCurrent = MoveSpeed * 2;
-            _charAnimator.UpdateAnimationTime(1 / MoveSpeedCurrent);
         }
         else
         {
             MoveSpeedCurrent = MoveSpeed * 1;
-            _charAnimator.UpdateAnimationTime(1 / MoveSpeedCurrent);
         }
 
-        var moveAmount = MoveSpeedCurrent * Time.deltaTime;
         var moveHorizontal = Input.GetAxis("Horizontal");
-        if (moveHorizontal > 0)
-            gameObject.transform.position += new Vector3(1, 0, 0) * moveAmount * Mathf.Ceil(moveHorizontal);
-        else if (moveHorizontal < 0)
-            gameObject.transform.position += new Vector3(-1, 0, 0) * moveAmount * Mathf.Ceil(Mathf.Abs(moveHorizontal));
-
         var moveVertical = Input.GetAxis("Vertical");
-        if (moveVertical > 0)
-            gameObject.transform.position += new Vector3(0, 1, 0) * moveAmount * Mathf.Ceil(moveVertical);
-        else if (moveVertical < 0)
-            gameObject.transform.position += new Vector3(0, -1, 0) * moveAmount * Mathf.Ceil(Mathf.Abs(moveVertical));
-
         _isStillMoving = Mathf.Abs(moveHorizontal) > 0 || Mathf.Abs(moveVertical) > 0;
+
+        if (!_isStillMoving)
+        {
+            MoveSpeedCurrent = 0;
+            return;
+        }
+
+        if (moveHorizontal > 0)
+        {
+            MoveSpeedCurrent *= Mathf.Abs(moveHorizontal);
+            var moveAmount = MoveSpeedCurrent * Time.deltaTime;
+            gameObject.transform.position += Vector3.right * moveAmount;
+        }
+        else if (moveHorizontal < 0)
+        {
+            MoveSpeedCurrent *= Mathf.Abs(moveHorizontal);
+            var moveAmount = MoveSpeedCurrent * Time.deltaTime;
+            gameObject.transform.position += Vector3.left * moveAmount;
+        }
+
+        if (moveVertical > 0)
+        {
+            MoveSpeedCurrent *= Mathf.Abs(moveVertical);
+            var moveAmount = MoveSpeedCurrent * Time.deltaTime;
+            gameObject.transform.position += Vector3.up * moveAmount;
+        }
+        else if (moveVertical < 0)
+        {
+            MoveSpeedCurrent *= Mathf.Abs(moveVertical);
+            var moveAmount = MoveSpeedCurrent * Time.deltaTime;
+            gameObject.transform.position += Vector3.down * moveAmount;
+        }
+
+        _charAnimator.UpdateAnimationTime(1 / MoveSpeedCurrent);
     }
 
     private void UpdateAnimation()
