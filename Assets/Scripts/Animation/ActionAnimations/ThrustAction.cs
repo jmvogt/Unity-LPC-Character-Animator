@@ -12,27 +12,16 @@ namespace Assets.Scripts.Animation.ActionAnimations
 
         public override IAnimationImporter GetAnimationImporter()
         {
-            var downAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_d", NumberOfFrames, 110, GetStopOnLastFrame());
-            var leftAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_l", NumberOfFrames, 118, GetStopOnLastFrame());
-            var rightAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_r", NumberOfFrames, 126, GetStopOnLastFrame());
-            var upAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_t", NumberOfFrames, 134, GetStopOnLastFrame());
+            var downAnimation = new SingleAnimationImporter($"{AnimationTag}_d", NumberOfFrames, 110, StopOnLastFrame);
+            var leftAnimation = new SingleAnimationImporter($"{AnimationTag}_l", NumberOfFrames, 118, StopOnLastFrame);
+            var rightAnimation = new SingleAnimationImporter($"{AnimationTag}_r", NumberOfFrames, 126, StopOnLastFrame);
+            var upAnimation = new SingleAnimationImporter($"{AnimationTag}_t", NumberOfFrames, 134, StopOnLastFrame);
 
             return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
         }
 
-        public override string GetAnimationTag()
-        {
-            return "th";
-        }
-
-        public override string GetAnimationType()
-        {
-            return "thrust";
-        }
-
-        public override bool GetStopOnLastFrame()
-        {
-            return false;
-        }
+        public override string AnimationTag => "th";
+        public override string AnimationType => "thrust";
+        public override bool StopOnLastFrame => false;
     }
 }

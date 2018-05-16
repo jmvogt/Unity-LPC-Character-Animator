@@ -22,7 +22,7 @@ namespace Assets.Scripts.Animation
         {
             _animationDNA = animationDNA;
             CurrentAnimationAction = animationAction;
-            _stopOnFinalFrame = animationAction.GetStopOnLastFrame();
+            _stopOnFinalFrame = animationAction.StopOnLastFrame;
             _playing = true;
             _currentFrameNumber = 0;
             _totalAnimTimeInSeconds = 2f;
@@ -56,11 +56,8 @@ namespace Assets.Scripts.Animation
             var hasAnimationKeys = _animationDNA?.DNABlocks?.Keys.Any() == true;
             if (!hasAnimationKeys) return;
 
-            _currentFrameNumber++;
-            _passedTime += Time.deltaTime;
             var currentFrameIndex = _currentFrameNumber % CurrentAnimationAction.NumberOfFrames;
-
-            if (_stopOnFinalFrame && _currentFrameNumber % CurrentAnimationAction.NumberOfFrames == 0)
+            if (_stopOnFinalFrame && currentFrameIndex == 0)
             {
                 _playing = false;
                 foreach (var animationKey in _animationDNA.DNABlocks.Keys)
@@ -71,15 +68,17 @@ namespace Assets.Scripts.Animation
                 return;
             }
 
+            _passedTime += Time.deltaTime;
             var singleAnimTime = _totalAnimTimeInSeconds / CurrentAnimationAction.NumberOfFrames;
             if (_passedTime >= singleAnimTime)
             {
+                _currentFrameNumber++;
                 foreach (var animationKey in _animationDNA.DNABlocks.Keys)
                 {
                     RenderAnimationFrame(animationKey, currentFrameIndex);
                 }
 
-                _passedTime -= singleAnimTime;
+                _passedTime = 0;
             }
         }
 

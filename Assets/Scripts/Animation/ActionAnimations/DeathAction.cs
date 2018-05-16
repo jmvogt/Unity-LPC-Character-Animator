@@ -12,25 +12,14 @@ namespace Assets.Scripts.Animation.ActionAnimations
 
         public override IAnimationImporter GetAnimationImporter()
         {
-            var animationTag = GetAnimationTag();
+            var animationTag = AnimationTag;
             var spriteStartIndex = NumberOfFrames;
-            var stopOnFinalFrame = GetStopOnLastFrame();
+            var stopOnFinalFrame = StopOnLastFrame;
             return new SingleAnimationImporter(animationTag, NumberOfFrames, spriteStartIndex, stopOnFinalFrame);
         }
 
-        public override string GetAnimationTag()
-        {
-            return "hu";
-        }
-
-        public override string GetAnimationType()
-        {
-            return "death";
-        }
-
-        public override bool GetStopOnLastFrame()
-        {
-            return true;
-        }
+        public override string AnimationTag => "hu";
+        public override string AnimationType => "death";
+        public override bool StopOnLastFrame => true;
     }
 }

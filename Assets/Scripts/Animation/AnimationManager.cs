@@ -61,8 +61,8 @@ namespace Assets.Scripts.Animation
             var animationStore = AnimationCache.Instance;
             var animationKey = modelKey;
             animationKey = direction.Equals(DirectionType.None)
-                ? $"{animationKey}_{actionAnimation.GetAnimationTag()}"
-                : $"{animationKey}_{actionAnimation.GetAnimationTag()}_{DirectionType.GetAnimationForDirection(direction)}";
+                ? $"{animationKey}_{actionAnimation.AnimationTag}"
+                : $"{animationKey}_{actionAnimation.AnimationTag}_{DirectionType.GetAnimationForDirection(direction)}";
 
             return animationStore.Get(animationKey);
         }
@@ -95,7 +95,7 @@ namespace Assets.Scripts.Animation
 
                 foreach (var newAnimation in newAnimations)
                 {
-                    var animationKey = $"{modelKey}_{actionAnimation.GetAnimationTag()}_{DirectionType.GetAnimationForDirection(newAnimation.Direction)}";
+                    var animationKey = $"{modelKey}_{actionAnimation.AnimationTag}_{DirectionType.GetAnimationForDirection(newAnimation.Direction)}";
                     animationStore.Add(animationKey, newAnimation);
                 }
             }
@@ -108,7 +108,7 @@ namespace Assets.Scripts.Animation
 
             foreach (var newAnimation in deathAnimations)
             {
-                var animationKey = $"{modelKey}_{deathAnimation.GetAnimationTag()}";
+                var animationKey = $"{modelKey}_{deathAnimation.AnimationTag}";
                 animationStore.Add(animationKey, newAnimation);
             }
         }

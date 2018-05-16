@@ -12,26 +12,15 @@ namespace Assets.Scripts.Animation.ActionAnimations
 
         public override IAnimationImporter GetAnimationImporter()
         {
-            var downAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_d", NumberOfFrames, 34, GetStopOnLastFrame());
-            var leftAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_l", NumberOfFrames, 47, GetStopOnLastFrame());
-            var rightAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_r", NumberOfFrames, 60, GetStopOnLastFrame());
-            var upAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_t", NumberOfFrames, 73, GetStopOnLastFrame());
+            var downAnimation = new SingleAnimationImporter($"{AnimationTag}_d", NumberOfFrames, 34, StopOnLastFrame);
+            var leftAnimation = new SingleAnimationImporter($"{AnimationTag}_l", NumberOfFrames, 47, StopOnLastFrame);
+            var rightAnimation = new SingleAnimationImporter($"{AnimationTag}_r", NumberOfFrames, 60, StopOnLastFrame);
+            var upAnimation = new SingleAnimationImporter($"{AnimationTag}_t", NumberOfFrames, 73, StopOnLastFrame);
             return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
         }
 
-        public override string GetAnimationTag()
-        {
-            return "sh";
-        }
-
-        public override string GetAnimationType()
-        {
-            return "shoot";
-        }
-
-        public override bool GetStopOnLastFrame()
-        {
-            return false;
-        }
+        public override string AnimationTag => "sh";
+        public override string AnimationType => "shoot";
+        public override bool StopOnLastFrame => false;
     }
 }

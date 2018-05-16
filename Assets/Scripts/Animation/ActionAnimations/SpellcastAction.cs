@@ -12,27 +12,16 @@ namespace Assets.Scripts.Animation.ActionAnimations
 
         public override IAnimationImporter GetAnimationImporter()
         {
-            var downAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_d", NumberOfFrames, 6, GetStopOnLastFrame());
-            var leftAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_l", NumberOfFrames, 13, GetStopOnLastFrame());
-            var rightAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_r", NumberOfFrames, 20, GetStopOnLastFrame());
-            var upAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_t", NumberOfFrames, 27, GetStopOnLastFrame());
+            var downAnimation = new SingleAnimationImporter($"{AnimationTag}_d", NumberOfFrames, 6, StopOnLastFrame);
+            var leftAnimation = new SingleAnimationImporter($"{AnimationTag}_l", NumberOfFrames, 13, StopOnLastFrame);
+            var rightAnimation = new SingleAnimationImporter($"{AnimationTag}_r", NumberOfFrames, 20, StopOnLastFrame);
+            var upAnimation = new SingleAnimationImporter($"{AnimationTag}_t", NumberOfFrames, 27, StopOnLastFrame);
 
             return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
         }
 
-        public override string GetAnimationTag()
-        {
-            return "sc";
-        }
-
-        public override string GetAnimationType()
-        {
-            return "spellcast";
-        }
-
-        public override bool GetStopOnLastFrame()
-        {
-            return false;
-        }
+        public override string AnimationTag => "sc";
+        public override string AnimationType => "spellcast";
+        public override bool StopOnLastFrame => false;
     }
 }

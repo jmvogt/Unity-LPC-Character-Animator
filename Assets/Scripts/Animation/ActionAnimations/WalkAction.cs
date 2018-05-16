@@ -8,31 +8,21 @@ namespace Assets.Scripts.Animation.ActionAnimations
         public WalkAction()
         {
             NumberOfFrames = 9;
+            FramesPerSecond = 2;
         }
+
+        public override string AnimationTag => "wc";
+        public override string AnimationType => "walk";
+        public override bool StopOnLastFrame => false;
 
         public override IAnimationImporter GetAnimationImporter()
         {
-            var downAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_d", NumberOfFrames, 142, GetStopOnLastFrame());
-            var leftAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_l", NumberOfFrames, 151, GetStopOnLastFrame());
-            var rightAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_r", NumberOfFrames, 160, GetStopOnLastFrame());
-            var upAnimation = new SingleAnimationImporter($"{GetAnimationTag()}_t", NumberOfFrames, 169, GetStopOnLastFrame());
+            var downAnimation = new SingleAnimationImporter($"{AnimationTag}_d", NumberOfFrames, 142, StopOnLastFrame);
+            var leftAnimation = new SingleAnimationImporter($"{AnimationTag}_l", NumberOfFrames, 151, StopOnLastFrame);
+            var rightAnimation = new SingleAnimationImporter($"{AnimationTag}_r", NumberOfFrames, 160, StopOnLastFrame);
+            var upAnimation = new SingleAnimationImporter($"{AnimationTag}_t", NumberOfFrames, 169, StopOnLastFrame);
 
             return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
-        }
-
-        public override string GetAnimationTag()
-        {
-            return "wc";
-        }
-
-        public override string GetAnimationType()
-        {
-            return "walk";
-        }
-
-        public override bool GetStopOnLastFrame()
-        {
-            return false;
         }
     }
 }
