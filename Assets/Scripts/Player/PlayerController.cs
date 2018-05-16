@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
         {
             SpeedCurrent = SpeedWalk;
         }
+        SpeedAnimation = SpeedCurrent;
 
         var moveAmount = SpeedCurrent * Time.deltaTime;
         var moveHorizontal = Input.GetAxis("Horizontal");
@@ -96,22 +97,6 @@ public class PlayerController : MonoBehaviour
         }
 
         _isStillMoving = absHorizontal > 0 || absVertical > 0;
-
-        if (_isStillMoving)
-        {
-            if (isDiagonal)
-            {
-                SpeedAnimation = SpeedCurrent * Mathf.Min(absHorizontal, absVertical);
-            }
-            else if (absHorizontal > 0)
-            {
-                SpeedAnimation = SpeedCurrent * absHorizontal;
-            }
-            else if (absVertical > 0)
-            {
-                SpeedAnimation = SpeedCurrent * absVertical;
-            }
-        }
     }
 
     private void UpdateAnimation()
