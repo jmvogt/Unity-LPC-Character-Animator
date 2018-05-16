@@ -6,6 +6,8 @@ using Assets.Scripts.Character;
 using Assets.Scripts.Types;
 using UnityEngine;
 
+// ReSharper disable FieldCanBeMadeReadOnly.Global
+
 public class PlayerController : MonoBehaviour
 {
     // ReSharper disable once NotAccessedField.Local
@@ -13,10 +15,12 @@ public class PlayerController : MonoBehaviour
     private AnimationRenderer _charAnimator;
     private string _lastDirection;
     private KeyCode _lastInput;
-    private float _moveSpeed;
     private BaseAction _newAction;
     private KeyCode _newInput;
     private GameObject _playerObject;
+    public float MoveSpeed = 1;
+    public float MoveSpeedCurrent = 1;
+    private bool _isStillMoving;
 
     private void Start()
     {
@@ -29,7 +33,6 @@ public class PlayerController : MonoBehaviour
         _animationManager = new AnimationManager();
         _newAction = new IdleAction();
         _lastDirection = DirectionType.Down;
-        _moveSpeed = .0275f;
     }
 
     private void InitializeCharacterRenderers(AnimationRenderer charAnimator)
@@ -55,26 +58,29 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            _charAnimator.UpdateAnimationTime(.3f);
-            _moveSpeed = .0425f;
+            MoveSpeedCurrent = MoveSpeed * 2;
+            _charAnimator.UpdateAnimationTime(1 / MoveSpeedCurrent);
         }
         else
         {
-            _charAnimator.UpdateAnimationTime(.7f);
-            _moveSpeed = .0275f;
+            MoveSpeedCurrent = MoveSpeed * 1;
+            _charAnimator.UpdateAnimationTime(1 / MoveSpeedCurrent);
         }
 
+        var moveAmount = MoveSpeedCurrent * Time.deltaTime;
         var moveHorizontal = Input.GetAxis("Horizontal");
         if (moveHorizontal > 0)
-            gameObject.transform.position += new Vector3(1, 0, 0) * _moveSpeed;
+            gameObject.transform.position += new Vector3(1, 0, 0) * moveAmount * Mathf.Ceil(moveHorizontal);
         else if (moveHorizontal < 0)
-            gameObject.transform.position += new Vector3(-1, 0, 0) * _moveSpeed;
+            gameObject.transform.position += new Vector3(-1, 0, 0) * moveAmount * Mathf.Ceil(Mathf.Abs(moveHorizontal));
 
         var moveVertical = Input.GetAxis("Vertical");
         if (moveVertical > 0)
-            gameObject.transform.position += new Vector3(0, 1, 0) * _moveSpeed;
+            gameObject.transform.position += new Vector3(0, 1, 0) * moveAmount * Mathf.Ceil(moveVertical);
         else if (moveVertical < 0)
-            gameObject.transform.position += new Vector3(0, -1, 0) * _moveSpeed;
+            gameObject.transform.position += new Vector3(0, -1, 0) * moveAmount * Mathf.Ceil(Mathf.Abs(moveVertical));
+
+        _isStillMoving = Mathf.Abs(moveHorizontal) > 0 || Mathf.Abs(moveVertical) > 0;
     }
 
     private void UpdateAnimation()
@@ -142,7 +148,10 @@ public class PlayerController : MonoBehaviour
             AnimationManager.UpdateDNAForAction(Player.CharacterDNA, Player.AnimationDNA, _newAction, newDirection);
             _charAnimator.AnimateAction(Player.AnimationDNA, _newAction);
         }
-        else if (!Input.anyKey) _charAnimator.StopOnFinalFrame(true);
+        else if (!Input.anyKey && !_isStillMoving)
+        {
+            _charAnimator.StopOnFinalFrame(true, true);
+        }
 
         _lastDirection = _newAction.Direction = newDirection;
         _lastInput = _newInput;

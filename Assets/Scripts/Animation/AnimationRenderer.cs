@@ -14,6 +14,7 @@ namespace Assets.Scripts.Animation
         private bool _playing;
         private Dictionary<string, SpriteRenderer> _spriteRenderers;
         private bool _stopOnFinalFrame;
+        private bool _stopNow;
         private float _totalAnimTimeInSeconds;
 
         public BaseAction CurrentAnimationAction { get; private set; }
@@ -38,9 +39,10 @@ namespace Assets.Scripts.Animation
             _spriteRenderers = spriteRenderers;
         }
 
-        public void StopOnFinalFrame(bool stopOnFinalFrame)
+        public void StopOnFinalFrame(bool stopOnFinalFrame, bool stopNow)
         {
             _stopOnFinalFrame = stopOnFinalFrame;
+            _stopNow = stopNow;
         }
 
         private void Start()
@@ -57,9 +59,10 @@ namespace Assets.Scripts.Animation
             if (!hasAnimationKeys) return;
 
             var currentFrameIndex = _currentFrameNumber % CurrentAnimationAction.NumberOfFrames;
-            if (_stopOnFinalFrame && currentFrameIndex == 0)
+            if (_stopOnFinalFrame && (currentFrameIndex == 0 || _stopNow))
             {
                 _playing = false;
+                _passedTime = 0;
                 foreach (var animationKey in _animationDNA.DNABlocks.Keys)
                 {
                     RenderAnimationFrame(animationKey, 0);

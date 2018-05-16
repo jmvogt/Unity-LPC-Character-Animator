@@ -5,7 +5,6 @@
         public string Direction { get; set; }
 
         public int NumberOfFrames { get; protected set; }
-        public int FramesPerSecond { get; protected set; }
 
         public abstract string AnimationTag { get; }
         public abstract string AnimationType { get; }

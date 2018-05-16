@@ -8,7 +8,6 @@ namespace Assets.Scripts.Animation.ActionAnimations
         public WalkAction()
         {
             NumberOfFrames = 9;
-            FramesPerSecond = 2;
         }
 
         public override string AnimationTag => "wc";
