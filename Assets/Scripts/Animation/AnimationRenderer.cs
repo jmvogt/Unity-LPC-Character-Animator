@@ -1,92 +1,105 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
-using UnityEngine.UI;
-using Assets.Scripts.Animation;
-using Assets.Scripts.Animation.Interfaces;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts.Animation.ActionAnimations;
-using Assets.Scripts.Types;
+using Assets.Scripts.Animation.Interfaces;
+using UnityEngine;
 
-namespace Assets.Scripts.Animation {
-    public class AnimationRenderer : MonoBehaviour {
-        private Dictionary<string, SpriteRenderer> _spriteRenderers;
-        private BaseAction _currentAnimationAction;
+namespace Assets.Scripts.Animation
+{
+    public class AnimationRenderer : MonoBehaviour
+    {
         private AnimationDNA _animationDNA;
-        private bool _playing;
         private int _currentFrameNumber;
-        private float _totalAnimTimeInSeconds;
-        private bool _stopOnFinalFrame;
         private float _passedTime;
+        private bool _playing;
+        private Dictionary<string, SpriteRenderer> _spriteRenderers;
+        private bool _stopOnFinalFrame;
+        private bool _stopNow;
+        private float _totalAnimTimeInSeconds;
 
-        public BaseAction CurrentAnimationAction { get { return _currentAnimationAction; } }
+        public BaseAction CurrentAnimationAction { get; private set; }
 
-        public void AnimateAction(AnimationDNA animationDNA, BaseAction animationAction) {
+        public void AnimateAction(AnimationDNA animationDNA, BaseAction animationAction)
+        {
             _animationDNA = animationDNA;
-            _currentAnimationAction = animationAction;
-            _stopOnFinalFrame = animationAction.GetStopOnLastFrame();
+            CurrentAnimationAction = animationAction;
+            _stopOnFinalFrame = animationAction.StopOnLastFrame;
             _playing = true;
-            _currentFrameNumber = 0;
+            _currentFrameNumber = 1; // starting on frame 1 makes the animation more snappy
             _totalAnimTimeInSeconds = 2f;
         }
 
-        public void UpdateAnimationTime(float totalAnimTimeInSeconds) {
+        public void UpdateAnimationTime(float totalAnimTimeInSeconds)
+        {
             _totalAnimTimeInSeconds = totalAnimTimeInSeconds;
         }
 
-        public void InitializeSpriteRenderers(Dictionary<string, SpriteRenderer> spriteRenderers) {
+        public void InitializeSpriteRenderers(Dictionary<string, SpriteRenderer> spriteRenderers)
+        {
             _spriteRenderers = spriteRenderers;
         }
 
-        public void StopOnFinalFrame(bool stopOnFinalFrame) {
-            _stopOnFinalFrame = stopOnFinalFrame;
+        public void ResetAnimation()
+        {
+            _stopNow = true;
         }
 
-        void Start() {
+        private void Start()
+        {
             _passedTime = 0;
             _playing = true;
-            _currentAnimationAction = new IdleAction();
+            CurrentAnimationAction = new IdleAction();
         }
 
-        void Update() {
-            if (_playing) {
-                int currentFrameIndex = _currentFrameNumber % _currentAnimationAction.NumberOfFrames;
+        private void Update()
+        {
+            if (!_playing) return;
+            var hasAnimationKeys = _animationDNA?.DNABlocks?.Keys.Any() == true;
+            if (!hasAnimationKeys) return;
 
+            var currentFrameIndex = _currentFrameNumber % CurrentAnimationAction.NumberOfFrames;
+            if (_stopNow || (_stopOnFinalFrame && currentFrameIndex == 0))
+            {
+                _playing = false;
+                _stopNow = false;
+                _passedTime = 0;
+                foreach (var animationKey in _animationDNA.DNABlocks.Keys)
+                {
+                    RenderAnimationFrame(animationKey, 0);
+                }
+
+                return;
+            }
+
+            _passedTime += Time.deltaTime;
+            var singleAnimTime = _totalAnimTimeInSeconds / CurrentAnimationAction.NumberOfFrames;
+            if (_passedTime >= singleAnimTime)
+            {
                 _currentFrameNumber++;
-
-                if (_stopOnFinalFrame && _currentFrameNumber % _currentAnimationAction.NumberOfFrames == 0) {
-                    _playing = false;
-                    foreach (string animationKey in _animationDNA.DNABlocks.Keys) {
-                        RenderAnimationFrame(animationKey, 0);
-                    }
-                    return;
+                foreach (var animationKey in _animationDNA.DNABlocks.Keys)
+                {
+                    RenderAnimationFrame(animationKey, currentFrameIndex);
                 }
 
-                float singleAnimTime = _totalAnimTimeInSeconds / _currentAnimationAction.NumberOfFrames;
-                if (_passedTime >= singleAnimTime) {
-                    foreach (string animationKey in _animationDNA.DNABlocks.Keys) {
-                        RenderAnimationFrame(animationKey, currentFrameIndex);
-                    }
-                    _passedTime -= singleAnimTime;
-                }
-
-                _passedTime += Time.deltaTime;
+                _passedTime = 0;
             }
         }
 
-        void RenderAnimationFrame(string animationKey, int currentFrameIndex) {
-            AnimationDNABlock animationDNABlock = _animationDNA.DNABlocks[animationKey];
-            SpriteRenderer renderer = _spriteRenderers[animationKey];
-            if (animationDNABlock.Enabled) {
-                renderer.sprite = animationDNABlock.SpriteList[currentFrameIndex];
-                renderer.sortingOrder = animationDNABlock.SortingOrder;
-                renderer.sortingLayerName = "Units";
+        private void RenderAnimationFrame(string animationKey, int currentFrameIndex)
+        {
+            var animationDNABlock = _animationDNA.DNABlocks[animationKey];
+            var rendererCurrent = _spriteRenderers[animationKey];
+            if (animationDNABlock?.Enabled == true)
+            {
+                rendererCurrent.sprite = animationDNABlock.SpriteList[currentFrameIndex];
+                rendererCurrent.sortingOrder = animationDNABlock.SortingOrder;
+                rendererCurrent.sortingLayerName = "Units";
 
                 // Don't color clear objects
-                if (animationDNABlock.SpriteColor != Color.clear) {
-                    renderer.material.SetColor("_Color", animationDNABlock.SpriteColor);
-                }
-            } else {
-                renderer.sprite = null;
+                if (animationDNABlock.SpriteColor != Color.clear) rendererCurrent.material.SetColor("_Color", animationDNABlock.SpriteColor);
             }
+            else
+                rendererCurrent.sprite = null;
         }
     }
 }

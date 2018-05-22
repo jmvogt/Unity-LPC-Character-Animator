@@ -1,39 +1,27 @@
 ﻿using Assets.Scripts.Animation.AnimationImporters;
 using Assets.Scripts.Animation.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Assets.Scripts.Animation.ActionAnimations
 {
-    class SpellcastAction : BaseAction {
-        public override IAnimationImporter GetAnimationImporter() {
-            SingleAnimationImporter downAnimation = new SingleAnimationImporter(
-                String.Format("{0}_d", GetAnimationTag()), _numberOfFrames, 6, GetStopOnLastFrame());
-            SingleAnimationImporter leftAnimation = new SingleAnimationImporter(
-                String.Format("{0}_l", GetAnimationTag()), _numberOfFrames, 13, GetStopOnLastFrame());
-            SingleAnimationImporter rightAnimation = new SingleAnimationImporter(
-                String.Format("{0}_r", GetAnimationTag()), _numberOfFrames, 20, GetStopOnLastFrame());
-            SingleAnimationImporter upAnimation = new SingleAnimationImporter(
-                String.Format("{0}_t", GetAnimationTag()), _numberOfFrames, 27, GetStopOnLastFrame());
+    internal class SpellcastAction : BaseAction
+    {
+        public SpellcastAction()
+        {
+            NumberOfFrames = 7;
+        }
+
+        public override IAnimationImporter GetAnimationImporter()
+        {
+            var downAnimation = new SingleAnimationImporter($"{AnimationTag}_d", NumberOfFrames, 6, StopOnLastFrame);
+            var leftAnimation = new SingleAnimationImporter($"{AnimationTag}_l", NumberOfFrames, 13, StopOnLastFrame);
+            var rightAnimation = new SingleAnimationImporter($"{AnimationTag}_r", NumberOfFrames, 20, StopOnLastFrame);
+            var upAnimation = new SingleAnimationImporter($"{AnimationTag}_t", NumberOfFrames, 27, StopOnLastFrame);
+
             return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
         }
 
-        public SpellcastAction() : base() {
-            _numberOfFrames = 7;
-        }
-
-        public override string GetAnimationTag() {
-            return "sc";
-        }
-
-        public override string GetAnimationType() {
-            return "spellcast";
-        }
-
-        public override bool GetStopOnLastFrame() {
-            return false;
-        }
+        public override string AnimationTag => "sc";
+        public override string AnimationType => "spellcast";
+        public override bool StopOnLastFrame => false;
     }
 }

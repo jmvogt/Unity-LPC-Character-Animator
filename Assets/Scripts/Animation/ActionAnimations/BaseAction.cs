@@ -1,28 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Assets.Scripts.Animation.Interfaces
 {
     public abstract class BaseAction
     {
-        public abstract IAnimationImporter GetAnimationImporter();
+        private int _numberOfFrames;
+        public string Direction { get; set; }
 
-        public abstract string GetAnimationTag();
+        public int NumberOfFrames
+        {
+            get { return _numberOfFrames; }
+            protected set
+            {
 
-        public string Direction { get { return _direction; } set { _direction = value; } }
-
-        protected int _numberOfFrames;
-        protected string _direction;
-        public int NumberOfFrames { get { return _numberOfFrames;} }
-
-        public BaseAction() {
-            
+                _numberOfFrames = Math.Max(value, 1);
+            }
         }
 
-        public abstract string GetAnimationType();
+        public abstract string AnimationTag { get; }
+        public abstract string AnimationType { get; }
+        public abstract bool StopOnLastFrame { get; }
 
-        public abstract bool GetStopOnLastFrame();
+        public abstract IAnimationImporter GetAnimationImporter();
     }
 }

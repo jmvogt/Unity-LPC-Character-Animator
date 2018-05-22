@@ -1,40 +1,26 @@
 ﻿using Assets.Scripts.Animation.AnimationImporters;
 using Assets.Scripts.Animation.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Assets.Scripts.Animation.ActionAnimations
 {
-    public class ShootAction : BaseAction {
-        public override IAnimationImporter GetAnimationImporter() {
-            SingleAnimationImporter downAnimation = new SingleAnimationImporter(
-                String.Format("{0}_d", GetAnimationTag()), _numberOfFrames, 34, GetStopOnLastFrame());
-            SingleAnimationImporter leftAnimation = new SingleAnimationImporter(
-                String.Format("{0}_l", GetAnimationTag()), _numberOfFrames, 47, GetStopOnLastFrame());
-            SingleAnimationImporter rightAnimation = new SingleAnimationImporter(
-                String.Format("{0}_r", GetAnimationTag()), _numberOfFrames, 60, GetStopOnLastFrame());
-            SingleAnimationImporter upAnimation = new SingleAnimationImporter(
-                String.Format("{0}_t", GetAnimationTag()), _numberOfFrames, 73, GetStopOnLastFrame());
+    public class ShootAction : BaseAction
+    {
+        public ShootAction()
+        {
+            NumberOfFrames = 13;
+        }
+
+        public override IAnimationImporter GetAnimationImporter()
+        {
+            var downAnimation = new SingleAnimationImporter($"{AnimationTag}_d", NumberOfFrames, 34, StopOnLastFrame);
+            var leftAnimation = new SingleAnimationImporter($"{AnimationTag}_l", NumberOfFrames, 47, StopOnLastFrame);
+            var rightAnimation = new SingleAnimationImporter($"{AnimationTag}_r", NumberOfFrames, 60, StopOnLastFrame);
+            var upAnimation = new SingleAnimationImporter($"{AnimationTag}_t", NumberOfFrames, 73, StopOnLastFrame);
             return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
         }
 
-        public ShootAction() : base() {
-            _numberOfFrames = 13;
-        }
-
-        public override string GetAnimationTag() {
-            return "sh";
-        }
-
-        public override string GetAnimationType() {
-            return "shoot";
-        }
-
-        public override bool GetStopOnLastFrame() {
-            return false;
-        }
+        public override string AnimationTag => "sh";
+        public override string AnimationType => "shoot";
+        public override bool StopOnLastFrame => false;
     }
 }
-

@@ -1,43 +1,48 @@
-﻿using Assets.Scripts.Animation;
+﻿using System.Collections.Generic;
+using Assets.Scripts.Animation;
 using Assets.Scripts.Animation.ActionAnimations;
 using Assets.Scripts.Animation.Interfaces;
 using Assets.Scripts.Character;
 using Assets.Scripts.Types;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+// ReSharper disable FieldCanBeMadeReadOnly.Global
 
+public class PlayerController : MonoBehaviour
+{
+    // ReSharper disable once NotAccessedField.Local
     private AnimationManager _animationManager;
     private AnimationRenderer _charAnimator;
-
+    private string _lastDirection;
+    private KeyCode _lastInput;
     private BaseAction _newAction;
     private KeyCode _newInput;
-    private KeyCode _lastInput;
-    private string _lastDirection;
-
     private GameObject _playerObject;
-    private float _moveSpeed;
-    
-	void Start () {
+    public float SpeedWalk = 1;
+    public float SpeedRun = 2;
+    public float SpeedAnimation = 1;
+    public float SpeedCurrent = 1;
+    private bool _isStillMoving;
+
+    private void Start()
+    {
         //prepare character sprites
         _playerObject = GameObject.Find("/player");
-        _charAnimator = gameObject.AddComponent<AnimationRenderer>() as AnimationRenderer;
+        _charAnimator = gameObject.AddComponent<AnimationRenderer>();
         InitializeCharacterRenderers(_charAnimator);
 
         //set defaults
         _animationManager = new AnimationManager();
         _newAction = new IdleAction();
-        _lastDirection = DirectionType.DOWN;
-        _moveSpeed = .0275f;
-	}
+        _lastDirection = DirectionType.Down;
+    }
 
-    void InitializeCharacterRenderers(AnimationRenderer charAnimator) {
-        Dictionary<string, SpriteRenderer> spriteRenderers = new Dictionary<string, SpriteRenderer>();
-        foreach(string blockKey in DNABlockType.GetTypeList()) {
-            GameObject blockObject = new GameObject(blockKey);
+    private void InitializeCharacterRenderers(AnimationRenderer charAnimator)
+    {
+        var spriteRenderers = new Dictionary<string, SpriteRenderer>();
+        foreach (var blockKey in DNABlockType.TypeList)
+        {
+            var blockObject = new GameObject(blockKey);
             blockObject.transform.parent = _playerObject.transform;
             spriteRenderers[blockKey] = blockObject.AddComponent<SpriteRenderer>();
         }
@@ -45,82 +50,131 @@ public class PlayerController : MonoBehaviour {
         charAnimator.InitializeSpriteRenderers(spriteRenderers);
     }
 
-    void Update() {
+    private void Update()
+    {
         UpdatePositioning();
         UpdateAnimation();
     }
 
-    void UpdatePositioning() {
-        if (Input.GetKey(KeyCode.LeftShift)) {
-            _charAnimator.UpdateAnimationTime(.3f);
-            _moveSpeed = .0425f;
-        } else {
-            _charAnimator.UpdateAnimationTime(.7f);
-            _moveSpeed = .0275f;
+    private void UpdatePositioning()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            SpeedCurrent = SpeedRun;
+        }
+        else
+        {
+            SpeedCurrent = SpeedWalk;
+        }
+        SpeedAnimation = SpeedCurrent;
+
+        var moveAmount = SpeedCurrent * Time.deltaTime;
+        var moveHorizontal = Input.GetAxis("Horizontal");
+        var moveVertical = Input.GetAxis("Vertical");
+
+        var absHorizontal = Mathf.Abs(moveHorizontal);
+        var absVertical = Mathf.Abs(moveVertical);
+
+        var isDiagonal = absVertical > 0 && absVertical > 0;
+        if (isDiagonal) moveAmount *= 0.75f; // account for diagonal movement speed increase
+
+        if (moveHorizontal > 0)
+        {
+            gameObject.transform.position += Vector3.right * moveAmount * absHorizontal;
+        }
+        else if (moveHorizontal < 0)
+        {
+            gameObject.transform.position += Vector3.left * moveAmount * absHorizontal;
         }
 
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        if (moveHorizontal > 0)
-            gameObject.transform.position += new Vector3(1, 0, 0) * _moveSpeed;
-        else if (moveHorizontal < 0)
-            gameObject.transform.position += new Vector3(-1, 0, 0) * _moveSpeed;
-
-        float moveVertical = Input.GetAxis("Vertical");
         if (moveVertical > 0)
-            gameObject.transform.position += new Vector3(0, 1, 0) * _moveSpeed;
+        {
+            gameObject.transform.position += Vector3.up * moveAmount * absVertical;
+        }
         else if (moveVertical < 0)
-            gameObject.transform.position += new Vector3(0, -1, 0) * _moveSpeed;
+        {
+            gameObject.transform.position += Vector3.down * moveAmount * absVertical;
+        }
+
+        _isStillMoving = absHorizontal > 0 || absVertical > 0;
     }
 
-    void UpdateAnimation() {
-        string newDirection = DirectionType.NONE;
-        if (Input.GetKeyDown(KeyCode.W) && _newInput != KeyCode.W) {
-            newDirection = DirectionType.UP;
+    private void UpdateAnimation()
+    {
+        var newDirection = DirectionType.None;
+        if (Input.GetKeyDown(KeyCode.W) && _newInput != KeyCode.W)
+        {
+            newDirection = DirectionType.Up;
             _newAction = new WalkAction();
             _newInput = KeyCode.W;
-        } else if (Input.GetKeyDown(KeyCode.A) && _newInput != KeyCode.A) {
-            newDirection = DirectionType.LEFT;
+        }
+        else if (Input.GetKeyDown(KeyCode.A) && _newInput != KeyCode.A)
+        {
+            newDirection = DirectionType.Left;
             _newAction = new WalkAction();
             _newInput = KeyCode.A;
-        } else if (Input.GetKeyDown(KeyCode.S) && _newInput != KeyCode.S) {
-            newDirection = DirectionType.DOWN;
+        }
+        else if (Input.GetKeyDown(KeyCode.S) && _newInput != KeyCode.S)
+        {
+            newDirection = DirectionType.Down;
             _newAction = new WalkAction();
             _newInput = KeyCode.S;
-        } else if (Input.GetKeyDown(KeyCode.D) && _newInput != KeyCode.D) {
-            newDirection = DirectionType.RIGHT;
+        }
+        else if (Input.GetKeyDown(KeyCode.D) && _newInput != KeyCode.D)
+        {
+            newDirection = DirectionType.Right;
             _newAction = new WalkAction();
             _newInput = KeyCode.D;
-        } else if (Input.GetKeyDown(KeyCode.Space)) {
-            newDirection = _lastDirection;
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
             _newAction = new SlashAction();
             _newInput = KeyCode.Space;
-        } else if (Input.GetKeyDown(KeyCode.F)) {
-            newDirection = _lastDirection;
+            SpeedAnimation = 1.0f;
+        }
+        else if (Input.GetKeyDown(KeyCode.F))
+        {
             _newAction = new ThrustAction();
             _newInput = KeyCode.F;
-        } else if (Input.GetKeyDown(KeyCode.R)) {
-            newDirection = _lastDirection;
+            SpeedAnimation = 1.0f;
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
             _newAction = new SpellcastAction();
             _newInput = KeyCode.R;
-        } else if (Input.GetKeyDown(KeyCode.E)) {
-            newDirection = _lastDirection;
+            SpeedAnimation = 1.0f;
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
             _newAction = new ShootAction();
             _newInput = KeyCode.E;
-        } else {
-            _newInput = KeyCode.None;
+            SpeedAnimation = 1.0f;
         }
+        else if (Input.GetKeyDown(KeyCode.X))
+        {
+            _newAction = new DeathAction();
+            _newInput = KeyCode.X;
+            SpeedAnimation = 1.0f;
+        }
+        else
+            _newInput = KeyCode.None;
 
         // continue using the last direction when the character stops moving
-        if (newDirection == DirectionType.NONE)
+        if (newDirection == DirectionType.None)
             newDirection = _lastDirection;
 
-        bool sameAction = _lastDirection == newDirection && _lastInput == _newInput;
+        var sameAction = _lastDirection == newDirection && _lastInput == _newInput;
 
-        if (!sameAction || Player.characterDNA.IsDirty()) {
-            _animationManager.UpdateDNAForAction(Player.characterDNA, Player.animationDNA, _newAction, newDirection);
-            _charAnimator.AnimateAction(Player.animationDNA, _newAction);
-        } else if (!Input.anyKey) {
-            _charAnimator.StopOnFinalFrame(true);
+        _charAnimator.UpdateAnimationTime(1 / SpeedAnimation);
+
+        if (!sameAction || Player.CharacterDNA.IsDirty())
+        {
+            AnimationManager.UpdateDNAForAction(Player.CharacterDNA, Player.AnimationDNA, _newAction, newDirection);
+            _charAnimator.AnimateAction(Player.AnimationDNA, _newAction);
+        }
+        else if (!Input.anyKey && !_isStillMoving)
+        {
+            _charAnimator.ResetAnimation();
         }
 
         _lastDirection = _newAction.Direction = newDirection;

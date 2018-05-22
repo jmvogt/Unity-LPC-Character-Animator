@@ -1,39 +1,27 @@
 ﻿using Assets.Scripts.Animation.AnimationImporters;
 using Assets.Scripts.Animation.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Assets.Scripts.Animation.ActionAnimations
 {
-    class ThrustAction : BaseAction {
-        public override IAnimationImporter GetAnimationImporter() {
-            SingleAnimationImporter downAnimation = new SingleAnimationImporter(
-                String.Format("{0}_d", GetAnimationTag()), _numberOfFrames, 110, GetStopOnLastFrame());
-            SingleAnimationImporter leftAnimation = new SingleAnimationImporter(
-                String.Format("{0}_l", GetAnimationTag()), _numberOfFrames, 118, GetStopOnLastFrame());
-            SingleAnimationImporter rightAnimation = new SingleAnimationImporter(
-                String.Format("{0}_r", GetAnimationTag()), _numberOfFrames, 126, GetStopOnLastFrame());
-            SingleAnimationImporter upAnimation = new SingleAnimationImporter(
-                String.Format("{0}_t", GetAnimationTag()), _numberOfFrames, 134, GetStopOnLastFrame());
+    internal class ThrustAction : BaseAction
+    {
+        public ThrustAction()
+        {
+            NumberOfFrames = 8;
+        }
+
+        public override IAnimationImporter GetAnimationImporter()
+        {
+            var downAnimation = new SingleAnimationImporter($"{AnimationTag}_d", NumberOfFrames, 110, StopOnLastFrame);
+            var leftAnimation = new SingleAnimationImporter($"{AnimationTag}_l", NumberOfFrames, 118, StopOnLastFrame);
+            var rightAnimation = new SingleAnimationImporter($"{AnimationTag}_r", NumberOfFrames, 126, StopOnLastFrame);
+            var upAnimation = new SingleAnimationImporter($"{AnimationTag}_t", NumberOfFrames, 134, StopOnLastFrame);
+
             return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
         }
 
-        public ThrustAction() : base() {
-            _numberOfFrames = 8;
-        }
-
-        public override string GetAnimationTag() {
-            return "th";
-        }
-
-        public override string GetAnimationType() {
-            return "thrust";
-        }
-
-        public override bool GetStopOnLastFrame() {
-            return false;
-        }
+        public override string AnimationTag => "th";
+        public override string AnimationType => "thrust";
+        public override bool StopOnLastFrame => false;
     }
 }

@@ -1,69 +1,66 @@
-﻿using UnityEngine;
-using UnityEditor;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System;
-using Assets.Scripts.Types;
-using Assets.Scripts.Animation;
+using UnityEditor;
+using UnityEngine;
 
 [CustomEditor(typeof(AtlasManager))]
 public class AtlasManagerEditor : Editor
 {
-    const string pathToCharacterTextures = "/Sprites/Standard/Character/";
-    const string pathToEquipmentTextures = "/Sprites/Standard/Equipment/";
+    private const string PathToCharacterTextures = "/Sprites/Standard/Character/";
+    private const string PathToEquipmentTextures = "/Sprites/Standard/Equipment/";
 
-    private AtlasManager am;
-    private bool dirty;
+    private AtlasManager _am;
+    private bool _dirty;
 
     public override void OnInspectorGUI()
     {
-        am = target as AtlasManager;
+        _am = target as AtlasManager;
         serializedObject.Update();
 
-        dirty = false;
+        _dirty = false;
 
-        if (am.spriteList == null) {
-            am.spriteList = new List<Sprite>();
-            dirty = true;
+        if (_am?.SpriteList == null)
+        {
+            _am = _am ?? new AtlasManager();
+            _am.SpriteList = new List<Sprite>();
+            _dirty = true;
         }
-        
+
         if (GUILayout.Button("Load"))
         {
             UnloadSprites();
-            
-            string[] characterSprites = Directory.GetFiles(Application.dataPath + pathToCharacterTextures, "*", SearchOption.AllDirectories);
-            string[] equipmentSprites = Directory.GetFiles(Application.dataPath + pathToEquipmentTextures, "*", SearchOption.AllDirectories);
+
+            var characterSprites = Directory.GetFiles(Application.dataPath + PathToCharacterTextures, "*", SearchOption.AllDirectories);
+            var equipmentSprites = Directory.GetFiles(Application.dataPath + PathToEquipmentTextures, "*", SearchOption.AllDirectories);
 
             LoadFiles(characterSprites);
             LoadFiles(equipmentSprites);
 
             // update the model-list text file
-            using (StreamWriter outputFile = new StreamWriter("model-list.txt")) {
-                foreach (string model in am.modelList)
+            using (var outputFile = new StreamWriter("model-list.txt"))
+            {
+                foreach (var model in _am.ModelList)
+                {
                     outputFile.WriteLine(model);
+                }
             }
-
         }
 
-        if (GUILayout.Button("Unload")) {
-            UnloadSprites();
-        }
+        if (GUILayout.Button("Unload")) UnloadSprites();
 
-        if (dirty) {
-            EditorUtility.SetDirty(am.gameObject);
-        }
+        if (_dirty) EditorUtility.SetDirty(_am.gameObject);
 
         DrawDefaultInspector();
         serializedObject.ApplyModifiedProperties();
     }
 
-    private void LoadFiles(string[] files) {
-        foreach (string file in files) {
-            string filepath = file.Replace("\\", "/");
+    private void LoadFiles(IEnumerable<string> files)
+    {
+        foreach (var file in files)
+        {
+            var filepath = file.Replace("\\", "/");
 
-            if (!filepath.EndsWith(".png")) {
-                continue;
-            }
+            if (!filepath.EndsWith(".png")) continue;
 
             filepath = filepath.Replace(Application.dataPath, "");
             UpdateModelList(filepath);
@@ -71,39 +68,43 @@ public class AtlasManagerEditor : Editor
             // Load all sprites and add them to the Atlas Manager's sprite list
             // These will be available at runtime thanks to the data being serialized.
             var items = AssetDatabase.LoadAllAssetsAtPath("Assets" + filepath);
-            foreach (object o in items) {
-                if (o is Sprite) {
-                    Sprite s = o as Sprite;
-                    Debug.Log(s.name);
-                    am.spriteList.Add(s);
-                    dirty = true;
-                }
+            foreach (var o in items)
+            {
+                var s = o as Sprite;
+                if (s == null) continue;
+
+                Debug.Log(s.name);
+                _am.SpriteList.Add(s);
+                _dirty = true;
             }
         }
     }
 
-    private void UpdateModelList(string filepath) {
-        /*
-         * Add the spritesheet (model) to the model list 
-         */
-        string[] path_branch = filepath.Split('/');
-        string prefix = "";
-        for (int i = 4; i < path_branch.Length - 1; i++) {
-            string node = path_branch[i];
-            string[] split_node = node.Split('.');
+    private void UpdateModelList(string filepath)
+    {
+        // Add the spritesheet (model) to the model list 
 
-            prefix += string.Format("{0}_", split_node[0]);
+        var pathBranch = filepath.Split('/');
+        var prefix = "";
+        for (var i = 4; i < pathBranch.Length - 1; i++)
+        {
+            var node = pathBranch[i];
+            var splitNode = node.Split('.');
+
+            prefix += $"{splitNode[0]}_";
         }
-        prefix += string.Format("{0}", path_branch[path_branch.Length - 1]);
+
+        prefix += $"{pathBranch[pathBranch.Length - 1]}";
         prefix = prefix.Replace(".png", "");
-        am.modelList.Add(prefix);
-        am.ModelsTotal++;
+        _am.ModelList.Add(prefix);
+        _am.ModelsTotal++;
     }
 
-    private void UnloadSprites() {
-        am.modelList.Clear();
-        am.spriteList.Clear();
-        am.ModelsLoaded = 0;
-        am.ModelsTotal = 0;
+    private void UnloadSprites()
+    {
+        _am.ModelList.Clear();
+        _am.SpriteList.Clear();
+        _am.ModelsLoaded = 0;
+        _am.ModelsTotal = 0;
     }
 }

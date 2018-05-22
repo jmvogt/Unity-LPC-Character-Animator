@@ -1,40 +1,27 @@
 ﻿using Assets.Scripts.Animation.AnimationImporters;
 using Assets.Scripts.Animation.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Assets.Scripts.Animation.ActionAnimations
 {
-    class WalkAction : BaseAction
+    internal class WalkAction : BaseAction
     {
-        public override IAnimationImporter GetAnimationImporter() {
-            SingleAnimationImporter downAnimation = new SingleAnimationImporter(
-                String.Format("{0}_d", GetAnimationTag()), _numberOfFrames, 142, GetStopOnLastFrame());
-            SingleAnimationImporter leftAnimation = new SingleAnimationImporter(
-                String.Format("{0}_l", GetAnimationTag()), _numberOfFrames, 151, GetStopOnLastFrame());
-            SingleAnimationImporter rightAnimation = new SingleAnimationImporter(
-                String.Format("{0}_r", GetAnimationTag()), _numberOfFrames, 160, GetStopOnLastFrame());
-            SingleAnimationImporter upAnimation = new SingleAnimationImporter(
-                String.Format("{0}_t", GetAnimationTag()), _numberOfFrames, 169, GetStopOnLastFrame());
+        public WalkAction()
+        {
+            NumberOfFrames = 9;
+        }
+
+        public override string AnimationTag => "wc";
+        public override string AnimationType => "walk";
+        public override bool StopOnLastFrame => false;
+
+        public override IAnimationImporter GetAnimationImporter()
+        {
+            var downAnimation = new SingleAnimationImporter($"{AnimationTag}_d", NumberOfFrames, 142, StopOnLastFrame);
+            var leftAnimation = new SingleAnimationImporter($"{AnimationTag}_l", NumberOfFrames, 151, StopOnLastFrame);
+            var rightAnimation = new SingleAnimationImporter($"{AnimationTag}_r", NumberOfFrames, 160, StopOnLastFrame);
+            var upAnimation = new SingleAnimationImporter($"{AnimationTag}_t", NumberOfFrames, 169, StopOnLastFrame);
+
             return new WASDAnimationImporter(upAnimation, leftAnimation, downAnimation, rightAnimation);
-        }
-
-        public WalkAction() : base() {
-            _numberOfFrames = 9;
-        }
-
-        public override string GetAnimationTag() {
-            return "wc";
-        }
-
-        public override string GetAnimationType() {
-            return "walk";
-        }
-
-        public override bool GetStopOnLastFrame() {
-            return false;
         }
     }
 }
