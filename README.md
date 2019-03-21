@@ -84,4 +84,4 @@ This goes to the Online Universal LPC Spritesheet project and the Universal LPC 
  
 ## Contact Info
 Jordan Vogt
-contact@jordanvogt.com
+jordanmvogt@gmail.com
