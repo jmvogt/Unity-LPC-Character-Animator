@@ -74,7 +74,7 @@ namespace Assets.Scripts.Scene
             _modelTextLookup[DNABlockType.Hair] = "hair_female_shoulderr";
             _modelTextLookup[DNABlockType.Hands] = "hands_female_cloth";
             _modelTextLookup[DNABlockType.Legs] = "legs_female_pants";
-            _modelTextLookup[DNABlockType.Body] = "body_female_dark";
+            _modelTextLookup[DNABlockType.Body] = "body_female_human_dark";
 
             // this will update the characterDNA, flagging it as dirty and causing the first frame to animate
             Player.CharacterDNA.UpdateBlock(DNABlockType.Neck, _modelTextLookup[DNABlockType.Neck], _modelColorLookup[DNABlockType.Neck]);

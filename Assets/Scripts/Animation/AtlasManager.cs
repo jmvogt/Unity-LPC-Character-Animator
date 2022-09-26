@@ -55,8 +55,8 @@ public class AtlasManager : MonoBehaviour
 
         if (item == null)
         {
-            Debug.Log("MISSING SPRITE!");
-            throw new Exception("MISSING SPRITE!");
+            Debug.Log($"Missing sprite: {nameSprite}!");
+            throw new Exception($"Missing sprite: {nameSprite}!");
         }
 
         return collection[nameSprite];

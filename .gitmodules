@@ -1,0 +1,3 @@
+[submodule "Assets/LPC"]
+	path = Assets/LPC
+	url = https://github.com/sanderfrenken/Universal-LPC-Spritesheet-Character-Generator.git
