@@ -1,3 +1,4 @@
+using Assets.Editor.Funkhouse;
 using Assets.Scripts.Animation;
 using Assets.Scripts.Editor;
 using Newtonsoft.Json;
@@ -10,9 +11,7 @@ using Unity.Collections;
 using UnityEditor;
 using UnityEngine;
 
-public class LPCAnimationManagerEditorWindow : EditorWindow {
-
-    private static List<string> _propertiesToShow = new();
+public class LPCAnimationManagerEditorWindow : FunkyEditorWindow {
 
     private static LPCGlobalAnimationConfiguration data;
 
@@ -23,21 +22,8 @@ public class LPCAnimationManagerEditorWindow : EditorWindow {
     // This method will be called on load or recompile
     [InitializeOnLoadMethod]
     private static void OnLoad() {
-        // if no data exists yet create and reference a new instance
-        if (!data) {
-            // as first option check if maybe there is an instance already
-            data = AssetDatabase.LoadAssetAtPath<LPCGlobalAnimationConfiguration>(_assetPath);
-
-            // if that was successful we are done
-            if (data)
-                return;
-
-            // otherwise create and reference a new instance
-            data = CreateInstance<LPCGlobalAnimationConfiguration>();
-
-            AssetDatabase.CreateAsset(data, _assetPath);
-            AssetDatabase.Refresh();
-        }
+        IdentifyProperties<LPCGlobalAnimationConfiguration>();
+        LoadAsset(ref data, _assetPath);
     }
 
     [MenuItem("Window/Liberated Pixel Cup/Animations")]
@@ -45,33 +31,12 @@ public class LPCAnimationManagerEditorWindow : EditorWindow {
         GetWindow(typeof(LPCAnimationManagerEditorWindow)).Show();
     }
 
-    private void ShowPropertyInWindow(SerializedObject dataObject, string name) {
-        SerializedProperty stringsProperty = dataObject.FindProperty(name);
-
-        EditorGUILayout.PropertyField(stringsProperty, true);
-        dataObject.ApplyModifiedProperties();
-    }
-
-    private void RenderProperties() {
-        if (_propertiesToShow.Count == 0) {
-            var objectFields = typeof(LPCGlobalAnimationConfiguration).GetFields(BindingFlags.Instance | BindingFlags.Public);
-            for (int i = 0; i < objectFields.Length; i++) {
-                if (Attribute.GetCustomAttribute(objectFields[i], typeof(ShowInWindowAttribute)) != null)
-                    _propertiesToShow.Add(objectFields[i].Name);
-            }
-        }
-
-        var dataObject = new SerializedObject(data);
-        foreach (var propertyName in _propertiesToShow)
-            ShowPropertyInWindow(dataObject, propertyName);
-    }
-
     private void OnGUI() {
         scrollPosition = GUILayout.BeginScrollView(scrollPosition);
 
         GUILayout.Label($"Loaded animations: {data.Definitions.Count}");
 
-        RenderProperties();
+        RenderProperties(data);
 
         if (GUILayout.Button("Load"))
             LoadAnimations();

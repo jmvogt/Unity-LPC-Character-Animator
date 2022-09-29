@@ -12,7 +12,7 @@ namespace Assets.Scripts.Editor {
         public List<TextAsset> Definitions = new();
 
         [NonReorderable]
-        [ShowInWindow]
+        [ShowInWindow(readOnly: true)]
         public List<string> Types = new();
     }
 }
