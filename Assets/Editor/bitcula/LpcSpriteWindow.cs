@@ -20,8 +20,8 @@ class LpcSpriteWindow : EditorWindow
     private int m_HuFrameCount;
 
     private int tab;
-
-    [MenuItem("Window/LPC Spritesheet Settings")]
+    
+    [MenuItem("Window/Liberated Pixel Cup/Spritesheet Parser Settings")]
     public static void ShowWindow()
     {
         EditorWindow.GetWindow(typeof(LpcSpriteWindow));
