@@ -13,6 +13,11 @@ namespace Assets.Scripts.Editor {
 
         [NonReorderable]
         [ShowInWindow(readOnly: true)]
-        public List<string> Types = new();
+        public List<string> CharacterSlotTypes = new();
+
+
+        [NonReorderable]
+        [ShowInWindow(readOnly: true)]
+        public List<LPCCharacterTypeConfiguration> Races = new();
     }
 }
