@@ -1,33 +1,31 @@
 using Assets.Editor.Funkhouse;
-using Assets.Scripts.Animation;
 using Assets.Scripts.Editor;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using TMPro.EditorUtilities;
-using Unity.Collections;
 using UnityEditor;
 using UnityEngine;
 
 public class LPCAnimationManagerEditorWindow : FunkyEditorWindow {
 
     private static LPCGlobalAnimationConfiguration data;
-    private float _loadingProgress;
-    private bool _isLoading;
-    private bool _loadRacesIntoMemory = true;
+    private float _importProgress;
+    private bool _isImporting;
 
     private const string _assetPath = "Assets/Generated/GlobalAnimationConfiguration.asset";
 
     private Vector2 _verticalScrollPosition = Vector2.zero;
     private string _lpcMetadataFolder = "Assets/LPC/sheet_definitions/";
 
+    private readonly string[] _tabs = new string[] { "Import", "Slot Types" };
+
+    private int _currentTab;
+
     // This method will be called on load or recompile
-    [InitializeOnLoadMethod] 
+    [InitializeOnLoadMethod]
     private static void OnLoad() {
         IdentifyProperties<LPCGlobalAnimationConfiguration>();
         LoadAsset(ref data, _assetPath);
@@ -38,15 +36,12 @@ public class LPCAnimationManagerEditorWindow : FunkyEditorWindow {
         GetWindow(typeof(LPCAnimationManagerEditorWindow)).Show();
     }
 
-    private void OnGUI() {
-        if (_isLoading)
-            EditorUtility.DisplayProgressBar("Simple Progress Bar", "Building LPC animations", _loadingProgress);
-
-        _verticalScrollPosition = GUILayout.BeginScrollView(_verticalScrollPosition);
+    private void RenderImportView() {
 
         GUILayout.BeginHorizontal();
+
         _lpcMetadataFolder = GUILayout.TextField(_lpcMetadataFolder);
-        if (GUILayout.Button("Import")) {
+        if (GUILayout.Button("Fetch")) {
             data.Definitions.Clear();
 
             Debug.Log($"PATH: {Application.dataPath + _lpcMetadataFolder}");
@@ -67,19 +62,53 @@ public class LPCAnimationManagerEditorWindow : FunkyEditorWindow {
         }
         GUILayout.EndHorizontal();
 
-        _loadRacesIntoMemory = GUILayout.Toggle(_loadRacesIntoMemory, "Load races into memory.");
-
-        GUILayout.Label($"Loaded animations: {data.Definitions.Count}");
-
-        RenderProperties(data);
-
         if (data.CharacterSlotTypes.Count == 0) {
-            if (GUILayout.Button("Load"))
+            if (GUILayout.Button("Import"))
                 LoadAnimations();
         } else {
             if (GUILayout.Button("Unload"))
                 UnloadAnimations();
         }
+    }
+
+    private void RenderSlotTypeView() {
+        if (GUILayout.Button("Load Races")) {
+            var applicationPath = Application.dataPath.Substring(0, Application.dataPath.LastIndexOf("Assets"));
+            string[] metadataFiles = Directory.GetFiles(
+                applicationPath + "Assets/Generated/Models/",
+                "*.asset",
+                SearchOption.AllDirectories);
+
+            foreach (var metadataFile in metadataFiles) {
+                //if (metadataFile.GetType() == typeof(TextAsset))
+                Debug.Log($"attempting to load asset at {metadataFile}");
+                var asset = (LPCCharacterTypeConfiguration)AssetDatabase.LoadAssetAtPath(
+                    metadataFile.Replace(applicationPath, ""), typeof(LPCCharacterTypeConfiguration));
+                data.Races.Add(asset);
+            }
+        }
+    }
+
+    private void OnGUI() {
+        if (_isImporting)
+            EditorUtility.DisplayProgressBar("Simple Progress Bar", "Building LPC animations", _importProgress);
+
+        _verticalScrollPosition = GUILayout.BeginScrollView(_verticalScrollPosition);
+
+        _currentTab = GUILayout.Toolbar(_currentTab, _tabs);
+
+        DrawGuiLine();
+
+        switch (_currentTab) {
+            case 0:
+                RenderImportView();
+                break;
+            case 1:
+                RenderSlotTypeView();
+                break;
+        }
+
+        RenderProperties(data, tab: _tabs[_currentTab]);
 
         GUILayout.EndScrollView();
     }
@@ -90,9 +119,9 @@ public class LPCAnimationManagerEditorWindow : FunkyEditorWindow {
         data.Races.Clear();
     }
 
-    private IEnumerator ParseAnimations() {
-        _isLoading = true;
-        EditorUtility.DisplayProgressBar("Simple Progress Bar", "Building LPC animations", _loadingProgress);
+    private IEnumerator ParseDefinitions() {
+        _isImporting = true;
+        EditorUtility.DisplayProgressBar("Simple Progress Bar", "Building LPC animations", _importProgress);
 
         var definitionsLoaded = 0;
         foreach (var sheetDefinition in data.Definitions) {
@@ -106,8 +135,7 @@ public class LPCAnimationManagerEditorWindow : FunkyEditorWindow {
             LPCCharacterTypeConfiguration typeConfig = null;
             LoadAsset(
                 ref typeConfig,
-                $"Assets/Generated/{typeName}_{definition.name}.asset");
-            data.Races.Add(typeConfig);
+                $"Assets/Generated/Models/{typeName}_{definition.name}.asset");
 
             var def = JObject.Parse(sheetDefinition.text);
             var layers = def.Properties().Where(
@@ -151,13 +179,13 @@ public class LPCAnimationManagerEditorWindow : FunkyEditorWindow {
                     Value = characterTypeLaper
                 });
             }
-            _loadingProgress = definitionsLoaded++ / (float)data.Definitions.Count;
-            Debug.Log($"Loading progress: {_loadingProgress * 100}%");
-            EditorUtility.UnloadUnusedAssetsImmediate();
-            AssetDatabase.Refresh();
-            yield return new WaitForSeconds(1f);
+            _importProgress = definitionsLoaded++ / (float)data.Definitions.Count;
+            Debug.Log($"Loading progress: {_importProgress * 100}%");
+            EditorUtility.SetDirty(typeConfig);
+            AssetDatabase.SaveAssets();
+            yield return null;
         }
-        _isLoading = false;
+        _isImporting = false;
         EditorUtility.ClearProgressBar();
         yield return null;
     }
@@ -169,6 +197,6 @@ public class LPCAnimationManagerEditorWindow : FunkyEditorWindow {
             Debug.LogError("Existing LPC animations must be unloaded first.");
             return;
         }
-        TMP_EditorCoroutine.StartCoroutine(ParseAnimations());
+        TMP_EditorCoroutine.StartCoroutine(ParseDefinitions());
     }
 }

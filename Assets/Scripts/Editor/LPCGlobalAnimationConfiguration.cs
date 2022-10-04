@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.Editor {
     public class LPCGlobalAnimationConfiguration : ScriptableObject {
         [NonReorderable]
-        [ShowInWindow]
+        [ShowInWindow(tab: "Import")]
         public List<TextAsset> Definitions = new();
 
         [NonReorderable]
-        [ShowInWindow(readOnly: true)]
+        [ShowInWindow(tab: "Slot Types", readOnly: true)]
         public List<string> CharacterSlotTypes = new();
 
 
         [NonReorderable]
-        [ShowInWindow(readOnly: true)]
+        [ShowInWindow(tab: "Slot Types", readOnly: true)]
         public List<LPCCharacterTypeConfiguration> Races = new();
     }
 }

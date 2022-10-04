@@ -1,10 +1,7 @@
 ﻿using Assets.Scripts.Editor;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 
@@ -54,11 +51,22 @@ namespace Assets.Editor.Funkhouse {
             }
         }
 
-        protected void RenderProperties(UnityEngine.Object data) {
+        protected void RenderProperties(UnityEngine.Object data, string tab = "") {
             var dataObject = new SerializedObject(data);
-            foreach (var propertyName in _propertiesToShow)
-                ShowPropertyInWindow(dataObject, propertyName);
+            foreach (var property in _propertiesToShow)
+                if (tab == "" || property.Tab == tab)
+                    ShowPropertyInWindow(dataObject, property);
             dataObject.ApplyModifiedProperties();
+        }
+
+        protected void DrawGuiLine(int i_height = 1) {
+
+            Rect rect = EditorGUILayout.GetControlRect(false, i_height);
+
+            rect.height = i_height;
+
+            EditorGUI.DrawRect(rect, new Color(0.5f, 0.5f, 0.5f, 1));
+
         }
 
     }
