@@ -1,25 +1,26 @@
 using Assets.Editor.Funkhouse;
-using Assets.Scripts.Animation;
 using Assets.Scripts.Editor;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using TMPro.EditorUtilities;
-using Unity.Collections;
 using UnityEditor;
 using UnityEngine;
 
 public class LPCAnimationManagerEditorWindow : FunkyEditorWindow {
 
     private static LPCGlobalAnimationConfiguration data;
-    private float _loadingProgress;
-    private bool _isLoading;
     private bool _loadRacesIntoMemory = true;
+
+    private float _loadingProgress;
+    private int _definitionsTotal;
+    private int _definitionsLoaded;
+    private bool _isLoading;
+    private bool _isProcessingDefinition;
+    private Queue<string> _definitionsToLoad = new();
 
     private const string _assetPath = "Assets/Generated/GlobalAnimationConfiguration.asset";
 
@@ -27,7 +28,7 @@ public class LPCAnimationManagerEditorWindow : FunkyEditorWindow {
     private string _lpcMetadataFolder = "Assets/LPC/sheet_definitions/";
 
     // This method will be called on load or recompile
-    [InitializeOnLoadMethod] 
+    [InitializeOnLoadMethod]
     private static void OnLoad() {
         IdentifyProperties<LPCGlobalAnimationConfiguration>();
         LoadAsset(ref data, _assetPath);
@@ -38,9 +39,24 @@ public class LPCAnimationManagerEditorWindow : FunkyEditorWindow {
         GetWindow(typeof(LPCAnimationManagerEditorWindow)).Show();
     }
 
+    private void Update() {
+        if (_isLoading) {
+            if (!_isProcessingDefinition) {
+                if (_definitionsToLoad.Count == 0) {
+                    EditorUtility.ClearProgressBar();
+                    _isLoading = false;
+                    _loadingProgress = 0;
+                } else {
+                    TMP_EditorCoroutine.StartCoroutine(LoadDefinition(_definitionsToLoad.Dequeue()));
+                }
+            }
+        }
+    }
+
     private void OnGUI() {
-        if (_isLoading)
+        if (_isLoading) {
             EditorUtility.DisplayProgressBar("Simple Progress Bar", "Building LPC animations", _loadingProgress);
+        }
 
         _verticalScrollPosition = GUILayout.BeginScrollView(_verticalScrollPosition);
 
@@ -90,75 +106,72 @@ public class LPCAnimationManagerEditorWindow : FunkyEditorWindow {
         data.Races.Clear();
     }
 
-    private IEnumerator ParseAnimations() {
-        _isLoading = true;
-        EditorUtility.DisplayProgressBar("Simple Progress Bar", "Building LPC animations", _loadingProgress);
+    private IEnumerator LoadDefinition(string definitionStr) {
 
-        var definitionsLoaded = 0;
-        foreach (var sheetDefinition in data.Definitions) {
-            dynamic definition = JsonConvert.DeserializeObject(sheetDefinition.text);
+        _isProcessingDefinition = true;
 
-            string typeName = definition.type_name;
-            if (!data.CharacterSlotTypes.Contains(typeName)) {
-                data.CharacterSlotTypes.Add(typeName);
-            }
+        dynamic definition = JsonConvert.DeserializeObject(definitionStr);
 
-            LPCCharacterTypeConfiguration typeConfig = null;
-            LoadAsset(
-                ref typeConfig,
-                $"Assets/Generated/{typeName}_{definition.name}.asset");
-            data.Races.Add(typeConfig);
+        string typeName = definition.type_name;
+        if (!data.CharacterSlotTypes.Contains(typeName)) {
+            data.CharacterSlotTypes.Add(typeName);
+        }
 
-            var def = JObject.Parse(sheetDefinition.text);
-            var layers = def.Properties().Where(
-                p => p.Name.ToLower().StartsWith("layer"))
-            .ToList();
+        LPCCharacterTypeConfiguration typeConfig = null;
+        LoadAsset(
+            ref typeConfig,
+            $"Assets/Generated/{typeName}_{definition.name}.asset");
+        //data.Races.Add(typeConfig);
 
-            typeConfig.Name = definition.name;
-            typeConfig.Type = typeName;
+        var def = JObject.Parse(definitionStr);
+        var layers = def.Properties().Where(
+            p => p.Name.ToLower().StartsWith("layer"))
+        .ToList();
 
-            typeConfig.Layers.Clear();
-            foreach (var layer in layers) {
-                var layerObject = JObject.Parse(layer.Value.ToString());
-                var zPosition = (int)layerObject.Properties().Single(p => p.Name == "zPos");
-                var bodyTypes = layerObject.Properties()
-                    .Where(p => p.Name != "zPos")
-                    .ToDictionary(p => p.Name, p => p.Value);
+        typeConfig.Name = definition.name;
+        typeConfig.Type = typeName;
 
-                var characterTypeLaper = new LPCCharacterTypeLayer {
-                    zPosition = zPosition
-                };
+        typeConfig.Layers.Clear();
+        foreach (var layer in layers) {
+            var layerObject = JObject.Parse(layer.Value.ToString());
+            var zPosition = (int)layerObject.Properties().Single(p => p.Name == "zPos");
+            var bodyTypes = layerObject.Properties()
+                .Where(p => p.Name != "zPos")
+                .ToDictionary(p => p.Name, p => p.Value);
 
-                foreach (var bodyType in bodyTypes) {
-                    var raceVariantSpriteMap = new LPCCharacterTypeVariantSpriteMap();
-                    foreach (var variant in definition.variants) {
-                        var spriteFileName = variant.ToString().Replace(" ", "_");
-                        var spriteAssetPath = $"Assets/LPC/spritesheets/{bodyType.Value}{spriteFileName}.png";
-                        Debug.Log($"Looking for sprite at {spriteAssetPath}");
-                        raceVariantSpriteMap.VariantSpriteList.Add(new KeyValuePair<string, Texture2D>() {
-                            Key = variant,
-                            Value = (Texture2D)AssetDatabase.LoadAssetAtPath(spriteAssetPath, typeof(Texture2D))
-                        });
-                    };
-                    characterTypeLaper.RaceVariantSpritePathList.Add(new KeyValuePair<string, LPCCharacterTypeVariantSpriteMap>() {
-                        Key = bodyType.Key,
-                        Value = raceVariantSpriteMap
+            var characterTypeLaper = new LPCCharacterTypeLayer {
+                zPosition = zPosition
+            };
+
+            foreach (var bodyType in bodyTypes) {
+                var raceVariantSpriteMap = new LPCCharacterTypeVariantSpriteMap();
+                foreach (var variant in definition.variants) {
+                    var spriteFileName = variant.ToString().Replace(" ", "_");
+                    var spriteAssetPath = $"Assets/LPC/spritesheets/{bodyType.Value}{spriteFileName}.png";
+                    Debug.Log($"Looking for sprite at {spriteAssetPath}");
+                    raceVariantSpriteMap.VariantSpriteList.Add(new KeyValuePair<string, Texture2D>() {
+                        Key = variant,
+                        Value = (Texture2D)AssetDatabase.LoadAssetAtPath(spriteAssetPath, typeof(Texture2D))
                     });
-                }
-
-                typeConfig.Layers.Add(new KeyValuePair<string, LPCCharacterTypeLayer> {
-                    Key = layer.Name,
-                    Value = characterTypeLaper
+                };
+                characterTypeLaper.RaceVariantSpritePathList.Add(new KeyValuePair<string, LPCCharacterTypeVariantSpriteMap>() {
+                    Key = bodyType.Key,
+                    Value = raceVariantSpriteMap
                 });
             }
-            _loadingProgress = definitionsLoaded++ / (float)data.Definitions.Count;
-            Debug.Log($"Loading progress: {_loadingProgress * 100}%");
-            EditorUtility.UnloadUnusedAssetsImmediate();
-            AssetDatabase.Refresh();
-            yield return new WaitForSeconds(1f);
+
+            typeConfig.Layers.Add(new KeyValuePair<string, LPCCharacterTypeLayer> {
+                Key = layer.Name,
+                Value = characterTypeLaper
+            });
         }
-        _isLoading = false;
-        EditorUtility.ClearProgressBar();
+        _loadingProgress = _definitionsLoaded++ / (float)data.Definitions.Count;
+        Debug.Log($"Loading progress: {_loadingProgress * 100}%");
+        EditorUtility.UnloadUnusedAssetsImmediate();
+        AssetDatabase.Refresh();
+
+        _isProcessingDefinition = false;
+
         yield return null;
     }
 
@@ -169,6 +182,13 @@ public class LPCAnimationManagerEditorWindow : FunkyEditorWindow {
             Debug.LogError("Existing LPC animations must be unloaded first.");
             return;
         }
-        TMP_EditorCoroutine.StartCoroutine(ParseAnimations());
+
+        _definitionsTotal = data.Definitions.Count;
+
+        foreach (var sheetDefinition in data.Definitions) {
+            _definitionsToLoad.Enqueue(sheetDefinition.text);
+        };
+
+        _isLoading = true;
     }
 }
