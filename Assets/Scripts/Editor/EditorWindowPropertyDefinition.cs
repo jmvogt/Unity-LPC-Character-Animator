@@ -2,11 +2,13 @@
     public class EditorWindowPropertyDefinition {
         public readonly string PropertyName;
         public readonly bool ReadOnly;
-        public readonly string Tab;
+        public readonly string PrimaryTab;
+        public readonly string SecondaryTab;
         public EditorWindowPropertyDefinition(string propertyName, ShowInWindowAttribute attribute) {
             PropertyName = propertyName;
             ReadOnly = attribute.ReadOnly;
-            Tab = attribute.Tab;
+            PrimaryTab = attribute.PrimaryTab;
+            SecondaryTab = attribute.SecondaryTab;
         }
     }
 }

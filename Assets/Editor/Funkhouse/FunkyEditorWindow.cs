@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Editor;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
@@ -18,6 +19,8 @@ namespace Assets.Editor.Funkhouse {
                 // if that was successful we are done
                 if (data != null)
                     return;
+
+                Directory.CreateDirectory(Path.GetDirectoryName(assetPath));
 
                 // otherwise create and reference a new instance
                 data = CreateInstance<T>();
@@ -51,10 +54,10 @@ namespace Assets.Editor.Funkhouse {
             }
         }
 
-        protected void RenderProperties(UnityEngine.Object data, string tab = "") {
+        protected void RenderProperties(UnityEngine.Object data, string primaryTab = "", string secondaryTab = "") {
             var dataObject = new SerializedObject(data);
             foreach (var property in _propertiesToShow)
-                if (tab == "" || property.Tab == tab)
+                if (primaryTab == "" || property.PrimaryTab == primaryTab && secondaryTab == "" || property.SecondaryTab == secondaryTab)
                     ShowPropertyInWindow(dataObject, property);
             dataObject.ApplyModifiedProperties();
         }

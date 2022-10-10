@@ -3,19 +3,20 @@ using UnityEngine;
 
 namespace Assets.Scripts.Editor {
     public class LPCGlobalAnimationConfiguration : ScriptableObject {
-        [ShowInWindow(tab: "Import", readOnly: true)]
+        [ShowInWindow(primaryTab: "Import", secondaryTab: "LPC Unity Assets", readOnly: true)]
         public TextAsset CombinedDefinitions;
 
         [NonReorderable]
-        [ShowInWindow(tab: "Import")]
+        [ShowInWindow(primaryTab: "Import", secondaryTab: "LPC Spritesheet")]
         public List<TextAsset> Definitions = new();
 
         [NonReorderable]
-        [ShowInWindow(tab: "Slot Types", readOnly: true)]
+        [ShowInWindow(primaryTab: "Slot Types", readOnly: true)]
         public List<string> CharacterSlotTypes = new();
 
-        [NonReorderable]
-        [ShowInWindow(tab: "Slot Types", readOnly: true)]
-        public List<LPCCharacterTypeConfiguration> Races = new();
+        // TODO: Paginate
+        //[NonReorderable]
+        //[ShowInWindow(primaryTab: "Slot Types", readOnly: true)]
+        //public List<LPCCharacterTypeConfiguration> Races = new();
     }
 }
