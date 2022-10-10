@@ -2,7 +2,6 @@ using Assets.Editor.Funkhouse;
 using Assets.Scripts.Editor;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections;
 using System.IO;
 using System.Linq;
@@ -149,74 +148,74 @@ public class LPCAnimationManagerEditorWindow : FunkyEditorWindow {
         EditorUtility.DisplayProgressBar("Simple Progress Bar", "Building LPC animations", _importProgress);
 
         var definitionsLoaded = 0;
-        try {
-            foreach (var sheetDefinition in data.Definitions) {
-                dynamic definition = JsonConvert.DeserializeObject(sheetDefinition.text);
+        //try {
+        foreach (var sheetDefinition in data.Definitions) {
+            dynamic definition = JsonConvert.DeserializeObject(sheetDefinition.text);
 
-                string typeName = definition.type_name;
-                if (!data.CharacterSlotTypes.Contains(typeName)) {
-                    data.CharacterSlotTypes.Add(typeName);
-                }
-
-                LPCCharacterTypeConfiguration typeConfig = null;
-                LoadAsset(
-                    ref typeConfig,
-                    $"Assets/Generated/Models/{typeName}_{definition.name}.asset");
-
-                var def = JObject.Parse(sheetDefinition.text);
-                var layers = def.Properties().Where(
-                    p => p.Name.ToLower().StartsWith("layer"))
-                .ToList();
-
-                typeConfig.Name = definition.name;
-                typeConfig.Type = typeName;
-
-                typeConfig.Layers.Clear();
-                foreach (var layer in layers) {
-                    var layerObject = JObject.Parse(layer.Value.ToString());
-                    var zPosition = (int)layerObject.Properties().Single(p => p.Name == "zPos");
-                    var bodyTypes = layerObject.Properties()
-                        .Where(p => p.Name != "zPos")
-                        .ToDictionary(p => p.Name, p => p.Value);
-
-                    var characterTypeLaper = new LPCCharacterTypeLayer {
-                        zPosition = zPosition
-                    };
-
-                    foreach (var bodyType in bodyTypes) {
-                        var raceVariantSpriteMap = new LPCCharacterTypeVariantSpriteMap();
-                        foreach (var variant in definition.variants) {
-                            var spriteFileName = variant.ToString().Replace(" ", "_");
-                            var spriteAssetPath = $"Assets/LPC/spritesheets/{bodyType.Value}{spriteFileName}.png";
-                            Debug.Log($"Looking for sprite at {spriteAssetPath}");
-                            raceVariantSpriteMap.VariantSpriteList.Add(new KeyValuePair<string, Texture2D>() {
-                                Key = variant,
-                                Value = (Texture2D)AssetDatabase.LoadAssetAtPath(spriteAssetPath, typeof(Texture2D))
-                            });
-                        };
-                        characterTypeLaper.RaceVariantSpritePathList.Add(new KeyValuePair<string, LPCCharacterTypeVariantSpriteMap>() {
-                            Key = bodyType.Key,
-                            Value = raceVariantSpriteMap
-                        });
-                    }
-
-                    typeConfig.Layers.Add(new KeyValuePair<string, LPCCharacterTypeLayer> {
-                        Key = layer.Name,
-                        Value = characterTypeLaper
-                    });
-                }
-                _importProgress = definitionsLoaded++ / (float)data.Definitions.Count;
-                Debug.Log($"Loading progress: {_importProgress * 100}%");
-                //EditorUtility.SetDirty(typeConfig);
-                AssetDatabase.SaveAssets();
+            string typeName = definition.type_name;
+            if (!data.CharacterSlotTypes.Contains(typeName)) {
+                data.CharacterSlotTypes.Add(typeName);
             }
 
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
+            LPCCharacterTypeConfiguration typeConfig = null;
+            LoadAsset(
+                ref typeConfig,
+                $"Assets/Generated/Models/{typeName}_{definition.name}.asset");
 
-        } catch (Exception ex) {
-            Debug.LogError(ex.ToString());
+            var def = JObject.Parse(sheetDefinition.text);
+            var layers = def.Properties().Where(
+                p => p.Name.ToLower().StartsWith("layer"))
+            .ToList();
+
+            typeConfig.Name = definition.name;
+            typeConfig.Type = typeName;
+
+            typeConfig.Layers.Clear();
+            foreach (var layer in layers) {
+                var layerObject = JObject.Parse(layer.Value.ToString());
+                var zPosition = (int)layerObject.Properties().Single(p => p.Name == "zPos");
+                var bodyTypes = layerObject.Properties()
+                    .Where(p => p.Name != "zPos")
+                    .ToDictionary(p => p.Name, p => p.Value);
+
+                var characterTypeLaper = new LPCCharacterTypeLayer {
+                    zPosition = zPosition
+                };
+
+                foreach (var bodyType in bodyTypes) {
+                    var raceVariantSpriteMap = new LPCCharacterTypeVariantSpriteMap();
+                    foreach (var variant in definition.variants) {
+                        var spriteFileName = variant.ToString().Replace(" ", "_");
+                        var spriteAssetPath = $"Assets/LPC/spritesheets/{bodyType.Value}{spriteFileName}.png";
+                        Debug.Log($"Looking for sprite at {spriteAssetPath}");
+                        raceVariantSpriteMap.VariantSpriteList.Add(new KeyValuePair<string, Texture2D>() {
+                            Key = variant,
+                            Value = (Texture2D)AssetDatabase.LoadAssetAtPath(spriteAssetPath, typeof(Texture2D))
+                        });
+                    };
+                    characterTypeLaper.RaceVariantSpritePathList.Add(new KeyValuePair<string, LPCCharacterTypeVariantSpriteMap>() {
+                        Key = bodyType.Key,
+                        Value = raceVariantSpriteMap
+                    });
+                }
+
+                typeConfig.Layers.Add(new KeyValuePair<string, LPCCharacterTypeLayer> {
+                    Key = layer.Name,
+                    Value = characterTypeLaper
+                });
+            }
+            _importProgress = definitionsLoaded++ / (float)data.Definitions.Count;
+            Debug.Log($"Loading progress: {_importProgress * 100}%");
+            //EditorUtility.SetDirty(typeConfig);
+            AssetDatabase.SaveAssets();
         }
+
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+
+        //} catch (Exception ex) {
+        //    Debug.LogError(ex.ToString());
+        //}
 
         _isImporting = false;
         EditorUtility.ClearProgressBar();
